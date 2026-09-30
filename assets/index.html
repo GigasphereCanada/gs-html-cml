@@ -1,0 +1,3953 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f2" />
+    <title>NJ Douek — A New Home for Your Business</title>
+    <style>
+      :root {
+        --paper: #f7f8f2;
+        --white: #fff;
+        --ink: #233b39;
+        --muted: #75827c;
+        --line: #dce3d9;
+        --green: #25745e;
+        --mint: #def2be;
+        --coral: #ed937c;
+        --coral-pale: #fbe7de;
+        --blue: #669dcc;
+        --blue-pale: #e2eef9;
+        --purple: #a58ad2;
+        --purple-pale: #eee6f8;
+        --yellow: #f7cd6f;
+        --orange: #e78c45;
+        --shadow: 0 4px 0 #e4e9df;
+        --radius: 22px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          ui-rounded, "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      button,
+      a,
+      input {
+        touch-action: manipulation;
+      }
+      button {
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+      }
+      button:focus-visible,
+      a:focus-visible,
+      input:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 5px;
+      }
+      button {
+        -webkit-tap-highlight-color: transparent;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
+      .hidden {
+        display: none !important;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+      }
+      .icons {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+      .shell {
+        max-width: 1440px;
+        margin: auto;
+        padding: 0 48px;
+      }
+      .topbar {
+        height: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 900;
+        font-size: 17px;
+        letter-spacing: 0.045em;
+      }
+      .brand-logo {
+        display: block;
+        width: 210px;
+        height: auto;
+        flex-shrink: 0;
+      }
+      .brand small {
+        font-weight: 500;
+        color: var(--muted);
+        font-size: 13px;
+        letter-spacing: 0;
+        margin-left: 5px;
+      }
+      .nav {
+        display: flex;
+        gap: 26px;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .nav a {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .nav .nav-num {
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .nav a:hover {
+        color: var(--green);
+      }
+      .top-tag {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        color: var(--green);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .live-dot {
+        width: 7px;
+        height: 7px;
+        background: var(--green);
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px #25745e12;
+      }
+      .hero {
+        padding: 44px 0 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+      }
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--green);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .eyebrow:before {
+        content: "";
+        width: 23px;
+        height: 2px;
+        background: var(--green);
+      }
+      h1 {
+        margin: 12px 0 14px;
+        font-size: clamp(36px, 4.4vw, 61px);
+        font-weight: 800;
+        letter-spacing: -0.055em;
+        line-height: 1.06;
+      }
+      h1 em {
+        font-style: normal;
+        position: relative;
+        white-space: nowrap;
+        z-index: 0;
+      }
+      h1 em:after {
+        content: "";
+        height: 13px;
+        position: absolute;
+        z-index: -1;
+        bottom: 2px;
+        left: 0;
+        right: -5px;
+        background: var(--mint);
+        transform: rotate(-1.8deg);
+        border-radius: 10px;
+      }
+      .hero-action {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        gap: 13px;
+      }
+      .primary {
+        background: var(--ink);
+        color: white;
+        border: 2px solid var(--ink);
+        border-radius: 13px;
+        box-shadow: 0 4px 0 #172c28;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 11px;
+        padding: 15px 20px;
+        font-weight: 750;
+        font-size: 14px;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+      .primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 0 #172c28;
+      }
+      .primary:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 #172c28;
+      }
+      .primary svg {
+        width: 17px;
+        height: 17px;
+        fill: currentColor;
+      }
+      .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0 17px;
+        gap: 16px;
+      }
+      .section-heading h2 {
+        font-size: 19px;
+        letter-spacing: -0.035em;
+        font-weight: 800;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-number {
+        font-size: 10px;
+        border: 1px solid #cbd6c8;
+        border-radius: 6px;
+        display: grid;
+        place-items: center;
+        width: 25px;
+        height: 25px;
+        color: #647466;
+        font-weight: 750;
+        letter-spacing: 0;
+      }
+      .overview {
+        padding-bottom: 34px;
+      }
+      .phase-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .system-legend {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin: 0 0 20px;
+        padding: 16px 18px;
+        list-style: none;
+        background: #fcfdf9;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+      }
+      .system-legend li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        padding: 12px 14px 16px;
+      }
+      .system-legend .legend-icon {
+        position: relative;
+        z-index: 1;
+        width: 40px;
+        height: 43px;
+        flex-shrink: 0;
+      }
+      .system-legend li > div {
+        position: relative;
+        z-index: 1;
+        min-width: 0;
+      }
+      .system-legend .legend-mark {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .system-legend strong,
+      .system-legend span {
+        display: block;
+      }
+      .system-legend strong {
+        font-size: 11px;
+        line-height: 1.4;
+      }
+      .system-legend span {
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 1.5;
+      }
+      .phase-card {
+        display: block;
+        text-align: left;
+        background: var(--white);
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        padding: 17px 17px 13px;
+        position: relative;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s,
+          border-color 0.2s,
+          box-shadow 0.2s;
+        min-width: 0;
+      }
+      .phase-card:not(:last-child):after {
+        content: "→";
+        position: absolute;
+        z-index: 2;
+        right: -18px;
+        top: 177px;
+        font-weight: 700;
+        font-size: 17px;
+        color: #899884;
+        background: var(--paper);
+        width: 18px;
+        text-align: center;
+      }
+      .phase-card:hover {
+        transform: translateY(-4px);
+        border-color: #a8b7a4;
+      }
+      .phase-card[aria-pressed="true"] {
+        border-color: var(--green);
+        box-shadow: 0 4px 0 #b8d4bc;
+      }
+      .phase-card .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 10px;
+        letter-spacing: 0.09em;
+        font-weight: 850;
+      }
+      .day-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .day-chip b {
+        font-size: 11px;
+        width: 23px;
+        height: 23px;
+        border-radius: 7px;
+        background: #f0f3eb;
+        display: grid;
+        place-items: center;
+        letter-spacing: 0;
+      }
+      .phase-card[data-stage="0"] .day-chip b {
+        background: var(--coral-pale);
+      }
+      .phase-card[data-stage="1"] .day-chip b {
+        background: var(--blue-pale);
+      }
+      .phase-card[data-stage="2"] .day-chip b {
+        background: var(--mint);
+      }
+      .card-top .micro {
+        font-size: 9px;
+        color: var(--muted);
+        font-weight: 650;
+        letter-spacing: 0;
+      }
+      .mini-map {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 360 / 380;
+        display: block;
+        overflow: visible;
+      }
+      .mini-map text {
+        font-family: inherit;
+      }
+      .mini-node-label {
+        fill: var(--ink);
+        font-size: 12px;
+        font-weight: 800;
+        text-anchor: middle;
+      }
+      .mini-flow-label {
+        fill: #718177;
+        font-size: 11px;
+        font-weight: 650;
+        text-anchor: middle;
+      }
+      .mini-flow-label.data-label {
+        fill: #4c7fa8;
+      }
+      .mini-flow-label.order-label {
+        fill: #a35e47;
+      }
+      .mini-flow-label.live-label {
+        fill: var(--green);
+      }
+      .phase-card h3 {
+        font-size: 19px;
+        margin: 5px 0 8px;
+        letter-spacing: -0.025em;
+        font-weight: 800;
+      }
+      .card-summary {
+        margin: 0 0 13px;
+        color: #728078;
+        font-size: 12px;
+        line-height: 1.55;
+        min-height: 3.1em;
+      }
+      .card-foot {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        color: #728078;
+        font-size: 11px;
+        border-top: 1px solid #edf0e8;
+        padding-top: 11px;
+      }
+      .card-foot strong {
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .mini-arrow {
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .mini-route {
+        stroke-dasharray: 3 5;
+        animation: miniFlow 1.5s linear infinite;
+      }
+      .moving-off .mini-route {
+        animation-play-state: paused;
+      }
+      @keyframes miniFlow {
+        to {
+          stroke-dashoffset: -24;
+        }
+      }
+      .destination {
+        margin-top: 19px;
+        border: 1.5px solid #c6d8b8;
+        background: #e9f2dd;
+        border-radius: 17px;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding: 18px 22px;
+        min-height: 87px;
+        position: relative;
+        overflow: hidden;
+      }
+      .destination-title {
+        min-width: 180px;
+        position: relative;
+      }
+      .destination--future {
+        min-height: 90px;
+        margin-top: 14px;
+        border-color: #d4d7d3;
+        background: #eceeeb;
+        color: #737c76;
+      }
+      .destination-title small {
+        font-size: 9px;
+        letter-spacing: 0.11em;
+        font-weight: 800;
+        color: var(--green);
+        display: block;
+        margin-bottom: 5px;
+      }
+      .destination-title strong {
+        font-size: 20px;
+        font-weight: 850;
+        letter-spacing: -0.04em;
+      }
+      .dest-graph {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex: 1;
+        justify-content: center;
+        min-width: 0;
+      }
+      .dest-home {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 850;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+      .dest-home svg {
+        width: 43px;
+        height: 40px;
+        flex-shrink: 0;
+      }
+      .dest-arrow {
+        color: #88a877;
+        font-size: 21px;
+      }
+      .retained-system {
+        margin-left: auto;
+        font-size: 11px;
+        line-height: 1.6;
+        border-left: 1px solid #c6d8b8;
+        padding-left: 18px;
+        color: #53704d;
+        max-width: 245px;
+      }
+      .retained-system strong {
+        font-size: 12px;
+        display: block;
+        color: var(--ink);
+      }
+      .experience {
+        padding-top: 6px;
+        padding-bottom: 40px;
+      }
+      .story-shell {
+        background: #fff;
+        border: 1.5px solid #d9e0d4;
+        border-radius: 25px;
+        box-shadow: 0 5px 0 #e5eade;
+        overflow: hidden;
+        position: relative;
+      }
+      .stage-tabs {
+        display: flex;
+        gap: 7px;
+        border-bottom: 1px solid #e2e8dc;
+        padding: 14px 20px;
+        background: #fcfdf9;
+        align-items: center;
+      }
+      .stage-tab {
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-size: 12px;
+        font-weight: 750;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        white-space: nowrap;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .stage-tab b {
+        width: 20px;
+        height: 20px;
+        background: #edf1e8;
+        border-radius: 6px;
+        font-size: 10px;
+        display: grid;
+        place-items: center;
+      }
+      .stage-tab[aria-selected="true"] {
+        background: var(--ink);
+        color: white;
+        border-color: var(--ink);
+      }
+      .stage-tab[aria-selected="true"] b {
+        background: #ffffff25;
+      }
+      .stage-tab:hover:not([aria-selected="true"]) {
+        background: #eef3e7;
+      }
+      .tab-separator {
+        color: #a7b29e;
+        font-size: 15px;
+      }
+      .stage-top-actions {
+        margin-left: auto;
+        display: flex;
+        gap: 8px;
+      }
+      .icon-btn {
+        width: 35px;
+        height: 35px;
+        background: #fff;
+        border: 1px solid #dce3d6;
+        border-radius: 9px;
+        display: grid;
+        place-items: center;
+        transition: background 0.2s;
+      }
+      .icon-btn:hover {
+        background: #eef3e7;
+      }
+      .icon-btn svg {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.8;
+      }
+      .stage-heading {
+        padding: 22px 28px 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        position: relative;
+        z-index: 1;
+      }
+      .stage-heading .phase-kicker {
+        font-size: 10px;
+        font-weight: 850;
+        letter-spacing: 0.13em;
+        color: var(--muted);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .stage-heading h3 {
+        font-size: 27px;
+        margin: 0;
+        letter-spacing: -0.045em;
+        line-height: 1.15;
+      }
+      .owner-pill {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 9px;
+        max-width: 100%;
+        border: 1px solid #e0e6db;
+        background: #fcfdf9;
+        padding: 9px 12px;
+        border-radius: 30px;
+        font-size: 10px;
+        color: #6b7b6d;
+        font-weight: 700;
+      }
+      .owner-pill b {
+        font-size: 11px;
+        color: var(--ink);
+      }
+      .owner-pill .owner-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--coral);
+        flex-shrink: 0;
+      }
+      .owner-pill.is-new .owner-dot {
+        background: var(--green);
+      }
+      .owner-pill.is-sync .owner-dot {
+        background: var(--blue);
+      }
+      .order-config {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 14px;
+        margin: 17px 28px 3px;
+        padding: 10px 14px;
+        border: 1px solid #e4e9dc;
+        border-radius: 12px;
+        background: #fbfcf7;
+        font-size: 12px;
+      }
+      .order-config-product,
+      .order-config label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .order-config-product {
+        font-weight: 800;
+      }
+      .order-config-product svg {
+        width: 26px;
+        height: 32px;
+      }
+      .order-config label {
+        color: #6b7b6d;
+      }
+      .order-config input {
+        width: 64px;
+        padding: 7px 6px 7px 10px;
+        border: 1px solid #cbd8c0;
+        border-radius: 8px;
+        background: #fff;
+        color: var(--ink);
+        font: inherit;
+        font-weight: 800;
+      }
+      .order-config output {
+        margin-left: auto;
+        color: var(--green);
+        font-weight: 800;
+      }
+      .balance-label {
+        font-size: 10px;
+        fill: #7c887e !important;
+        font-weight: 650;
+      }
+      .balance-value {
+        font-size: 14px;
+        font-weight: 850;
+        font-variant-numeric: tabular-nums;
+      }
+      .balance-delta {
+        font-size: 9px;
+        fill: #25745e !important;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+      }
+      .balance-table .balance-value {
+        font-size: 13px;
+      }
+      .diagram-window {
+        position: relative;
+        overflow: hidden;
+        margin: 0 7px;
+      }
+      .diagram-window:before {
+        content: "";
+        position: absolute;
+        inset: 20px 0 0;
+        opacity: 0.34;
+        pointer-events: none;
+        background-image: radial-gradient(#d6dfd2 0.8px, transparent 0.8px);
+        background-size: 19px 19px;
+        mask-image: linear-gradient(
+          transparent,
+          #000 12%,
+          #000 85%,
+          transparent
+        );
+      }
+      .main-svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        position: relative;
+        overflow: visible;
+        min-height: 0;
+      }
+      .main-svg text {
+        font-family: inherit;
+        fill: var(--ink);
+      }
+      .main-svg .label {
+        font-size: 17px;
+        font-weight: 800;
+        letter-spacing: -0.25px;
+      }
+      .main-svg .sublabel {
+        font-size: 12px;
+        fill: #7c887e;
+        font-weight: 550;
+      }
+      .main-svg .tiny {
+        font-size: 10px;
+        fill: #7c887e;
+        font-weight: 650;
+      }
+      .main-svg .micro-label {
+        font-size: 11px;
+        font-weight: 750;
+      }
+      .main-svg .node-title {
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .main-svg .station {
+        transition: opacity 0.45s;
+      }
+      .flow-under {
+        fill: none;
+        stroke-width: 10;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.085;
+      }
+      .route {
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .main-svg .inventory-label {
+        font-size: 12px;
+        font-weight: 750;
+        fill: #8268af;
+      }
+      .main-svg .invoice-label {
+        font-size: 13px;
+        font-weight: 800;
+        fill: #3b8f87;
+      }
+      .direction-label {
+        font-size: 11px;
+        fill: #70816b !important;
+        font-weight: 650;
+      }
+      .order-token text {
+        font-size: 10px;
+        font-weight: 900;
+        fill: var(--ink);
+      }
+      .arrival-ring {
+        fill: none;
+        stroke-width: 2;
+        opacity: 0;
+      }
+      .meter {
+        font-size: 24px;
+        font-weight: 850;
+        letter-spacing: -1px;
+      }
+      .stage-caption {
+        margin: 0 25px 19px;
+        border: 1px solid #e4e9dc;
+        border-radius: 12px;
+        background: #fbfcf7;
+        display: flex;
+        align-items: center;
+        min-height: 50px;
+        padding: 11px 15px;
+        gap: 12px;
+        font-size: 13px;
+        font-weight: 650;
+      }
+      .caption-icon {
+        width: 25px;
+        height: 25px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        background: #edf3e3;
+        font-size: 14px;
+        color: var(--green);
+        flex-shrink: 0;
+      }
+      .caption-text {
+        flex: 1;
+      }
+      .caption-tag {
+        color: #829077;
+        font-size: 10px;
+        white-space: nowrap;
+        font-weight: 500;
+      }
+      .transport {
+        border-top: 1px solid #e4e9dc;
+        padding: 17px 25px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: #fcfdf9;
+      }
+      .play-toggle {
+        border: none;
+        width: 41px;
+        height: 41px;
+        background: var(--ink);
+        color: #fff;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        transition: transform 0.15s;
+      }
+      .play-toggle:hover {
+        transform: scale(1.06);
+      }
+      .play-toggle svg {
+        width: 17px;
+        height: 17px;
+        fill: currentColor;
+      }
+      .replay-btn {
+        width: 33px;
+        height: 33px;
+        border: 0;
+        background: transparent;
+        display: grid;
+        place-items: center;
+        color: #7b8977;
+        flex-shrink: 0;
+      }
+      .replay-btn svg {
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        fill: none;
+      }
+      .progress-wrap {
+        flex: 1;
+        min-width: 0;
+        padding-right: 12px;
+      }
+      .progress-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 10px;
+        color: #75836f;
+        margin-bottom: 7px;
+      }
+      .progress-info span:first-child {
+        font-weight: 700;
+        color: #4b6252;
+      }
+      .scrubber {
+        -webkit-appearance: none;
+        appearance: none;
+        display: block;
+        width: 100%;
+        height: 5px;
+        border: 0;
+        border-radius: 10px;
+        background: linear-gradient(
+          to right,
+          var(--green) 0%,
+          var(--green) var(--progress, 0%),
+          #e4ebdd var(--progress, 0%),
+          #e4ebdd 100%
+        );
+        margin: 0;
+        cursor: pointer;
+      }
+      .scrubber::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 11px;
+        height: 11px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 0 1px var(--green);
+      }
+      .scrubber::-moz-range-thumb {
+        width: 9px;
+        height: 9px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background: var(--green);
+      }
+      .speed-btn {
+        font-size: 11px;
+        border: 1px solid #dfe5d8;
+        background: #fff;
+        border-radius: 8px;
+        padding: 7px 8px;
+        font-weight: 750;
+        min-width: 43px;
+      }
+      .next-btn {
+        border: 1px solid #cbd8c0;
+        background: #edf4e3;
+        border-radius: 10px;
+        padding: 11px 15px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 12px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+      .next-btn svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+      }
+      .caption-enter {
+        animation: captionIn 0.3s ease;
+      }
+      @keyframes captionIn {
+        from {
+          opacity: 0.2;
+          transform: translateY(4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .flow-note {
+        font-size: 11px;
+        fill: #7a8574 !important;
+      }
+      .mobile-pan {
+        display: none;
+      }
+      .story-shell.expanded,
+      .story-shell:fullscreen {
+        border: 0;
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        box-shadow: none;
+      }
+      .story-shell.expanded {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+      }
+      .story-shell.expanded #story-panel,
+      .story-shell:fullscreen #story-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+      }
+      .story-shell.expanded .diagram-window,
+      .story-shell:fullscreen .diagram-window {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 220px;
+        margin: 0;
+      }
+      .story-shell.expanded .main-svg,
+      .story-shell:fullscreen .main-svg {
+        width: 100%;
+        max-height: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .story-shell.expanded .stage-heading,
+      .story-shell:fullscreen .stage-heading {
+        padding-top: 12px;
+      }
+      .story-shell.expanded .stage-caption,
+      .story-shell:fullscreen .stage-caption {
+        margin-bottom: 10px;
+      }
+      .story-shell.expanded .transport,
+      .story-shell:fullscreen .transport {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      body.fullscreen-fallback {
+        overflow: hidden;
+      }
+      .spark {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: twinkle 2.4s ease-in-out infinite;
+      }
+      .spark:nth-child(2) {
+        animation-delay: 0.8s;
+      }
+      .moving-off .spark {
+        animation-play-state: paused;
+      }
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.4;
+          transform: scale(0.8);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.08);
+        }
+      }
+      @media (min-width: 1550px) {
+        .shell {
+          max-width: 1500px;
+        }
+        .hero {
+          padding-top: 48px;
+        }
+        .main-svg {
+          max-height: 540px;
+        }
+      }
+      @media (max-width: 1150px) {
+        .shell {
+          padding: 0 28px;
+        }
+        .brand small {
+          display: none;
+        }
+        .hero h1 {
+          font-size: 49px;
+        }
+        .phase-card {
+          padding: 14px 13px;
+        }
+        .phase-card h3 {
+          font-size: 15px;
+        }
+        .card-top .micro {
+          display: none;
+        }
+        .destination-title {
+          min-width: 140px;
+        }
+        .dest-graph {
+          gap: 8px;
+        }
+        .retained-system {
+          font-size: 10px;
+          max-width: 195px;
+          padding-left: 12px;
+        }
+        .system-legend {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 12px 20px;
+        }
+        .stage-tab {
+          padding: 9px 10px;
+          font-size: 11px;
+        }
+        .stage-tabs {
+          padding: 13px 17px;
+          gap: 3px;
+        }
+        .stage-heading h3 {
+          font-size: 24px;
+        }
+      }
+      @media (max-width: 850px) {
+        .system-legend {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .shell {
+          padding: 0 20px;
+        }
+        .topbar {
+          height: 70px;
+        }
+        .top-tag {
+          display: none;
+        }
+        .nav {
+          gap: 18px;
+          font-size: 11px;
+        }
+        .hero {
+          padding: 30px 0 29px;
+          align-items: flex-start;
+        }
+        .hero h1 {
+          font-size: 40px;
+        }
+        .hero-action {
+          padding-top: 25px;
+        }
+        .primary {
+          padding: 12px 15px;
+          font-size: 12px;
+        }
+        .phase-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+        .phase-card {
+          border-radius: 16px;
+          padding: 20px;
+        }
+        .phase-card h3 {
+          font-size: 20px;
+        }
+        .phase-card .card-top {
+          font-size: 11px;
+        }
+        .mini-map {
+          max-height: 395px;
+        }
+        .card-foot {
+          font-size: 12px;
+          gap: 6px;
+        }
+        .card-summary {
+          min-height: 0;
+        }
+        .phase-card:not(:last-child):after {
+          display: none;
+        }
+        .destination {
+          padding: 13px 15px;
+          gap: 14px;
+        }
+        .destination-title {
+          min-width: 116px;
+        }
+        .destination-title strong {
+          font-size: 17px;
+        }
+        .dest-home {
+          font-size: 11px;
+        }
+        .dest-home svg {
+          width: 35px;
+        }
+        .dest-arrow {
+          font-size: 17px;
+        }
+        .retained-system {
+          max-width: 175px;
+        }
+        .stage-tab span.tab-label {
+          display: none;
+        }
+        .stage-heading {
+          padding: 20px 20px 0;
+        }
+        .stage-heading h3 {
+          font-size: 21px;
+        }
+        .owner-pill {
+          font-size: 9px;
+          padding: 8px 10px;
+        }
+        .diagram-window {
+          overflow-x: auto;
+        }
+        .main-svg {
+          min-width: 830px;
+        }
+        .mobile-pan {
+          display: block;
+          color: #8b9585;
+          text-align: right;
+          font-size: 9px;
+          padding: 0 20px 5px;
+        }
+        .stage-caption {
+          margin: 0 19px 15px;
+          font-size: 12px;
+        }
+        .transport {
+          padding: 14px 18px;
+          gap: 10px;
+        }
+        .next-btn {
+          font-size: 11px;
+          padding: 10px;
+        }
+        .caption-tag {
+          display: none;
+        }
+      }
+      @media (max-width: 560px) {
+        .shell {
+          padding: 0 15px;
+        }
+        .brand {
+          font-size: 14px;
+          gap: 9px;
+        }
+        .brand-logo {
+          width: clamp(115px, 38vw, 155px);
+        }
+        .nav {
+          gap: 12px;
+        }
+        .nav .nav-num {
+          display: none;
+        }
+        .hero {
+          display: block;
+          padding: 28px 0;
+        }
+        .hero h1 {
+          font-size: clamp(31px, 10.4vw, 43px);
+          line-height: 1.06;
+          margin-top: 11px;
+        }
+        .hero .eyebrow {
+          font-size: 9px;
+        }
+        .hero-action {
+          padding-top: 20px;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .phase-grid {
+          grid-template-columns: 1fr;
+          gap: 13px;
+        }
+        .phase-card {
+          padding: 16px;
+        }
+        .phase-card h3 {
+          font-size: 19px;
+        }
+        .phase-card .card-top {
+          font-size: 10px;
+        }
+        .mini-map {
+          max-height: none;
+        }
+        .system-legend {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 14px 10px;
+          padding: 14px;
+        }
+        .system-legend .legend-icon {
+          width: 34px;
+          height: 37px;
+        }
+        .system-legend li {
+          padding: 10px 8px 14px;
+        }
+        .phase-card:not(:last-child):after {
+          display: none;
+        }
+        .section-heading {
+          margin-bottom: 13px;
+        }
+        .section-heading h2 {
+          font-size: 17px;
+        }
+        .destination {
+          flex-wrap: wrap;
+          gap: 11px;
+          padding: 14px;
+        }
+        .destination-title {
+          min-width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .destination-title small {
+          font-size: 8px;
+          margin: 0;
+        }
+        .destination-title strong {
+          font-size: 17px;
+        }
+        .dest-graph {
+          justify-content: space-between;
+          width: 100%;
+          gap: 8px;
+        }
+        .dest-home {
+          font-size: 11px;
+        }
+        .dest-home svg {
+          width: 33px;
+        }
+        .retained-system {
+          max-width: none;
+          width: 100%;
+          border-left: 0;
+          border-top: 1px solid #c6d8b8;
+          padding: 8px 0 0;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 10px;
+          margin: 0;
+          line-height: 1.3;
+        }
+        .retained-system strong {
+          font-size: 10px;
+        }
+        .overview {
+          padding-bottom: 27px;
+        }
+        .stage-tabs {
+          padding: 10px 11px;
+          gap: 1px;
+        }
+        .stage-tab {
+          padding: 8px 8px;
+          font-size: 10px;
+          gap: 3px;
+        }
+        .stage-tab b {
+          width: 18px;
+          height: 18px;
+        }
+        .tab-separator {
+          font-size: 11px;
+        }
+        .stage-top-actions {
+          gap: 4px;
+        }
+        .icon-btn {
+          width: 28px;
+          height: 30px;
+          border-radius: 7px;
+        }
+        .stage-heading {
+          padding: 17px 15px 5px;
+          display: block;
+        }
+        .stage-heading h3 {
+          font-size: 22px;
+        }
+        .order-config {
+          margin: 12px 15px 5px;
+          gap: 8px 12px;
+          padding: 9px 10px;
+          font-size: 11px;
+        }
+        .order-config-product svg {
+          width: 23px;
+          height: 28px;
+        }
+        .stage-heading .phase-kicker {
+          font-size: 9px;
+        }
+        .owner-pill {
+          display: inline-flex;
+          margin-top: 10px;
+          padding: 6px 9px;
+          font-size: 8px;
+          gap: 6px;
+        }
+        .owner-pill b {
+          font-size: 9px;
+        }
+        .mobile-pan {
+          font-size: 8px;
+          padding-right: 14px;
+        }
+        .diagram-window {
+          margin: 0;
+        }
+        .main-svg {
+          min-width: 850px;
+        }
+        .stage-caption {
+          margin: 0 12px 13px;
+          padding: 10px;
+          gap: 9px;
+          font-size: 11px;
+          min-height: 51px;
+        }
+        .caption-icon {
+          width: 22px;
+          height: 22px;
+        }
+        .transport {
+          padding: 13px 12px;
+          gap: 7px;
+        }
+        .play-toggle {
+          width: 35px;
+          height: 35px;
+        }
+        .replay-btn {
+          width: 26px;
+        }
+        .progress-info {
+          font-size: 9px;
+        }
+        .progress-wrap {
+          padding-right: 5px;
+        }
+        .speed-btn {
+          min-width: 34px;
+          font-size: 10px;
+          padding: 6px;
+        }
+        .next-btn {
+          font-size: 10px;
+          padding: 9px;
+          gap: 6px;
+        }
+        .next-btn svg {
+          width: 12px;
+        }
+        .story-shell {
+          border-radius: 18px;
+        }
+        .story-shell:fullscreen .main-svg,
+        .story-shell.expanded .main-svg {
+          min-width: 800px;
+        }
+        .story-shell:fullscreen .diagram-window,
+        .story-shell.expanded .diagram-window {
+          justify-content: flex-start;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *:before,
+        *:after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition: none !important;
+        }
+      }
+      @media print {
+        .topbar,
+        .hero-action,
+        .stage-top-actions,
+        .transport {
+          display: none;
+        }
+        .shell {
+          max-width: none;
+          padding: 0;
+        }
+        .hero {
+          padding: 15px 0;
+        }
+        .overview {
+          break-before: page;
+        }
+        .story-shell {
+          break-inside: avoid;
+        }
+        .main-svg {
+          min-width: 0;
+        }
+        body {
+          background: #fff;
+        }
+        .stage-tabs {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="icons" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <g
+          id="legend-sketch-circle"
+          fill="none"
+          stroke="#e9bf38"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M296 12C253 3 73 3 29 10C11 13 5 26 6 48C7 68 17 79 37 81C107 89 250 87 295 79C312 75 316 57 313 39C311 24 306 15 289 11"
+            stroke-width="2.4"
+            vector-effect="non-scaling-stroke"
+            opacity=".9"
+          />
+          <path
+            d="M280 7C212 0 85 3 32 8C11 11 3 29 4 50C5 73 26 86 65 87C159 92 266 86 300 77"
+            stroke-width="1.1"
+            vector-effect="non-scaling-stroke"
+            opacity=".5"
+          />
+        </g>
+        <g
+          id="legend-sketch-underline"
+          fill="none"
+          stroke="#79ad59"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M8 80C77 75 130 80 174 82S261 85 312 79"
+            stroke-width="2.5"
+            vector-effect="non-scaling-stroke"
+            opacity=".9"
+          />
+          <path
+            d="M16 87C101 82 202 89 301 84"
+            stroke-width="1.1"
+            vector-effect="non-scaling-stroke"
+            opacity=".55"
+          />
+        </g>
+        <marker
+          id="arrowPurchase"
+          viewBox="0 0 8 8"
+          refX="6"
+          refY="4"
+          markerWidth="5"
+          markerHeight="5"
+          orient="auto"
+        >
+          <path d="M0 0L8 4L0 8Z" fill="#e78c45" />
+        </marker>
+        <filter id="tokenShadow" x="-40%" y="-40%" width="180%" height="200%">
+          <feDropShadow
+            dx="0"
+            dy="3"
+            stdDeviation="3"
+            flood-color="#233b39"
+            flood-opacity=".12"
+          />
+        </filter>
+        <marker
+          id="arrowOld"
+          viewBox="0 0 8 8"
+          refX="6"
+          refY="4"
+          markerWidth="5"
+          markerHeight="5"
+          orient="auto"
+        >
+          <path d="M0 0L8 4L0 8Z" fill="#c8826e" />
+        </marker>
+        <marker
+          id="arrowBlue"
+          viewBox="0 0 8 8"
+          refX="6"
+          refY="4"
+          markerWidth="5"
+          markerHeight="5"
+          orient="auto"
+        >
+          <path d="M0 0L8 4L0 8Z" fill="#669dcc" />
+        </marker>
+        <marker
+          id="arrowGreen"
+          viewBox="0 0 8 8"
+          refX="6"
+          refY="4"
+          markerWidth="5"
+          markerHeight="5"
+          orient="auto"
+        >
+          <path d="M0 0L8 4L0 8Z" fill="#52855f" />
+        </marker>
+        <marker
+          id="arrowPurple"
+          viewBox="0 0 8 8"
+          refX="6"
+          refY="4"
+          markerWidth="5"
+          markerHeight="5"
+          orient="auto"
+        >
+          <path d="M0 0L8 4L0 8Z" fill="#a58ad2" />
+        </marker>
+        <marker
+          id="arrowInvoice"
+          viewBox="0 0 8 8"
+          refX="6"
+          refY="4"
+          markerWidth="5"
+          markerHeight="5"
+          orient="auto"
+        >
+          <path d="M0 0L8 4L0 8Z" fill="#3b9a92" />
+        </marker>
+        <symbol id="icon-box" viewBox="0 0 60 60">
+          <path
+            d="M9 18L30 8L51 18V43L30 53L9 43Z"
+            fill="#f7cd6f"
+            stroke="#233b39"
+            stroke-width="2.5"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9 18L30 29L51 18M30 29V53M20 13L41 24V33L34 36V27"
+            fill="none"
+            stroke="#233b39"
+            stroke-width="2.5"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="icon-shop" viewBox="0 0 180 165">
+          <ellipse cx="87" cy="152" rx="79" ry="9" fill="#e7ecdF" />
+          <path
+            d="M30 62H145V145H30Z"
+            fill="#fff9e7"
+            stroke="#233b39"
+            stroke-width="3"
+          />
+          <path
+            d="M25 33H149L158 63H17Z"
+            fill="#f4c874"
+            stroke="#233b39"
+            stroke-width="3"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M25 34H45L40 63H17ZM66 34H87V63H63ZM107 34H127L136 63H112Z"
+            fill="#fff8e4"
+          />
+          <path
+            d="M17 63V69Q28 84 40 69V63M40 63V69Q51 84 63 69V63M63 63V69Q75 84 87 69V63M87 63V69Q100 84 112 69V63M112 63V69Q124 84 136 69V63M136 63V69Q148 84 158 69V63"
+            fill="#f4c874"
+            stroke="#233b39"
+            stroke-width="2.5"
+          />
+          <path
+            d="M44 94H85V126H44Z"
+            fill="#e0ecdf"
+            stroke="#233b39"
+            stroke-width="2.5"
+          />
+          <path d="M64 95V125" stroke="#233b39" stroke-width="2" />
+          <path
+            d="M101 94H131V145H101Z"
+            fill="#fff"
+            stroke="#233b39"
+            stroke-width="2.5"
+          />
+          <circle cx="122" cy="120" r="2.5" fill="#233b39" />
+          <rect
+            x="47"
+            y="13"
+            width="81"
+            height="23"
+            rx="6"
+            fill="#fff"
+            stroke="#233b39"
+            stroke-width="2.5"
+          />
+          <text
+            x="87"
+            y="29"
+            text-anchor="middle"
+            font-size="10"
+            font-family="system-ui,sans-serif"
+            font-weight="850"
+            fill="#233b39"
+          >
+            NJ DOUEK
+          </text>
+          <path
+            d="M152 124H171V145H152Z"
+            fill="#e4f0cc"
+            stroke="#233b39"
+            stroke-width="2.5"
+          />
+          <path
+            d="M156 124V120Q161 111 166 120V124"
+            fill="none"
+            stroke="#233b39"
+            stroke-width="2.5"
+          />
+        </symbol>
+        <symbol id="icon-prop" viewBox="0 0 195 164">
+          <ellipse cx="98" cy="153" rx="83" ry="9" fill="#eeded7" />
+          <rect
+            x="43"
+            y="23"
+            width="115"
+            height="125"
+            rx="10"
+            fill="#f9d5c7"
+            stroke="#233b39"
+            stroke-width="3"
+          />
+          <path d="M49 24H155V49H43V30Q43 24 49 24Z" fill="#eea78e" />
+          <path d="M43 49H158" stroke="#233b39" stroke-width="2.5" />
+          <circle cx="54" cy="36" r="3" fill="#233b39" />
+          <circle cx="64" cy="36" r="3" fill="#fff9ee" />
+          <circle cx="74" cy="36" r="3" fill="#fff9ee" />
+          <rect
+            x="59"
+            y="65"
+            width="83"
+            height="31"
+            rx="4"
+            fill="#fff8ef"
+            stroke="#233b39"
+            stroke-width="2.3"
+          />
+          <path
+            d="M84 74H117V83H84Z"
+            fill="#ebc5b3"
+            stroke="#233b39"
+            stroke-width="1.8"
+          />
+          <rect
+            x="59"
+            y="105"
+            width="83"
+            height="29"
+            rx="4"
+            fill="#fff8ef"
+            stroke="#233b39"
+            stroke-width="2.3"
+          />
+          <path
+            d="M84 113H117V122H84Z"
+            fill="#ebc5b3"
+            stroke="#233b39"
+            stroke-width="1.8"
+          />
+          <path
+            d="M43 142V153M158 142V153"
+            stroke="#233b39"
+            stroke-width="4"
+            stroke-linecap="round"
+          />
+          <path
+            d="M19 119L39 110L49 134L27 143Z"
+            fill="#f5ce7c"
+            stroke="#233b39"
+            stroke-width="2.2"
+          />
+          <path
+            d="M24 126L41 119M28 133L38 129"
+            stroke="#233b39"
+            stroke-width="1.8"
+          />
+          <circle
+            cx="163"
+            cy="43"
+            r="19"
+            fill="#fff"
+            stroke="#233b39"
+            stroke-width="2.5"
+          />
+          <path
+            d="M163 30V43L171 47"
+            fill="none"
+            stroke="#233b39"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </symbol>
+        <symbol id="icon-db" viewBox="0 0 130 130">
+          <ellipse cx="65" cy="115" rx="54" ry="8" fill="#dfebd3" />
+          <path
+            d="M19 29V96Q19 112 65 112Q111 112 111 96V29Z"
+            fill="#def2be"
+            stroke="#233b39"
+            stroke-width="3"
+          />
+          <ellipse
+            cx="65"
+            cy="29"
+            rx="46"
+            ry="17"
+            fill="#f3fbdf"
+            stroke="#233b39"
+            stroke-width="3"
+          />
+          <path
+            d="M19 54Q19 71 65 71Q111 71 111 54M19 79Q19 96 65 96Q111 96 111 79"
+            fill="none"
+            stroke="#233b39"
+            stroke-width="2.5"
+          />
+          <path
+            d="M30 57L39 61M30 81L39 85"
+            stroke="#80a45c"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <circle
+            cx="105"
+            cy="94"
+            r="20"
+            fill="#fff"
+            stroke="#233b39"
+            stroke-width="2.5"
+          />
+          <path
+            d="M95 94L102 101L116 86"
+            fill="none"
+            stroke="#25745e"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="icon-accounting" viewBox="0 0 150 150">
+          <ellipse cx="74" cy="138" rx="62" ry="8" fill="#e2ebd9" />
+          <path
+            d="M33 20H115Q123 20 123 28V126H33Q23 126 23 117V30Q23 20 33 20Z"
+            fill="#fffdf4"
+            stroke="#233b39"
+            stroke-width="3"
+          />
+          <path d="M38 20V125" stroke="#233b39" stroke-width="2.5" />
+          <path
+            d="M48 65H107M48 81H104M48 98H87"
+            stroke="#c6d7be"
+            stroke-width="5"
+            stroke-linecap="round"
+          />
+          <rect x="52" y="31" width="55" height="24" rx="6" fill="#25745e" />
+          <text
+            x="80"
+            y="48"
+            text-anchor="middle"
+            fill="white"
+            font-size="13"
+            font-family="system-ui,sans-serif"
+            font-weight="850"
+          >
+            QBO
+          </text>
+          <circle
+            cx="116"
+            cy="109"
+            r="22"
+            fill="#def2be"
+            stroke="#233b39"
+            stroke-width="2.8"
+          />
+          <path
+            d="M106 109L113 116L128 101"
+            fill="none"
+            stroke="#25745e"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="icon-portal" viewBox="0 0 100 90">
+          <ellipse cx="50" cy="81" rx="43" ry="6" fill="#e2ebd9" />
+          <rect
+            x="7"
+            y="10"
+            width="84"
+            height="63"
+            rx="7"
+            fill="#fffdf4"
+            stroke="#233b39"
+            stroke-width="3"
+          />
+          <path
+            d="M14 10H84Q91 10 91 17V25H7V17Q7 10 14 10Z"
+            fill="#def2be"
+            stroke="#233b39"
+            stroke-width="2.5"
+            stroke-linejoin="round"
+          />
+          <circle cx="17" cy="18" r="2" fill="#25745e" />
+          <circle cx="25" cy="18" r="2" fill="#80a45c" />
+          <path
+            d="M38 18H78"
+            stroke="#a8bc99"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <circle
+            cx="31"
+            cy="42"
+            r="8"
+            fill="#def2be"
+            stroke="#233b39"
+            stroke-width="2.5"
+          />
+          <path
+            d="M17 63V61Q17 52 31 52Q45 52 45 61V63Z"
+            fill="#def2be"
+            stroke="#233b39"
+            stroke-width="2.5"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M56 34H78L90 46V75H56Z"
+            fill="#fff8e5"
+            stroke="#233b39"
+            stroke-width="2.5"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M78 34V46H90"
+            fill="#f7cd6f"
+            stroke="#233b39"
+            stroke-width="2.5"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M64 55H82M64 62H82M64 69H75"
+            stroke="#80a45c"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </symbol>
+        <symbol id="icon-coffee-bag" viewBox="0 0 80 100">
+          <ellipse cx="40" cy="93" rx="32" ry="5" fill="#ede8d8" />
+          <path
+            d="M19 18H61L66 36L69 83Q69 89 63 89H17Q11 89 11 83L14 36Z"
+            fill="#f7cd6f"
+            stroke="#233b39"
+            stroke-width="3"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M19 18L14 36L17 80L24 86M61 18L66 36L63 80L56 86"
+            fill="none"
+            stroke="#c19d47"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M18 9H62V21H18Z"
+            fill="#ebbb62"
+            stroke="#233b39"
+            stroke-width="3"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M24 15H56"
+            fill="none"
+            stroke="#c19d47"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <rect
+            x="23"
+            y="35"
+            width="34"
+            height="37"
+            rx="9"
+            fill="#fff8e5"
+            stroke="#c19d47"
+            stroke-width="1.5"
+          />
+          <ellipse
+            cx="40"
+            cy="53"
+            rx="9"
+            ry="13"
+            transform="rotate(32 40 53)"
+            fill="#9e6a38"
+            stroke="#233b39"
+            stroke-width="2"
+          />
+          <path
+            d="M46 43C35 46 45 58 34 63"
+            fill="none"
+            stroke="#fff1d0"
+            stroke-width="2.3"
+            stroke-linecap="round"
+          />
+        </symbol>
+        <symbol id="icon-cart" viewBox="0 0 100 90">
+          <ellipse cx="52" cy="82" rx="39" ry="6" fill="#ede8d8" />
+          <path
+            d="M9 12H22L34 62H80"
+            fill="none"
+            stroke="#233b39"
+            stroke-width="3.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M26 27H90L80 54H33Z"
+            fill="#f7cd6f"
+            stroke="#233b39"
+            stroke-width="3"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M47 29L51 52M69 29L66 52M30 40H85"
+            fill="none"
+            stroke="#c19d47"
+            stroke-width="2"
+          />
+          <use href="#icon-coffee-bag" x="38" y="-2" width="40" height="50" />
+          <circle
+            cx="40"
+            cy="72"
+            r="6"
+            fill="#fff"
+            stroke="#233b39"
+            stroke-width="3"
+          />
+          <circle
+            cx="76"
+            cy="72"
+            r="6"
+            fill="#fff"
+            stroke="#233b39"
+            stroke-width="3"
+          />
+        </symbol>
+        <symbol id="icon-csv" viewBox="0 0 90 110">
+          <ellipse cx="45" cy="103" rx="34" ry="5" fill="#e0e9ef" />
+          <path
+            d="M19 7H55L74 26V92Q74 97 69 97H19Q14 97 14 92V12Q14 7 19 7Z"
+            fill="#f3f8fd"
+            stroke="#233b39"
+            stroke-width="3"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M55 7V26H74"
+            fill="#b6d6ee"
+            stroke="#233b39"
+            stroke-width="3"
+            stroke-linejoin="round"
+          />
+          <rect
+            x="24"
+            y="40"
+            width="40"
+            height="32"
+            rx="3"
+            fill="#d6e8f8"
+            stroke="#669dcc"
+            stroke-width="2"
+          />
+          <path
+            d="M24 50H64M24 61H64M38 40V72M51 40V72"
+            stroke="#669dcc"
+            stroke-width="1.8"
+          />
+          <path
+            d="M28 84H61"
+            stroke="#669dcc"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+        </symbol>
+      </defs>
+    </svg>
+    <div class="shell">
+      <header class="topbar">
+        <a
+          class="brand"
+          href="#top"
+          aria-label="NJ Douek New Order-to-cash Integration home"
+        >
+          <img
+            class="brand-logo"
+            src="./njlogo.png"
+            alt="N.J. Douek"
+            width="2130"
+            height="595"
+          />
+          <small>/ New Order-to-cash Integration</small>
+        </a>
+        <nav class="nav" aria-label="Sections">
+          <a href="#watch"><span class="nav-num">01</span>Watch it happen</a
+          ><a href="#overview"><span class="nav-num">02</span>At a glance</a>
+        </nav>
+        <span class="top-tag"
+          ><span class="live-dot"></span>AN INTERACTIVE STORY</span
+        >
+      </header>
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <div>
+            <div class="eyebrow">The same business. A new home.</div>
+            <h1 id="hero-title">
+              Keep the orders coming.<br />Move <em>one step at a time.</em>
+            </h1>
+          </div>
+          <div class="hero-action">
+            <button class="primary" id="tour-button">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M5 3L17 10L5 17Z" /></svg
+              >Play the whole story
+            </button>
+          </div>
+        </section>
+        <section id="watch" class="experience" aria-labelledby="watch-title">
+          <div class="section-heading">
+            <h2 id="watch-title">
+              <span class="section-number">01</span>Follow the order
+            </h2>
+          </div>
+          <ul
+            class="system-legend"
+            aria-label="Diagram legend: systems and symbols"
+          >
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-circle" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-prop" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>Prop System</strong
+                ><span>Current system · P2P stays</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-circle" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-shop" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>Storefront</strong><span>Customer-facing shop</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-db" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>New O2C System</strong><span>Order-to-Cash</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-cart" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>Shopping cart</strong><span>Purchase / checkout</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-coffee-bag" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>Coffee beans</strong><span>Purchased bags</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-csv" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>CSV file</strong><span>Current data export</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-accounting" width="100" height="100" />
+              </svg>
+              <div><strong>QBO</strong><span>QuickBooks accounting</span></div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-portal" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>Customer Portal</strong
+                ><span>Invoices for customers</span>
+              </div>
+            </li>
+          </ul>
+          <div class="story-shell" id="story-shell">
+            <div
+              class="stage-tabs"
+              role="tablist"
+              aria-label="Migration stages"
+            >
+              <button
+                class="stage-tab"
+                role="tab"
+                id="tab-0"
+                aria-label="Day 1: CSV and manual update"
+                aria-selected="true"
+                aria-controls="story-panel"
+                data-stage="0"
+              >
+                <b>1</b><span class="tab-label">Today (day 1)</span>
+              </button>
+              <button
+                class="stage-tab"
+                role="tab"
+                id="tab-1"
+                aria-label="Day 2: Sync and write-back"
+                aria-selected="false"
+                aria-controls="story-panel"
+                data-stage="1"
+                tabindex="-1"
+              >
+                <b>2</b><span class="tab-label">Sync + write-back (day 2)</span>
+              </button>
+              <span class="tab-separator" aria-hidden="true">→</span>
+              <button
+                class="stage-tab"
+                role="tab"
+                id="tab-2"
+                aria-label="Day 3: Keep write-back and add QBO integration"
+                aria-selected="false"
+                aria-controls="story-panel"
+                data-stage="2"
+                tabindex="-1"
+              >
+                <b>3</b><span class="tab-label">Add QBO (day 3)</span>
+              </button>
+              <div class="stage-top-actions">
+                <button
+                  class="icon-btn"
+                  id="previous"
+                  aria-label="Previous stage"
+                  title="Previous stage"
+                >
+                  <svg viewBox="0 0 20 20">
+                    <path d="M12 4L6 10L12 16" />
+                  </svg></button
+                ><button
+                  class="icon-btn"
+                  id="fullscreen"
+                  aria-label="Expand diagram"
+                  title="Expand diagram"
+                >
+                  <svg viewBox="0 0 20 20">
+                    <path d="M7 3H3V7M13 3H17V7M3 13V17H7M17 13V17H13" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div id="story-panel" role="tabpanel" aria-labelledby="tab-0">
+              <div class="stage-heading">
+                <div>
+                  <div class="phase-kicker" id="phase-kicker">
+                    DAY 1 / THE CURRENT FLOW
+                  </div>
+                  <h3 id="stage-title">Data out. Orders back by hand.</h3>
+                </div>
+                <div class="owner-pill" id="owner-pill">
+                  <span class="owner-dot"></span
+                  ><span id="owner-label"
+                    >PURCHASES ARE MANUALLY ENTERED IN</span
+                  ><b id="owner-value">Prop System</b>
+                </div>
+              </div>
+              <div
+                class="order-config"
+                role="group"
+                aria-label="Coffee bean order"
+              >
+                <span class="order-config-product">
+                  <svg aria-hidden="true"><use href="#icon-coffee-bag" /></svg>
+                  Coffee beans
+                </span>
+                <label for="order-quantity"
+                  >Quantity
+                  <input
+                    id="order-quantity"
+                    type="number"
+                    min="1"
+                    max="10"
+                    step="1"
+                    value="10"
+                    inputmode="numeric"
+                  />
+                  bags
+                </label>
+                <span id="order-unit-price"
+                  >× $2 / pound × 500 pounds / bag</span
+                >
+                <output id="order-total" for="order-quantity" aria-live="polite"
+                  >Order total $10,000</output
+                >
+              </div>
+              <div class="mobile-pan">Swipe the diagram ↔ or expand</div>
+              <div class="diagram-window" id="diagram-window">
+                <svg
+                  class="main-svg"
+                  id="story-svg"
+                  viewBox="0 0 1240 530"
+                  role="img"
+                  aria-labelledby="diagram-title diagram-desc"
+                >
+                  <title id="diagram-title">Day 1 migration flow</title>
+                  <desc id="diagram-desc">
+                    Prop supplies storefront data through CSV. Shopping-cart
+                    purchases are manually entered into Prop. Coffee-import P2P
+                    remains in Prop.
+                  </desc>
+                  <g id="scene"></g>
+                  <g id="particles" aria-hidden="true"></g>
+                </svg>
+              </div>
+            </div>
+            <div class="stage-caption">
+              <span class="caption-icon" id="caption-icon" aria-hidden="true"
+                >↗</span
+              ><span class="caption-text" id="caption" aria-live="polite"
+                >Prop supplies the storefront data through a CSV export.</span
+              ><span class="caption-tag" id="caption-tag">Prop → CSV</span>
+            </div>
+            <div class="transport">
+              <button
+                class="play-toggle"
+                id="play-toggle"
+                aria-label="Pause animation"
+              >
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M5 3H8V17H5ZM12 3H15V17H12Z" />
+                </svg></button
+              ><button
+                class="replay-btn"
+                id="replay"
+                aria-label="Replay this stage"
+                title="Replay this stage"
+              >
+                <svg viewBox="0 0 20 20">
+                  <path d="M4 6A7 7 0 111 11M4 2V7H9" />
+                </svg>
+              </button>
+              <div class="progress-wrap">
+                <div class="progress-info">
+                  <span id="progress-label">Export from Prop</span>
+                </div>
+                <input
+                  type="range"
+                  class="scrubber"
+                  id="scrubber"
+                  min="0"
+                  max="1000"
+                  value="0"
+                  step="1"
+                  aria-label="Animation progress"
+                />
+              </div>
+              <button
+                class="speed-btn"
+                id="speed"
+                aria-label="Animation speed, 1 times"
+              >
+                1×</button
+              ><button class="next-btn" id="next">
+                <span id="next-label">Day 2</span
+                ><svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M3 10H17M11 4L17 10L11 16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+        <section
+          id="overview"
+          class="overview"
+          aria-labelledby="overview-title"
+        >
+          <div class="section-heading">
+            <h2 id="overview-title">
+              <span class="section-number">02</span>The big picture
+            </h2>
+          </div>
+          <ul
+            class="system-legend"
+            aria-label="Diagram legend: systems and symbols"
+          >
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-circle" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-prop" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>Prop System</strong
+                ><span>Current system · P2P stays</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-circle" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-shop" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>Storefront</strong><span>Customer-facing shop</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-db" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>New O2C System</strong><span>Order-to-Cash</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-cart" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>Shopping cart</strong><span>Purchase / checkout</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-coffee-bag" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>Coffee beans</strong><span>Purchased bags</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-csv" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>CSV file</strong><span>Current data export</span>
+              </div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-accounting" width="100" height="100" />
+              </svg>
+              <div><strong>QBO</strong><span>QuickBooks accounting</span></div>
+            </li>
+            <li>
+              <svg
+                class="legend-mark"
+                viewBox="0 0 320 90"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="#legend-sketch-underline" />
+              </svg>
+              <svg class="legend-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <use href="#icon-portal" width="100" height="100" />
+              </svg>
+              <div>
+                <strong>Customer Portal</strong
+                ><span>Invoices for customers</span>
+              </div>
+            </li>
+          </ul>
+          <div class="phase-grid">
+            <button
+              class="phase-card"
+              data-stage="0"
+              aria-pressed="true"
+              aria-label="Watch Day 1: Prop exports data to the storefront through CSV; purchases are manually updated in Prop"
+            >
+              <div class="card-top">
+                <span class="day-chip"><b>1</b>DAY 1</span
+                ><span class="micro">TODAY</span>
+              </div>
+              <svg class="mini-map" viewBox="0 0 360 380" aria-hidden="true">
+                <text class="mini-flow-label data-label" x="180" y="26">
+                  Data via CSV
+                </text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M79 75H149"
+                  stroke="#669dcc"
+                  marker-end="url(#arrowBlue)"
+                />
+                <path
+                  class="mini-arrow mini-route"
+                  d="M210 75H275"
+                  stroke="#669dcc"
+                  marker-end="url(#arrowBlue)"
+                />
+                <use href="#icon-prop" x="5" y="35" width="80" height="74" />
+                <use href="#icon-csv" x="155" y="41" width="50" height="65" />
+                <use href="#icon-shop" x="277" y="35" width="78" height="75" />
+                <text class="mini-node-label" x="45" y="126">Prop System</text>
+                <text class="mini-node-label" x="180" y="126">CSV</text>
+                <text class="mini-node-label" x="315" y="126">Storefront</text>
+                <path
+                  class="mini-arrow"
+                  d="M315 135V153"
+                  stroke="#c8826e"
+                  marker-end="url(#arrowOld)"
+                />
+                <use href="#icon-cart" x="285" y="157" width="60" height="54" />
+                <text class="mini-node-label" x="315" y="227">Cart</text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M286 185H269Q259 185 259 195V249Q259 259 249 259H55Q45 259 45 249V138"
+                  stroke="#c8826e"
+                  marker-end="url(#arrowOld)"
+                />
+                <text class="mini-flow-label order-label" x="147" y="280">
+                  Purchase · manual update to Prop
+                </text>
+              </svg>
+              <h3>CSV out. Manual orders in.</h3>
+              <p class="card-summary">
+                Prop supplies the storefront. Each purchase is manually entered
+                back into Prop.
+              </p>
+              <div class="card-foot">
+                New orders live in <strong>Prop System</strong>
+              </div>
+            </button>
+            <button
+              class="phase-card"
+              data-stage="1"
+              aria-pressed="false"
+              aria-label="Watch Day 2: Prop syncs data through O2C to the storefront; purchases go to O2C, which writes them back to Prop and sends invoices to the Customer Portal"
+            >
+              <div class="card-top">
+                <span class="day-chip"><b>2</b>DAY 2</span
+                ><span class="micro">SYNC + WRITE-BACK</span>
+              </div>
+              <svg class="mini-map" viewBox="0 0 360 380" aria-hidden="true">
+                <text class="mini-flow-label data-label" x="113" y="26">
+                  Sync
+                </text>
+                <text class="mini-flow-label data-label" x="247" y="26">
+                  Data
+                </text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M79 75H142"
+                  stroke="#669dcc"
+                  marker-end="url(#arrowBlue)"
+                />
+                <path
+                  class="mini-arrow mini-route"
+                  d="M216 75H275"
+                  stroke="#669dcc"
+                  marker-end="url(#arrowBlue)"
+                />
+                <use href="#icon-prop" x="5" y="35" width="80" height="74" />
+                <use href="#icon-db" x="144" y="39" width="72" height="72" />
+                <use href="#icon-shop" x="277" y="35" width="78" height="75" />
+                <text class="mini-node-label" x="45" y="126">Prop System</text>
+                <text class="mini-node-label" x="180" y="126">New O2C</text>
+                <text class="mini-node-label" x="315" y="126">Storefront</text>
+                <path
+                  class="mini-arrow"
+                  d="M315 135V153"
+                  stroke="#e78c45"
+                  marker-end="url(#arrowPurchase)"
+                />
+                <use href="#icon-cart" x="285" y="157" width="60" height="54" />
+                <text class="mini-node-label" x="315" y="227">Cart</text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M286 185H269Q259 185 259 195V249Q259 259 249 259H214Q204 259 204 249V138"
+                  stroke="#e78c45"
+                  marker-end="url(#arrowPurchase)"
+                />
+                <path
+                  class="mini-arrow mini-route"
+                  d="M160 138V169Q160 179 150 179H55Q45 179 45 169V138"
+                  stroke="#e78c45"
+                  marker-end="url(#arrowPurchase)"
+                />
+                <text class="mini-flow-label order-label" x="103" y="201">
+                  Write back to Prop
+                </text>
+                <text class="mini-flow-label order-label" x="247" y="246">
+                  Write O2C
+                </text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M214 98H219Q225 98 225 104V155Q225 165 235 165H285"
+                  stroke="#a58ad2"
+                  marker-end="url(#arrowPurple)"
+                />
+                <path
+                  class="mini-arrow mini-route"
+                  d="M285 178H229Q217 178 217 166V111"
+                  stroke="#a58ad2"
+                  marker-end="url(#arrowPurple)"
+                />
+                <text
+                  class="mini-flow-label"
+                  x="266"
+                  y="140"
+                  style="fill: #8063af"
+                >
+                  <tspan x="266">Verify</tspan>
+                  <tspan x="266" dy="12">Inventory</tspan>
+                </text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M193 138V306Q193 318 205 318H282"
+                  stroke="#3b9a92"
+                  marker-end="url(#arrowInvoice)"
+                />
+                <text
+                  class="mini-flow-label"
+                  x="240"
+                  y="307"
+                  style="fill: #28756f"
+                >
+                  Invoice
+                </text>
+                <use
+                  href="#icon-portal"
+                  x="284"
+                  y="287"
+                  width="62"
+                  height="56"
+                />
+                <text class="mini-node-label" x="315" y="355">
+                  <tspan x="315">Customer</tspan>
+                  <tspan x="315" dy="13">Portal</tspan>
+                </text>
+                <text class="mini-flow-label" x="138" y="354">
+                  Purchase → O2C → Prop
+                </text>
+              </svg>
+              <h3>O2C first. Then back to Prop.</h3>
+              <p class="card-summary">
+                Prop remains the data source. Purchases go to O2C, which then
+                writes them back to Prop and sends invoices to the Customer
+                Portal.
+              </p>
+              <div class="card-foot">
+                Purchase flow <strong>O2C → Prop System</strong>
+              </div>
+            </button>
+            <button
+              class="phase-card"
+              data-stage="2"
+              aria-pressed="false"
+              aria-label="Watch Day 3: O2C writes purchases back to Prop, sends invoices to the Customer Portal and accounting records to QBO; coffee-import P2P stays in Prop"
+            >
+              <div class="card-top">
+                <span class="day-chip"><b>3</b>DAY 3</span
+                ><span class="micro">ADD QBO INTEGRATION</span>
+              </div>
+              <svg class="mini-map" viewBox="0 0 360 380" aria-hidden="true">
+                <text class="mini-flow-label data-label" x="113" y="26">
+                  Sync
+                </text>
+                <text class="mini-flow-label data-label" x="247" y="26">
+                  Data
+                </text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M79 75H142"
+                  stroke="#669dcc"
+                  marker-end="url(#arrowBlue)"
+                />
+                <path
+                  class="mini-arrow mini-route"
+                  d="M216 75H275"
+                  stroke="#669dcc"
+                  marker-end="url(#arrowBlue)"
+                />
+                <use href="#icon-prop" x="5" y="35" width="80" height="74" />
+                <use href="#icon-db" x="144" y="39" width="72" height="72" />
+                <use href="#icon-shop" x="277" y="35" width="78" height="75" />
+                <text class="mini-node-label" x="45" y="126">Prop System</text>
+                <text class="mini-node-label" x="180" y="126">New O2C</text>
+                <text class="mini-node-label" x="315" y="126">Storefront</text>
+                <path
+                  class="mini-arrow"
+                  d="M315 135V153"
+                  stroke="#e78c45"
+                  marker-end="url(#arrowPurchase)"
+                />
+                <use href="#icon-cart" x="285" y="157" width="60" height="54" />
+                <text class="mini-node-label" x="315" y="227">Cart</text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M286 185H269Q259 185 259 195V249Q259 259 249 259H214Q204 259 204 249V138"
+                  stroke="#e78c45"
+                  marker-end="url(#arrowPurchase)"
+                />
+                <path
+                  class="mini-arrow mini-route"
+                  d="M160 138V169Q160 179 150 179H55Q45 179 45 169V138"
+                  stroke="#e78c45"
+                  marker-end="url(#arrowPurchase)"
+                />
+                <text class="mini-flow-label order-label" x="103" y="201">
+                  Write back to Prop
+                </text>
+                <text class="mini-flow-label order-label" x="138" y="354">
+                  Write-back + QBO
+                </text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M214 98H219Q225 98 225 104V155Q225 165 235 165H285"
+                  stroke="#a58ad2"
+                  marker-end="url(#arrowPurple)"
+                />
+                <path
+                  class="mini-arrow mini-route"
+                  d="M285 178H229Q217 178 217 166V111"
+                  stroke="#a58ad2"
+                  marker-end="url(#arrowPurple)"
+                />
+                <text
+                  class="mini-flow-label"
+                  x="266"
+                  y="140"
+                  style="fill: #8063af"
+                >
+                  <tspan x="266">Verify</tspan>
+                  <tspan x="266" dy="12">Inventory</tspan>
+                </text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M180 138V229Q180 241 168 241H124"
+                  stroke="#52855f"
+                  marker-end="url(#arrowGreen)"
+                />
+                <text class="mini-flow-label live-label" x="87" y="219">
+                  Accounting
+                </text>
+                <use
+                  href="#icon-accounting"
+                  x="57"
+                  y="222"
+                  width="60"
+                  height="59"
+                />
+                <text class="mini-node-label" x="87" y="290">QBO</text>
+                <path
+                  class="mini-arrow mini-route"
+                  d="M193 138V306Q193 318 205 318H282"
+                  stroke="#3b9a92"
+                  marker-end="url(#arrowInvoice)"
+                />
+                <text
+                  class="mini-flow-label"
+                  x="240"
+                  y="307"
+                  style="fill: #28756f"
+                >
+                  Invoice
+                </text>
+                <use
+                  href="#icon-portal"
+                  x="284"
+                  y="287"
+                  width="62"
+                  height="56"
+                />
+                <text class="mini-node-label" x="315" y="355">
+                  <tspan x="315">Customer</tspan>
+                  <tspan x="315" dy="13">Portal</tspan>
+                </text>
+              </svg>
+              <h3>Same flow. Add QBO.</h3>
+              <p class="card-summary">
+                O2C keeps purchase write-back and Customer Portal invoices, and
+                adds QBO integration for accounting.
+              </p>
+              <div class="card-foot">
+                Purchase flow <strong>O2C → Prop System</strong>
+              </div>
+            </button>
+          </div>
+          <div
+            class="destination"
+            aria-label="Final outcome: purchases go to the New O2C System, which writes them back to Prop, sends invoices to the Customer Portal, and sends accounting records to QBO. Coffee-import Procure-to-Pay stays in Prop."
+          >
+            <div class="destination-title">
+              <small>WHAT CHANGES</small><strong>A new home for O2C.</strong>
+            </div>
+            <div class="dest-graph">
+              <div class="dest-home">
+                <svg aria-hidden="true"><use href="#icon-db" /></svg>New O2C
+                System
+              </div>
+              <span class="dest-arrow" aria-hidden="true">→</span>
+              <div class="dest-home">
+                <svg aria-hidden="true"><use href="#icon-accounting" /></svg>QBO
+              </div>
+            </div>
+            <div class="retained-system">
+              <strong>Prop stays connected.</strong>Purchase write-back +
+              coffee-import P2P (Procure-to-Pay).
+            </div>
+          </div>
+          <div class="destination destination--future">
+            <div class="destination-title">
+              <strong>The Future Home for P2P</strong>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script>
+      (() => {
+        "use strict";
+        const $ = (id) => document.getElementById(id);
+        const NS = "http://www.w3.org/2000/svg";
+        const reduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        const openingState = Object.freeze({ money: 5000, inventory: 10 });
+        const purchase = {
+          id: "001",
+          quantity: 10,
+          pricePerPound: 2,
+          poundsPerBag: 500,
+        };
+        const moneyFormat = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+          maximumFractionDigits: 0,
+        });
+        const money = (value) => moneyFormat.format(value);
+        const bagPrice = () => purchase.pricePerPound * purchase.poundsPerBag;
+        const orderAmount = () => purchase.quantity * bagPrice();
+        const bagCount = () =>
+          purchase.quantity + (purchase.quantity === 1 ? " bag" : " bags");
+        const timing = Object.freeze({
+          sync: 0.22,
+          placed: 0.46,
+          o2c: 0.71,
+          prop: 0.94,
+          qbo: 0.95,
+          invoiceStart: 0.75,
+          invoice: 0.96,
+        });
+        function orderText(template) {
+          const values = {
+            quantity: purchase.quantity,
+            amount: money(orderAmount()),
+            bags: bagCount(),
+            pricePerPound: money(purchase.pricePerPound),
+            poundsPerBag: purchase.poundsPerBag,
+            unitPrice: money(bagPrice()),
+            openingMoney: money(openingState.money),
+            openingInventory: openingState.inventory,
+            closingMoney: money(openingState.money + orderAmount()),
+            closingInventory: openingState.inventory - purchase.quantity,
+          };
+          return template.replace(
+            /\{(\w+)\}/g,
+            (match, key) => values[key] ?? match,
+          );
+        }
+        // Data supply runs left to right; purchase writes follow separate return paths.
+        const phases = [
+          {
+            name: "Day 1",
+            kicker: "DAY 1 / THE CURRENT FLOW",
+            title: "Data out. Orders back by hand.",
+            owner: "Prop System",
+            ownerLabel: "PURCHASES ARE MANUALLY ENTERED IN",
+            duration: 13000,
+            steps: [
+              "Export from Prop",
+              "Load the storefront",
+              "Customer purchases",
+              "Manually update Prop",
+              "Prop updated",
+            ],
+            thresholds: [0, 0.24, 0.46, 0.67, timing.prop],
+            captions: [
+              "Prop supplies the storefront data through a CSV export.",
+              "The CSV data is loaded into the storefront.",
+              "Purchase: {bags} × {pricePerPound}/pound × {poundsPerBag} pounds/bag = {amount}. Money +{amount}; inventory −{quantity} bags.",
+              "The team manually enters the coffee bean purchase into Prop.",
+              "Prop is updated: money {closingMoney}, inventory {closingInventory} bags.",
+            ],
+            tags: [
+              "Prop → CSV",
+              "CSV → Storefront",
+              "Shopping cart → Purchase",
+              "Purchase → Manual update → Prop",
+              "Money +{amount} · Inventory −{quantity}",
+            ],
+            description:
+              "Prop is on the left. Data flows from Prop through CSV to the storefront on the right. A purchase in the storefront shopping cart is manually entered into Prop. Coffee-import procure-to-pay operations also remain in Prop.",
+            next: "Day 2",
+          },
+          {
+            name: "Day 2",
+            kicker: "DAY 2 / SYNC + WRITE-BACK",
+            title: "O2C takes orders. Writes back to Prop.",
+            owner: "Prop System",
+            ownerLabel: "O2C WRITES PURCHASES BACK TO",
+            duration: 15500,
+            steps: [
+              "Sync from Prop",
+              "O2C feeds the storefront",
+              "Customer purchases",
+              "Write purchase to O2C",
+              "O2C writes back to Prop",
+              "Totals synced",
+              "Invoice delivered",
+            ],
+            thresholds: [
+              0,
+              0.24,
+              0.46,
+              0.57,
+              0.77,
+              timing.prop,
+              timing.invoice,
+            ],
+            captions: [
+              "Prop remains the data source. Its data is synchronized into O2C.",
+              "O2C supplies the storefront data. The shopping cart checks inventory with O2C before purchase.",
+              "Purchase: {bags} × {pricePerPound}/pound × {poundsPerBag} pounds/bag = {amount}. Money +{amount}; inventory −{quantity} bags.",
+              "O2C records the coffee bean purchase first, adding {amount} and reducing inventory by {quantity} bags.",
+              "O2C writes the purchase back to Prop System and sends the invoice to the Customer Portal.",
+              "Prop and O2C now match: money {closingMoney}, inventory {closingInventory} bags.",
+              "The Customer Portal receives the {amount} invoice from O2C. Prop and O2C match: {closingMoney}, {closingInventory} bags.",
+            ],
+            tags: [
+              "Prop → O2C sync",
+              "O2C → Storefront",
+              "One purchase",
+              "Purchase → O2C",
+              "O2C → Prop System",
+              "Money +{amount} · Inventory −{quantity}",
+              "O2C → Customer Portal · Invoice",
+            ],
+            description:
+              "Data flows left to right from Prop to the New O2C System, then to the storefront. Prop remains the source of the synchronized data. The shopping cart sends an inventory verification request to O2C, which returns the inventory result. A shopping-cart purchase is saved in O2C first. O2C then writes that purchase back to Prop System and sends an invoice to the Customer Portal beneath the shopping cart. Coffee-import procure-to-pay operations stay in Prop.",
+            next: "Day 3",
+          },
+          {
+            name: "Day 3",
+            kicker: "DAY 3 / WRITE-BACK + QBO INTEGRATION",
+            title: "Keep the flow. Connect QBO.",
+            owner: "Prop System",
+            ownerLabel: "O2C STILL WRITES PURCHASES BACK TO",
+            duration: 17000,
+            steps: [
+              "Keep the data feed",
+              "O2C feeds the storefront",
+              "Customer purchases",
+              "Write purchase to O2C",
+              "O2C writes back to Prop",
+              "Record in QBO",
+              "Sale recorded",
+              "Invoice delivered",
+            ],
+            thresholds: [
+              0,
+              0.24,
+              0.46,
+              0.57,
+              0.77,
+              0.83,
+              timing.qbo,
+              timing.invoice,
+            ],
+            captions: [
+              "Prop remains the data source, synchronized into O2C.",
+              "O2C continues to supply the storefront data. The shopping cart checks inventory with O2C before purchase.",
+              "Purchase: {bags} × {pricePerPound}/pound × {poundsPerBag} pounds/bag = {amount}. Money +{amount}; inventory −{quantity} bags.",
+              "O2C records the coffee bean purchase first, adding {amount} and reducing inventory by {quantity} bags.",
+              "O2C continues to write the purchase back to Prop System and sends the invoice to the Customer Portal.",
+              "O2C sends the same {amount} sale to QBO for accounting. Coffee-import P2P stays in Prop.",
+              "Prop and O2C show {closingMoney} and {closingInventory} bags; QBO records the same {amount} sale.",
+              "The Customer Portal receives the {amount} invoice from O2C. Prop and O2C match: {closingMoney}, {closingInventory} bags; QBO records the same sale.",
+            ],
+            tags: [
+              "Same upstream data source",
+              "O2C → Storefront",
+              "Same shopping cart",
+              "Purchase → O2C",
+              "O2C → Prop System",
+              "Added integration · O2C → QBO",
+              "One purchase · Matching totals",
+              "O2C → Customer Portal · Invoice",
+            ],
+            description:
+              "Day 3 keeps the Day 2 flow: Prop supplies data to O2C, which supplies the storefront. The shopping cart sends an inventory verification request to O2C, which returns the inventory result. Shopping-cart purchases are saved in O2C first, then written back from O2C to Prop. O2C sends an invoice to the Customer Portal beneath the shopping cart. The added integration sends accounting records from O2C to QBO. Coffee-import procure-to-pay operations continue in Prop.",
+            next: "Replay journey",
+          },
+        ];
+        let stage = 0,
+          progress = 0,
+          playing = !reduced,
+          touring = false,
+          speed = 1,
+          lastTime = 0,
+          hold = 0,
+          lastStep = -1;
+        let packets = [],
+          paths = {},
+          sceneRefs = {},
+          completedScene = false;
+        const tokenColors = {
+          order: ["#f7cd6f", "#ae7134"],
+          data: ["#e2eef9", "#669dcc"],
+          finance: ["#def2be", "#52855f"],
+          invoice: ["#e1f2eb", "#3b9a92"],
+        };
+        const ease = (t) =>
+          t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+        function svgText(x, y, text, cls = "label", anchor = "middle") {
+          return `<text x="${x}" y="${y}" class="${cls}" text-anchor="${anchor}">${text}</text>`;
+        }
+        function use(name, x, y, w, h = w) {
+          return `<use href="#icon-${name}" x="${x}" y="${y}" width="${w}" height="${h}"/>`;
+        }
+        function pill(x, y, w, text, bg = "#f4f6ef", color = "#6e8168") {
+          return `<g transform="translate(${x},${y})">
+            <rect width="${w}" height="24" rx="12" fill="${bg}"/>
+            <text x="${w / 2}" y="16" text-anchor="middle" style="font-size:10px;font-weight:750;fill:${color}">${text}</text>
+          </g>`;
+        }
+        function route(id, d, type) {
+          const colors = {
+            data: "#669dcc",
+            manual: "#c8826e",
+            order: "#e78c45",
+            finance: "#52855f",
+            inventory: "#a58ad2",
+            invoice: "#3b9a92",
+          };
+          const markers = {
+            data: "Blue",
+            manual: "Old",
+            order: "Purchase",
+            finance: "Green",
+            inventory: "Purple",
+            invoice: "Invoice",
+          };
+          return `<path class="flow-under" d="${d}" stroke="${colors[type]}"/>
+            <path id="${id}" class="route ${type}${type === "inventory" ? " mini-route" : ""}" d="${d}" stroke="${colors[type]}"
+              ${type === "data" ? 'stroke-dasharray="5 7"' : ""}
+              marker-end="url(#arrow${markers[type]})"/>`;
+        }
+        function receipt(id, x, y) {
+          return `<g id="${id}" opacity="0">
+            <circle cx="${x}" cy="${y}" r="14" fill="#25745e" stroke="#fff" stroke-width="3"/>
+            <path d="M${x - 6} ${y}l4 4 9-10" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>`;
+        }
+        function balanceRows(prefix, x, y, width) {
+          const awaiting = prefix === "o2c";
+          return `<g id="${prefix}-balances" class="balance-table">
+            <rect x="${x}" y="${y}" width="${width}" height="56" rx="9" fill="#fff" stroke="#dce5d5"/>
+            <path d="M${x + 10} ${y + 28}H${x + width - 10}" stroke="#eef1e8"/>
+            ${svgText(x + 10, y + 20, "Money / mo.", "balance-label", "start")}
+            <text id="${prefix}-money-change" x="${x + width - 78}" y="${y + 20}" text-anchor="end" class="balance-delta" opacity="0">+${money(orderAmount())}</text>
+            <text id="${prefix}-money" x="${x + width - 10}" y="${y + 20}" text-anchor="end" class="balance-value">${awaiting ? "—" : money(openingState.money)}</text>
+            ${svgText(x + 10, y + 46, "Inventory (bags)", "balance-label", "start")}
+            <text id="${prefix}-inventory-change" x="${x + width - 78}" y="${y + 46}" text-anchor="end" class="balance-delta" opacity="0">−${purchase.quantity}</text>
+            <text id="${prefix}-inventory" x="${x + width - 10}" y="${y + 46}" text-anchor="end" class="balance-value">${awaiting ? "—" : openingState.inventory}</text>
+          </g>`;
+        }
+        function propNode() {
+          return `<g id="prop-station" class="station">
+            <rect x="58" y="96" width="222" height="200" rx="22" fill="#fff7f1" stroke="#e2bdab" stroke-width="1.6"/>
+            ${pill(94, 84, 150, "SOURCE SYSTEM", "#fbe7de", "#a46c57")}
+            ${svgText(169, 125, "Prop System", "node-title")}
+            ${use("prop", 72, 135, 86, 74)}
+            ${svgText(211, 161, "Coffee-import", "sublabel")}
+            ${svgText(211, 181, "P2P stays here", "tiny")}
+            ${balanceRows("prop", 66, 213, 206)}
+            <text id="prop-status" x="169" y="285" text-anchor="middle" class="tiny">Awaiting purchase</text>
+            ${receipt("prop-received", 257, 114)}
+            <rect id="prop-highlight" x="58" y="96" width="222" height="200" rx="22" fill="none" stroke="#83a96c" stroke-width="3" opacity="0"/>
+          </g>`;
+        }
+        function platform() {
+          return `<g id="platform-station" class="station">
+            <rect x="485" y="96" width="250" height="200" rx="22" fill="#f3f8e9" stroke="#a8bd99" stroke-width="1.6"/>
+            ${pill(535, 84, 150, stage === 1 ? "SYNCED FROM PROP" : "QBO CONNECTED", "#def2be", "#446748")}
+            ${use("db", 502, 134, 77, 77)}
+            ${svgText(610, 125, "New O2C System", "node-title")}
+            ${svgText(652, 156, "Order-to-Cash", "node-title")}
+            ${svgText(652, 177, "Orders · Stock", "sublabel")}
+            ${svgText(652, 196, "Invoices", "tiny")}
+            ${balanceRows("o2c", 501, 213, 218)}
+            <text id="o2c-status" x="513" y="285" class="tiny">Awaiting Prop sync</text>
+            <text id="new-order-count" x="707" y="285" text-anchor="end" class="tiny">0</text>
+            ${receipt("platform-check", 712, 114)}
+            <rect id="platform-highlight" x="485" y="96" width="250" height="200" rx="22" fill="none" stroke="#83a96c" stroke-width="3" opacity="0"/>
+          </g>`;
+        }
+        function storefrontNode() {
+          return `<g id="storefront-station" class="station">
+            <rect x="941" y="96" width="250" height="${stage === 0 ? 374 : 580}" rx="22" fill="#fffdf5" stroke="#e2d7b4" stroke-width="1.6"/>
+            ${pill(993, 84, 146, "CUSTOMER-FACING", "#fff0ca", "#9b7937")}
+            ${use("shop", 1008, 133, 116, 106)}
+            ${svgText(1066, 121, "Storefront", "node-title")}
+            ${svgText(1066, 255, "Coffee beans", "node-title")}
+            <g id="storefront-price">
+              ${svgText(1066, 275, bagCount() + " × " + money(purchase.pricePerPound) + " / pound", "sublabel")}
+              ${svgText(1066, 293, "× " + purchase.poundsPerBag + " pounds / bag", "sublabel")}
+            </g>
+            ${use("cart", 1021, 326, 90, 70)}
+            ${svgText(1066, 416, "Place order · " + money(orderAmount()), "node-title")}
+            <g id="purchase-deltas" opacity="0">
+              <rect x="951" y="432" width="116" height="27" rx="8" fill="#e4f1d5" stroke="#cbdcb9"/>
+              <rect x="1073" y="432" width="108" height="27" rx="8" fill="#fff0df" stroke="#ebd0a6"/>
+              ${svgText(1009, 450, "Money +" + money(orderAmount()), "micro-label")}
+              ${svgText(1127, 450, "Inventory −" + purchase.quantity, "micro-label")}
+            </g>
+            ${receipt("storefront-ready", 1168, 114)}
+          </g>`;
+        }
+        function qboNode() {
+          return `<g id="qbo-station" class="station">
+            <rect x="58" y="341" width="222" height="128" rx="19" fill="#f5f9ef" stroke="#c7d7b9" stroke-width="1.5"/>
+            ${use("accounting", 74, 350, 64, 64)}
+            ${svgText(207, 375, "QBO", "node-title")}
+            <text id="qbo-status" x="207" y="395" text-anchor="middle" class="tiny">Awaiting sale</text>
+            <text id="qbo-formula" x="169" y="430" text-anchor="middle" class="micro-label">${money(bagPrice())} / bag × ${bagCount()}</text>
+            <text id="qbo-amount" x="169" y="452" text-anchor="middle" class="balance-value">= —</text>
+            ${receipt("qbo-received", 257, 354)}
+          </g>`;
+        }
+        function portalNode() {
+          return `<g id="portal-station" class="station">
+            <rect x="956" y="492" width="220" height="170" rx="17" fill="#f1f8f1" stroke="#b3d1be" stroke-width="1.5"/>
+            ${svgText(1066, 518, "Customer Portal", "node-title")}
+            ${use("portal", 975, 530, 64, 58)}
+            ${svgText(1107, 548, "Invoice #" + purchase.id, "tiny")}
+            ${svgText(1107, 567, "Priced by weight", "tiny")}
+            <text id="portal-status" x="1107" y="584" text-anchor="middle" class="tiny">Awaiting invoice</text>
+            <g id="portal-price-formula">
+              ${svgText(1066, 610, bagCount() + " × " + money(purchase.pricePerPound) + " / pound", "micro-label")}
+              ${svgText(1066, 627, "× " + purchase.poundsPerBag + " pounds / bag", "micro-label")}
+            </g>
+            <text id="portal-amount" x="1066" y="650" text-anchor="middle" class="balance-value">= —</text>
+            ${receipt("portal-received", 1160, 505)}
+          </g>`;
+        }
+        // Every packet follows the visible arrow for its operation.
+        const routeDefs = {
+          csvExport: "M280 172H542",
+          csvImport: "M654 172H939",
+          sync: "M280 172H482",
+          feed: "M737 172H939",
+          inventoryRequest:
+            "M1022 326H916Q902 326 902 312V237Q902 223 888 223H737",
+          inventoryResponse:
+            "M737 249H864Q878 249 878 263V334Q878 348 892 348H1022",
+          checkout: "M1066 301V325",
+          purchase: "M1022 370H867",
+          manual: "M867 370H555",
+          manualReturn: "M415 370H191Q169 370 169 348V298",
+          writeBack: "M483 240H282",
+          writeO2C: "M867 370H632Q610 370 610 348V298",
+          finance: "M530 298V374Q530 396 508 396H283",
+          invoice: "M580 298V540Q580 560 600 560H953",
+        };
+        function renderOperations() {
+          let s = `${pill(58, 26, 126, "01 / DATA SUPPLY", "#e2eef9", "#527fa2")}
+            ${svgText(199, 42, stage === 0 ? "Prop → CSV → Storefront" : "Prop → O2C → Storefront", "sublabel", "start")}
+            ${svgText(1189, 42, stage === 1 ? "Prop is still the upstream source" : stage === 2 ? "The upstream feed continues" : "Data starts in Prop", "tiny", "end")}`;
+          if (stage === 0) {
+            s +=
+              route("route-csv-export", routeDefs.csvExport, "data") +
+              route("route-csv-import", routeDefs.csvImport, "data");
+            s += `${use("csv", 557, 125, 83, 93)}
+              ${svgText(599, 240, "CSV export", "node-title")}
+              ${svgText(599, 261, "Load into storefront", "sublabel")}
+              ${svgText(403, 154, "Export", "tiny")}
+              ${svgText(798, 154, "Load CSV", "tiny")}`;
+          } else {
+            s +=
+              route("route-sync", routeDefs.sync, "data") +
+              route("route-feed", routeDefs.feed, "data");
+            s +=
+              svgText(382, 154, "Data sync", "sublabel") +
+              svgText(837, 154, "Storefront data", "sublabel");
+          }
+          if (stage === 0) {
+            s +=
+              route("route-manual", routeDefs.manual, "manual") +
+              route("route-manual-return", routeDefs.manualReturn, "manual");
+          } else {
+            s +=
+              route("route-write-back", routeDefs.writeBack, "order") +
+              route("route-write-o2c", routeDefs.writeO2C, "order");
+            if (stage === 2)
+              s += route("route-finance", routeDefs.finance, "finance");
+          }
+          s += propNode();
+          if (stage > 0) s += platform();
+          s += storefrontNode();
+          if (stage > 0) {
+            s +=
+              route(
+                "route-inventory-request",
+                routeDefs.inventoryRequest,
+                "inventory",
+              ) +
+              route(
+                "route-inventory-response",
+                routeDefs.inventoryResponse,
+                "inventory",
+              ) +
+              svgText(817, 207, "Verify Inventory", "inventory-label") +
+              svgText(805, 274, "Inventory result", "inventory-label");
+            s +=
+              route("route-invoice", routeDefs.invoice, "invoice") +
+              svgText(765, 540, "Invoice", "invoice-label") +
+              svgText(765, 584, "O2C → Customer Portal", "sublabel") +
+              portalNode();
+          }
+          s +=
+            route("route-checkout", routeDefs.checkout, "order") +
+            route(
+              "route-purchase",
+              routeDefs.purchase,
+              stage === 0 ? "manual" : "order",
+            );
+          s += svgText(966, stage === 0 ? 353 : 391, "Purchase", "tiny");
+          if (stage === 0) {
+            s += `<g id="manual-update">
+              <rect x="415" y="343" width="140" height="55" rx="13" fill="#fff4df" stroke="#d8bc83" stroke-width="1.5"/>
+              ${svgText(485, 366, "Manual update", "node-title")}
+              ${svgText(485, 385, "Team enters purchase", "tiny")}
+              ${receipt("manual-received", 551, 343)}
+            </g>${svgText(302, 351, "Update Prop", "sublabel")}`;
+          } else {
+            s += `${pill(321, 277, 124, "WRITE-BACK", "#fff0ca", "#96682f")}
+              ${svgText(726, 352, "Write to O2C", "sublabel")}
+              ${svgText(382, 222, "Write back to Prop", "sublabel")}`;
+            if (stage === 2) {
+              s +=
+                qboNode() + svgText(397, 377, "Accounting records", "sublabel");
+              s += `<g id="new-flow-stamp" opacity="0">${pill(691, 398, 177, "PURCHASE SAVED IN O2C", "#def2be", "#446748")}</g>`;
+            }
+          }
+          const footerY = stage === 0 ? 485 : 691;
+          s += `${pill(58, footerY, 148, "02 / PURCHASE FLOW", "#fff0ca", "#96682f")}
+            ${svgText(221, footerY + 16, stage === 0 ? "Purchase → Manual update → Prop" : stage === 1 ? "Purchase → O2C → Prop" : "Purchase → O2C → Prop · O2C → QBO", "sublabel", "start")}
+            ${svgText(1189, footerY + 16, "Coffee-import P2P stays in Prop throughout.", "sublabel", "end")}
+            <g id="burst-layer"></g>`;
+          return s;
+        }
+        function makeToken(type) {
+          const g = document.createElementNS(NS, "g");
+          g.setAttribute("class", "order-token");
+          g.style.display = "none";
+          const [bg, stroke] = tokenColors[type];
+          if (type === "order") {
+            // Keep the same order ID as the purchase moves between systems.
+            g.innerHTML = `<g filter="url(#tokenShadow)">
+              ${use("coffee-bag", -23, -34, 46, 58)}
+              <rect x="-29" y="19" width="58" height="18" rx="7" fill="#fff8e4" stroke="${stroke}"/>
+              <text x="0" y="31" text-anchor="middle">${purchase.quantity} bags</text>
+            </g>`;
+          } else if (type === "invoice") {
+            g.innerHTML = `<g filter="url(#tokenShadow)">
+              <path d="M-20-27H9L21-15V27H-20Z" fill="${bg}" stroke="${stroke}" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M9-27V-15H21M-11-4H11M-11 3H11" fill="none" stroke="${stroke}" stroke-width="1.6" stroke-linecap="round"/>
+              <text x="0" y="-11" text-anchor="middle" style="font-size:7px;fill:${stroke}">INVOICE</text>
+              <text x="0" y="18" text-anchor="middle" style="font-size:8px;fill:${stroke}">${money(orderAmount())}</text>
+            </g>`;
+          } else {
+            g.innerHTML = `<g filter="url(#tokenShadow)">
+              <rect x="-21" y="-17" width="42" height="34" rx="7" fill="${bg}" stroke="${stroke}" stroke-width="1.6"/>
+              <path d="M-11 -7H10M-11 0H10M-11 7H3" stroke="${stroke}" stroke-width="1.8" stroke-linecap="round"/>
+              ${type === "finance" ? '<path d="M6 7l4 4 8-10" fill="none" stroke="#52855f" stroke-width="2"/>' : ""}
+            </g>`;
+          }
+          $("particles").appendChild(g);
+          return g;
+        }
+        function addPacket(path, type, start, end) {
+          if (paths[path]) {
+            const el = makeToken(type);
+            el.dataset.kind = type;
+            el.dataset.route = path;
+            if (type === "order") el.dataset.orderId = purchase.id;
+            if (type === "invoice") el.dataset.invoiceId = purchase.id;
+            packets.push({ path, start, end, el });
+          }
+        }
+        function setupPackets() {
+          packets = [];
+          paths = {};
+          $("particles").innerHTML = "";
+          $("scene")
+            .querySelectorAll("path.route")
+            .forEach((p) => {
+              paths[p.id] = { el: p, length: p.getTotalLength() };
+            });
+          if (stage === 0) {
+            addPacket("route-csv-export", "data", 0.04, 0.22);
+            addPacket("route-csv-import", "data", 0.25, 0.42);
+            addPacket("route-checkout", "order", 0.46, 0.53);
+            addPacket("route-purchase", "order", 0.54, 0.61);
+            addPacket("route-manual", "order", 0.61, 0.69);
+            addPacket("route-manual-return", "order", 0.76, timing.prop);
+          } else {
+            addPacket("route-sync", "data", 0.04, timing.sync);
+            addPacket("route-feed", "data", 0.25, 0.42);
+            addPacket("route-checkout", "order", 0.46, 0.52);
+            addPacket("route-purchase", "order", 0.52, 0.57);
+            addPacket("route-write-o2c", "order", 0.57, timing.o2c);
+            addPacket("route-write-back", "order", 0.77, timing.prop);
+            addPacket(
+              "route-invoice",
+              "invoice",
+              timing.invoiceStart,
+              timing.invoice,
+            );
+            if (stage === 2)
+              addPacket("route-finance", "finance", 0.83, timing.qbo);
+          }
+          sceneRefs = {
+            propCheck: $("prop-received"),
+            newCount: $("new-order-count"),
+            platformCheck: $("platform-check"),
+            highlight: $("platform-highlight"),
+            storefrontReady: $("storefront-ready"),
+            manualCheck: $("manual-received"),
+            qboCheck: $("qbo-received"),
+            stamp: $("new-flow-stamp"),
+            propHighlight: $("prop-highlight"),
+            purchaseDeltas: $("purchase-deltas"),
+            qboAmount: $("qbo-amount"),
+            qboStatus: $("qbo-status"),
+            portalAmount: $("portal-amount"),
+            portalStatus: $("portal-status"),
+            portalCheck: $("portal-received"),
+            propBalance: balanceRefs("prop"),
+            o2cBalance: balanceRefs("o2c"),
+          };
+        }
+        function balanceRefs(prefix) {
+          return {
+            money: $(prefix + "-money"),
+            inventory: $(prefix + "-inventory"),
+            moneyChange: $(prefix + "-money-change"),
+            inventoryChange: $(prefix + "-inventory-change"),
+            status: $(prefix + "-status"),
+          };
+        }
+        function updateBalances(refs, available, received) {
+          if (!refs.money) return;
+          // Derive from the opening snapshot, never from the previous frame.
+          // Replay, reverse scrubbing and write-back cannot count a sale twice.
+          refs.money.textContent = available
+            ? money(openingState.money + (received ? orderAmount() : 0))
+            : "—";
+          refs.inventory.textContent = available
+            ? String(
+                openingState.inventory - (received ? purchase.quantity : 0),
+              )
+            : "—";
+          opacity(refs.moneyChange, received ? 1 : 0);
+          opacity(refs.inventoryChange, received ? 1 : 0);
+        }
+        function opacity(el, value) {
+          if (el) el.setAttribute("opacity", String(clamp(value)));
+        }
+        function burst(x, y, p) {
+          const el = $("burst-layer");
+          if (p < 0 || p > 1) {
+            el.innerHTML = "";
+            return;
+          }
+          el.innerHTML = Array.from({ length: 10 }, (_, i) => {
+            const angle = i * Math.PI * 0.2,
+              radius = 15 + ease(p) * 40;
+            return `<circle cx="${x + Math.cos(angle) * radius}" cy="${y + Math.sin(angle) * radius}"
+              r="${2.6 * (1 - p) + 0.5}" fill="${i % 3 === 0 ? "#f7cd6f" : "#52855f"}" opacity="${1 - p}"/>`;
+          }).join("");
+        }
+        function drawProgress(p) {
+          packets.forEach((packet) => {
+            const q = (p - packet.start) / (packet.end - packet.start);
+            if (q < 0 || q > 1) {
+              packet.el.style.display = "none";
+              return;
+            }
+            packet.el.style.display = "";
+            const path = paths[packet.path],
+              loc = path.el.getPointAtLength(path.length * ease(q));
+            const bob = Math.sin(q * Math.PI * 4) * 2;
+            packet.el.setAttribute(
+              "transform",
+              `translate(${loc.x.toFixed(2)} ${(loc.y + bob).toFixed(2)}) rotate(${(Math.sin(q * Math.PI * 2) * 3).toFixed(2)})`,
+            );
+            packet.el.style.opacity = String(
+              clamp(Math.min(1, q * 12, (1 - q) * 12), 0.12, 1),
+            );
+          });
+          const r = sceneRefs;
+          const propUpdated = p >= timing.prop;
+          const o2cUpdated = p >= timing.o2c;
+          updateBalances(r.propBalance, true, propUpdated);
+          updateBalances(r.o2cBalance, p >= timing.sync, o2cUpdated);
+          r.propBalance.status.textContent = propUpdated
+            ? stage === 0
+              ? "Manual update complete"
+              : "O2C write-back received"
+            : stage === 0
+              ? "Awaiting manual entry"
+              : "Awaiting O2C write-back";
+          if (r.o2cBalance.status)
+            r.o2cBalance.status.textContent = o2cUpdated
+              ? "Coffee purchase received"
+              : p >= timing.sync
+                ? "Synced from Prop"
+                : "Awaiting Prop sync";
+          if (r.qboAmount) {
+            r.qboAmount.textContent =
+              p >= timing.qbo ? "= " + money(orderAmount()) : "= —";
+            r.qboStatus.textContent =
+              p >= timing.qbo ? "Sale recorded" : "Awaiting sale";
+          }
+          if (r.portalAmount) {
+            r.portalAmount.textContent =
+              p >= timing.invoice ? "= " + money(orderAmount()) : "= —";
+            r.portalStatus.textContent =
+              p >= timing.invoice
+                ? "Invoice available"
+                : p >= timing.invoiceStart
+                  ? "Invoice on the way"
+                  : "Awaiting invoice";
+            opacity(r.portalCheck, (p - timing.invoice) * 25);
+          }
+          opacity(r.purchaseDeltas, p >= timing.placed ? 1 : 0);
+          opacity(r.storefrontReady, (p - 0.42) * 20);
+          opacity(r.propCheck, (p - timing.prop) * 24);
+          opacity(
+            r.propHighlight,
+            propUpdated
+              ? Math.sin(clamp((p - timing.prop) / 0.06) * Math.PI) * 0.7
+              : 0,
+          );
+          opacity(r.manualCheck, (p - 0.69) * 20);
+          const arrived = timing.o2c;
+          if (r.newCount) r.newCount.textContent = p >= arrived ? "1" : "0";
+          opacity(r.platformCheck, (p - arrived) * 24);
+          opacity(
+            r.highlight,
+            p > arrived && p < arrived + 0.12
+              ? Math.sin(((p - arrived) / 0.12) * Math.PI) * 0.7
+              : 0,
+          );
+          opacity(r.stamp, (p - timing.o2c) * 20);
+          opacity(r.qboCheck, (p - timing.qbo) * 24);
+          if (stage > 0) burst(712, 114, (p - arrived) / 0.13);
+          const phase = phases[stage];
+          let step = 0;
+          phase.thresholds.forEach((t, i) => {
+            if (p >= t) step = i;
+          });
+          if (step !== lastStep) {
+            lastStep = step;
+            $("caption").textContent = orderText(phase.captions[step]);
+            $("caption-tag").textContent = orderText(phase.tags[step]);
+            $("progress-label").textContent = phase.steps[step];
+            $("caption-icon").textContent =
+              step === phase.steps.length - 1 ? "✓" : "→";
+            $("caption").classList.remove("caption-enter");
+            void $("caption").offsetWidth;
+            $("caption").classList.add("caption-enter");
+          }
+          $("scrubber").value = String(Math.round(p * 1000));
+          $("scrubber").style.setProperty("--progress", `${p * 100}%`);
+        }
+        function updateControls() {
+          const play = playing;
+          $("play-toggle").innerHTML = play
+            ? '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3H8V17H5ZM12 3H15V17H12Z"/></svg>'
+            : '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3L17 10L6 17Z"/></svg>';
+          $("play-toggle").setAttribute(
+            "aria-label",
+            play ? "Pause animation" : "Play animation",
+          );
+          document.body.classList.toggle("moving-off", !playing);
+        }
+        function selectStage(
+          index,
+          { auto = true, tour = false, scroll = false } = {},
+        ) {
+          stage = clamp(index, 0, phases.length - 1);
+          progress = 0;
+          hold = 0;
+          lastStep = -1;
+          completedScene = false;
+          playing = auto;
+          touring = tour;
+          const phase = phases[stage];
+          $("phase-kicker").textContent = phase.kicker;
+          $("story-svg").setAttribute(
+            "viewBox",
+            stage === 0 ? "0 0 1240 530" : "0 0 1240 736",
+          );
+          $("stage-title").textContent = phase.title;
+          $("owner-value").textContent = phase.owner;
+          $("owner-label").textContent = phase.ownerLabel;
+          $("owner-pill").classList.toggle("is-new", stage === 2);
+          $("owner-pill").classList.toggle("is-sync", stage === 1);
+          $("next-label").textContent = phase.next;
+          $("previous").disabled = stage === 0;
+          $("story-panel").setAttribute("aria-labelledby", "tab-" + stage);
+          $("diagram-title").textContent = phase.name + ": " + phase.title;
+          $("diagram-desc").textContent =
+            phase.description +
+            orderText(
+              " The coffee order contains {bags} at {pricePerPound} per pound and {poundsPerBag} pounds per bag. Each bag costs {unitPrice}, totaling {amount}. Starting monthly money is {openingMoney} with {openingInventory} bags. After recording the purchase, money is {closingMoney} and inventory is {closingInventory} bags.",
+            );
+          if (stage > 0) {
+            $("diagram-desc").textContent += orderText(
+              " The Customer Portal invoice shows weight-based pricing: {bags} × {pricePerPound} per pound × {poundsPerBag} pounds per bag = {amount}." +
+                (stage === 2
+                  ? " QBO shows the equivalent per-bag pricing: {unitPrice} per bag × {bags} = {amount}."
+                  : ""),
+            );
+          }
+          document.querySelectorAll(".stage-tab").forEach((el) => {
+            let active = Number(el.dataset.stage) === stage;
+            el.setAttribute("aria-selected", String(active));
+            el.tabIndex = active ? 0 : -1;
+          });
+          document
+            .querySelectorAll(".phase-card")
+            .forEach((el) =>
+              el.setAttribute(
+                "aria-pressed",
+                String(Number(el.dataset.stage) === stage),
+              ),
+            );
+          $("scene").innerHTML = renderOperations();
+          setupPackets();
+          drawProgress(0);
+          updateControls();
+          if (
+            scroll &&
+            !document.fullscreenElement &&
+            !$("story-shell").classList.contains("expanded")
+          )
+            $("watch").scrollIntoView({
+              behavior: reduced ? "auto" : "smooth",
+              block: "start",
+            });
+        }
+        function togglePlay() {
+          if (progress >= 1) {
+            progress = 0;
+            hold = 0;
+            lastStep = -1;
+          }
+          playing = !playing;
+          updateControls();
+        }
+        function nextStage() {
+          if (stage === phases.length - 1) {
+            selectStage(0, { auto: true, tour: true });
+          } else selectStage(stage + 1, { auto: true, tour: false });
+        }
+        function frame(time) {
+          let dt = lastTime ? Math.min(time - lastTime, 80) : 0;
+          lastTime = time;
+          if (playing && !document.hidden) {
+            if (progress < 1) {
+              progress = clamp(
+                progress + (dt * speed) / phases[stage].duration,
+              );
+              drawProgress(progress);
+            } else {
+              hold += dt * speed;
+              if (!completedScene) {
+                completedScene = true;
+                lastStep = -1;
+                drawProgress(1);
+              }
+              if (hold > 1800) {
+                if (touring && stage < phases.length - 1) {
+                  selectStage(stage + 1, { auto: true, tour: true });
+                } else if (touring && stage === phases.length - 1) {
+                  playing = false;
+                  touring = false;
+                  updateControls();
+                } else {
+                  playing = false;
+                  updateControls();
+                }
+              }
+            }
+          }
+          requestAnimationFrame(frame);
+        }
+        document.querySelectorAll(".phase-card").forEach((el) =>
+          el.addEventListener("click", () =>
+            selectStage(Number(el.dataset.stage), {
+              auto: true,
+              scroll: true,
+            }),
+          ),
+        );
+        document
+          .querySelectorAll(".stage-tab")
+          .forEach((el) =>
+            el.addEventListener("click", () =>
+              selectStage(Number(el.dataset.stage), { auto: true }),
+            ),
+          );
+        $("tour-button").addEventListener("click", () =>
+          selectStage(0, { auto: true, tour: true, scroll: true }),
+        );
+        $("play-toggle").addEventListener("click", togglePlay);
+        $("replay").addEventListener("click", () =>
+          selectStage(stage, { auto: true, tour: false }),
+        );
+        $("next").addEventListener("click", nextStage);
+        $("previous").addEventListener("click", () => {
+          if (stage > 0) selectStage(stage - 1, { auto: true });
+        });
+        $("speed").addEventListener("click", () => {
+          speed =
+            speed === 1 ? 1.5 : speed === 1.5 ? 2 : speed === 2 ? 0.75 : 1;
+          $("speed").textContent = speed + "×";
+          $("speed").setAttribute(
+            "aria-label",
+            "Animation speed, " + speed + " times",
+          );
+        });
+        $("scrubber").addEventListener("input", (e) => {
+          playing = false;
+          touring = false;
+          hold = 0;
+          progress = Number(e.target.value) / 1000;
+          lastStep = -1;
+          completedScene = false;
+          drawProgress(progress);
+          updateControls();
+        });
+        function updateOrderConfig() {
+          $("order-quantity").value = String(purchase.quantity);
+          $("order-quantity").max = String(openingState.inventory);
+          $("order-unit-price").textContent =
+            "× " +
+            money(purchase.pricePerPound) +
+            " / pound × " +
+            purchase.poundsPerBag +
+            " pounds / bag";
+          $("order-total").textContent = "Order total " + money(orderAmount());
+        }
+        $("order-quantity").addEventListener("change", (e) => {
+          const quantity = Number(e.target.value);
+          if (
+            !e.target.checkValidity() ||
+            !Number.isInteger(quantity) ||
+            quantity < 1
+          ) {
+            updateOrderConfig();
+            return;
+          }
+          if (quantity === purchase.quantity) return;
+          purchase.quantity = quantity;
+          updateOrderConfig();
+          selectStage(stage, { auto: false });
+        });
+        async function toggleFullscreen() {
+          const box = $("story-shell");
+          try {
+            if (document.fullscreenElement) {
+              await document.exitFullscreen();
+              return;
+            }
+            if (box.classList.contains("expanded")) {
+              box.classList.remove("expanded");
+              document.body.classList.remove("fullscreen-fallback");
+              $("fullscreen").setAttribute("aria-label", "Expand diagram");
+              return;
+            }
+            if (box.requestFullscreen) {
+              await box.requestFullscreen();
+            } else throw new Error("Use expanded view");
+          } catch (_) {
+            box.classList.add("expanded");
+            document.body.classList.add("fullscreen-fallback");
+            $("fullscreen").setAttribute("aria-label", "Exit expanded diagram");
+          }
+        }
+        $("fullscreen").addEventListener("click", toggleFullscreen);
+        document.addEventListener("fullscreenchange", () => {
+          $("fullscreen").setAttribute(
+            "aria-label",
+            document.fullscreenElement
+              ? "Exit expanded diagram"
+              : "Expand diagram",
+          );
+        });
+        document.addEventListener("keydown", (e) => {
+          const tag = e.target.tagName;
+          if (
+            e.key === "Escape" &&
+            $("story-shell").classList.contains("expanded")
+          ) {
+            toggleFullscreen();
+            return;
+          }
+          if (["INPUT", "TEXTAREA", "SELECT"].includes(tag)) return;
+          if (e.code === "Space" && tag !== "BUTTON" && tag !== "A") {
+            e.preventDefault();
+            togglePlay();
+          }
+          if (e.key === "ArrowRight") {
+            e.preventDefault();
+            if (stage < phases.length - 1)
+              selectStage(stage + 1, { auto: playing });
+            if (e.target.classList.contains("stage-tab"))
+              $("tab-" + stage).focus();
+          }
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            if (stage > 0) selectStage(stage - 1, { auto: playing });
+            if (e.target.classList.contains("stage-tab"))
+              $("tab-" + stage).focus();
+          }
+        });
+        // No API calls, analytics, external libraries, or real financial operations.
+        updateOrderConfig();
+        selectStage(0, { auto: !reduced });
+        requestAnimationFrame(frame);
+      })();
+    </script>
+  </body>
+</html>
