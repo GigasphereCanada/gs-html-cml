@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f5f4ee">
-<meta name="description" content="Meet TalentHub by GigaSphere. Four independent products for recruiting, secure documents, learning and time. Choose your own combination.">
+<meta name="description" content="Meet TalentHub by GigaSphere. Candidate Management Lakehouse is the primary platform, supported by products for secure documents, learning and time.">
 <title>TalentHub — One suite. Your way.</title>
 <style>
 /* TalentHub / a standalone, progressively enhanced product story.
@@ -14,11 +14,15 @@
 /* Navigation */
 .topbar{position:sticky;top:0;z-index:40;height:88px;background:rgba(245,244,238,.93);backdrop-filter:blur(16px);border-bottom:1px solid rgba(217,221,211,.65)}.topbar-inner{height:100%;display:flex;align-items:center;gap:30px}.brand{display:flex;align-items:center;gap:11px}.brand-symbol{width:31px;height:31px;color:var(--green)}.brand-name{font-size:21px;font-weight:700;letter-spacing:-.065em;line-height:1.05}.brand-byline{font-size:9px;letter-spacing:.08em;color:var(--muted);display:block;margin-top:5px;font-weight:500}.nav{display:flex;gap:33px;margin-inline:auto;align-items:center}.nav a{font-size:12px;color:var(--muted);padding:11px 0;position:relative;transition:color .2s}.nav a span{font-size:9px;opacity:.7;margin-right:7px;font-variant-numeric:tabular-nums}.nav a:hover,.nav a.active{color:var(--ink)}.nav a.active:after{content:"";height:1px;background:var(--green);position:absolute;bottom:3px;left:0;right:0}.nav-actions{display:flex;align-items:center;gap:14px}.nav-actions .btn{min-height:40px;padding:9px 17px;font-size:11px;gap:12px}.motion-toggle{border:0;width:32px;height:32px;color:var(--muted)}.motion-toggle:hover{background:#e6eadf}.header-progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--green);opacity:.6;transition:width .1s linear}
 /* Act I: sticky product constellation; chapters refer to choices, never product order. */
+.suite-overview{min-height:calc(100svh - 88px);padding:clamp(74px,10vh,128px) 0 68px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,#f8f7f1 0%,#f5f4ee 52%,#edf2e7 100%);display:flex;align-items:center;scroll-margin-top:87px}.suite-overview-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(530px,.95fr);gap:clamp(50px,8vw,135px);align-items:center}.suite-overview-copy{max-width:575px}.suite-overview .eyebrow{margin-bottom:30px}.suite-overview h1{font-size:clamp(58px,6.3vw,96px);line-height:.98;letter-spacing:-.07em}.suite-overview h1 .title-prefix{display:block;font-size:.68em;letter-spacing:-.06em}.suite-overview h1 em{display:block;margin-top:10px;font-size:.9em;line-height:.88}.suite-overview-lead{max-width:500px;margin-top:29px;font-size:16px;line-height:1.85;color:var(--muted)}.suite-overview-actions{display:flex;align-items:center;gap:21px;margin-top:31px}.suite-overview-note{font-size:11px;color:var(--muted);margin-top:23px;display:flex;gap:8px;align-items:flex-start;max-width:480px}.suite-overview-note:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);margin-top:5px;flex:none}.platform-family{position:relative;display:grid;gap:15px}.foundation-card{width:100%;padding:29px 30px 27px;border:1px solid #b9d2bf;background:#e1efe3;box-shadow:0 18px 48px #26452b12;position:relative;overflow:hidden;text-align:left;transition:border-color .25s,background .25s,transform .25s var(--ease)}.foundation-card:after{content:"";position:absolute;width:220px;height:220px;border:1px solid #a7c9ae;border-radius:50%;right:-82px;top:-105px}.foundation-card:hover,.foundation-card[aria-expanded=true]{border-color:var(--green);background:#e8f3e9;transform:translateY(-2px)}.foundation-card[aria-expanded=true]:before{content:"";position:absolute;z-index:2;bottom:0;left:30px;right:30px;height:2px;background:var(--green)}.platform-kicker{position:relative;z-index:1;font-size:9px;letter-spacing:.14em;font-weight:650;color:#43745a;text-transform:uppercase}.foundation-card-main{position:relative;z-index:1;display:grid;grid-template-columns:50px 1fr;gap:17px;align-items:start;margin-top:16px}.foundation-card-main svg{width:47px;height:47px;color:var(--green)}.foundation-card h2{font-size:27px;letter-spacing:-.045em;line-height:1.02}.foundation-card p{font-size:12px;line-height:1.7;color:#547162;margin-top:10px;max-width:420px}.foundation-card .foundation-tag{display:inline-flex;align-items:center;gap:8px;margin-top:17px;padding:5px 9px;border:1px solid #a8c8af;border-radius:100px;font-size:9px;letter-spacing:.08em;color:#376b50;text-transform:uppercase}.foundation-card .foundation-tag:after{content:"View details  \\2192";letter-spacing:.04em}.companion-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:7px 0 -3px}.companion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.companion-card{min-height:172px;padding:19px 17px;border:1px solid var(--line);background:rgba(255,254,250,.7);position:relative}.companion-card svg{width:27px;height:27px;color:var(--product-color);margin-bottom:24px}.companion-card h3{font-size:14px;font-weight:600;letter-spacing:-.025em}.companion-card p{font-size:10px;line-height:1.65;color:var(--muted);margin-top:7px}.standalone-note{padding:14px 17px;border-left:2px solid var(--green);background:rgba(255,254,250,.52);font-size:11px;line-height:1.65;color:var(--muted)}.standalone-note strong{color:var(--ink);font-weight:600}
 .connections{position:relative}.story-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr);column-gap:30px;align-items:start}.narrative{position:relative;z-index:2}.beat{min-height:715px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:70px 0 100px;scroll-margin-top:110px}.beat.intro{min-height:calc(100svh - 88px);max-height:980px;padding-top:64px;padding-bottom:80px}.intro .eyebrow{margin-bottom:39px}.intro h1{font-size:clamp(64px,6.75vw,102px);line-height:.995;letter-spacing:-.069em}.intro h1 em{display:block;margin-top:2px}.intro-copy{max-width:330px;margin-top:30px;font-size:15px;line-height:1.85;color:var(--muted)}.intro-actions{display:flex;align-items:center;gap:23px;margin-top:29px;flex-wrap:wrap}.scroll-note{display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.035em;color:var(--muted);margin-top:53px}.scroll-note svg{width:14px;height:19px;animation:nudge 3s ease-in-out infinite}.beat h2{font-size:clamp(48px,4.6vw,69px);margin-top:22px;max-width:460px}.beat-copy{font-size:15px;line-height:1.85;color:var(--muted);max-width:350px;margin-top:26px}.choice-list{width:min(360px,100%);margin-top:25px;border-top:1px solid var(--line)}.suite-choice{display:flex;align-items:center;width:100%;text-align:left;padding:16px 0;border-bottom:1px solid var(--line);gap:13px;transition:opacity .25s}.check-control{display:grid;place-items:center;width:20px;height:20px;border:1px solid #aebcaf;border-radius:50%;flex:none;transition:background .25s,border-color .25s;color:white}.check-control svg{width:11px;height:11px;opacity:0;transition:opacity .2s}.suite-choice[aria-pressed=true] .check-control{background:var(--product-color,var(--green));border-color:var(--product-color,var(--green))}.suite-choice[aria-pressed=true] .check-control svg{opacity:1}.choice-name{font-size:14px;font-weight:600;letter-spacing:-.02em}.choice-job{font-size:10px;color:var(--muted);margin-left:auto;padding-left:8px}.suite-choice:hover .choice-name{color:var(--product-color)}.presets{display:flex;gap:17px;margin-top:18px;flex-wrap:wrap}.presets button{padding:4px 0;font-size:10px;color:var(--muted);border-bottom:1px dotted #a5b2a4}.presets button:hover{color:var(--ink)}.no-core{margin-top:25px;padding-left:16px;border-left:2px solid #a9c4ad;display:grid;gap:6px;font-size:12px;color:var(--muted)}.beat .line-link{margin-top:26px}.selection-inline{font-size:11px;margin-top:17px;color:var(--green)}
 .stage-sticky{position:sticky;top:114px;padding-top:17px;align-self:start;min-width:0}.map-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 18px;color:var(--muted);font-size:9px;letter-spacing:.125em;font-weight:550;text-transform:uppercase}.map-meta .selected-status{display:flex;align-items:center;gap:7px;white-space:nowrap;letter-spacing:.025em;text-transform:none;font-size:10px}.status-dot{width:5px;height:5px;display:inline-block;border-radius:50%;background:var(--green)}.ecosystem{width:100%;overflow:visible;isolation:isolate}.ecosystem text{font-family:var(--sans);user-select:none}.orbit-guide{fill:none;stroke:#ced8c9;stroke-width:1;stroke-dasharray:2 10;opacity:.6;transform-origin:400px 365px;animation:orbit 140s linear infinite}.ambient-leaf{transition:opacity 1s,transform 1.4s var(--ease);transform-origin:400px 365px;opacity:.35}.world[data-chapter="0"] .ambient-leaf{opacity:.15;transform:scale(.87)}.world[data-chapter="2"] .ambient-leaf{opacity:.68;transform:scale(1)}.connection{opacity:.12;transition:opacity .6s}.connection .connect-base{fill:none;stroke:currentColor;stroke-width:1.3}.connection .connect-travel{fill:none;stroke:currentColor;stroke-width:2;stroke-dasharray:3 16;stroke-linecap:round;animation:flow 9s linear infinite}.connection .packet{fill:currentColor;stroke:var(--paper);stroke-width:3;opacity:0;transition:opacity .6s}.world[data-chapter="0"] .connection{opacity:.1}.world[data-chapter="1"] .connection[data-enabled=true]{opacity:.4}.world[data-chapter="2"] .connection[data-enabled=true]{opacity:.82}.world[data-chapter="2"] .connection[data-enabled=true] .packet{opacity:1}.world .connection[data-enabled=false]{opacity:.045}.suite-node{cursor:pointer;outline:none}.suite-node .node-art{transform-box:fill-box;transform-origin:center;transition:transform .55s var(--ease),opacity .45s,filter .45s}.suite-node:hover .node-art,.suite-node:focus-visible .node-art{transform:translateY(-7px)}.suite-node .focus-outline{fill:none;stroke:var(--ink);stroke-width:2;opacity:0;stroke-dasharray:3 5}.suite-node:focus-visible .focus-outline{opacity:.65}.suite-node .product-label{fill:var(--ink);font-size:19px;font-weight:600;letter-spacing:-.5px}.suite-node .product-descriptor{fill:var(--muted);font-size:10px;letter-spacing:1px;font-weight:500}.suite-node .selection-badge{transition:opacity .3s}.suite-node[aria-pressed=false] .node-art{opacity:.28;filter:saturate(.4)}.suite-node[aria-pressed=false] .selection-badge{opacity:0}.suite-node[aria-pressed=false] .product-label{fill:#929b91}.suite-node[aria-pressed=false]:hover .node-art{opacity:.58}.core-disc{fill:var(--white);stroke:#d7ded0;stroke-width:1}.core-ring{fill:none;stroke:#d5dfd0;stroke-width:1;transition:r 1.3s var(--ease),opacity 1s;opacity:.4}.world[data-chapter="2"] .core-ring{r:114;opacity:.9}.core-title{font-size:22px;font-weight:500;letter-spacing:-.7px;fill:var(--ink)}.core-sub{font-size:9px;letter-spacing:.85px;fill:var(--muted)}.core-small{font-size:9px;letter-spacing:1.25px;fill:var(--muted)}.node-breathe{animation:float 7s ease-in-out infinite;transform-origin:center}.suite-node[data-key=doc] .node-breathe{animation-delay:-2s}.suite-node[data-key=learn] .node-breathe{animation-delay:-4s}.suite-node[data-key=time] .node-breathe{animation-delay:-1s}.diagram-footer{margin:4px 20px 0;text-align:center}.map-caption{font-size:12px;letter-spacing:-.015em}.map-instruction{font-size:10px;color:var(--muted);margin-top:6px}.map-chapters{display:flex;justify-content:center;gap:7px;margin-top:22px}.map-chapters a{height:24px;width:28px;display:grid;align-items:center}.map-chapters a:after{content:"";height:3px;border-radius:3px;background:#d4dacd;transition:background .4s}.map-chapters a.active:after{background:var(--green)}.suite-principle{border-top:1px solid var(--line);padding:24px 0 30px;display:flex;align-items:center;justify-content:space-between;gap:25px;font-size:11px;color:var(--muted)}.suite-principle strong{color:var(--ink);font-weight:500}.mini-products{display:flex;align-items:center;gap:16px}.mini-products span{display:flex;gap:6px;align-items:center;font-size:10px}.mini-products i{width:5px;height:5px;border-radius:50%;background:var(--product-color)}
+/* Give every peripheral link the same quiet, colored contour: a soft halo, fine trail and end caps. */
+.world[data-chapter] .connection.connection--accent[data-enabled=true],.world[data-chapter] .connection.connection--left-arc[data-enabled=true]{opacity:.42}.connection--accent .connect-aura,.connection--left-arc .connect-aura{fill:none;stroke:currentColor;stroke-width:7;stroke-linecap:round;opacity:.09}.connection--accent .connect-base,.connection--left-arc .connect-base{stroke-width:1.6}.connection--accent .connect-travel,.connection--left-arc .connect-travel{stroke-width:2.2;stroke-dasharray:2 13}.connection-anchor{fill:currentColor;stroke:var(--paper);stroke-width:1.5}
 /* Act II: one product, one illustrated moment at a time. */
 .moments.is-empty .section-heading,.moments.is-empty #workflow{display:none!important}.moments.is-empty #workflowEmpty{display:block;padding:40px 0}
 .moments{background:var(--white);padding:108px 0 93px;border-top:1px solid var(--line);scroll-margin-top:87px}.section-heading{display:grid;grid-template-columns:1fr 330px;gap:55px;align-items:end}.section-heading h2{font-size:clamp(46px,4.8vw,69px);margin-top:22px;max-width:720px}.section-heading p{font-size:14px;line-height:1.85;color:var(--muted);max-width:310px;padding-bottom:5px}.product-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line);margin-top:56px;gap:18px}.product-tab{position:relative;display:flex;align-items:center;gap:11px;text-align:left;padding:19px 0 21px;color:#8b958a;transition:color .3s;font-size:13px;font-weight:550;letter-spacing:-.015em}.product-tab svg{width:22px;height:22px;color:var(--product-color);opacity:.5;transition:opacity .3s}.product-tab:after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--product-color);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}.product-tab[aria-selected=true]{color:var(--ink)}.product-tab[aria-selected=true]:after{transform:scaleX(1)}.product-tab[aria-selected=true] svg,.product-tab:hover svg{opacity:1}.product-tab:hover{color:var(--ink)}.tab-category{display:block;font-size:9px;font-weight:400;letter-spacing:.04em;color:var(--muted);margin-top:3px}.moment-body{display:grid;grid-template-columns:minmax(250px,.73fr) minmax(0,1.6fr);gap:65px;padding-top:57px;min-height:668px}.moment-copy{padding-top:15px}.product-eyebrow{color:var(--accent);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:9px}.product-eyebrow:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}.moment-copy h3{font-size:clamp(33px,3.1vw,45px);margin-top:16px;max-width:340px;letter-spacing:-.05em}.moment-description{font-size:13px;line-height:1.8;color:var(--muted);margin-top:19px;max-width:320px}.step-list{display:grid;margin-top:31px;position:relative}.step-list:before{content:"";position:absolute;top:18px;bottom:24px;left:13px;border-left:1px solid var(--line)}.moment-step{display:grid;grid-template-columns:28px 1fr;column-gap:15px;text-align:left;padding:11px 0;position:relative}.step-marker{display:grid;place-items:center;width:27px;height:27px;background:var(--white);border:1px solid var(--line);border-radius:50%;font-size:9px;color:#879584;transition:background .3s,color .3s,border-color .3s;z-index:1}.step-content{padding-top:3px}.step-title{font-size:13px;color:#84907f;display:block;transition:color .3s}.step-description{font-size:11px;line-height:1.75;color:var(--muted);display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .4s var(--ease),opacity .35s,margin .35s;max-width:255px}.step-description>span{overflow:hidden}.moment-step[aria-current=step] .step-marker{background:var(--accent);border-color:var(--accent);color:var(--white)}.moment-step[aria-current=step] .step-title{color:var(--ink);font-weight:600}.moment-step[aria-current=step] .step-description{grid-template-rows:1fr;opacity:1;margin-top:5px}.moment-step.is-done .step-marker{color:var(--accent);border-color:var(--accent)}.moment-step:hover .step-title{color:var(--ink)}.moment-copy .line-link{margin-top:21px;color:var(--accent);font-size:11px}.moment-copy .line-link .arrow{width:25px;height:25px}.scene-area{min-width:0;position:relative;display:flex;flex-direction:column;justify-content:center}.scene-figure{margin:0;min-width:0}.scene-art{width:100%;height:auto;overflow:visible}.scene-art text{font-family:var(--sans)}.scene-art .art-small{font-size:10px;letter-spacing:1.5px;fill:var(--muted)}.scene-art .art-label{font-size:15px;font-weight:550;letter-spacing:-.35px;fill:var(--ink)}.scene-art .art-note{font-size:10px;fill:var(--muted)}.scene-part{transition:opacity .6s,filter .6s;opacity:.25;filter:saturate(.6)}.scene-part.is-active{opacity:1;filter:none}.scene-part.is-done{opacity:.68;filter:none}.scene-part .part-art{transform-box:fill-box;transform-origin:center;transition:transform .6s var(--ease)}.scene-part.is-active .part-art{transform:translateY(-3px)}.scene-route{fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linecap:round;opacity:.15;transition:opacity .6s}.scene-route.is-active{opacity:.75;stroke-dasharray:4 9;animation:flow 12s linear infinite}.scene-route.is-done{opacity:.45}.art-float{animation:float 5s ease-in-out infinite}.art-pulse{animation:artPulse 3s ease-in-out infinite}.draw-in{stroke-dasharray:180;stroke-dashoffset:180;transition:stroke-dashoffset 1s var(--ease)}.is-active .draw-in,.is-done .draw-in{stroke-dashoffset:0}.art-check{transform-box:fill-box;transform-origin:center;transform:scale(.65);opacity:0;transition:transform .6s var(--ease),opacity .5s}.is-active .art-check,.is-done .art-check{transform:scale(1);opacity:1}.document-lines{transform-origin:330px 275px;transition:opacity .4s}.scene-caption{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:0 16px 19px;color:var(--muted);font-size:10px}.scene-caption strong{color:var(--accent);font-size:11px;font-weight:500;display:flex;align-items:center;gap:8px}.scene-caption strong:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}.player{border-top:1px solid var(--line);display:flex;align-items:center;gap:13px;padding:19px 12px 0}.player-main{display:flex;align-items:center;gap:9px;flex:none;font-size:10px;min-width:102px;text-align:left}.player-main .play-circle{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--white);display:grid;place-items:center;transition:background .2s}.player-main:hover .play-circle{background:var(--accent)}.play-circle svg{width:13px;height:13px}.player-progress{height:16px;flex:1;position:relative;cursor:pointer;padding:0;background:transparent;border-radius:2px}.player-progress:before{content:"";height:2px;background:var(--line);position:absolute;top:7px;left:0;right:0}.progress-fill{position:absolute;left:0;top:7px;height:2px;width:0;background:var(--accent);pointer-events:none}.progress-notch{position:absolute;top:4px;width:1px;height:8px;background:var(--white);pointer-events:none}.player-count{font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}.player .icon-button{border:0;color:var(--muted);width:29px;height:29px}.moment-footnote{margin-top:28px;padding-top:21px;border-top:1px solid var(--line);display:flex;gap:18px;align-items:center;font-size:10px;color:var(--muted)}.moment-footnote span:first-child{font-weight:550;color:var(--ink);display:flex;align-items:center;gap:6px}.moment-footnote svg{width:12px;height:12px;color:var(--accent)}.scene-area.is-changing{animation:sceneEnter .5s var(--ease)}
+.companion-card{min-height:220px}.companion-card p{font-size:10px;line-height:1.65}.companion-card p strong{color:var(--ink);font-weight:650}
 /* A quiet, useful closing, not another card grid. */
 .closing{padding:100px 0 73px;background:#e7ebdf;border-top:1px solid #d9dfd0;position:relative;overflow:hidden}.closing-top{display:grid;grid-template-columns:1.15fr 1fr;gap:80px;align-items:center}.closing h2{font-size:clamp(48px,4.8vw,70px);margin-top:24px;position:relative;z-index:1}.closing h2 em{color:var(--green)}.closing-copy{font-size:14px;line-height:1.85;color:var(--muted);max-width:350px}.closing .btn{margin-top:25px}.closing-features{display:grid;grid-template-columns:repeat(3,1fr);gap:42px;margin-top:63px;padding-top:25px;border-top:1px solid #cbd5c1}.closing-feature{display:flex;align-items:flex-start;gap:13px}.closing-feature svg{width:21px;height:21px;color:#72896a;flex:none;margin-top:2px}.closing-feature h3{font-size:14px;letter-spacing:-.02em;font-weight:600;line-height:1.4}.closing-feature p{font-size:11px;color:var(--muted);line-height:1.7;margin-top:6px;max-width:260px}.footer{padding:29px 0;display:flex;align-items:center;justify-content:space-between;gap:22px;font-size:10px;color:var(--muted)}.footer-logo{font-weight:650;font-size:13px;letter-spacing:-.025em;color:var(--ink)}.footer a{text-decoration:underline;text-underline-offset:5px;text-decoration-color:#bbc6b4}
 /* Suite brief: all choices remain peers, including a zero-product state. */
@@ -54,6 +58,22 @@
  .scene-art .art-label[text-anchor="start"]{font-size:15px}
 }
 .player .icon-button:disabled{opacity:.3;transform:none}
+.moment-body{position:relative}.platform-navigation{position:absolute;z-index:3;top:0;bottom:0;left:-82px;right:-82px;display:flex;align-items:center;justify-content:space-between;pointer-events:none}.platform-navigation[hidden]{display:none}.platform-nav{width:46px;height:46px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--ink);box-shadow:0 5px 18px #182e3212;pointer-events:auto;transition:background .2s,color .2s,transform .25s}.platform-nav svg{width:19px;height:19px}.platform-nav:hover{background:var(--accent);color:var(--white);transform:scale(1.06)}.platform-nav:focus-visible{outline-offset:4px}.platform-nav-prev svg{transform:rotate(180deg)}@media(max-width:720px){.platform-navigation{top:auto;bottom:6px;left:-16px;right:-16px}.platform-nav{width:38px;height:38px}}
+@media(max-width:1100px) and (min-width:721px){.suite-overview-grid{grid-template-columns:minmax(0,.8fr) minmax(440px,1.2fr);gap:42px}.suite-overview h1{font-size:clamp(55px,6.4vw,73px)}.suite-overview-lead{font-size:14px}.foundation-card{padding:24px}.companion-card{padding:16px 14px}}
+@media(max-width:900px) and (min-width:721px){.suite-overview{padding-block:72px}.suite-overview-grid{grid-template-columns:1fr;gap:40px}.suite-overview-copy{max-width:630px}.suite-overview h1{font-size:clamp(56px,8vw,72px)}.platform-family{max-width:680px}}
+@media(max-width:720px){.suite-overview{min-height:0;padding:59px 0 54px}.suite-overview-grid{display:block}.suite-overview .eyebrow{font-size:9px;margin-bottom:24px}.suite-overview h1{font-size:clamp(50px,13vw,72px)}.suite-overview-lead{font-size:14px;line-height:1.8;margin-top:24px}.suite-overview-actions{margin-top:24px}.suite-overview-actions .btn{font-size:11px;padding-inline:18px}.suite-overview-note{font-size:10px;margin-top:20px}.platform-family{margin-top:45px;gap:13px}.foundation-card{padding:23px 20px}.foundation-card-main{grid-template-columns:39px 1fr;gap:13px;margin-top:13px}.foundation-card-main svg{width:38px;height:38px}.foundation-card h2{font-size:21px}.foundation-card p{font-size:11px}.foundation-card .foundation-tag{margin-top:13px;font-size:8px}.companion-label{font-size:9px;margin-top:5px}.companion-grid{gap:8px}.companion-card{min-height:151px;padding:14px 10px}.companion-card svg{width:23px;height:23px;margin-bottom:19px}.companion-card h3{font-size:11px}.companion-card p{font-size:9px}.standalone-note{font-size:10px;padding:12px 13px}.suite-overview+ .connections{min-height:0}}
+@media(max-width:390px){.suite-overview h1{font-size:47px}.companion-card{padding-inline:8px}.companion-card h3{font-size:10px}.companion-card p{font-size:8px}}
+.platform-deck{display:grid;grid-template-columns:minmax(0,1fr) 146px;grid-template-rows:repeat(3,116px);gap:10px;height:368px}.platform-deck .foundation-card,.platform-deck .companion-card{grid-column:2;width:100%;min-height:0;margin:0;padding:14px 15px;border:1px solid var(--line);background:rgba(255,254,250,.86);box-shadow:none;overflow:hidden;text-align:left;cursor:pointer;transition:background .35s,border-color .35s,box-shadow .35s,transform .35s var(--ease),opacity .35s}.platform-deck .foundation-card:after,.platform-deck .foundation-card:before{display:none}.platform-deck .foundation-card:hover,.platform-deck .companion-card:hover{border-color:var(--product-color,var(--green));background:var(--white);transform:translateY(-2px)}.platform-deck .foundation-card-main{display:block;margin:0}.platform-deck .foundation-card-main svg{width:23px;height:23px;margin:0 0 7px;color:var(--green)}.platform-deck .foundation-card h2{font-size:12px;line-height:1.15;letter-spacing:-.025em}.card-name-short{display:inline}.card-name-full,.platform-deck .foundation-card:not([aria-expanded=true]) .muted,.platform-deck .foundation-card:not([aria-expanded=true]) p,.platform-deck .foundation-card:not([aria-expanded=true]) .foundation-tag,.platform-deck .foundation-card:not([aria-expanded=true]) .platform-kicker,.overview-details{display:none}.platform-deck .companion-card svg{width:23px;height:23px;margin:0 0 8px}.platform-deck .companion-card h3{font-size:12px;line-height:1.15}.platform-deck .companion-card p{display:none}.platform-deck .foundation-card[aria-expanded=true],.platform-deck .companion-card[aria-expanded=true]{grid-column:1;grid-row:1 / span 3;padding:27px 29px;border-color:var(--product-color,var(--green));background:var(--soft,var(--mint));box-shadow:0 18px 48px #26452b12;transform:none}.platform-deck .foundation-card[aria-expanded=true]{--product-color:var(--green);--soft:#e1efe3}.platform-deck .foundation-card[aria-expanded=true]:after{display:block;content:"";position:absolute;width:220px;height:220px;border:1px solid #a7c9ae;border-radius:50%;right:-82px;top:-105px}.platform-deck .foundation-card[aria-expanded=true] .platform-kicker{display:block}.platform-deck .foundation-card[aria-expanded=true] .foundation-card-main{position:relative;z-index:1;display:grid;grid-template-columns:50px 1fr;gap:17px;align-items:start;margin-top:14px}.platform-deck .foundation-card[aria-expanded=true] .foundation-card-main svg{width:47px;height:47px;margin:0}.platform-deck .foundation-card[aria-expanded=true] h2{font-size:25px;letter-spacing:-.045em;line-height:1.02}.platform-deck .foundation-card[aria-expanded=true] .card-name-full{display:inline}.platform-deck .foundation-card[aria-expanded=true] .card-name-short{display:none}.platform-deck .foundation-card[aria-expanded=true] p{display:block;font-size:11px;line-height:1.65;color:#547162;margin-top:9px;max-width:420px}.platform-deck .foundation-card[aria-expanded=true] .foundation-tag{display:inline-flex;margin-top:12px}.platform-deck .companion-card[aria-expanded=true]{display:block}.platform-deck .companion-card[aria-expanded=true] svg{width:29px;height:29px;margin-bottom:15px}.platform-deck .companion-card[aria-expanded=true] h3{font-size:23px;letter-spacing:-.04em}.platform-deck .companion-card[aria-expanded=true] p{display:block;max-width:350px;font-size:11px;line-height:1.65;margin-top:9px}.platform-deck .foundation-card[aria-expanded=true] .overview-details,.platform-deck .companion-card[aria-expanded=true] .overview-details{display:grid;gap:11px;position:relative;z-index:1;margin-top:16px;padding-top:14px;border-top:1px solid color-mix(in srgb,var(--product-color,var(--green)) 28%,transparent);font-size:10px;line-height:1.55;color:var(--muted);max-width:410px}.overview-details strong{display:block;color:var(--ink);font-weight:650;margin-bottom:2px}.overview-details span{display:block}.platform-deck .companion-card[aria-expanded=true]:after{left:29px;right:29px;bottom:0}.platform-deck.is-animating button{pointer-events:none}.companion-details{border-top:1px solid var(--line)}@media(max-width:720px){.platform-deck{grid-template-columns:minmax(0,1fr) 104px;grid-template-rows:repeat(3,106px);height:334px;gap:8px}.platform-deck .foundation-card,.platform-deck .companion-card{padding:11px}.platform-deck .foundation-card[aria-expanded=true],.platform-deck .companion-card[aria-expanded=true]{padding:18px}.platform-deck .foundation-card[aria-expanded=true] .foundation-card-main{grid-template-columns:39px 1fr;gap:13px;margin-top:10px}.platform-deck .foundation-card[aria-expanded=true] .foundation-card-main svg{width:38px;height:38px}.platform-deck .foundation-card[aria-expanded=true] h2{font-size:20px}.platform-deck .companion-card[aria-expanded=true] svg{margin-bottom:10px}.platform-deck .companion-card[aria-expanded=true] h3{font-size:19px}.platform-deck .companion-card[aria-expanded=true] p{font-size:10px}.platform-deck .foundation-card[aria-expanded=true] .overview-details,.platform-deck .companion-card[aria-expanded=true] .overview-details{font-size:9px;gap:7px;margin-top:10px;padding-top:9px}}
+.platform-deck .foundation-card[aria-expanded=true],.platform-deck .companion-card[aria-expanded=true]{background:var(--active-soft,var(--mint))}
+.foundation-card .foundation-tag:after{display:none}
+/* Give the left-side Learning Platform connector a clean paper buffer. */
+.connection--left-arc .connect-aura{fill:none;stroke:#faf9f4;stroke-width:6;stroke-linecap:round;opacity:.84}
+/* Visual hierarchy: CML uses 55% of the product-art area; each companion uses 15%. */
+.suite-node .node-art{transform:scale(var(--node-scale,1))}
+.suite-node:hover .node-art,.suite-node:focus-visible .node-art{transform:translateY(-7px) scale(var(--node-scale,1))}
+.suite-node[data-key=cml]{--node-scale:1.2}
+.suite-node[data-key=doc],.suite-node[data-key=learn],.suite-node[data-key=time]{--node-scale:.8}
+.suite-node[data-key=cml] .product-label,.suite-node[data-key=cml] .product-descriptor{transform:translateY(35px)}
 </style>
 </head>
 <body class="no-js">
@@ -76,17 +96,40 @@
 <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs></svg>
 <header class="topbar"><div class="shell topbar-inner">
-<a class="brand" href="#connected" aria-label="GigaSphere — back to the beginning"><img src="images/GS%20Logo-No%20BG.png" alt="GigaSphere" style="display:block;width:auto;height:40px"></a>
-<nav class="nav" aria-label="Main navigation"><a href="#connected" class="active" data-nav="connected"><span>01</span>Connected Service Flow</a><a href="#moments" data-nav="moments"><span>02</span>Product suite &amp; moments</a></nav>
+<a class="brand" href="#overview" aria-label="GigaSphere — back to the beginning"><img src="images/GS%20Logo-No%20BG.png" alt="GigaSphere" style="display:block;width:auto;height:40px"></a>
+<nav class="nav" aria-label="Main navigation"><a href="#overview" class="active" data-nav="overview"><span>01</span>Platform suite</a><a href="#connected" data-nav="connected"><span>02</span>Connected service flow</a><a href="#moments" data-nav="moments"><span>03</span>Product moments</a></nav>
 <div class="nav-actions"><button class="icon-button motion-toggle" id="motionToggle" aria-label="Pause all animations" aria-pressed="false" title="Pause all animations"><svg aria-hidden="true"><use href="#i-pause"/></svg></button><button class="btn review-suite">Build your suite<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
 </div><div class="header-progress" aria-hidden="true" id="pageProgress"></div></header>
 <noscript><p class="noscript-note">Four independent products. Enable JavaScript to explore the animated stories and build your own suite.</p></noscript>
 <main id="main">
+<section class="suite-overview" id="overview" aria-labelledby="suiteOverviewTitle">
+<div class="shell suite-overview-grid">
+<div class="suite-overview-copy reveal visible">
+<div class="eyebrow"><span class="section-id">01</span><span class="rule"></span>Candidate platform suite</div>
+<h1 id="suiteOverviewTitle"><span class="title-prefix">A unified</span><em class="display">onboarding<br>process.</em></h1>
+<p class="suite-overview-lead">Candidate Management Lakehouse (CML) is the foundation for bringing candidate information, decisions and team context into one clear place. Three specialist platforms extend that work wherever it needs to go next.</p>
+<div class="suite-overview-actions"><a class="btn" href="#connected">Explore the suite<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+<p class="suite-overview-note">Start with CML for a connected candidate journey, or choose any specialist platform on its own.</p>
+</div>
+<div class="platform-family reveal visible" aria-label="CML platform family">
+<div class="platform-deck" role="group" aria-label="Explore the platform family">
+<button class="foundation-card" type="button" aria-expanded="true" aria-label="Candidate Management Lakehouse. Selected. Click to view details." style="--active-soft:#e1efe3">
+<div class="platform-kicker">The foundation</div>
+<div class="foundation-card-main"><svg aria-hidden="true"><use href="#i-cml"/></svg><div><h2><span class="card-name-short">CML</span><span class="card-name-full">Candidate Management Lakehouse</span> <span class="muted">(CML)</span></h2><p>The recruitment workspace for sourcing candidates, screening applications, coordinating hiring-team reviews and recording every decision in one traceable candidate record.</p><span class="foundation-tag">Core candidate platform</span></div></div><div class="overview-details"><div><strong>How it works</strong>Bring candidates in from applications or sourcing, screen them, route reviews to the hiring team and record the outcome.</div><div><strong>Main functions</strong>Candidate profiles, pipeline and next-step tracking, shared feedback, decision history and reporting-ready records.</div></div>
+</button>
+<button class="companion-card" type="button" aria-expanded="false" aria-label="HRDocu. Click to view details." style="--product-color:var(--doc);--active-soft:var(--doc-soft)"><svg aria-hidden="true"><use href="#i-doc"/></svg><h3>HRDocu</h3><p><strong>For HR document collection.</strong> HRDocu gives HR teams one secure place to collect, organise and follow up on employment, onboarding and compliance paperwork instead of chasing attachments through email.</p><div class="overview-details"><div><strong>How it works</strong>Create a document request, send a secure time-limited upload link, then review submissions and follow anything outstanding.</div><div><strong>Main functions</strong>Configurable requests, secure external uploads, document status, expiry reminders, controlled team access and a complete audit trail.</div></div></button>
+<button class="companion-card" type="button" aria-expanded="false" aria-label="Learning Platform. Click to view details." style="--product-color:var(--learn);--active-soft:var(--learn-soft)"><svg aria-hidden="true"><use href="#i-learn"/></svg><h3>Learning Platform</h3><p><strong>For new-hire and required training.</strong> It helps employers deliver a consistent onboarding and compliance-learning experience, while giving managers clear evidence of progress and completion.</p><div class="overview-details"><div><strong>How it works</strong>Assign the right learning by role or person, let employees complete it at their own pace, and monitor what remains outstanding.</div><div><strong>Main functions</strong>Learning assignments, structured modules, learner progress, manager visibility, completion records and follow-up for overdue training.</div></div></button>
+<button class="companion-card" type="button" aria-expanded="false" aria-label="TimeTracker Pro. Click to view details." style="--product-color:var(--time);--active-soft:var(--time-soft)"><svg aria-hidden="true"><use href="#i-time"/></svg><h3>TimeTracker Pro</h3><p><strong>For managing work time.</strong> TimeTracker Pro gives teams a reliable, reviewable record of hours worked across employees, contractors and projects before time is sent to payroll or billing.</p><div class="overview-details"><div><strong>How it works</strong>Set up people and projects, capture time through entries or a punch clock, then have the right manager review and approve it.</div><div><strong>Main functions</strong>Project-based time logging, clock-in/out, notes and exceptions, approval workflows, timesheets and payroll-ready submissions.</div></div></button>
+</div>
+<p class="standalone-note"><strong>Flexible by design.</strong> HRDocu, Learning Platform and TimeTracker Pro grew from the CML workflow, but each is available to purchase and use independently.</p>
+</div>
+</div>
+</section>
 <section class="connections" id="connected" aria-labelledby="mainTitle">
 <div class="shell story-layout">
 <div class="narrative">
 <div class="beat intro" id="start" data-chapter="0">
-<div class="eyebrow"><span class="section-id">01</span><span class="rule"></span>Connected Service Flow</div>
+<div class="eyebrow"><span class="section-id">02</span><span class="rule"></span>Connected Service Flow</div>
 <h1 id="mainTitle">One suite.<br class="desktop-break"><em class="display">Your way.</em><span class="sr-only"> Four independent products.</span></h1>
 <p class="intro-copy">Choose your suite and see the workflow below. Select the products that fit your team. Then explore how each one supports the work you do every day.</p>
 <div class="intro-actions"><a class="btn" href="#workflow">See the workflow<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
@@ -96,7 +139,7 @@
 <div class="map-meta"><span>A suite, not a sequence</span><span class="selected-status"><i class="status-dot"></i><span id="mapSelection">4 products selected</span></span></div>
 <!-- Four peer products. Paths terminate at a neutral team, never another product. -->
 <svg class="ecosystem" id="ecosystem" viewBox="0 0 800 735" role="group" aria-labelledby="mapTitle mapDesc">
-<title id="mapTitle">Four independent products around your team</title><desc id="mapDesc">CML, HRDocu, Learning Platform and TimeTracker Pro are equal, optional choices. Select any product to add or remove it. Connections represent the suite concept, not an integration specification.</desc>
+<title id="mapTitle">Four independent products around your team</title><desc id="mapDesc">Candidate Management Lakehouse (CML), HRDocu, Learning Platform and TimeTracker Pro are equal, optional choices. Select any product to add or remove it. Connections represent the suite concept, not an integration specification.</desc>
 <defs>
 <filter id="paperShadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#40543d" flood-opacity=".065"/></filter>
 <pattern id="littleDots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".6" fill="#b9c8b5"/></pattern>
@@ -106,28 +149,28 @@
 <path class="ambient-leaf" d="M398 369C394 556 248 674 169 594S210 378 398 369Z" fill="#e3e8c7"/>
 <path class="ambient-leaf" d="M408 369C595 369 702 540 622 619S417 556 408 369Z" fill="#efe0c8"/>
 <circle class="orbit-guide" cx="400" cy="365" r="268"/>
-<g class="connection" data-key="cml" data-enabled="true" style="color:var(--green)"><path id="link-cml" class="connect-base" d="M244 235C300 264 318 301 350 322"/><path class="connect-travel" d="M244 235C300 264 318 301 350 322"/><circle r="5" class="packet"><animateMotion dur="5s" begin="-1s" repeatCount="indefinite"><mpath href="#link-cml"/></animateMotion></circle></g>
-<g class="connection" data-key="doc" data-enabled="true" style="color:var(--doc)"><path id="link-doc" class="connect-base" d="M556 235C500 264 482 301 450 322"/><path class="connect-travel" d="M556 235C500 264 482 301 450 322"/><circle r="5" class="packet"><animateMotion dur="5.7s" begin="-3s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#link-doc"/></animateMotion></circle></g>
-<g class="connection" data-key="learn" data-enabled="true" style="color:var(--learn)"><path id="link-learn" class="connect-base" d="M244 493C300 465 318 428 350 407"/><path class="connect-travel" d="M244 493C300 465 318 428 350 407"/><circle r="5" class="packet"><animateMotion dur="6s" begin="-2s" repeatCount="indefinite"><mpath href="#link-learn"/></animateMotion></circle></g>
-<g class="connection" data-key="time" data-enabled="true" style="color:var(--time)"><path id="link-time" class="connect-base" d="M556 493C500 465 482 428 450 407"/><path class="connect-travel" d="M556 493C500 465 482 428 450 407"/><circle r="5" class="packet"><animateMotion dur="5.4s" begin="-4.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#link-time"/></animateMotion></circle></g>
-<g transform="translate(400 365)"><circle class="core-ring" r="104"/><circle class="core-disc" r="92" filter="url(#paperShadow)"/><text class="core-small" text-anchor="middle" y="-48">BUILT AROUND</text>
+<g class="connection connection--accent" data-key="cml" data-enabled="true" style="color:var(--green)"><path class="connect-aura" d="M350 110C405 86 455 103 480 138"/><path id="link-cml" class="connect-base" d="M350 110C405 86 455 103 480 138"/><path class="connect-travel" d="M350 110C405 86 455 103 480 138"/><circle class="connection-anchor" cx="350" cy="110" r="2.6"/><circle class="connection-anchor" cx="480" cy="138" r="2.6"/><circle r="5" class="packet"><animateMotion dur="5s" begin="-1s" repeatCount="indefinite"><mpath href="#link-cml"/></animateMotion></circle></g>
+<g class="connection connection--accent" data-key="doc" data-enabled="true" style="color:var(--doc)"><path class="connect-aura" d="M640 255C700 330 675 400 620 450"/><path id="link-doc" class="connect-base" d="M640 255C700 330 675 400 620 450"/><path class="connect-travel" d="M640 255C700 330 675 400 620 450"/><circle class="connection-anchor" cx="640" cy="255" r="2.6"/><circle class="connection-anchor" cx="620" cy="450" r="2.6"/><circle r="5" class="packet"><animateMotion dur="5.7s" begin="-3s" repeatCount="indefinite"><mpath href="#link-doc"/></animateMotion></circle></g>
+<g class="connection connection--accent" data-key="time" data-enabled="true" style="color:var(--time)"><path class="connect-aura" d="M470 585C400 625 335 615 290 570"/><path id="link-time" class="connect-base" d="M470 585C400 625 335 615 290 570"/><path class="connect-travel" d="M470 585C400 625 335 615 290 570"/><circle class="connection-anchor" cx="470" cy="585" r="2.6"/><circle class="connection-anchor" cx="290" cy="570" r="2.6"/><circle r="5" class="packet"><animateMotion dur="5.4s" begin="-4.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#link-time"/></animateMotion></circle></g>
+<g class="connection connection--left-arc" data-key="learn" data-enabled="true" style="color:var(--learn)"><path class="connect-aura" d="M155 430C108 409 82 366 83 319C84 282 99 253 120 232"/><path id="link-learn" class="connect-base" d="M155 430C108 409 82 366 83 319C84 282 99 253 120 232"/><path class="connect-travel" d="M155 430C108 409 82 366 83 319C84 282 99 253 120 232"/><circle class="connection-anchor" cx="155" cy="430" r="2.6"/><circle class="connection-anchor" cx="120" cy="232" r="2.6"/><circle r="5" class="packet"><animateMotion dur="6s" begin="-2s" repeatCount="indefinite"><mpath href="#link-learn"/></animateMotion></circle></g>
+<g transform="translate(400 365)"><circle class="core-ring" r="104"/><circle class="core-disc" r="86" filter="url(#paperShadow)"/><text class="core-small" text-anchor="middle" y="-48">BUILT AROUND</text>
 <g transform="translate(0 -21)" fill="none" stroke="#60765a" stroke-width="1.5"><circle cx="0" cy="-5" r="8"/><path d="M-15 18V14a15 15 0 0 1 30 0v4"/><circle cx="-20" cy="0" r="5"/><circle cx="20" cy="0" r="5"/><path d="M-29 19v-4a9 9 0 0 1 9-9M29 19v-4a9 9 0 0 0-9-9"/></g>
 <text class="core-title" text-anchor="middle" y="31" id="coreTitle">Your team</text><text class="core-sub" text-anchor="middle" y="53" id="coreSubtitle">YOUR CHOICE OF TOOLS</text></g>
-<g class="suite-node" data-key="cml" role="button" tabindex="0" aria-pressed="true" aria-label="CML, recruiting. Remove from your suite." transform="translate(-40 0)">
-<circle class="focus-outline" cx="220" cy="175" r="105"/><circle cx="220" cy="175" r="111" fill="transparent"/>
-<g class="node-art"><g class="node-breathe"><path d="M120 167C122 97 176 68 236 81s96 47 84 111-43 91-111 84-96-49-89-109Z" fill="#d7e9dc"/>
+<g class="suite-node" data-key="cml" role="button" tabindex="0" aria-pressed="true" aria-label="Candidate Management Lakehouse, CML. Remove from your suite." transform="translate(0 0)">
+<circle class="focus-outline" cx="220" cy="175" r="148"/><circle cx="220" cy="175" r="157" fill="transparent"/>
+<g class="node-art"><g transform="translate(-61.6 -49) scale(1.28)"><g class="node-breathe"><path d="M120 167C122 97 176 68 236 81s96 47 84 111-43 91-111 84-96-49-89-109Z" fill="#d7e9dc"/>
 <circle cx="220" cy="169" r="71" fill="none" stroke="#a9c8ad" stroke-width="1"/><path d="M162 164a60 60 0 0 1 79-48" fill="none" stroke="#608f6c" stroke-width="1.6" stroke-linecap="round"/><circle cx="246" cy="119" r="4" fill="#3b7458"/>
 <path d="M179 225v-17c0-26 19-39 40-39s42 14 42 39v17" fill="#4c7c5c"/><path d="m205 178 15 24 15-24" fill="#f5f4ee"/><ellipse cx="220" cy="150" rx="23" ry="27" fill="#dbb89b"/><path d="M197 150c-4-25 12-38 29-32 17-3 22 18 15 32l-7-19c-17 6-27 2-32 9l-5 10Z" fill="#334c37"/><path d="M178 225h84" stroke="#31543c" stroke-width="1.5"/>
 <g transform="translate(284 112)"><circle class="selection-badge" r="12" fill="#327e65" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round"/></g>
-</g></g><text x="220" y="305" text-anchor="middle" class="product-label">CML</text><text x="220" y="325" text-anchor="middle" class="product-descriptor">RECRUITING</text></g>
-<g class="suite-node" data-key="doc" role="button" tabindex="0" aria-pressed="true" aria-label="HRDocu, documents. Remove from your suite." transform="translate(40 0)">
+</g></g></g><text x="220" y="310" text-anchor="middle" class="product-label" style="font-size:14px">Candidate Management</text><text x="220" y="330" text-anchor="middle" class="product-label" style="font-size:14px">Lakehouse (CML)</text><text x="220" y="350" text-anchor="middle" class="product-descriptor">THE FOUNDATION</text></g>
+<g class="suite-node" data-key="doc" role="button" tabindex="0" aria-pressed="true" aria-label="HRDocu, documents. Remove from your suite." transform="translate(-20 20)">
 <circle class="focus-outline" cx="580" cy="175" r="105"/><circle cx="580" cy="175" r="111" fill="transparent"/>
 <g class="node-art"><g class="node-breathe"><path d="M483 160c10-65 64-86 119-76s91 59 79 118-64 87-119 69-89-48-79-111Z" fill="#dfe8f2"/>
 <g transform="rotate(-13 578 176)"><rect x="540" y="113" width="80" height="116" rx="5" fill="#a6bfdc" stroke="#90aacb" stroke-width="1"/></g>
 <path d="M548 109h57l25 25v106h-82Z" fill="#fffefa" stroke="#809abf" stroke-width="1.2"/><path d="M605 109v26h25" fill="#d6e2f1" stroke="#809abf" stroke-width="1.2"/><path d="M565 158h32m-32 13h44m-44 13h36" stroke="#a1b5ce" stroke-width="2" stroke-linecap="round"/><circle cx="618" cy="217" r="22" fill="#567ba9" stroke="#e2eaf3" stroke-width="3"/><path d="m609 216 6 6 11-12" fill="none" stroke="#fffefa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <g transform="translate(646 112)"><circle class="selection-badge" r="12" fill="#466fae" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round"/></g>
 </g></g><text x="580" y="305" text-anchor="middle" class="product-label">HRDocu</text><text x="580" y="325" text-anchor="middle" class="product-descriptor">DOCUMENTS</text></g>
-<g class="suite-node" data-key="learn" role="button" tabindex="0" aria-pressed="true" aria-label="Learning Platform, training. Remove from your suite." transform="translate(-40 0)">
+<g class="suite-node" data-key="learn" role="button" tabindex="0" aria-pressed="true" aria-label="Learning Platform, training. Remove from your suite." transform="translate(0 -40)">
 <circle class="focus-outline" cx="220" cy="555" r="105"/><circle cx="220" cy="555" r="111" fill="transparent"/>
 <g class="node-art"><g class="node-breathe"><path d="M124 539c9-61 64-89 119-74s94 49 77 115-55 81-115 73-90-51-81-114Z" fill="#e4e9c8"/>
 <path d="M153 536c25-12 47-9 67 5 23-13 45-17 67-5v66c-24-11-46-7-67 6-20-14-44-17-67-6Z" fill="#a2b16b" stroke="#7b9151" stroke-width="1.1"/>
@@ -135,35 +178,36 @@
 <path d="m247 492 5 11 12 2-9 8 2 12-10-6-11 6 2-12-9-8 13-2Z" fill="#8b9a4b"/>
 <g transform="translate(285 490)"><circle class="selection-badge" r="12" fill="#748241" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round"/></g>
 </g></g><text x="220" y="684" text-anchor="middle" class="product-label">Learning Platform</text><text x="220" y="704" text-anchor="middle" class="product-descriptor">TRAINING</text></g>
-<g class="suite-node" data-key="time" role="button" tabindex="0" aria-pressed="true" aria-label="TimeTracker Pro, work time. Remove from your suite." transform="translate(40 0)">
+<g class="suite-node" data-key="time" role="button" tabindex="0" aria-pressed="true" aria-label="TimeTracker Pro, work time. Remove from your suite." transform="translate(-30 -35)">
 <circle class="focus-outline" cx="580" cy="555" r="105"/><circle cx="580" cy="555" r="111" fill="transparent"/>
 <g class="node-art"><g class="node-breathe"><path d="M482 544c4-62 53-92 115-82s95 53 86 117-62 86-119 70-87-45-82-105Z" fill="#f0e1c9"/>
 <circle cx="581" cy="555" r="66" fill="#d4b281"/><circle cx="581" cy="551" r="61" fill="#fffaf1" stroke="#a98a5d" stroke-width="1.2"/><circle cx="581" cy="551" r="49" fill="none" stroke="#dfd1b9" stroke-width="1" stroke-dasharray="1 7"/><path d="M581 502v8m49 41h-8m-41 49v-8m-49-41h8" stroke="#a58d64" stroke-width="1.6" stroke-linecap="round"/><path d="M581 521v30l24 13" stroke="#8a6538" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="581" cy="551" r="4" fill="#8a6538"/>
 <g transform="translate(646 490)"><circle class="selection-badge" r="12" fill="#af7432" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round"/></g>
 </g></g><text x="580" y="684" text-anchor="middle" class="product-label">TimeTracker Pro</text><text x="580" y="704" text-anchor="middle" class="product-descriptor">WORK TIME</text></g>
 </svg>
-<div class="diagram-footer"><p class="map-caption" id="mapCaption">Four products. Equally independent.</p><p class="map-instruction">Select any illustration to add or remove a product.</p></div>
+<div class="diagram-footer"><p class="map-caption" id="mapCaption">CML at the heart. Connected by choice.</p><p class="map-instruction">Select any illustration to add or remove a product.</p></div>
 </div>
 </div>
 </section>
 <section class="moments" id="moments" aria-labelledby="momentsTitle">
 <div class="shell">
-<div class="section-heading reveal"><div><div class="eyebrow"><span class="section-id">02</span><span class="rule"></span>Product suite &amp; moments</div><h2 id="momentsTitle">The work behind<br><em class="display">a better workday.</em></h2></div></div>
+<div class="section-heading reveal"><div><div class="eyebrow"><span class="section-id">03</span><span class="rule"></span>Product suite &amp; moments</div><h2 id="momentsTitle">The work behind<br><em class="display">a better workday.</em></h2></div></div>
 <div class="product-tabs" id="workflow" role="tablist" aria-label="Choose a product story">
-<button class="product-tab" id="tab-cml" data-key="cml" role="tab" aria-selected="true" aria-controls="productPanel" tabindex="0" style="--product-color:var(--green)"><svg aria-hidden="true"><use href="#i-cml"/></svg><span>CML<span class="tab-category">Candidate &amp; hiring</span></span></button>
+<button class="product-tab" id="tab-cml" data-key="cml" role="tab" aria-selected="true" aria-controls="productPanel" tabindex="0" style="--product-color:var(--green)"><svg aria-hidden="true"><use href="#i-cml"/></svg><span>Candidate Management Lakehouse <span class="tab-category">CML · Candidate &amp; hiring</span></span></button>
 <button class="product-tab" id="tab-doc" data-key="doc" role="tab" aria-selected="false" aria-controls="productPanel" tabindex="-1" style="--product-color:var(--doc)"><svg aria-hidden="true"><use href="#i-doc"/></svg><span>HRDocu<span class="tab-category">Secure documents</span></span></button>
-<button class="product-tab" id="tab-learn" data-key="learn" role="tab" aria-selected="false" aria-controls="productPanel" tabindex="-1" style="--product-color:var(--learn)"><svg aria-hidden="true"><use href="#i-learn"/></svg><span>Learning Platform<span class="tab-category">Client-specific training</span></span></button>
+<button class="product-tab" id="tab-learn" data-key="learn" role="tab" aria-selected="false" aria-controls="productPanel" tabindex="-1" style="--product-color:var(--learn)"><svg aria-hidden="true"><use href="#i-learn"/></svg><span>Learning Platform<span class="tab-category">New-hire training</span></span></button>
 <button class="product-tab" id="tab-time" data-key="time" role="tab" aria-selected="false" aria-controls="productPanel" tabindex="-1" style="--product-color:var(--time)"><svg aria-hidden="true"><use href="#i-time"/></svg><span>TimeTracker Pro<span class="tab-category">Work-time management</span></span></button>
 </div>
 <p class="workflow-empty" id="workflowEmpty" hidden>Choose one or more platforms above to explore their workflow.</p>
 <div class="moment-body" id="productPanel" role="tabpanel" aria-labelledby="tab-cml" tabindex="0">
-<div class="moment-copy"><div class="product-eyebrow" id="productEyebrow">CML / Candidate &amp; hiring</div><h3 id="momentTitle">See the person.<br>Not just the application.</h3><p class="moment-description" id="momentDescription">Bring applications, screening and team review into focus, with a clear record of every hiring decision.</p><div class="step-list" id="stepList" aria-label="Steps within this product"></div><button class="line-link" id="addCurrentProduct">Include in my suite <span class="arrow" aria-hidden="true">+</span></button></div>
+<div class="platform-navigation" id="platformNavigation" aria-label="Product story navigation" hidden><button class="platform-nav platform-nav-prev" id="previousProduct" aria-label="Previous product story" title="Previous product story"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button><button class="platform-nav" id="nextProduct" aria-label="Next product story" title="Next product story"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+<div class="moment-copy"><div class="product-eyebrow" id="productEyebrow">Candidate Management Lakehouse (CML) / Candidate &amp; hiring</div><h3 id="momentTitle">See the person.<br>Not just the application.</h3><p class="moment-description" id="momentDescription">Bring applications, screening and team review into focus, with a clear record of every hiring decision.</p><div class="step-list" id="stepList" aria-label="Steps within this product"></div></div>
 <div class="scene-area" id="sceneArea"><figure class="scene-figure"><svg class="scene-art" id="sceneArt" viewBox="0 0 760 560" role="img" aria-labelledby="sceneTitle sceneDescription"></svg><figcaption class="scene-caption"><strong id="sceneStatus">A candidate comes into view.</strong><span>Illustrative product workflow</span></figcaption></figure>
 <div class="player" id="storyPlayer"><button class="player-main" id="playStory" aria-label="Play this product story"><span class="play-circle"><svg aria-hidden="true"><use href="#i-play"/></svg></span><span class="player-label">Play story</span></button><div class="player-progress" id="storySeek" role="slider" aria-label="Product story progress" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" aria-valuetext="Step 1 of 4" tabindex="0"><span class="progress-fill" id="storyFill"></span><span class="progress-notch" style="left:25%"></span><span class="progress-notch" style="left:50%"></span><span class="progress-notch" style="left:75%"></span></div><span class="player-count" id="storyCount">01 / 04</span><button class="icon-button" id="replayStory" aria-label="Replay this product story" title="Replay story"><svg aria-hidden="true"><use href="#i-replay"/></svg></button><button class="icon-button" id="nextStep" aria-label="Next step" title="Next step"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
 </div>
 </div>
 <div class="moment-footnote"><span><svg aria-hidden="true"><use href="#i-suite"/></svg>A complete product on its own.</span><span>These steps happen inside the selected product. They are not dependencies between products.</span></div>
-<div class="fallback-products"><article><h3>CML</h3><p>Candidate and recruitment management. Collect candidate data from LinkedIn and Indeed, screen applications, review with the hiring team and record decisions and activity history.</p></article><article><h3>HRDocu</h3><p>Secure document collection. Send a request, receive files through a secure time-limited upload link, review submissions and expiry dates, and retain an audit trail.</p></article><article><h3>Learning Platform</h3><p>Client-specific training. Assign a program, complete learning, track progress and record completion.</p></article><article><h3>TimeTracker Pro</h3><p>Work-time management. Onboard contractors and projects, log or punch time, review and approve hours, then make biweekly submissions.</p></article></div>
+<div class="fallback-products"><article><h3>Candidate Management Lakehouse (CML)</h3><p>Candidate and recruitment management. Collect candidate data from LinkedIn and Indeed, screen applications, review with the hiring team and record decisions and activity history.</p></article><article><h3>HRDocu</h3><p>Secure document collection. Send a request, receive files through a secure time-limited upload link, review submissions and expiry dates, and retain an audit trail.</p></article><article><h3>Learning Platform</h3><p>New-hire training. Employers assign required training, follow progress and record completion.</p></article><article><h3>TimeTracker Pro</h3><p>Work-time management. Onboard contractors and projects, log or punch time, review and approve hours, then make biweekly submissions.</p></article></div>
 </div>
 </section>
 </main>
@@ -174,9 +218,11 @@
 (() => {
   // Content adapted from the supplied page. Suite membership is independent of story order.
   const PRODUCTS = {
-    cml: {name:'CML', category:'Candidate & hiring', job:'Find the right people', accent:'#327e65', soft:'#dcece0',
+    cml: {name:'Candidate Management Lakehouse (CML)', category:'Candidate & hiring', job:'Find the right people', accent:'#327e65', soft:'#dcece0',
       title:'See the person.<br>Not just the application.',
-      description:'Bring applications, screening and team review into focus, with a clear record of every hiring decision.',
+      description:'CML is the recruitment workspace for teams that need a complete, shared picture of every candidate. It brings sourcing, screening, collaborative review and hiring decisions into one traceable candidate record.',
+      purpose:'Use CML to replace disconnected candidate spreadsheets, inboxes and review notes with one structured hiring workflow.',
+      features:['Candidate profiles built from sourcing and application data','Screening notes, ownership and next-step tracking','Shared hiring-team review and recorded decisions'],
       steps:[
         ['Collect','Bring candidate data from LinkedIn and Indeed into one candidate view.','A candidate comes into view.'],
         ['Screen','HR checks fit, experience and the next step, with the candidate context close at hand.','Give screening the full context.'],
@@ -187,7 +233,9 @@
     },
     doc: {name:'HRDocu', category:'Secure documents', job:'Collect documents', accent:'#466fae', soft:'#e6edf8',
       title:'Less chasing.<br>A clearer trail.',
-      description:'A focused place to request, receive and review documents, while keeping every important event visible.',
+      description:'HRDocu is a secure document collection workspace for HR teams. Use it to request the documents needed for hiring, onboarding, employment administration or compliance without relying on untracked email attachments.',
+      purpose:'HR teams create a request, recipients upload files through a secure time-limited link, and the team can see what has arrived, what expires and what still needs attention.',
+      features:['Secure, time-limited links for external document upload','Central review of submissions, request status and expiry dates','An auditable record of requests, uploads and review activity'],
       steps:[
         ['Request','Choose the required documents and send the recipient a secure request.','One request starts the right conversation.'],
         ['Upload','The recipient submits files through a secure, time-limited upload link.','A simple way to share the files.'],
@@ -196,20 +244,24 @@
       ],
       brief:'Secure requests, time-limited upload links, file review, expiry tracking, team access and audit logs.'
     },
-    learn: {name:'Learning Platform', category:'Client-specific training', job:'Develop your team', accent:'#748241', soft:'#ebefd5',
-      title:'Learning that<br>fits your team.',
-      description:'Shape training around each client. Make the next learning step clear and keep progress visible.',
+    learn: {name:'Learning Platform', category:'New-hire training', job:'Train new employees', accent:'#748241', soft:'#ebefd5',
+      title:'New-hire training.<br>Clearly on track.',
+      description:'Learning Platform is the onboarding and mandatory-training hub for new employees. It gives employers a consistent way to assign learning, make requirements clear and confirm that onboarding knowledge has been completed.',
+      purpose:'Managers assign the right learning to each person, learners complete it at their own pace, and HR or managers can follow outstanding and completed training.',
+      features:['Role-appropriate onboarding and required training assignments','Learner progress visibility for managers and HR','Completion records that show required training has been finished'],
       steps:[
-        ['Assign','Assign the program that fits the client and the learning need.','Start with a program that belongs here.'],
-        ['Learn','The learner works through the assigned training program.','Give learning a clear place to happen.'],
-        ['Track','Follow progress and see which learning is still outstanding.','See the progress, not just the assignment.'],
-        ['Complete','Record completion and keep the learning outcome visible.','Turn progress into a recorded achievement.']
+        ['Assign','Employers assign the required onboarding training to each new employee.','Start every new hire with the right training.'],
+        ['Learn','New employees work through the training assigned to them.','Give onboarding learning a clear place to happen.'],
+        ['Track','Employers follow progress and see which training is still outstanding.','See each learner’s progress, not just the assignment.'],
+        ['Complete','Record completion so the employer has a clear training record.','Turn progress into a recorded onboarding outcome.']
       ],
-      brief:'Client-specific training programs, learning assignments, progress tracking and completion.'
+      brief:'New-hire training assignments, employer progress tracking and completion records.'
     },
     time: {name:'TimeTracker Pro', category:'Work-time management', job:'Manage work time', accent:'#af7432', soft:'#f6e7cd',
       title:'Every hour.<br>Clearly accounted for.',
-      description:'From contractor setup to biweekly submission, give work time a clear path through review and approval.',
+      description:'TimeTracker Pro is the work-time management tool for teams using employees or contractors across projects. It turns daily hours into a clear, reviewable record before those hours are submitted for the next payroll or billing cycle.',
+      purpose:'Set up people and projects, let workers log or punch their time, then give approvers a controlled place to check hours, notes and exceptions.',
+      features:['Worker, project and access setup for accurate time capture','Project-based time entry and punch-clock options','Review, approval and biweekly payroll-ready submissions'],
       steps:[
         ['Onboard','Set up the contractor, project and the access needed to begin.','Put the person and the project in place.'],
         ['Log','Log time against a project or use the punch clock to capture work.','Give the working day a clear record.'],
@@ -224,6 +276,35 @@
   const $$ = selector => [...document.querySelectorAll(selector)];
   const icon = (name, css='') => `<svg aria-hidden="true"${css ? ` class="${css}"` : ''}><use href="#i-${name}"/></svg>`;
   const clamp = (value,min,max) => Math.min(max,Math.max(min,value));
+  // The overview deck always has one expanded card. Without this state, its
+  // grid intentionally reserves a large empty detail column on the left.
+  const overviewCards = $$('.platform-deck > button');
+  function expandOverviewCard(activeCard){
+    if(activeCard.getAttribute('aria-expanded') === 'true')return;
+    const firstPositions = new Map(overviewCards.map(card=>[card,card.getBoundingClientRect()]));
+    overviewCards.forEach(card => {
+      const active = card === activeCard;
+      card.setAttribute('aria-expanded', String(active));
+      const name = card.querySelector('.card-name-full, h3').textContent.trim();
+      card.setAttribute('aria-label', `${name}. ${active ? 'Selected. Click to view details.' : 'Click to view details.'}`);
+    });
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || !Element.prototype.animate)return;
+    requestAnimationFrame(()=>{
+      const animations=[];
+      overviewCards.forEach(card=>{
+        const first=firstPositions.get(card),last=card.getBoundingClientRect();
+        const dx=first.left-last.left,dy=first.top-last.top;
+        const sx=first.width/last.width,sy=first.height/last.height;
+        if(Math.abs(dx)<1 && Math.abs(dy)<1 && Math.abs(sx-1)<.01 && Math.abs(sy-1)<.01)return;
+        animations.push(card.animate(
+          [{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`},{transform:'translate(0,0) scale(1,1)'}],
+          {duration:520,easing:'cubic-bezier(.22,1,.36,1)'}
+        ));
+      });
+      Promise.all(animations.map(animation=>animation.finished.catch(()=>{}))).catch(()=>{});
+    });
+  }
+  overviewCards.forEach(card => card.addEventListener('click', () => expandOverviewCard(card)));
   const mediaReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const mediaMobile = window.matchMedia('(max-width: 720px)');
   const STORE_KEY = 'talenthub-suite-story-v1';
@@ -266,7 +347,7 @@
   function svgStart(title,desc){return `<title id="sceneTitle">${title}</title><desc id="sceneDescription">${desc}</desc>`;}
 
   function cmlArt(){
-    return svgStart('CML: from candidate sources to a recorded decision','A branching recruitment illustration. LinkedIn and Indeed converge on a candidate profile. A curved path continues through screening, team review and a recorded decision.') + `
+    return svgStart('Candidate Management Lakehouse (CML): from candidate sources to a recorded decision','A branching recruitment illustration. LinkedIn and Indeed converge on a candidate profile. A curved path continues through screening, team review and a recorded decision.') + `
       <path d="M180 117C245 24 514 33 623 151s76 303-71 351-299 11-350-97-88-183-22-288Z" fill="#f0f3e9"/>
       <path d="M163 267C109 145 196 53 340 70" fill="none" stroke="#e1e7d8" stroke-width="1"/>
       <circle cx="322" cy="258" r="101" fill="none" stroke="#dbe4d3" stroke-dasharray="2 8"/>
@@ -353,7 +434,7 @@
     `;
   }
   function learningArt(){
-    return svgStart('Learning Platform: a client-specific learning journey','An ascending, curved learning path moves from an assigned program to learning, visible progress and completion. The path is a workflow, not a performance chart.')+`
+    return svgStart('Learning Platform: new-hire training journey','An ascending, curved learning path moves from an employer-assigned training program to learning, visible progress and completion. The path is a workflow, not a performance chart.')+`
       <path d="M115 376c24-49 97-31 160-84S415 197 484 136 638 62 670 156s-29 300-193 322-313 54-362-4-25-49 0-98Z" fill="#f0f2e4"/>
       <path d="M107 450C218 478 236 333 329 327S449 298 469 232 577 172 638 140" fill="none" stroke="#e0e7c8" stroke-width="27" stroke-linecap="round"/>
       <path d="M107 450C218 478 236 333 329 327S449 298 469 232 577 172 638 140" fill="none" stroke="#fafbf6" stroke-width="2" stroke-dasharray="4 12"/>
@@ -362,7 +443,7 @@
       ${stage(0,`
         <g class="part-art"><ellipse cx="150" cy="391" rx="65" ry="49" fill="#e2e8c8"/>
         <g transform="rotate(-8 150 373)"><rect x="121" y="327" width="58" height="81" rx="5" fill="#fffefa" stroke="#9cad77" stroke-width="1.2"/><rect x="137" y="320" width="27" height="11" rx="4" fill="#859b57"/><path d="M134 345h31m-31 11h22m-22 11h28" stroke="#b7c49a" stroke-width="2" stroke-linecap="round"/><path d="m136 386 6 6 12-14" fill="none" stroke="#8b9e61" stroke-width="2" stroke-linecap="round"/></g>
-        ${tinyLabel(147,487,'Assign a program')}${tinyLabel(147,508,'Shaped for this client','art-note')}
+        ${tinyLabel(147,487,'Assign training')}${tinyLabel(147,508,'For each new hire','art-note')}
         <circle cx="121" cy="450" r="5" fill="#8d9e5c"/>
         </g>`)}
       ${stage(1,`
@@ -371,7 +452,7 @@
         <path d="M270 231q21-7 41 7 21-14 41-7v62q-21-7-41 8-20-15-41-8Z" fill="#fffefa" stroke="#a5b783" stroke-width="1"/>
         <path d="M311 238v63m-29-54q9-1 17 5m-17 4q9-1 17 5m24-10q8-5 17-5m-17 14q8-5 17-5" fill="none" stroke="#c0cca7" stroke-width="1.5"/>
         <path d="M335 232v23l-5-4-5 4v-20" fill="#849850"/>
-        ${tinyLabel(311,370,'Make time to learn')}${tinyLabel(311,391,'The assigned program','art-note')}
+        ${tinyLabel(311,370,'Complete training')}${tinyLabel(311,391,'The assigned program','art-note')}
         </g>`)}
       ${stage(2,`
         <g class="part-art"><circle cx="488" cy="164" r="50" fill="#e4ebcd"/><circle cx="488" cy="164" r="37" fill="#fffefa" stroke="#c8d3b0" stroke-width="1.3"/>
@@ -389,8 +470,8 @@
         </g>`)}
       <g fill="#cdd8b0"><path d="M530 420q-10-30 2-52 18 27-2 52Z"/><path d="M530 420q15-24 34-24-7 21-34 24Z"/><path d="M574 426q-10-25 3-37 12 20-3 37Z"/></g>
       <path d="M530 424v-47m44 56v-34" fill="none" stroke="#bac89a" stroke-width="1"/>
-      ${tinyLabel(79,52,'A LEARNING PATH THAT FITS','art-small','start')}
-      ${tinyLabel(590,490,'Client-specific programs','art-note')}
+      ${tinyLabel(79,52,'NEW-HIRE TRAINING, ON TRACK','art-small','start')}
+      ${tinyLabel(590,490,'Employer-assigned training','art-note')}
     `;
   }
   function timeArt(){
@@ -465,8 +546,9 @@
     $('#workflowEmpty').hidden=hasSelection;
     $('#productPanel').hidden=!hasSelection;
     $('.moment-footnote').hidden=!hasSelection;
-    if(!hasSelection){playing=false;return;}
+    if(!hasSelection){playing=false;syncPlatformNavigation();return;}
     if(!selected.has(currentProduct))renderProduct(workflowKeys[0]);
+    syncPlatformNavigation();
   }
   function syncSelection(announce=false){
     const chosen=chosenKeys(), count=chosen.length;
@@ -483,7 +565,6 @@
     $('#coreSubtitle').textContent=count===0?'START ANYWHERE':chapter===2?(count===1?'COMPLETE ON ITS OWN':'CONNECTED BY CHOICE'):'YOUR CHOICE OF TOOLS';
     $('#dialogSummary').innerHTML=count===0?'Your suite is empty. <b>Choose any product to begin.</b>':`<b>${count===4?'The complete suite':`${count} independent product${count===1?'':'s'}`}.</b> ${chosen.map(k=>PRODUCTS[k].name).join(' + ')}.`;
     $('#downloadBrief').disabled=count===0;$('#copyBrief').disabled=count===0;
-    syncAddProduct();
     syncWorkflowSelection();
     if(announce)announcement(count===0?'No products selected. Choose any product to begin.':`Your suite has ${count} product${count===1?'':'s'}: ${chosen.map(k=>PRODUCTS[k].name).join(', ')}.`);
     saveSelection();
@@ -499,21 +580,15 @@
     syncSelection(true);
     if(chapter===0)setChapter(1);
   }
-  function syncAddProduct(){
-    const included=selected.has(currentProduct);
-    $('#addCurrentProduct').innerHTML=included?`Included in your suite <span class="arrow" aria-hidden="true">✓</span>`:`Include in my suite <span class="arrow" aria-hidden="true">+</span>`;
-    $('#addCurrentProduct').setAttribute('aria-label',included?`${PRODUCTS[currentProduct].name} is included. Review your suite.`:`Add ${PRODUCTS[currentProduct].name} to your suite.`);
-  }
   $('#dialogChoices').innerHTML=KEYS.map(key=>`<button class="suite-choice" data-key="${key}" aria-pressed="true" style="--product-color:${PRODUCTS[key].accent}"><span class="check-control">${icon('check')}</span><span class="choice-name">${PRODUCTS[key].name}</span><span class="choice-job">${PRODUCTS[key].category}</span></button>`).join('');
   $$('.suite-choice,.suite-node').forEach(el=>{
     el.addEventListener('click',()=>toggleProduct(el.dataset.key));
     if(el.classList.contains('suite-node'))el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleProduct(el.dataset.key);}});
   });
   $$('[data-preset]').forEach(button=>button.addEventListener('click',()=>{selected=new Set(button.dataset.preset.split(',').filter(k=>KEYS.includes(k)));syncSelection(true);setChapter(1);}));
-  $('#addCurrentProduct').addEventListener('click',()=>{if(selected.has(currentProduct)){openDialog();return;}selected.add(currentProduct);syncSelection(true);notify(`${PRODUCTS[currentProduct].name} added to your suite.`);});
 
   // ---- Narrative scroll: this changes explanation, never the user's chosen combination ----
-  const CHAPTER_CAPTIONS=['Four products. Equally independent.'];
+  const CHAPTER_CAPTIONS=['CML at the heart. Connected by choice.'];
   function setChapter(value){
     chapter=0;
     $('#world').dataset.chapter='0';
@@ -530,8 +605,10 @@
       beats.forEach((beat,i)=>{if(beat.getBoundingClientRect().top<threshold)active=i;});
       if(active!==chapter)setChapter(active);
     }
+    const connectedTop=$('#connected').getBoundingClientRect().top;
     const momentsTop=$('#moments').getBoundingClientRect().top;
-    $$('[data-nav]').forEach(link=>link.classList.toggle('active',link.dataset.nav===(momentsTop<innerHeight*.42?'moments':'connected')));
+    const activeNav=momentsTop<innerHeight*.42?'moments':connectedTop<innerHeight*.42?'connected':'overview';
+    $$('[data-nav]').forEach(link=>link.classList.toggle('active',link.dataset.nav===activeNav));
     scrollDirty=false;
   }
   window.addEventListener('scroll',()=>{scrollDirty=true;},{passive:true});
@@ -539,13 +616,14 @@
   if(mediaMobile.matches)setChapter(2);
   mediaMobile.addEventListener('change',()=>{if(mediaMobile.matches)setChapter(2);scrollDirty=true;});
 
-  // ---- Moment player: steps run only inside a product; products never auto-advance ----
+  // ---- Moment player: a completed product continues with the next selected product ----
   function renderProduct(key,manual=false){
     if(!PRODUCTS[key]||!selected.has(key))return;
     currentProduct=key;currentStep=0;elapsed=0;
     const p=PRODUCTS[key];
     $('#moments').style.setProperty('--accent',p.accent);$('#moments').style.setProperty('--soft',p.soft);
     $$('.product-tab').forEach(tab=>{const active=tab.dataset.key===key;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});
+    syncPlatformNavigation();
     $('#productPanel').setAttribute('aria-labelledby',`tab-${key}`);
     $('#productEyebrow').textContent=`${p.name} / ${p.category}`;
     $('#momentTitle').innerHTML=p.title;
@@ -554,7 +632,7 @@
     $('#sceneArt').innerHTML=ART[key]();
     $('#sceneArea').classList.remove('is-changing');void $('#sceneArea').offsetWidth;$('#sceneArea').classList.add('is-changing');
     if(manual){manualStoryAction=false;playing=motionEnabled;announcement(`${p.name} story. ${p.steps[0][0]}. ${p.steps[0][1]}`);}
-    setStep(0,false);syncAddProduct();syncPlayer();
+    setStep(0,false);syncPlayer();
   }
   function setStep(value,manual=true){
     currentStep=clamp(Math.round(value),0,3);elapsed=0;
@@ -593,6 +671,35 @@
     if(currentStep===3)setStep(0,false);
     playing=true;syncPlayer();
   }
+  function adjacentProductKey(direction){
+    const workflowKeys=chosenKeys();
+    if(!workflowKeys.length)return null;
+    const currentIndex=Math.max(workflowKeys.indexOf(currentProduct),0);
+    return workflowKeys[(currentIndex+direction+workflowKeys.length)%workflowKeys.length];
+  }
+  function syncPlatformNavigation(){
+    const navigation=$('#platformNavigation');
+    if(!navigation)return;
+    const canNavigate=chosenKeys().length>1;
+    navigation.hidden=!canNavigate;
+    if(!canNavigate)return;
+    const previous=PRODUCTS[adjacentProductKey(-1)], next=PRODUCTS[adjacentProductKey(1)];
+    $('#previousProduct').setAttribute('aria-label',`Previous product story: ${previous.name}`);
+    $('#previousProduct').setAttribute('title',`Previous: ${previous.name}`);
+    $('#nextProduct').setAttribute('aria-label',`Next product story: ${next.name}`);
+    $('#nextProduct').setAttribute('title',`Next: ${next.name}`);
+  }
+  function navigateProduct(direction){
+    const key=adjacentProductKey(direction);
+    if(key)renderProduct(key,true);
+  }
+  function advanceProductStory(){
+    const nextKey=adjacentProductKey(1);
+    if(!nextKey)return;
+    // With one selected platform this deliberately renders the same story again.
+    renderProduct(nextKey,false);
+    announcement(`${PRODUCTS[nextKey].name} story. ${PRODUCTS[nextKey].steps[0][0]}. ${PRODUCTS[nextKey].steps[0][1]}`);
+  }
   $$('.product-tab').forEach(tab=>{
     tab.addEventListener('click',()=>renderProduct(tab.dataset.key,true));
     tab.addEventListener('keydown',e=>{
@@ -608,6 +715,8 @@
   $('#playStory').addEventListener('click',()=>{manualStoryAction=true;if(playing&&motionEnabled){playing=false;syncPlayer();}else beginStory();});
   $('#replayStory').addEventListener('click',()=>{setStep(0,false);beginStory();});
   $('#nextStep').addEventListener('click',()=>setStep(currentStep+1,true));
+  $('#previousProduct').addEventListener('click',()=>navigateProduct(-1));
+  $('#nextProduct').addEventListener('click',()=>navigateProduct(1));
   $('#storySeek').addEventListener('click',e=>{const rect=e.currentTarget.getBoundingClientRect();setStep(Math.floor(clamp((e.clientX-rect.left)/rect.width,0,.999)*4),true);});
   $('#storySeek').addEventListener('keydown',e=>{
     let step=currentStep;
@@ -649,7 +758,10 @@
     if(scrollDirty)updateScroll();
     if(playing&&motionEnabled&&storyInView&&!dialogOpen&&!document.hidden){
       elapsed+=delta;
-      if(elapsed>=STEP_DURATION){setStep((currentStep+1)%4,false);}
+      if(elapsed>=STEP_DURATION){
+        if(currentStep===3)advanceProductStory();
+        else setStep(currentStep+1,false);
+      }
       updateProgress();
     }
     requestAnimationFrame(frame);
