@@ -95,6 +95,57 @@
  .connections .stage-sticky{width:min(100%,calc((100svh - 238px)*800/735));justify-self:start;margin-left:clamp(8px,2vw,32px)}
  .connections .ecosystem{width:100%;height:auto;max-height:none;aspect-ratio:800/735}
 }
+
+/* PDF / print layout: these rules deliberately come last so desktop viewport
+   rules cannot re-enable sticky positioning or screen-height calculations. */
+@page{size:landscape;margin:7mm}
+@media print{
+  html,body{width:auto!important;height:auto!important;overflow:visible!important}
+  body{background:var(--paper)!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .topbar,.skip,dialog,.suite-dialog,.toast{display:none!important}
+  .shell{width:100%!important;max-width:none!important;margin:0!important}
+
+  /* Section 01: fluid grid; only the page break is fixed. */
+  #overview{
+    height:auto!important;min-height:0!important;margin:0!important;
+    padding:clamp(24px,4vh,54px) 0!important;display:flex!important;align-items:center!important;
+    break-after:page;page-break-after:always;break-inside:avoid;page-break-inside:avoid;
+  }
+  #overview .suite-overview-grid{width:100%;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr)!important;gap:clamp(24px,4vw,72px)!important;align-items:start!important}
+  #overview h1{font-size:clamp(38px,5vw,76px)!important}
+  #overview .suite-overview-lead{font-size:clamp(11px,1.2vw,16px)!important;line-height:1.55!important}
+  #overview .platform-deck{width:100%!important;height:auto!important;grid-template-columns:minmax(0,1fr) minmax(104px,.32fr)!important;grid-template-rows:repeat(3,minmax(82px,1fr)) 40px!important;gap:clamp(7px,1vw,12px)!important}
+  #overview .foundation-card{padding:clamp(16px,2vw,29px)!important}
+  #overview .foundation-card h2{font-size:clamp(18px,2vw,27px)!important}
+  #overview .foundation-card p{font-size:clamp(9px,1vw,12px)!important;line-height:1.45!important}
+  #overview .companion-card{padding:clamp(10px,1.2vw,16px)!important}
+  #overview .standalone-note{margin-top:clamp(8px,1vw,14px)!important}
+
+  /* Section 02: reset sticky/screen sizing and keep its copy + diagram together. */
+  #connected{
+    height:auto!important;min-height:0!important;margin:0!important;padding:clamp(20px,3vh,42px) 0!important;
+    display:flex!important;align-items:center!important;overflow:hidden!important;
+    break-after:page;page-break-after:always;break-inside:avoid;page-break-inside:avoid;
+  }
+  #connected .story-layout{width:100%;height:auto!important;display:grid!important;grid-template-columns:minmax(0,.4fr) minmax(0,.6fr)!important;column-gap:clamp(20px,3vw,52px)!important;align-items:start!important}
+  #connected .narrative{display:block!important}
+  #connected .beat,#connected .beat.intro{min-height:0!important;max-height:none!important;padding:0!important}
+  #connected .intro h1{font-size:clamp(40px,5.2vw,78px)!important}
+  #connected .intro-copy{font-size:clamp(11px,1.2vw,16px)!important;line-height:1.55!important;max-width:90%!important}
+  #connected .intro-actions{display:flex!important;margin-top:clamp(18px,2.2vw,30px)!important}
+  #connected .intro-actions .btn{display:inline-flex!important}
+  #connected .stage-sticky{position:static!important;top:auto!important;width:100%!important;margin:0!important;padding:0!important;align-self:center!important}
+  #connected .ecosystem{display:block!important;width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;overflow:visible!important}
+  /* The Venn diagram is an alternate interactive view, not print content. */
+  #connected #ecosystemVenn{display:none!important}
+  #connected .map-meta{padding:0 clamp(5px,.5vw,10px)!important}
+  #connected .diagram-footer{margin:clamp(3px,.4vw,7px) 0 0!important}
+  #connected .map-instruction{display:none!important}
+
+  /* Avoid browser-specific print artefacts from animation and interaction UI. */
+  *,*:before,*:after{animation:none!important;transition:none!important;box-shadow:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
 </style>
 </head>
 <body class="no-js">
@@ -241,7 +292,7 @@
 </div>
 </div>
 <div class="moment-footnote"><span><svg aria-hidden="true"><use href="#i-suite"/></svg>A complete product on its own.</span><span>These steps happen inside the selected product. They are not dependencies between products.</span></div>
-<div class="fallback-products"><article><h3>Candidate Management Lakehouse (CML)</h3><p>Candidate and recruitment management. Collect candidate data from LinkedIn and Indeed, screen applications, review with the hiring team and record decisions and activity history.</p></article><article><h3>HRDocu</h3><p>Secure document collection. Send a request, receive files through a secure time-limited upload link, review submissions and expiry dates, and retain an audit trail.</p></article><article><h3>Learning Platform</h3><p>New-hire training. Employers assign required training, follow progress and record completion.</p></article><article><h3>TimeTracker Pro</h3><p>Work-time management. Onboard contractors and projects, log or punch time, review and approve hours, then make biweekly submissions.</p></article></div>
+<div class="fallback-products"><article><h3>Candidate Management Lakehouse (CML)</h3><p>Candidate and recruitment management. Collect candidate data from LinkedIn, Indeed and other sources, such as careers sites, referrals and CSV imports; screen applications, review with the hiring team and record decisions and activity history.</p></article><article><h3>HRDocu</h3><p>Secure document collection. Send a request, receive files through a secure time-limited upload link, review submissions and expiry dates, and retain an audit trail.</p></article><article><h3>Learning Platform</h3><p>New-hire training. Employers assign required training, follow progress and record completion.</p></article><article><h3>TimeTracker Pro</h3><p>Work-time management. Onboard contractors and projects, log or punch time, review and approve hours, then make biweekly submissions.</p></article></div>
 </div>
 </section>
 </main>
@@ -258,7 +309,7 @@
       purpose:'Use CML to replace disconnected candidate spreadsheets, inboxes and review notes with one structured hiring workflow.',
       features:['Candidate profiles built from sourcing and application data','Screening notes, ownership and next-step tracking','Shared hiring-team review and recorded decisions'],
       steps:[
-        ['Collect','Bring candidate data from LinkedIn and Indeed into one candidate view.','A candidate comes into view.'],
+        ['Collect','Bring candidate data from LinkedIn, Indeed and other sources—including careers sites, referrals and CSV imports—into one candidate view.','A candidate comes into view.'],
         ['Screen','HR checks fit, experience and the next step, with the candidate context close at hand.','Give screening the full context.'],
         ['Review','Hiring managers and the hiring team review the candidate together.','Make room for a shared decision.'],
         ['Decide','Record the decision and retain the activity history behind it.','The decision has a clear history.']
@@ -352,12 +403,13 @@
   function svgStart(title,desc){return `<title id="sceneTitle">${title}</title><desc id="sceneDescription">${desc}</desc>`;}
 
   function cmlArt(){
-    return svgStart('Candidate Management Lakehouse (CML): from candidate sources to a recorded decision','A branching recruitment illustration. LinkedIn and Indeed converge on a candidate profile. A curved path continues through screening, team review and a recorded decision.') + `
+    return svgStart('Candidate Management Lakehouse (CML): from candidate sources to a recorded decision','A branching recruitment illustration. LinkedIn, Indeed and other sources, including careers sites, referrals and CSV imports, converge on a candidate profile. A curved path continues through screening, team review and a recorded decision.') + `
       <path d="M180 117C245 24 514 33 623 151s76 303-71 351-299 11-350-97-88-183-22-288Z" fill="#f0f3e9"/>
       <path d="M163 267C109 145 196 53 340 70" fill="none" stroke="#e1e7d8" stroke-width="1"/>
       <circle cx="322" cy="258" r="101" fill="none" stroke="#dbe4d3" stroke-dasharray="2 8"/>
       ${route(0,'M143 166C202 166 194 243 251 243')}
-      ${route(0,'M144 343C193 343 195 267 251 267')}
+      ${route(0,'M144 283C193 283 195 260 251 260')}
+      ${route(0,'M134 389C191 389 196 292 251 272')}
       ${route(1,'M392 229C439 211 439 151 478 151')}
       ${route(2,'M554 206C635 240 648 351 579 382')}
       ${route(3,'M500 411C460 464 399 467 350 467')}
@@ -365,8 +417,10 @@
         <g class="part-art">
         <g transform="translate(78 136)"><rect x="0" y="0" width="56" height="56" rx="15" fill="#0a66c2"/><text x="28" y="39" text-anchor="middle" fill="white" font-size="35" font-weight="700" font-family="Arial,sans-serif">in</text></g>
         ${tinyLabel(106,216,'LinkedIn','art-note')}
-        <g transform="translate(78 310)"><rect width="56" height="56" rx="15" fill="#e4eafa"/><text x="28" y="38" text-anchor="middle" fill="#2551a4" font-size="34" font-weight="700" font-family="Georgia,serif">i</text><path d="M14 19q12-20 31-5" fill="none" stroke="#2551a4" stroke-width="2"/></g>
-        ${tinyLabel(106,390,'Indeed','art-note')}
+        <g transform="translate(78 250)"><rect width="56" height="56" rx="15" fill="#e4eafa"/><text x="28" y="38" text-anchor="middle" fill="#2551a4" font-size="34" font-weight="700" font-family="Georgia,serif">i</text><path d="M14 19q12-20 31-5" fill="none" stroke="#2551a4" stroke-width="2"/></g>
+        ${tinyLabel(106,330,'Indeed','art-note')}
+        <g transform="translate(78 365)"><rect width="56" height="48" rx="12" fill="#e6efe3" stroke="#9bb998"/><path d="M18 11h16l8 8v18H18Z" fill="#fffefa" stroke="#6e966d" stroke-width="1.2"/><path d="M34 11v9h8M23 28h14m-14 6h11" fill="none" stroke="#6e966d" stroke-width="1.2" stroke-linecap="round"/><circle cx="45" cy="39" r="5" fill="#397757"/><path d="M43 39h4m-2-2v4" stroke="#fffefa" stroke-width="1" stroke-linecap="round"/></g>
+        ${tinyLabel(106,438,'Other sources','art-note')}
         <circle cx="322" cy="254" r="77" fill="#e0ecdc"/>
         ${person(322,246,52,'#467356','#d4aa88','#344835')}
         <path d="M256 237a68 68 0 0 1 96-43" fill="none" stroke="#72936d" stroke-width="1.5" stroke-linecap="round"/>
