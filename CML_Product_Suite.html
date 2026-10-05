@@ -87,6 +87,14 @@
 @media(max-width:720px){.platform-deck{grid-template-columns:minmax(0,1fr) 104px}.platform-deck .companion-features{display:none}}
 
 #ecosystemVenn{display:none}
+/* Keep the service map at its authored 800:735 ratio on wide screens.
+   The previous full-width stage became a shallow rectangle on short desktop
+   viewports, creating an oversized empty band between the copy and artwork. */
+@media(min-width:1191px){
+ .connections .story-layout{grid-template-columns:minmax(520px,.9fr) minmax(0,1.1fr);column-gap:clamp(18px,2vw,32px)}
+ .connections .stage-sticky{width:min(100%,calc((100svh - 238px)*800/735));justify-self:start;margin-left:clamp(8px,2vw,32px)}
+ .connections .ecosystem{width:100%;height:auto;max-height:none;aspect-ratio:800/735}
+}
 </style>
 </head>
 <body class="no-js">
