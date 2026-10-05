@@ -85,6 +85,8 @@
 /* Wider companion cards create room for their quick feature summaries. */
 .platform-deck{grid-template-columns:minmax(0,1fr) 190px}body .platform-deck .companion-card p{font-size:10px;line-height:1.45}.platform-deck .companion-features{display:block;margin-top:7px;padding-top:6px;border-top:1px solid color-mix(in srgb,var(--product-color) 24%,transparent);font-size:9px;line-height:1.35;color:var(--product-color)}
 @media(max-width:720px){.platform-deck{grid-template-columns:minmax(0,1fr) 104px}.platform-deck .companion-features{display:none}}
+/* At tablet widths the foundation copy wraps further; give its shared grid rows room. */
+@media(min-width:721px) and (max-width:1190px){.platform-deck{grid-template-rows:repeat(3,180px);height:560px}.platform-deck .foundation-card{padding-bottom:34px}}
 
 #ecosystemVenn{display:none}
 /* Keep the service map at its authored 800:735 ratio on wide screens.
@@ -367,6 +369,55 @@
 @media(max-width:400px){.core-aura{inset:-8px}}
 #world[data-core-selected=false] .core-aura{animation:none;opacity:.13}
 
+/* HRDocu: secure upload is the permanent focal point, not a peripheral step.
+   All artwork remains inline SVG, using the existing paper / blue palette.
+   The compact composition repositions the artwork instead of shrinking a
+   desktop diagram into an unreadable mobile thumbnail. */
+#sceneArt[data-product="doc"] .doc-support{opacity:.42;filter:saturate(.75)}
+#sceneArt[data-product="doc"] .doc-support.is-done{opacity:.64;filter:none}
+#sceneArt[data-product="doc"] .doc-support.is-active{opacity:.88;filter:none}
+#sceneArt[data-product="doc"] .doc-link{opacity:.78;filter:none}
+#sceneArt[data-product="doc"] .doc-link.is-active{opacity:1}
+#sceneArt[data-product="doc"] .doc-hero{opacity:1;filter:none}
+#sceneArt[data-product="doc"] .doc-hero-title{font-size:27px;font-weight:550;letter-spacing:-1px;fill:var(--ink)}
+#sceneArt[data-product="doc"] .doc-panel-note{font-size:11px;fill:var(--muted)}
+#sceneArt[data-product="doc"] .doc-kicker{font-size:8px;font-weight:600;letter-spacing:1.8px;fill:#6c85a4}
+#sceneArt[data-product="doc"] .doc-transfer-label{font-size:11.5px;font-weight:500;letter-spacing:-.1px;fill:#486c9b}
+#sceneArt[data-product="doc"] .doc-paper{stroke:#9cb5d3;transition:stroke .5s}
+#sceneArt[data-product="doc"][data-step="1"] .doc-paper{stroke:#7297c6}
+#sceneArt[data-product="doc"] .doc-hero-halo{transform-origin:383px 287px;animation:docHalo 6s ease-in-out infinite}
+#sceneArt[data-product="doc"] .doc-file{animation:docFileFloat 5.5s ease-in-out infinite}
+#sceneArt[data-product="doc"] .doc-shield-float{animation:docShieldFloat 6.5s ease-in-out infinite}
+#sceneArt[data-product="doc"] .doc-upload-arrow{opacity:1;transition:opacity .5s;animation:docUploadLift 2.6s ease-in-out infinite}
+#sceneArt[data-product="doc"] .doc-file-check{opacity:0;transition:opacity .5s}
+#sceneArt[data-product="doc"][data-transfer="received"] .doc-file-check{opacity:1}
+#sceneArt[data-product="doc"][data-transfer="received"] .doc-upload-arrow{opacity:.24;animation:none}
+#sceneArt[data-product="doc"] .doc-upload-ring{transform-origin:383px 287px;animation:docRing 80s linear infinite}
+#sceneArt[data-product="doc"] .doc-status-dot{animation:artPulse 2.4s ease-in-out infinite}
+#sceneArt[data-product="doc"][data-transfer="received"] .doc-status-dot{animation:none}
+#sceneArt[data-product="doc"] .doc-inbound{opacity:.48;stroke-width:1.5}
+#sceneArt[data-product="doc"] .doc-inbound.is-active{opacity:.82;stroke-width:1.8;animation-duration:7s}
+#sceneArt[data-product="doc"] .doc-ingress-tip{opacity:.62}
+@keyframes docHalo{0%,100%{opacity:.6;transform:scale(.98)}50%{opacity:.9;transform:scale(1.025)}}
+@keyframes docFileFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes docShieldFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes docUploadLift{0%,100%{transform:translateY(3px)}50%{transform:translateY(-5px)}}
+@keyframes docRing{to{transform:rotate(360deg)}}
+@media(max-width:720px){
+  #productPanel[data-product="doc"] .scene-area{margin-top:-9px}
+  #sceneArt[data-product="doc"][data-layout="compact"]{max-width:460px;margin-inline:auto}
+  #sceneArt[data-product="doc"] .art-label{font-size:15px}
+  #sceneArt[data-product="doc"] .art-small{display:block;font-size:9px;letter-spacing:1.4px}
+  #sceneArt[data-product="doc"] .doc-panel-note{display:block;font-size:11px}
+  #sceneArt[data-product="doc"] .doc-hero-title{font-size:27px}
+  #sceneArt[data-product="doc"] .doc-transfer-label{font-size:11.5px}
+}
+@media(prefers-reduced-motion:reduce){
+  #sceneArt[data-product="doc"] .doc-file,
+  #sceneArt[data-product="doc"] .doc-upload-arrow,
+  #sceneArt[data-product="doc"] .doc-shield-float{animation:none;transform:none}
+}
+
 </style>
 </head>
 <body class="no-js">
@@ -584,13 +635,13 @@
       brief:'Candidate applications, profiles, screening, hiring review, team decisions and activity history.'
     },
     doc: {name:'HRDocu', category:'Secure documents', job:'Collect documents', accent:'#466fae', soft:'#e6edf8',
-      title:'Less chasing.<br>A clearer trail.',
-      description:'HRDocu is a secure document collection workspace for HR teams. Use it to request the documents needed for hiring, onboarding, employment administration or compliance without relying on untracked email attachments.',
+      title:'Secure uploads.<br>A clearer trail.',
+      description:'Give recipients a secure, time-limited link to upload the documents HR needs. Keep requests, submitted files, reviews and the activity trail together in HRDocu.',
       purpose:'HR teams create a request, recipients upload files through a secure time-limited link, and the team can see what has arrived, what expires and what still needs attention.',
       features:['Secure, time-limited links for external document upload','Central review of submissions, request status and expiry dates','An auditable record of requests, uploads and review activity'],
       steps:[
         ['Request','Choose the required documents and send the recipient a secure request.','One request starts the right conversation.'],
-        ['Upload','The recipient submits files through a secure, time-limited upload link.','A simple way to share the files.'],
+        ['Secure upload','The recipient submits the requested documents through a secure, time-limited upload link.','Documents arrive through a secure, time-limited link.'],
         ['Review','HR reviews submitted documents, checks expiry dates and follows request progress.','Know what is ready and what needs attention.'],
         ['Audit','Retain the activity and audit history for document events.','Keep the whole document trail in view.']
       ],
@@ -630,6 +681,7 @@
   const clamp = (value,min,max) => Math.min(max,Math.max(min,value));
   const mediaReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const mediaMobile = window.matchMedia('(max-width: 720px)');
+  const mediaDocCompact = window.matchMedia('(max-width: 560px)');
   const STORE_KEY = 'talenthub-suite-story-v1';
   let selected = new Set(KEYS);
   // Storage is optional. The file also works in private browsing and restrictive file:// contexts.
@@ -654,6 +706,7 @@
   let manualStoryAction = false;
   let autoStarted = false;
   const STEP_DURATION = 2200;
+  const stepDuration = () => currentProduct==='doc' && currentStep===1 ? 4800 : STEP_DURATION;
 
   // Small illustration primitives. Rectangles are real documents, not generic flowchart nodes.
   function person(x,y,r=28,shirt='#557d61',skin='#d9b596',hair='#364d3a') {
@@ -759,6 +812,121 @@
       ${tinyLabel(79,52,'FROM REQUEST TO A RECORD','art-small','start')}
     `;
   }
+  function secureUploadDocArt(){
+    const compact=mediaDocCompact.matches;
+    const request=compact?'91 106':'139 225';
+    const link=compact?'329 106':'622 212';
+    const review=compact?'108 663':'601 412';
+    const audit=compact?'306 675':'167 428';
+    const hero=compact?'translate(-173 106)':'translate(0 0)';
+    const paths=compact?[
+      'M48 137C12 155 22 198 79 223',
+      'M369 139C409 163 397 202 342 227',
+      'M136 591C101 603 95 608 96 615',
+      'M153 692C199 715 228 711 257 683'
+    ]:[
+      'M184 191C211 132 229 121 254 146',
+      'M583 184C550 151 532 174 514 215',
+      'M516 378C540 373 567 374 581 389',
+      'M558 461C467 526 300 522 219 460'
+    ];
+    return svgStart('HRDocu: secure upload, at the centre',
+      'Illustrative workflow, not a live upload form. A large paper upload portal is the focus, with an upward-moving document and a shield with a closed lock. A secure, time-limited link leads into the portal. Smaller illustrations show the request, HR review and audit trail. The upload remains prominent throughout all four steps.')+`
+      <defs>
+        <filter id="docPaperShadow" x="-25%" y="-20%" width="155%" height="150%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#526b8a" flood-opacity=".085"/></filter>
+        <radialGradient id="docUploadGlow"><stop offset="0" stop-color="#d5e3f4" stop-opacity=".95"/><stop offset=".72" stop-color="#e2ebf7" stop-opacity=".65"/><stop offset="1" stop-color="#eaf0f8" stop-opacity="0"/></radialGradient>
+      </defs>
+      ${compact?`
+        <path d="M87 190C16 232 15 463 52 562s84 163 183 154 165-129 161-276-7-235-91-258-153-29-218 8Z" fill="#edf1f7"/>
+        <ellipse cx="210" cy="411" rx="181" ry="274" fill="none" stroke="#d9e2ee" stroke-width="1" stroke-dasharray="2 9"/>
+      `:`
+        <path d="M159 153C245 61 488 39 608 145s118 263-8 328-294 56-381-15-143-215-60-305Z" fill="#edf1f7"/>
+        <ellipse cx="384" cy="289" rx="263" ry="196" fill="none" stroke="#d9e2ee" stroke-width="1" stroke-dasharray="2 9"/>
+      `}
+      ${route(0,paths[0])}
+      <path class="scene-route doc-inbound" data-route="1" d="${paths[1]}"/>
+      <path class="doc-ingress-tip" d="${compact?'m344 218-2 9 8-4':'m512 206 2 9 8-4'}" fill="none" stroke="#6f92bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      ${route(2,paths[2])}${route(3,paths[3])}
+
+      <!-- Always visible: the primary illustration is the upload itself. -->
+      <g class="doc-hero" transform="${hero}">
+        <circle class="doc-hero-halo" cx="383" cy="287" r="178" fill="url(#docUploadGlow)"/>
+        <g filter="url(#docPaperShadow)">
+          <path class="doc-paper" d="M260 108h198l48 48v309H260Z" fill="#fffefa" stroke-width="1.2"/>
+          <path d="M458 108v48h48" fill="#e2eaf4" stroke="#a9bdd7" stroke-width="1.2"/>
+        </g>
+        <path d="M284 129h22" stroke="#537baa" stroke-width="2.8" stroke-linecap="round"/>
+        <text x="318" y="132" class="doc-kicker">HRDOCU</text>
+        <text x="284" y="178" class="doc-hero-title">Secure upload</text>
+        <text x="284" y="200" class="doc-panel-note">Your documents. A secure handoff.</text>
+
+        <circle cx="383" cy="287" r="77" fill="#e7eef8"/>
+        <circle class="doc-upload-ring" cx="383" cy="287" r="67" fill="none" stroke="#bbcee7" stroke-width="1" stroke-dasharray="1 7"/>
+        <path d="M326 267a61 61 0 0 1 62-41" fill="none" stroke="#b1c8e4" stroke-width="1.3" stroke-linecap="round"/>
+        <circle cx="391" cy="226" r="2.5" fill="#7a9bc4"/>
+        <g class="doc-file">
+          <g transform="rotate(-12 378 273)"><rect x="344" y="239" width="62" height="83" rx="3" fill="#c4d6ec" stroke="#a1bbd9" stroke-width="1"/></g>
+          <path d="M357 227h42l22 22v72h-64Z" fill="#fffefa" stroke="#799dc8" stroke-width="1.3"/>
+          <path d="M399 227v22h22" fill="#d5e2f3" stroke="#799dc8" stroke-width="1.2"/>
+          <path d="M370 267h26m-26 10h18" fill="none" stroke="#bacce2" stroke-width="1.7" stroke-linecap="round"/>
+          <g class="doc-file-check"><circle cx="405" cy="300" r="10" fill="#668ab6"/><path d="m400 300 3.5 3.5 6-7" fill="none" stroke="#fffefa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+        </g>
+        <path d="M354 339v8a5 5 0 0 0 5 5h56a5 5 0 0 0 5-5v-8" fill="none" stroke="#94b2d6" stroke-width="1.8" stroke-linecap="round"/>
+        <g class="doc-upload-arrow"><path d="M387 339v-41m-13 13 13-13 13 13" fill="none" stroke="#527eb6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+
+        <!-- The former tiny padlock becomes part of the main upload artwork. -->
+        <g transform="translate(497 289)"><g class="doc-shield-float">
+          <circle r="46" fill="#edf2f9" fill-opacity=".55" stroke="#d0deef" stroke-width="1"/>
+          <path d="m0-33 30 11v23C30 22 0 39 0 39S-30 22-30 1v-23Z" fill="#7395be" stroke="#5c83b3" stroke-width="1.1"/>
+          <path d="M-7-4v-8a7 7 0 0 1 14 0v8" fill="none" stroke="#fffefa" stroke-width="2.1" stroke-linecap="round"/>
+          <rect x="-12" y="-5" width="24" height="22" rx="4" fill="#fffefa"/>
+          <circle cx="0" cy="3" r="2" fill="#6b8fbd"/><path d="M0 4v5" stroke="#6b8fbd" stroke-width="1.8" stroke-linecap="round"/>
+        </g></g>
+
+        <rect x="284" y="387" width="198" height="36" rx="18" fill="#e7eef8"/>
+        <circle class="doc-status-dot" cx="300" cy="405" r="3" fill="#688bb9"/>
+        <text id="docTransferLabel" x="391" y="409" text-anchor="middle" class="doc-transfer-label">Ready for secure upload</text>
+        <rect x="290" y="436" width="186" height="2" rx="1" fill="#e0e8f3"/>
+        <rect id="docTransferProgress" x="290" y="436" width="0" height="2" rx="1" fill="#7699c5"/>
+      </g>
+
+      <!-- Supporting moments remain smaller and quieter than the upload portal. -->
+      <g class="scene-part doc-support" data-scene="0" transform="translate(${request})">
+        <g class="part-art">
+          <circle r="51" fill="#dce7f5"/>
+          <g transform="rotate(-9)"><rect x="-33" y="-20" width="66" height="45" rx="4" fill="#fffefa" stroke="#7897bd" stroke-width="1.3"/><path d="m-33-17 33 22 33-22m-66 40 22-19m44 19L11 4" fill="none" stroke="#7897bd" stroke-width="1.1"/></g>
+          ${person(-27,-52,18,'#819bbd','#d6ae8d','#3e4138')}
+          ${tinyLabel(0,82,'Send a request')}${tinyLabel(0,103,'Choose the documents','art-note')}
+        </g>
+      </g>
+      <g class="scene-part doc-support doc-link" data-scene="1" transform="translate(${link})">
+        <g class="part-art">
+          <circle r="48" fill="#e1eaf6"/>
+          <g transform="rotate(-36)"><rect x="-29" y="-9" width="35" height="20" rx="10" fill="#fffefa" stroke="#7f9fc6" stroke-width="1.8"/><rect x="-5" y="-9" width="35" height="20" rx="10" fill="#fffefa" stroke="#7f9fc6" stroke-width="1.8"/><path d="M-10 1h20" fill="none" stroke="#658ab9" stroke-width="2.3" stroke-linecap="round"/></g>
+          <g transform="translate(31 -34)"><circle r="13" fill="#fffefa" stroke="#9eb6d6" stroke-width="1.1"/><path d="M0-7v7l4 3" fill="none" stroke="#7b9bc3" stroke-width="1.5" stroke-linecap="round"/><circle r="1.4" fill="#7b9bc3"/></g>
+          ${tinyLabel(0,79,'Time-limited link')}${tinyLabel(0,100,'A secure way in','art-note')}
+        </g>
+      </g>
+      <g class="scene-part doc-support" data-scene="2" transform="translate(${review})">
+        <g class="part-art">
+          <circle r="44" fill="#dfe9f6"/><circle r="30" fill="#fffefa" stroke="#a2bad8" stroke-width="1"/>
+          <path d="M-19 0q19-25 38 0-19 25-38 0Z" fill="none" stroke="#7d9fc7" stroke-width="1.5"/><circle r="6.5" fill="#7d9fc7"/>
+          ${check(25,30,11,'#668cb9','art-check')}
+          ${tinyLabel(0,71,'Review files')}${tinyLabel(0,92,'Files, progress & expiry','art-note')}
+        </g>
+      </g>
+      <g class="scene-part doc-support" data-scene="3" transform="translate(${audit})">
+        <g class="part-art">
+          <path d="M-43-13h86" fill="none" stroke="#acbfd8" stroke-width="1.1"/>
+          ${check(-43,-13,7.5,'#8ea9ca')}${check(0,-13,7.5,'#8ea9ca')}${check(43,-13,7.5,'#8ea9ca')}
+          <path d="M-42 11h60m-60 10h82" fill="none" stroke="#a6bcd7" stroke-width="1.7" stroke-linecap="round"/>
+          ${tinyLabel(0,60,'A visible trail')}${tinyLabel(0,81,'Request · Upload · Review','art-note')}
+        </g>
+      </g>
+      ${tinyLabel(compact?20:79,compact?30:52,'SECURE UPLOAD, AT THE CENTRE','art-small','start')}
+    `;
+  }
+
   function learningArt(){
     return svgStart('Learning Platform: new-hire training journey','An ascending, curved learning path moves from an employer-assigned training program to learning, visible progress and completion. The path is a workflow, not a performance chart.')+`
       <path d="M115 376c24-49 97-31 160-84S415 197 484 136 638 62 670 156s-29 300-193 322-313 54-362-4-25-49 0-98Z" fill="#f0f2e4"/>
@@ -778,7 +946,7 @@
         <path d="M270 231q21-7 41 7 21-14 41-7v62q-21-7-41 8-20-15-41-8Z" fill="#fffefa" stroke="#a5b783" stroke-width="1"/>
         <path d="M311 238v63m-29-54q9-1 17 5m-17 4q9-1 17 5m24-10q8-5 17-5m-17 14q8-5 17-5" fill="none" stroke="#c0cca7" stroke-width="1.5"/>
         <path d="M335 232v23l-5-4-5 4v-20" fill="#849850"/>
-        ${tinyLabel(311,370,'Complete training')}${tinyLabel(311,391,'The assigned program','art-note')}
+        ${tinyLabel(311,370,'Complete training')}${tinyLabel(311,391,'Employer-assigned program','art-note')}
         </g>`)}
       ${stage(2,`
         <g class="part-art"><circle cx="488" cy="164" r="50" fill="#e4ebcd"/><circle cx="488" cy="164" r="37" fill="#fffefa" stroke="#c8d3b0" stroke-width="1.3"/>
@@ -797,7 +965,6 @@
       <g fill="#cdd8b0"><path d="M530 420q-10-30 2-52 18 27-2 52Z"/><path d="M530 420q15-24 34-24-7 21-34 24Z"/><path d="M574 426q-10-25 3-37 12 20-3 37Z"/></g>
       <path d="M530 424v-47m44 56v-34" fill="none" stroke="#bac89a" stroke-width="1"/>
       ${tinyLabel(79,52,'NEW-HIRE TRAINING, ON TRACK','art-small','start')}
-      ${tinyLabel(590,490,'Employer-assigned training','art-note')}
     `;
   }
   function timeArt(){
@@ -852,7 +1019,22 @@
       ${tinyLabel(79,52,'A CLEAR HOME FOR EVERY HOUR','art-small','start')}
     `;
   }
-  const ART = {cml:cmlArt,doc:docArt,learn:learningArt,time:timeArt};
+  const ART = {cml:cmlArt,doc:secureUploadDocArt,learn:learningArt,time:timeArt};
+  function renderSceneArtwork(){
+    const scene=$('#sceneArt');
+    scene.dataset.product=currentProduct;
+    scene.dataset.layout=currentProduct==='doc'&&mediaDocCompact.matches?'compact':'wide';
+    scene.setAttribute('viewBox',currentProduct==='doc'&&mediaDocCompact.matches?'0 0 420 780':'0 0 760 560');
+    scene.innerHTML=ART[currentProduct]();
+  }
+  mediaDocCompact.addEventListener('change',()=>{
+    if(currentProduct!=='doc')return;
+    const previousElapsed=elapsed;
+    renderSceneArtwork();
+    setStep(currentStep,false);
+    elapsed=previousElapsed;
+    updateProgress();
+  });
 
   // ---- Suite selection: one shared state for the chart, controls and the brief ----
   const chosenKeys = () => KEYS.filter(key => selected.has(key));
@@ -1074,7 +1256,7 @@
     $('#momentTitle').innerHTML=p.title;
     $('#momentDescription').textContent=p.description;
     $('#stepList').innerHTML=p.steps.map((s,i)=>`<button class="moment-step" data-step="${i}" aria-current="${i===0?'step':'false'}" aria-label="Step ${i+1}, ${s[0]}. ${s[1]}"><span class="step-marker">0${i+1}</span><span class="step-content"><span class="step-title">${s[0]}</span><span class="step-description"><span>${s[1]}</span></span></span></button>`).join('');
-    $('#sceneArt').innerHTML=ART[key]();
+    renderSceneArtwork();
     $('#sceneArea').classList.remove('is-changing');void $('#sceneArea').offsetWidth;$('#sceneArea').classList.add('is-changing');
     if(manual){manualStoryAction=false;playing=motionEnabled;announcement(`${p.name} story. ${p.steps[0][0]}. ${p.steps[0][1]}`);}
     setStep(0,false);syncPlayer();
@@ -1086,6 +1268,7 @@
     $$('.moment-step').forEach((el,i)=>{el.setAttribute('aria-current',i===currentStep?'step':'false');el.classList.toggle('is-done',i<currentStep);el.querySelector('.step-marker').innerHTML=i<currentStep?'✓':`0${i+1}`;});
     $$('.scene-part').forEach(el=>{const i=Number(el.dataset.scene);el.classList.toggle('is-active',i===currentStep);el.classList.toggle('is-done',i<currentStep);});
     $$('.scene-route').forEach(el=>{const i=Number(el.dataset.route);el.classList.toggle('is-active',i===currentStep);el.classList.toggle('is-done',i<currentStep);});
+    $('#sceneArt').dataset.step=String(currentStep);
     $('#sceneStatus').textContent=p.steps[currentStep][2];
     $('#storyCount').textContent=`0${currentStep+1} / 04`;
     $('#storySeek').setAttribute('aria-valuenow',String(currentStep+1));
@@ -1101,8 +1284,19 @@
     if(manual)announcement(`${p.name}, step ${currentStep+1}: ${p.steps[currentStep][0]}. ${p.steps[currentStep][1]}`);
   }
   function updateProgress(){
-    const fraction=clamp(elapsed/STEP_DURATION,0,1);
+    const fraction=clamp(elapsed/stepDuration(),0,1);
     $('#storyFill').style.width=`${clamp((currentStep+fraction)/4,0,1)*100}%`;
+    if(currentProduct==='doc'){
+      const progress=currentStep===0?0:currentStep===1?(playing&&motionEnabled?clamp(.1+fraction*.96,0,1):.58):1;
+      const received=progress>=1;
+      const scene=$('#sceneArt');
+      scene.dataset.transfer=received?'received':currentStep===1?'uploading':'ready';
+      const label=currentStep===0?'Ready for secure upload':currentStep===3?'Upload recorded':received?'Files received':'Uploading securely…';
+      const text=$('#docTransferLabel');
+      if(text)text.textContent=currentStep===0?'Ready for secure upload':currentStep===3?'Upload recorded':received?'Files received':'Uploading securely...';
+      const bar=$('#docTransferProgress');
+      if(bar)bar.setAttribute('width',(186*progress).toFixed(2));
+    }
   }
   function syncPlayer(){
     const active=playing&&motionEnabled;
@@ -1203,7 +1397,7 @@
     if(scrollDirty)updateScroll();
     if(playing&&motionEnabled&&storyInView&&!dialogOpen&&!document.hidden){
       elapsed+=delta;
-      if(elapsed>=STEP_DURATION){
+      if(elapsed>=stepDuration()){
         if(currentStep===3)advanceProductStory();
         else setStep(currentStep+1,false);
       }
