@@ -146,6 +146,227 @@
   *,*:before,*:after{animation:none!important;transition:none!important;box-shadow:none!important}
   .reveal{opacity:1!important;transform:none!important}
 }
+
+/* === CML relationship diagram: native-size nodes, six live relationships ===
+   There is deliberately no viewport-height scaling of the diagram.
+   Desktop: CML is the central 55% visual weight; the three 15% services orbit it.
+   Small screens: nodes reflow, instead of reducing the entire diagram to a thumbnail. */
+.brand-wordmark{font-size:23px;font-weight:700;letter-spacing:-.055em;color:var(--ink)}
+.brand-wordmark[hidden]{display:none}
+#connected{height:auto;min-height:calc(100svh - 88px);padding:42px 0 55px;display:block;overflow:visible}
+#connected .story-layout{display:grid;grid-template-columns:minmax(0,.83fr) minmax(660px,1.17fr);gap:24px;align-items:center}
+#connected .beat.intro{min-height:0;max-height:none;padding:15px 0 110px}
+#connected .intro .eyebrow{margin-bottom:43px}
+#connected .intro h1{font-size:clamp(70px,6.6vw,98px)}
+#connected .intro-copy{max-width:350px;font-size:15px;line-height:1.9;margin-top:32px}
+.intro-flex-line{display:block;margin-top:12px}
+#connected .intro-actions{margin-top:30px}
+#connected .stage-sticky{position:relative;top:auto;width:100%;max-width:760px;min-width:0;padding:0;margin:0;justify-self:end;align-self:center}
+#connected .map-meta{padding:0 4px 0 10px;min-height:35px;letter-spacing:.14em;font-size:9px;gap:10px}
+.map-tools{display:flex;align-items:center;gap:12px}
+#connected .map-meta .selected-status{font-size:10px;letter-spacing:.015em}
+#connected .motion-toggle{display:grid;width:28px;height:28px;border:1px solid transparent;opacity:.62}
+#connected .motion-toggle:hover,#connected .motion-toggle:focus-visible{border-color:var(--line);opacity:1}
+#connected .motion-toggle svg{width:12px;height:12px}
+.relationship-map{position:relative;width:100%;height:670px;margin:9px 0 0;isolation:isolate;--satellite-size:156px}
+#connected .relationship-lines{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%;max-width:none;max-height:none;aspect-ratio:auto;margin:0;overflow:visible;pointer-events:none}
+.relationship-dust{opacity:.16}
+.relationship-guide{display:none}
+.relationship-link{opacity:.85;transition:opacity .45s ease}
+.relationship-link path{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.relationship-link[data-kind=orbit]{display:none}
+.relationship-halo{stroke-width:8;opacity:.045}
+.relationship-base{stroke-width:1.15;opacity:.53}
+.relationship-flow{stroke-width:1.8;stroke-dasharray:1 15;animation:relationshipFlow 12s linear infinite;opacity:.62}
+.relationship-link[data-kind=spoke] .relationship-base{stroke-dasharray:1 8;stroke-width:1.8;opacity:.52}
+.relationship-link[data-kind=spoke] .relationship-flow{stroke-dasharray:1 11;stroke-width:2.1;animation-duration:7s}
+.relationship-anchor{fill:currentColor;stroke:var(--paper);stroke-width:1.2;opacity:.76}
+.relationship-packet{fill:currentColor;stroke:var(--paper);stroke-width:1.5;opacity:.75;transition:opacity .3s}
+.relationship-link[data-enabled=false]{opacity:.14}
+.relationship-link[data-enabled=false] .relationship-packet,.relationship-link[data-enabled=false] .relationship-flow{opacity:0;animation-play-state:paused}
+.relationship-map[data-hover] .relationship-link[data-enabled=true]{opacity:.25}
+.relationship-map[data-hover] .relationship-link[data-related=true][data-enabled=true]{opacity:1}
+.relationship-map[data-hover] .relationship-link[data-related=true][data-enabled=true] .relationship-base{stroke-width:1.8;opacity:.8}
+.relationship-map[data-hover] .relationship-link[data-related=true][data-enabled=false]{opacity:.22}
+.relationship-aside{position:absolute;z-index:1;top:220px;font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.2;letter-spacing:-.035em;color:#7c877c;pointer-events:none}
+.aside-left{left:12px;width:114px}
+.aside-right{right:140px;top:156px;width:116px}
+.relationship-aside:after{content:"";position:absolute;width:5px;height:5px;border-radius:50%;background:#6f987d;top:54px;opacity:.75}
+.aside-left:after{left:4px}.aside-right:after{left:4px;background:#839dbb}
+.relationship-together{position:absolute;top:597px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:18px;font-style:italic;letter-spacing:-.025em;white-space:nowrap;color:#7c877c}
+.core-hub{position:absolute;left:50%;top:376px;width:344px;height:344px;transform:translate(-50%,-50%);z-index:3;pointer-events:none}
+.core-aura{position:absolute;inset:-27px;border-radius:50%;background:radial-gradient(circle,#d3e7d9 0%,#dfecdb66 50%,#e7efde00 74%);opacity:.65;animation:coreAura 8s ease-in-out infinite;transition:opacity .5s}
+.core-orbit-copy{position:absolute;inset:0;width:100%;height:100%;max-width:none;overflow:visible;color:var(--green);transition:opacity .4s}
+.hub-orbit{fill:rgba(241,247,233,.16);stroke:#b9cfb4;stroke-width:.8;opacity:.7}
+.hub-orbit-inner{fill:none;stroke:#b6ceb5;stroke-width:.8;opacity:.48}
+.hub-orbit-dot{fill:#80946d;stroke:var(--paper);stroke-width:1.4}
+.hub-ring-title{font-family:var(--sans);font-size:9.6px;letter-spacing:2.25px;font-weight:650;fill:#427d60}
+.hub-ring-title-bottom{font-size:10px;letter-spacing:2.4px;fill:#637953}
+#connected .platform-node{--node-color:var(--green);--node-soft:#e2eee2;position:absolute;display:block;padding:0;border:0;text-align:center;line-height:1.4;z-index:4;border-radius:50%;outline:0;background:transparent;pointer-events:auto;user-select:none;-webkit-user-select:none}
+#connected .platform-node:focus-visible .platform-disc{outline:2px solid var(--node-color);outline-offset:8px}
+.platform-core{inset:27px;width:290px;height:290px}
+.satellite{width:var(--satellite-size);height:var(--satellite-size);transform:translateX(-50%)}
+.node-doc{left:50%;top:6px}.node-learn{left:14%;top:406px}.node-time{left:86%;top:406px}
+.platform-disc{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:52% 48% 46% 54% / 48% 53% 47% 52%;background:linear-gradient(145deg,var(--node-soft) 0%,color-mix(in srgb,var(--node-soft) 88%,var(--node-color)) 100%);border:1px solid color-mix(in srgb,var(--node-color) 20%,var(--paper));box-shadow:0 12px 27px -22px color-mix(in srgb,var(--node-color) 58%,transparent);transition:background .45s,border-color .45s,box-shadow .45s,transform .45s var(--ease),filter .45s}
+.platform-disc:before{display:none}
+.platform-disc:after{content:"";position:absolute;inset:-4px;border:1px solid color-mix(in srgb,var(--node-color) 16%,transparent);border-radius:47% 53% 50% 50% / 52% 46% 54% 48%;opacity:.62;pointer-events:none;transition:inset .45s,opacity .45s}
+.node-doc .platform-disc{border-radius:48% 52% 55% 45% / 53% 45% 55% 47%}.node-learn .platform-disc{border-radius:55% 45% 49% 51% / 46% 55% 45% 54%}.node-time .platform-disc{border-radius:47% 53% 46% 54% / 55% 46% 54% 45%}
+.platform-core .platform-disc{border-radius:49% 51% 47% 53% / 52% 46% 54% 48%;background:linear-gradient(142deg,#e5f0e4 0%,#d9ead8 57%,#cce0cc 100%);border-color:#b8d1b7;box-shadow:0 18px 42px -30px #4d755559,0 0 0 1px #e8f0e3}
+.platform-core .platform-disc:after{inset:-4px;border-color:#d4e5d0;opacity:.72}
+#connected .platform-node:hover .platform-disc,#connected .platform-node:focus-visible .platform-disc{transform:translateY(-3px);border-color:color-mix(in srgb,var(--node-color) 48%,var(--paper));box-shadow:0 15px 33px -18px color-mix(in srgb,var(--node-color) 45%,transparent)}
+#connected .platform-node:hover .platform-disc:after{inset:-9px;opacity:1}
+.platform-illustration{position:relative;z-index:1;width:122px;height:122px;flex:none;overflow:visible;animation:platformFloat 7s ease-in-out infinite;transition:opacity .45s,filter .45s}
+.node-doc .platform-illustration{width:108px;height:115px;animation-delay:-2s}
+.node-learn .platform-illustration{width:118px;height:112px;animation-delay:-4s}
+.node-time .platform-illustration{width:122px;height:122px;animation-delay:-1s}
+.core-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;width:100%;padding:18px 12px 22px}
+.core-content .platform-illustration{width:111px;height:111px;margin-top:0;margin-bottom:5px}
+.core-name{font-size:29px;font-weight:600;line-height:1.1;letter-spacing:-.055em;color:var(--ink)}
+.core-full-name{font-size:14px;font-weight:500;line-height:1.4;letter-spacing:-.035em;margin-top:6px;color:var(--ink)}
+.core-role{font-size:8.5px;font-weight:550;letter-spacing:1.1px;line-height:1.5;margin-top:11px;color:#647e64}
+.selection-toggle{position:absolute;z-index:2;top:4px;right:6px;display:grid;place-items:center;width:25px;height:25px;border:3px solid var(--paper);border-radius:50%;color:var(--white);background:var(--node-color);box-sizing:content-box;box-shadow:0 2px 7px #243b2d0a;transition:background .3s,color .3s,transform .3s}
+.selection-toggle svg{width:14px;height:14px;grid-area:1 / 1;transition:opacity .25s,transform .3s}
+.unselected-plus{opacity:0;transform:rotate(-90deg)}
+.platform-core .selection-toggle{top:24px;right:26px;width:26px;height:26px}
+.platform-caption{position:absolute;top:calc(100% + 20px);left:50%;display:flex;align-items:center;flex-direction:column;width:190px;transform:translateX(-50%);text-align:center;pointer-events:auto}
+.platform-name{font-size:16px;font-weight:550;line-height:1.2;letter-spacing:-.035em;color:var(--ink);transition:color .4s}
+.platform-category{font-size:9px;letter-spacing:1.35px;line-height:1.4;color:var(--muted);margin-top:7px}
+.platform-description{font-size:11px;letter-spacing:0;line-height:1.6;color:var(--muted);margin-top:9px}
+.node-doc .platform-caption{left:calc(100% + 25px);top:0;width:161px;transform:none;text-align:left;align-items:flex-start}
+#connected .platform-node[aria-pressed=false] .platform-disc{background:#efefe8;border-color:#d6dcd0;box-shadow:none;filter:saturate(.25)}
+#connected .platform-node[aria-pressed=false] .platform-illustration{opacity:.37;filter:saturate(.3)}
+#connected .platform-node[aria-pressed=false] .platform-name{color:#79877b}
+#connected .platform-node[aria-pressed=false] .selection-toggle{background:var(--paper);border-color:var(--paper);color:#81917e;box-shadow:inset 0 0 0 1px #b9c6b0}
+#connected .platform-node[aria-pressed=false] .selected-check{opacity:0;transform:rotate(90deg)}
+#connected .platform-node[aria-pressed=false] .unselected-plus{opacity:1;transform:rotate(0)}
+#connected .platform-node[aria-pressed=false]:hover .platform-illustration{opacity:.72}
+#connected .platform-node[aria-pressed=false]:hover .selection-toggle{color:var(--node-color);transform:scale(1.1)}
+#world[data-core-selected=false] .core-aura{opacity:.13}
+#world[data-core-selected=false] .core-name{color:#728372}
+#world[data-core-selected=false] .core-role{color:#7e8b77}
+#connected .diagram-footer{margin:8px 0 0;text-align:center;position:relative;z-index:5}
+#connected .map-caption{font-size:14px;font-weight:450;letter-spacing:-.025em;min-height:21px}
+#connected .map-instruction{font-size:11px;margin-top:6px}
+.diagram-actions{margin:20px auto 0;display:flex;align-items:center;justify-content:center;gap:24px}
+.diagram-presets{display:flex;align-items:center;gap:7px}
+.diagram-presets button{min-height:30px;padding:5px 11px;border:1px solid #d7dfd1;border-radius:20px;font-size:10px;line-height:1.4;color:var(--muted);background:transparent;transition:color .2s,background .2s,border-color .2s}
+.diagram-presets button[aria-pressed=true]{color:#386c4f;background:#e7eee0;border-color:#b7cbae}
+.diagram-presets button:hover{color:var(--ink);border-color:#a5bd9a}
+.diagram-review{font-size:10px;color:var(--muted);padding:7px 0;border-bottom:1px dotted #b9c5af;line-height:1.3}
+.diagram-review span{margin-left:7px;color:var(--green)}
+.diagram-review:hover{color:var(--ink)}
+@keyframes relationshipFlow{to{stroke-dashoffset:-192}}
+@keyframes platformFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes coreAura{0%,100%{opacity:.5;transform:scale(.98)}50%{opacity:.8;transform:scale(1.025)}}
+@media(min-width:1121px) and (max-width:1250px){
+ #connected .intro h1{font-size:76px}
+ #connected .intro-copy{font-size:14px;max-width:300px}
+ #connected .story-layout{gap:20px}
+ #connected .intro .eyebrow{font-size:10px}
+}
+@media(max-width:1120px){
+ #connected{padding:60px 0 58px;min-height:0}
+ #connected .story-layout{display:flex;flex-direction:column;gap:34px}
+ #connected .narrative{display:block;width:100%}
+ #connected .beat.intro{padding:0;min-height:0;width:100%;max-width:760px;margin:auto}
+ #connected .intro .eyebrow{margin-bottom:28px}
+ #connected .intro h1{font-size:82px}
+ #connected .intro-copy{max-width:520px;font-size:15px;margin-top:25px}
+ #connected .stage-sticky{width:100%;max-width:760px;align-self:center}
+ #connected .intro-actions{margin-top:24px}
+}
+@media(min-width:721px) and (max-width:1120px){
+ #connected .beat.intro{display:grid;grid-template-columns:1fr 1fr;column-gap:34px;align-content:start}
+ #connected .intro .eyebrow{grid-column:1 / -1}
+ #connected .intro h1{grid-column:1;grid-row:2 / 4;font-size:76px}
+ #connected .intro-copy{grid-column:2;grid-row:2;margin-top:3px;font-size:14px}
+ #connected .intro-actions{grid-column:2;grid-row:3;align-self:start}
+}
+@media(max-width:720px){
+ #connected{padding:51px 0 50px}
+ #connected .story-layout{gap:32px}
+ #connected .intro .eyebrow{font-size:9px;margin-bottom:26px}
+ #connected .intro h1{font-size:clamp(62px,14vw,84px)}
+ #connected .intro h1 em{display:block;margin-left:0}
+ #connected .intro-copy{max-width:440px;font-size:14px;line-height:1.85;margin-top:23px}
+ .intro-flex-line{margin-top:10px}
+ #connected .intro-actions .btn{font-size:12px;padding-inline:21px}
+ #connected .map-meta{padding-inline:0;font-size:8px;letter-spacing:.09em;align-items:center;gap:5px}
+ #connected .map-meta .selected-status{font-size:9px}
+ .map-tools{gap:5px}
+ #connected .motion-toggle{width:27px}
+ .relationship-map{height:995px;margin-top:19px}
+ .core-hub{top:184px;width:min(344px,calc(100% - 4px));height:auto;aspect-ratio:1}
+ .platform-core{width:auto;height:auto;inset:27px}
+ .core-content .platform-illustration{width:105px;height:105px}
+ .core-content{padding:16px 10px 19px}
+ .core-name{font-size:28px}
+ .core-full-name{font-size:14px}
+ .core-role{font-size:8px;letter-spacing:.95px;margin-top:10px}
+ .platform-core .selection-toggle{right:23px;top:23px}
+ .node-doc{left:25%;top:408px}.node-learn{left:75%;top:408px}.node-time{left:50%;top:736px}
+ .platform-caption,.node-doc .platform-caption{left:50%;top:calc(100% + 19px);width:150px;transform:translateX(-50%);text-align:center;align-items:center}
+ .node-time .platform-caption{width:190px}
+ .platform-name{font-size:15px;line-height:1.35}
+ .platform-category{font-size:9px;margin-top:6px;letter-spacing:1.1px}
+ .platform-description{font-size:11px;line-height:1.65;margin-top:8px}
+ .relationship-aside,.relationship-together{display:none}
+ #connected .diagram-footer{margin:5px 0 0}
+ #connected .map-caption{font-size:13px;min-height:20px}
+ #connected .map-instruction{font-size:10px;max-width:290px;margin:8px auto 0;line-height:1.6}
+ .diagram-actions{margin-top:18px;gap:19px}
+ .diagram-presets button{min-height:36px}
+ .diagram-review{min-height:36px;padding-block:10px}
+ #workflow{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-auto-flow:row}
+ #workflow[style*="--selected-product-count: 1"]{grid-template-columns:minmax(0,1fr)!important}
+}
+@media(max-width:370px){
+ .relationship-map{--satellite-size:140px;height:962px}
+ .core-hub{top:170px}
+ .core-content .platform-illustration{width:90px;height:90px;margin-bottom:3px}
+ .core-name{font-size:26px}.core-full-name{font-size:13px;line-height:1.35}
+ .core-role{font-size:7px;letter-spacing:.75px;margin-top:7px}
+ .platform-core .selection-toggle{right:17px;top:17px;width:23px;height:23px}
+ .core-content{padding:13px 8px}
+ .node-doc,.node-learn{top:390px}.node-time{top:715px}
+ .platform-caption,.node-doc .platform-caption{width:138px}
+ .platform-name{font-size:14px}.platform-description{font-size:10.5px}
+ #connected .map-meta{font-size:7px;letter-spacing:.065em}
+ #connected .map-meta .selected-status{font-size:8px}
+ .map-tools{gap:2px}
+ .node-doc .platform-illustration{width:100px;height:105px}
+ .node-learn .platform-illustration{width:108px;height:103px}
+ .node-time .platform-illustration{width:110px;height:110px}
+ .diagram-actions{gap:12px}.diagram-presets{gap:5px}
+ .diagram-presets button{padding-inline:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ .relationship-packet{display:none}
+ .core-aura{animation:none;opacity:.55}
+ .platform-illustration{animation:none}
+ #connected .platform-node:hover .platform-disc{transform:none}
+}
+@media print{
+ #connected .diagram-actions,#connected .motion-toggle{display:none!important}
+ /* Keep the Section 2 introduction as one deliberate copy column in PDF. */
+ #connected .beat.intro{display:block!important;width:100%!important}
+ #connected .intro h1{max-width:360px!important}
+ #connected .intro-copy{max-width:330px!important;margin-top:22px!important}
+ #connected .intro-actions{margin-top:24px!important}
+ /* Keep the authored 720px relationship map inside the right print column. */
+ #connected .relationship-map{height:670px;width:720px;transform:scale(.82);transform-origin:top left;margin-bottom:-121px}
+ #connected .relationship-lines{position:absolute!important;height:100%!important;width:100%!important}
+ .relationship-packet{display:none}
+}
+
+/* Keep the existing product-story arrows inside the page on every viewport. */
+@media(min-width:1191px){.platform-navigation{left:-50px;right:-50px}}
+@media(min-width:941px) and (max-width:1190px){.platform-navigation{left:-28px;right:-28px}}
+@media(min-width:721px) and (max-width:940px){.platform-navigation{left:-16px;right:-16px}}
+@media(max-width:370px){.platform-navigation{left:-10px;right:-10px}.core-aura{inset:-8px}}
+@media(max-width:400px){.core-aura{inset:-8px}}
+#world[data-core-selected=false] .core-aura{animation:none;opacity:.13}
+
 </style>
 </head>
 <body class="no-js">
@@ -168,9 +389,9 @@
 <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs></svg>
 <header class="topbar"><div class="shell topbar-inner">
-<a class="brand" href="#overview" aria-label="GigaSphere — back to the beginning"><span class="brand-powered">Powered by</span><img src="images/GS%20Logo-No%20BG.png" alt="GigaSphere" style="display:block;width:auto;height:40px"></a>
+<a class="brand" href="#overview" aria-label="GigaSphere — back to the beginning"><span class="brand-powered">Powered by</span><img src="images/GS%20Logo-No%20BG.png" alt="GigaSphere" style="display:block;width:auto;height:40px" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><span class="brand-wordmark" hidden>GigaSphere</span></a>
 <nav class="nav" aria-label="Main navigation"><a href="#overview" class="active" data-nav="overview"><span>01</span>Platform suite</a><a href="#connected" data-nav="connected"><span>02</span>Connected service flow</a><a href="#moments" data-nav="moments"><span>03</span>Product moments</a></nav>
-<div class="nav-actions"><button class="icon-button motion-toggle" id="motionToggle" aria-label="Pause all animations" aria-pressed="false" title="Pause all animations"><svg aria-hidden="true"><use href="#i-pause"/></svg></button><button class="btn review-suite">Build your suite<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+<div class="nav-actions"><button class="btn review-suite">Build your suite<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
 </div><div class="header-progress" aria-hidden="true" id="pageProgress"></div></header>
 <noscript><p class="noscript-note">Four independent products. Enable JavaScript to explore the animated stories and build your own suite.</p></noscript>
 <main id="main">
@@ -202,75 +423,121 @@
 <div class="narrative">
 <div class="beat intro" id="start" data-chapter="0">
 <div class="eyebrow"><span class="section-id">02</span><span class="rule"></span>Connected Service Flow</div>
-<h1 id="mainTitle">One suite.<br class="desktop-break"><em class="display">Your way.</em><span class="sr-only"> Four independent products.</span></h1>
-<p class="intro-copy">Choose your suite and see the workflow below. Select the products that fit your team. Then explore how each one supports the work you do every day.</p>
+<h1 id="mainTitle">One suite.<br class="desktop-break"><em class="display">Your way.</em><span class="sr-only"> Four platforms. One flexible CML System.</span></h1>
+<p class="intro-copy">CML is the core. Three specialist platforms extend what your team can do.<span class="intro-flex-line">Choose one, combine a few, or build the complete CML suite.</span></p>
 <div class="intro-actions"><a class="btn" href="#workflow">See the workflow<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
 </div>
 </div>
-<div class="stage-sticky world" id="world" data-chapter="0">
-<div class="map-meta"><span>Distinct tools, shared work</span><span class="selected-status"><i class="status-dot"></i><span id="mapSelection">4 products selected</span></span></div>
-<!-- Four peer products. Paths terminate at a neutral team, never another product. -->
-<svg class="ecosystem" id="ecosystem" viewBox="0 0 800 735" role="group" aria-labelledby="mapTitle mapDesc">
-<title id="mapTitle">Four independent products around your team</title><desc id="mapDesc">Candidate Management Lakehouse (CML), HRDocu, Learning Platform and TimeTracker Pro are equal, optional choices. Select any product to add or remove it. Connections represent the suite concept, not an integration specification.</desc>
-<defs>
-<filter id="paperShadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#40543d" flood-opacity=".065"/></filter>
-<pattern id="littleDots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".6" fill="#b9c8b5"/></pattern>
-</defs>
-<path class="ambient-leaf" d="M400 358C214 362 100 182 181 102S392 170 400 358Z" fill="#dce9d6"/>
-<path class="ambient-leaf" d="M405 358C407 173 552 52 631 133S591 351 405 358Z" fill="#e0e7ed"/>
-<path class="ambient-leaf" d="M398 369C394 556 248 674 169 594S210 378 398 369Z" fill="#e3e8c7"/>
-<path class="ambient-leaf" d="M408 369C595 369 702 540 622 619S417 556 408 369Z" fill="#efe0c8"/>
-<circle class="orbit-guide" cx="400" cy="365" r="268"/>
-<g class="connection connection--accent" data-key="cml" data-enabled="true" style="color:var(--green)"><path class="connect-aura" d="M350 110C405 86 455 103 480 138"/><path id="link-cml" class="connect-base" d="M350 110C405 86 455 103 480 138"/><path class="connect-travel" d="M350 110C405 86 455 103 480 138"/><circle class="connection-anchor" cx="350" cy="110" r="2.6"/><circle class="connection-anchor" cx="480" cy="138" r="2.6"/><circle r="5" class="packet"><animateMotion dur="5s" begin="-1s" repeatCount="indefinite"><mpath href="#link-cml"/></animateMotion></circle></g>
-<g class="connection connection--accent" data-key="doc" data-enabled="true" style="color:var(--doc)"><path class="connect-aura" d="M640 255C700 330 675 400 620 450"/><path id="link-doc" class="connect-base" d="M640 255C700 330 675 400 620 450"/><path class="connect-travel" d="M640 255C700 330 675 400 620 450"/><circle class="connection-anchor" cx="640" cy="255" r="2.6"/><circle class="connection-anchor" cx="620" cy="450" r="2.6"/><circle r="5" class="packet"><animateMotion dur="5.7s" begin="-3s" repeatCount="indefinite"><mpath href="#link-doc"/></animateMotion></circle></g>
-<g class="connection connection--accent" data-key="time" data-enabled="true" style="color:var(--time)"><path class="connect-aura" d="M470 585C400 625 335 615 290 570"/><path id="link-time" class="connect-base" d="M470 585C400 625 335 615 290 570"/><path class="connect-travel" d="M470 585C400 625 335 615 290 570"/><circle class="connection-anchor" cx="470" cy="585" r="2.6"/><circle class="connection-anchor" cx="290" cy="570" r="2.6"/><circle r="5" class="packet"><animateMotion dur="5.4s" begin="-4.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#link-time"/></animateMotion></circle></g>
-<g class="connection connection--left-arc" data-key="learn" data-enabled="true" style="color:var(--learn)"><path class="connect-aura" d="M155 430C108 409 82 366 83 319C84 282 99 253 120 232"/><path id="link-learn" class="connect-base" d="M155 430C108 409 82 366 83 319C84 282 99 253 120 232"/><path class="connect-travel" d="M155 430C108 409 82 366 83 319C84 282 99 253 120 232"/><circle class="connection-anchor" cx="155" cy="430" r="2.6"/><circle class="connection-anchor" cx="120" cy="232" r="2.6"/><circle r="5" class="packet"><animateMotion dur="6s" begin="-2s" repeatCount="indefinite"><mpath href="#link-learn"/></animateMotion></circle></g>
-<g transform="translate(400 365)"><circle class="core-ring" r="104"/><circle class="core-disc" r="86" filter="url(#paperShadow)"/><text class="core-small" text-anchor="middle" y="-48">BUILT AROUND</text>
-<g transform="translate(0 -21)" fill="none" stroke="#60765a" stroke-width="1.5"><circle cx="0" cy="-5" r="8"/><path d="M-15 18V14a15 15 0 0 1 30 0v4"/><circle cx="-20" cy="0" r="5"/><circle cx="20" cy="0" r="5"/><path d="M-29 19v-4a9 9 0 0 1 9-9M29 19v-4a9 9 0 0 0-9-9"/></g>
-<text class="core-title" text-anchor="middle" y="31" id="coreTitle">Your team</text><text class="core-sub" text-anchor="middle" y="53" id="coreSubtitle">YOUR CHOICE OF TOOLS</text></g>
-<g class="suite-node" data-key="cml" role="button" tabindex="0" aria-pressed="true" aria-label="Candidate Management Lakehouse, CML. Remove from your suite." transform="translate(0 0)">
-<circle class="focus-outline" cx="220" cy="175" r="148"/><circle cx="220" cy="175" r="157" fill="transparent"/>
-<g class="node-art"><g transform="translate(-61.6 -49) scale(1.28)"><g class="node-breathe"><path d="M120 167C122 97 176 68 236 81s96 47 84 111-43 91-111 84-96-49-89-109Z" fill="#d7e9dc"/>
-<circle cx="220" cy="169" r="71" fill="none" stroke="#a9c8ad" stroke-width="1"/><path d="M162 164a60 60 0 0 1 79-48" fill="none" stroke="#608f6c" stroke-width="1.6" stroke-linecap="round"/><circle cx="246" cy="119" r="4" fill="#3b7458"/>
-<path d="M179 225v-17c0-26 19-39 40-39s42 14 42 39v17" fill="#4c7c5c"/><path d="m205 178 15 24 15-24" fill="#f5f4ee"/><ellipse cx="220" cy="150" rx="23" ry="27" fill="#dbb89b"/><path d="M197 150c-4-25 12-38 29-32 17-3 22 18 15 32l-7-19c-17 6-27 2-32 9l-5 10Z" fill="#334c37"/><path d="M178 225h84" stroke="#31543c" stroke-width="1.5"/>
-<g transform="translate(284 112)"><circle class="selection-badge" r="12" fill="#327e65" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round"/></g>
-</g></g></g><text x="220" y="310" text-anchor="middle" class="product-label" style="font-size:14px">Candidate Management</text><text x="220" y="330" text-anchor="middle" class="product-label" style="font-size:14px">Lakehouse (CML)</text><text x="220" y="350" text-anchor="middle" class="product-descriptor">THE FOUNDATION</text></g>
-<g class="suite-node" data-key="doc" role="button" tabindex="0" aria-pressed="true" aria-label="HRDocu, documents. Remove from your suite." transform="translate(-20 20)">
-<circle class="focus-outline" cx="580" cy="175" r="105"/><circle cx="580" cy="175" r="111" fill="transparent"/>
-<g class="node-art"><g class="node-breathe"><path d="M483 160c10-65 64-86 119-76s91 59 79 118-64 87-119 69-89-48-79-111Z" fill="#dfe8f2"/>
-<g transform="rotate(-13 578 176)"><rect x="540" y="113" width="80" height="116" rx="5" fill="#a6bfdc" stroke="#90aacb" stroke-width="1"/></g>
-<path d="M548 109h57l25 25v106h-82Z" fill="#fffefa" stroke="#809abf" stroke-width="1.2"/><path d="M605 109v26h25" fill="#d6e2f1" stroke="#809abf" stroke-width="1.2"/><path d="M565 158h32m-32 13h44m-44 13h36" stroke="#a1b5ce" stroke-width="2" stroke-linecap="round"/><circle cx="618" cy="217" r="22" fill="#567ba9" stroke="#e2eaf3" stroke-width="3"/><path d="m609 216 6 6 11-12" fill="none" stroke="#fffefa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<g transform="translate(646 112)"><circle class="selection-badge" r="12" fill="#466fae" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round"/></g>
-</g></g><text x="580" y="305" text-anchor="middle" class="product-label">HRDocu</text><text x="580" y="325" text-anchor="middle" class="product-descriptor">DOCUMENTS</text></g>
-<g class="suite-node" data-key="learn" role="button" tabindex="0" aria-pressed="true" aria-label="Learning Platform, training. Remove from your suite." transform="translate(0 -40)">
-<circle class="focus-outline" cx="220" cy="555" r="105"/><circle cx="220" cy="555" r="111" fill="transparent"/>
-<g class="node-art"><g class="node-breathe"><path d="M124 539c9-61 64-89 119-74s94 49 77 115-55 81-115 73-90-51-81-114Z" fill="#e4e9c8"/>
-<path d="M153 536c25-12 47-9 67 5 23-13 45-17 67-5v66c-24-11-46-7-67 6-20-14-44-17-67-6Z" fill="#a2b16b" stroke="#7b9151" stroke-width="1.1"/>
-<path d="M159 525c20-7 41-3 61 10 21-13 42-17 61-10v66c-23-7-41-4-61 10-20-14-40-18-61-10Z" fill="#fffef5" stroke="#97a578" stroke-width="1.2"/><path d="M220 535v66m-47-59q19-3 33 7m-33 3q19-3 33 7m-33 3q19-3 33 7m28-23q13-8 30-7m-30 17q13-8 30-7m-30 17q13-8 30-7" fill="none" stroke="#bdc6a3" stroke-width="1.5"/>
-<path d="m247 492 5 11 12 2-9 8 2 12-10-6-11 6 2-12-9-8 13-2Z" fill="#8b9a4b"/>
-<g transform="translate(285 490)"><circle class="selection-badge" r="12" fill="#748241" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round"/></g>
-</g></g><text x="220" y="684" text-anchor="middle" class="product-label">Learning Platform</text><text x="220" y="704" text-anchor="middle" class="product-descriptor">TRAINING</text></g>
-<g class="suite-node" data-key="time" role="button" tabindex="0" aria-pressed="true" aria-label="TimeTracker Pro, work time. Remove from your suite." transform="translate(-30 -35)">
-<circle class="focus-outline" cx="580" cy="555" r="105"/><circle cx="580" cy="555" r="111" fill="transparent"/>
-<g class="node-art"><g class="node-breathe"><path d="M482 544c4-62 53-92 115-82s95 53 86 117-62 86-119 70-87-45-82-105Z" fill="#f0e1c9"/>
-<circle cx="581" cy="555" r="66" fill="#d4b281"/><circle cx="581" cy="551" r="61" fill="#fffaf1" stroke="#a98a5d" stroke-width="1.2"/><circle cx="581" cy="551" r="49" fill="none" stroke="#dfd1b9" stroke-width="1" stroke-dasharray="1 7"/><path d="M581 502v8m49 41h-8m-41 49v-8m-49-41h8" stroke="#a58d64" stroke-width="1.6" stroke-linecap="round"/><path d="M581 521v30l24 13" stroke="#8a6538" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="581" cy="551" r="4" fill="#8a6538"/>
-<g transform="translate(646 490)"><circle class="selection-badge" r="12" fill="#af7432" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round"/></g>
-</g></g><text x="580" y="684" text-anchor="middle" class="product-label">TimeTracker Pro</text><text x="580" y="704" text-anchor="middle" class="product-descriptor">WORK TIME</text></g>
+<div class="stage-sticky world relationship-stage" id="world" data-chapter="0" data-core-selected="true">
+  <div class="map-meta"><span>CML SYSTEM · CONNECTED BY CHOICE</span><span class="map-tools"><span class="selected-status"><i class="status-dot"></i><span id="mapSelection">4 platforms selected</span></span><button type="button" class="icon-button motion-toggle" id="motionToggle" aria-label="Pause all animations" aria-pressed="false" title="Pause all animations"><svg aria-hidden="true"><use href="#i-pause"/></svg></button></span></div>
+  <!-- The CML hub is the visual foundation, not a mandatory selection.
+       Each of the six relationships is active only when BOTH endpoints are selected.
+       Native HTML buttons keep the illustrations and labels readable on small screens. -->
+  <div class="relationship-map" id="relationshipMap" role="group" aria-labelledby="mapTitle" aria-describedby="mapDesc">
+    <h2 class="sr-only" id="mapTitle">CML at the core. Build a suite around your team.</h2>
+    <p class="sr-only" id="mapDesc">The CML System has four platforms. Candidate Management Lakehouse is the core platform. HRDocu, Learning Platform and TimeTracker Pro are related specialist services. Select any one platform, combine several, or use all four. CML is optional in your selection. The lines illustrate the platform relationships, not a required sequence or an implementation specification. At least one platform remains selected.</p>
+    <svg class="ecosystem relationship-lines" id="ecosystem" viewBox="0 0 720 670" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <filter id="paperShadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#40543d" flood-opacity=".065"/></filter>
+        <pattern id="relationshipDots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".65" fill="#aabc9f"/></pattern>
+      </defs>
+      <ellipse class="relationship-dust" cx="360" cy="365" rx="286" ry="281" fill="url(#relationshipDots)"/>
+      <path class="relationship-guide"/>
+
+  <g class="relationship-link" data-from="cml" data-to="doc" data-kind="spoke" data-enabled="true" style="color:var(--doc)">
+    <path class="relationship-halo"/>
+    <path class="relationship-base" id="relation-cml-doc"/>
+    <path class="relationship-flow"/>
+    <circle class="relationship-anchor anchor-start" r="2.4"/><circle class="relationship-anchor anchor-end" r="2.4"/>
+    <circle class="relationship-packet" r="3.3"><animateMotion dur="4.8s" begin="-0.0s" repeatCount="indefinite"><mpath href="#relation-cml-doc"/></animateMotion></circle>
+  </g>
+  <g class="relationship-link" data-from="cml" data-to="learn" data-kind="spoke" data-enabled="true" style="color:var(--learn)">
+    <path class="relationship-halo"/>
+    <path class="relationship-base" id="relation-cml-learn"/>
+    <path class="relationship-flow"/>
+    <circle class="relationship-anchor anchor-start" r="2.4"/><circle class="relationship-anchor anchor-end" r="2.4"/>
+    <circle class="relationship-packet" r="3.3"><animateMotion dur="5.4s" begin="-1.2s" repeatCount="indefinite"><mpath href="#relation-cml-learn"/></animateMotion></circle>
+  </g>
+  <g class="relationship-link" data-from="cml" data-to="time" data-kind="spoke" data-enabled="true" style="color:var(--time)">
+    <path class="relationship-halo"/>
+    <path class="relationship-base" id="relation-cml-time"/>
+    <path class="relationship-flow"/>
+    <circle class="relationship-anchor anchor-start" r="2.4"/><circle class="relationship-anchor anchor-end" r="2.4"/>
+    <circle class="relationship-packet" r="3.3"><animateMotion dur="5.8s" begin="-2.4s" repeatCount="indefinite"><mpath href="#relation-cml-time"/></animateMotion></circle>
+  </g>
+  <g class="relationship-link" data-from="doc" data-to="learn" data-kind="orbit" data-enabled="true" style="color:var(--learn)">
+    <path class="relationship-halo"/>
+    <path class="relationship-base" id="relation-doc-learn"/>
+    <path class="relationship-flow"/>
+    <circle class="relationship-anchor anchor-start" r="2.4"/><circle class="relationship-anchor anchor-end" r="2.4"/>
+    <circle class="relationship-packet" r="3.3"><animateMotion dur="9.4s" begin="-3.5999999999999996s" repeatCount="indefinite"><mpath href="#relation-doc-learn"/></animateMotion></circle>
+  </g>
+  <g class="relationship-link" data-from="doc" data-to="time" data-kind="orbit" data-enabled="true" style="color:var(--doc)">
+    <path class="relationship-halo"/>
+    <path class="relationship-base" id="relation-doc-time"/>
+    <path class="relationship-flow"/>
+    <circle class="relationship-anchor anchor-start" r="2.4"/><circle class="relationship-anchor anchor-end" r="2.4"/>
+    <circle class="relationship-packet" r="3.3"><animateMotion dur="10.2s" begin="-4.8s" repeatCount="indefinite"><mpath href="#relation-doc-time"/></animateMotion></circle>
+  </g>
+  <g class="relationship-link" data-from="learn" data-to="time" data-kind="orbit" data-enabled="true" style="color:var(--time)">
+    <path class="relationship-halo"/>
+    <path class="relationship-base" id="relation-learn-time"/>
+    <path class="relationship-flow"/>
+    <circle class="relationship-anchor anchor-start" r="2.4"/><circle class="relationship-anchor anchor-end" r="2.4"/>
+    <circle class="relationship-packet" r="3.3"><animateMotion dur="9.8s" begin="-6.0s" repeatCount="indefinite"><mpath href="#relation-learn-time"/></animateMotion></circle>
+  </g>
+    </svg>
+    <div class="core-hub">
+  <span class="core-aura" aria-hidden="true"></span>
+  <svg class="core-orbit-copy" viewBox="0 0 344 344" aria-hidden="true">
+    <defs><path id="coreTopText" d="M9 172a163 163 0 0 1 326 0"/><path id="coreBottomText" d="M9 172a163 163 0 0 0 326 0"/></defs>
+    <circle class="hub-orbit" cx="172" cy="172" r="170"/>
+    <circle class="hub-orbit-inner" cx="172" cy="172" r="154"/>
+    <text class="hub-ring-title"><textPath href="#coreTopText" startOffset="50%" text-anchor="middle">BUILD AROUND YOUR TEAM</textPath></text>
+    <text class="hub-ring-title hub-ring-title-bottom" dy="9"><textPath href="#coreBottomText" startOffset="50%" text-anchor="middle">SELECT YOUR SUITE</textPath></text>
+    <circle class="hub-orbit-dot" cx="13.3" cy="214.5" r="3.2"/><circle class="hub-orbit-dot" cx="330.7" cy="214.5" r="3.2"/>
+  </svg>
+  <button type="button" class="suite-node platform-node platform-core" data-key="cml" aria-pressed="true" aria-label="Candidate Management Lakehouse (CML), core platform. Remove from your suite.">
+    <span class="platform-disc core-disc-surface"><span class="core-content"><svg class="platform-illustration" viewBox="144 93 152 152" aria-hidden="true">
+<circle cx="220" cy="169" fill="none" r="71" stroke="#a9c8ad" stroke-width="1"></circle><path d="M162 164a60 60 0 0 1 79-48" fill="none" stroke="#608f6c" stroke-linecap="round" stroke-width="1.6"></path><circle cx="246" cy="119" fill="#3b7458" r="4"></circle>
+<path d="M179 225v-17c0-26 19-39 40-39s42 14 42 39v17" fill="#4c7c5c"></path><path d="m205 178 15 24 15-24" fill="#f5f4ee"></path><ellipse cx="220" cy="150" fill="#dbb89b" rx="23" ry="27"></ellipse><path d="M197 150c-4-25 12-38 29-32 17-3 22 18 15 32l-7-19c-17 6-27 2-32 9l-5 10Z" fill="#334c37"></path><path d="M178 225h84" stroke="#31543c" stroke-width="1.5"></path>
+
 </svg>
-<!-- Four equal product areas overlap at the team's shared working space. -->
-<svg class="ecosystem" id="ecosystemVenn" viewBox="0 0 800 735" role="group" aria-labelledby="vennTitle vennDesc">
-<title id="vennTitle">Four-product Venn diagram around your team</title><desc id="vennDesc">Candidate Management Lakehouse, HRDocu, Learning Platform, and TimeTracker Pro overlap around the team's shared workflow. Select a coloured area to add or remove that product.</desc>
-<defs><filter id="vennShadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#40543d" flood-opacity=".07"/></filter><pattern id="vennDots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".6" fill="#b9c8b5"/></pattern></defs>
-<rect x="90" y="40" width="620" height="630" rx="310" fill="url(#vennDots)" opacity=".18"/>
-<path class="venn-route" d="M181 177C248 90 358 76 421 126"/><path class="venn-route" d="M619 177C552 90 442 76 379 126"/><path class="venn-route" d="M181 538c67 87 177 101 240 51"/><path class="venn-route" d="M619 538c-67 87-177 101-240 51"/>
-<circle cx="181" cy="177" r="3" fill="#79ad89"/><circle cx="619" cy="177" r="3" fill="#88a8cd"/><circle cx="181" cy="538" r="3" fill="#a4af6d"/><circle cx="619" cy="538" r="3" fill="#c59454"/>
-<g class="suite-node" data-key="cml" role="button" tabindex="0" aria-pressed="true" aria-label="Candidate Management Lakehouse, CML. Remove from your suite."><circle class="focus-outline" cx="300" cy="260" r="181"/><circle cx="300" cy="260" r="176" fill="transparent"/><g class="node-art"><circle class="venn-set cml" cx="300" cy="260" r="170"/><circle class="venn-set-outline" cx="300" cy="260" r="151" style="color:#639a72"/><circle cx="258" cy="228" r="17" fill="#dbb89b"/><path d="M232 284v-13c0-25 18-38 39-38s39 13 39 38v13" fill="#4c7c5c"/><path d="M242 226c-3-20 10-31 26-27 15-2 21 14 14 29l-6-16c-14 5-25 2-30 9Z" fill="#334c37"/><text class="venn-label" x="177" y="322">Candidate</text><text class="venn-label" x="177" y="340">Management</text><text class="venn-sub" x="177" y="358">CML / FOUNDATION</text><g transform="translate(175 130)"><circle class="selection-badge" r="12" fill="#327e65" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4"/></g></g></g>
-<g class="suite-node" data-key="doc" role="button" tabindex="0" aria-pressed="true" aria-label="HRDocu, documents. Remove from your suite."><circle class="focus-outline" cx="500" cy="260" r="181"/><circle cx="500" cy="260" r="176" fill="transparent"/><g class="node-art"><circle class="venn-set doc" cx="500" cy="260" r="170"/><circle class="venn-set-outline" cx="500" cy="260" r="151" style="color:#688cbb"/><g transform="translate(542 192)"><path d="M0 0h42l17 17v70H0Z" fill="#fffefa" stroke="#7495be" stroke-width="1.5"/><path d="M42 0v17h17" fill="#d3e0f1" stroke="#7495be" stroke-width="1.5"/><path d="M13 39h30m-30 12h34m-34 12h25" stroke="#9aafd0" stroke-width="2"/></g><text class="venn-label" x="526" y="322">HRDocu</text><text class="venn-sub" x="526" y="340">DOCUMENTS</text><g transform="translate(625 130)"><circle class="selection-badge" r="12" fill="#466fae" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4"/></g></g></g>
-<g class="suite-node" data-key="learn" role="button" tabindex="0" aria-pressed="true" aria-label="Learning Platform, training. Remove from your suite."><circle class="focus-outline" cx="300" cy="455" r="181"/><circle cx="300" cy="455" r="176" fill="transparent"/><g class="node-art"><circle class="venn-set learn" cx="300" cy="455" r="170"/><circle class="venn-set-outline" cx="300" cy="455" r="151" style="color:#899958"/><path d="M204 487c23-11 43-8 61 5 19-13 39-16 61-5v58c-22-10-41-7-61 5-19-12-39-15-61-5Z" fill="#fffef5" stroke="#8b9a55" stroke-width="1.5"/><path d="M265 496v53m-49-44q18-3 34 7m-34 5q18-3 34 7m29-19q15-8 32-6m-32 17q15-8 32-6" fill="none" stroke="#bdc6a3" stroke-width="1.5"/><path d="m300 411 5 10 11 2-8 8 2 11-10-6-10 6 2-11-8-8 11-2Z" fill="#869548"/><text class="venn-label" x="188" y="585">Learning Platform</text><text class="venn-sub" x="188" y="603">TRAINING</text><g transform="translate(175 590)"><circle class="selection-badge" r="12" fill="#748241" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4"/></g></g></g>
-<g class="suite-node" data-key="time" role="button" tabindex="0" aria-pressed="true" aria-label="TimeTracker Pro, work time. Remove from your suite."><circle class="focus-outline" cx="500" cy="455" r="181"/><circle cx="500" cy="455" r="176" fill="transparent"/><g class="node-art"><circle class="venn-set time" cx="500" cy="455" r="170"/><circle class="venn-set-outline" cx="500" cy="455" r="151" style="color:#b47a3b"/><circle cx="548" cy="480" r="42" fill="#fffaf1" stroke="#b18450" stroke-width="2"/><circle cx="548" cy="480" r="34" fill="none" stroke="#ddc7a6" stroke-width="1" stroke-dasharray="1 6"/><path d="M548 455v25l19 10" fill="none" stroke="#8a6538" stroke-width="2.5"/><circle cx="548" cy="480" r="3" fill="#8a6538"/><text class="venn-label" x="514" y="570">TimeTracker</text><text class="venn-label" x="514" y="588">Pro</text><text class="venn-sub" x="514" y="606">WORK TIME</text><g transform="translate(625 590)"><circle class="selection-badge" r="12" fill="#af7432" stroke="#f5f4ee" stroke-width="3"/><path class="selection-badge" d="m-4 0 3 3 5-6" fill="none" stroke="white" stroke-width="1.4"/></g></g></g>
-<g transform="translate(400 357)"><circle class="venn-overlap-halo" r="111"/><circle class="venn-overlap-ring" r="103"/><circle class="venn-overlap" r="84" filter="url(#vennShadow)"/><text class="core-small" text-anchor="middle" y="-47">THE SHARED SPACE</text><g transform="translate(0 -18)" fill="none" stroke="#60765a" stroke-width="1.5"><circle cx="0" cy="-5" r="8"/><path d="M-15 18V14a15 15 0 0 1 30 0v4"/><circle cx="-20" cy="0" r="5"/><circle cx="20" cy="0" r="5"/></g><text class="core-title" text-anchor="middle" y="31" id="vennCoreTitle">Your team</text><text class="core-sub" text-anchor="middle" y="53" id="vennCoreSubtitle">YOUR CHOICE OF TOOLS</text></g>
-</svg>
-<div class="diagram-footer"><p class="map-caption" id="mapCaption">CML at the heart. Connected by choice.</p><p class="map-instruction">Select any illustration to add or remove a product.</p></div>
+      <strong class="core-name" id="coreTitle">CML</strong>
+      <span class="core-full-name">Candidate Management<br>Lakehouse</span>
+      <span class="core-role" id="coreSubtitle">CORE PLATFORM · SELECTED</span>
+    </span><span class="selection-toggle" aria-hidden="true"><svg class="selected-check" viewBox="0 0 24 24"><use href="#i-check"/></svg><svg class="unselected-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+  </button>
+</div>
+<button type="button" class="suite-node platform-node satellite node-doc" data-key="doc" aria-pressed="true" aria-label="HRDocu. Remove from your suite." style="--node-color:var(--doc);--node-soft:#e0e9f3">
+  <span class="platform-disc"><svg class="platform-illustration" viewBox="514 101 137 146" aria-hidden="true">
+<g transform="rotate(-13 578 176)"><rect fill="#a6bfdc" height="116" rx="5" stroke="#90aacb" stroke-width="1" width="80" x="540" y="113"></rect></g>
+<path d="M548 109h57l25 25v106h-82Z" fill="#fffefa" stroke="#809abf" stroke-width="1.2"></path><path d="M605 109v26h25" fill="#d6e2f1" stroke="#809abf" stroke-width="1.2"></path><path d="M565 158h32m-32 13h44m-44 13h36" stroke="#a1b5ce" stroke-linecap="round" stroke-width="2"></path><circle cx="618" cy="217" fill="#567ba9" r="22" stroke="#e2eaf3" stroke-width="3"></circle><path d="m609 216 6 6 11-12" fill="none" stroke="#fffefa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+
+</svg><span class="selection-toggle" aria-hidden="true"><svg class="selected-check" viewBox="0 0 24 24"><use href="#i-check"/></svg><svg class="unselected-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+  <span class="platform-caption"><strong class="platform-name">HRDocu</strong><span class="platform-category">DOCUMENTS</span><span class="platform-description">Secure collection.<br>A clear document trail.</span></span>
+</button>
+<button type="button" class="suite-node platform-node satellite node-learn" data-key="learn" aria-pressed="true" aria-label="Learning Platform. Remove from your suite." style="--node-color:var(--learn);--node-soft:#e7ebd0">
+  <span class="platform-disc"><svg class="platform-illustration" viewBox="140 477 158 145" aria-hidden="true">
+<path d="M153 536c25-12 47-9 67 5 23-13 45-17 67-5v66c-24-11-46-7-67 6-20-14-44-17-67-6Z" fill="#a2b16b" stroke="#7b9151" stroke-width="1.1"></path>
+<path d="M159 525c20-7 41-3 61 10 21-13 42-17 61-10v66c-23-7-41-4-61 10-20-14-40-18-61-10Z" fill="#fffef5" stroke="#97a578" stroke-width="1.2"></path><path d="M220 535v66m-47-59q19-3 33 7m-33 3q19-3 33 7m-33 3q19-3 33 7m28-23q13-8 30-7m-30 17q13-8 30-7m-30 17q13-8 30-7" fill="none" stroke="#bdc6a3" stroke-width="1.5"></path>
+<path d="m247 492 5 11 12 2-9 8 2 12-10-6-11 6 2-12-9-8 13-2Z" fill="#8b9a4b"></path>
+
+</svg><span class="selection-toggle" aria-hidden="true"><svg class="selected-check" viewBox="0 0 24 24"><use href="#i-check"/></svg><svg class="unselected-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+  <span class="platform-caption"><strong class="platform-name">Learning Platform</strong><span class="platform-category">TRAINING</span><span class="platform-description">Onboard with purpose.<br>Keep learning on track.</span></span>
+</button>
+<button type="button" class="suite-node platform-node satellite node-time" data-key="time" aria-pressed="true" aria-label="TimeTracker Pro. Remove from your suite." style="--node-color:var(--time);--node-soft:#f2e3cb">
+  <span class="platform-disc"><svg class="platform-illustration" viewBox="503 473 157 157" aria-hidden="true">
+<circle cx="581" cy="555" fill="#d4b281" r="66"></circle><circle cx="581" cy="551" fill="#fffaf1" r="61" stroke="#a98a5d" stroke-width="1.2"></circle><circle cx="581" cy="551" fill="none" r="49" stroke="#dfd1b9" stroke-dasharray="1 7" stroke-width="1"></circle><path d="M581 502v8m49 41h-8m-41 49v-8m-49-41h8" stroke="#a58d64" stroke-linecap="round" stroke-width="1.6"></path><path d="M581 521v30l24 13" fill="none" stroke="#8a6538" stroke-linecap="round" stroke-width="3"></path><circle cx="581" cy="551" fill="#8a6538" r="4"></circle>
+
+</svg><span class="selection-toggle" aria-hidden="true"><svg class="selected-check" viewBox="0 0 24 24"><use href="#i-check"/></svg><svg class="unselected-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+  <span class="platform-caption"><strong class="platform-name">TimeTracker Pro</strong><span class="platform-category">WORK TIME</span><span class="platform-description">Capture every hour.<br>Keep reviews moving.</span></span>
+</button>
+  </div>
+  <div class="diagram-footer">
+    <p class="map-caption" id="mapCaption">The complete CML suite. Connected by choice.</p>
+    <p class="map-instruction">Select any platform to add or remove it from your suite.</p>
+  </div>
 </div>
 </div>
 </section>
@@ -296,7 +563,7 @@
 </div>
 </section>
 </main>
-<dialog class="suite-dialog" id="suiteDialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescription"><div class="dialog-inner"><div class="dialog-top"><div class="eyebrow"><span class="rule"></span>Your suite, your choice</div><button class="icon-button" id="closeDialog" aria-label="Close suite builder"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div><h2 id="dialogTitle">A combination<br>that fits you.</h2><p class="dialog-copy" id="dialogDescription">Choose any products below. This is a planning brief, not a purchase or a commitment.</p><div class="dialog-choices" id="dialogChoices" role="group" aria-label="Your selected products"></div><p class="dialog-summary" id="dialogSummary"></p><p class="dialog-note">Products remain independent. Connections are considered around your workflow, not a fixed product order.</p><div class="dialog-actions"><button class="btn" id="downloadBrief">Save suite brief<svg aria-hidden="true"><use href="#i-download"/></svg></button><button class="copy-brief" id="copyBrief">Copy summary</button></div><p class="dialog-note" style="margin-top:17px">Saved on this device only. Nothing is sent or submitted.</p></div></dialog>
+<dialog class="suite-dialog" id="suiteDialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescription"><div class="dialog-inner"><div class="dialog-top"><div class="eyebrow"><span class="rule"></span>Your suite, your choice</div><button class="icon-button" id="closeDialog" aria-label="Close suite builder"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div><h2 id="dialogTitle">A combination<br>that fits you.</h2><p class="dialog-copy" id="dialogDescription">Choose any products below. This is a planning brief, not a purchase or a commitment.</p><div class="dialog-choices" id="dialogChoices" role="group" aria-label="Your selected products"></div><p class="dialog-summary" id="dialogSummary"></p><p class="dialog-note">CML is the core platform; the three specialist platforms extend its workflow. Each platform is available independently. Choose one, combine several, or use the full suite.</p><div class="dialog-actions"><button class="btn" id="downloadBrief">Save suite brief<svg aria-hidden="true"><use href="#i-download"/></svg></button><button class="copy-brief" id="copyBrief">Copy summary</button></div><p class="dialog-note" style="margin-top:17px">Saved on this device only. Nothing is sent or submitted.</p></div></dialog>
 <div class="toast" id="toast" role="status"></div><div class="sr-only" id="liveStatus" role="status" aria-live="polite"></div>
 <script>
 'use strict';
@@ -409,7 +676,7 @@
       <circle cx="322" cy="258" r="101" fill="none" stroke="#dbe4d3" stroke-dasharray="2 8"/>
       ${route(0,'M143 166C202 166 194 243 251 243')}
       ${route(0,'M144 283C193 283 195 260 251 260')}
-      ${route(0,'M144 389C191 389 196 292 251 272')}
+      ${route(0,'M134 389C191 389 196 292 251 272')}
       ${route(1,'M392 229C439 211 439 151 478 151')}
       ${route(2,'M554 206C635 240 648 351 579 382')}
       ${route(3,'M500 411C460 464 399 467 350 467')}
@@ -511,7 +778,7 @@
         <path d="M270 231q21-7 41 7 21-14 41-7v62q-21-7-41 8-20-15-41-8Z" fill="#fffefa" stroke="#a5b783" stroke-width="1"/>
         <path d="M311 238v63m-29-54q9-1 17 5m-17 4q9-1 17 5m24-10q8-5 17-5m-17 14q8-5 17-5" fill="none" stroke="#c0cca7" stroke-width="1.5"/>
         <path d="M335 232v23l-5-4-5 4v-20" fill="#849850"/>
-        ${tinyLabel(311,370,'Complete training')}${tinyLabel(311,391,'Employer-assigned training','art-note')}
+        ${tinyLabel(311,370,'Complete training')}${tinyLabel(311,391,'The assigned program','art-note')}
         </g>`)}
       ${stage(2,`
         <g class="part-art"><circle cx="488" cy="164" r="50" fill="#e4ebcd"/><circle cx="488" cy="164" r="37" fill="#fffefa" stroke="#c8d3b0" stroke-width="1.3"/>
@@ -530,6 +797,7 @@
       <g fill="#cdd8b0"><path d="M530 420q-10-30 2-52 18 27-2 52Z"/><path d="M530 420q15-24 34-24-7 21-34 24Z"/><path d="M574 426q-10-25 3-37 12 20-3 37Z"/></g>
       <path d="M530 424v-47m44 56v-34" fill="none" stroke="#bac89a" stroke-width="1"/>
       ${tinyLabel(79,52,'NEW-HIRE TRAINING, ON TRACK','art-small','start')}
+      ${tinyLabel(590,490,'Employer-assigned training','art-note')}
     `;
   }
   function timeArt(){
@@ -615,12 +883,18 @@
       el.setAttribute('aria-pressed',String(on));
       if(el.classList.contains('suite-node'))el.setAttribute('aria-label',`${product.name}, ${product.category}. ${on?'Remove from':'Add to'} your suite.`);
     });
-    $$('.connection').forEach(el=>el.dataset.enabled=String(selected.has(el.dataset.key)));
-    $('#mapSelection').textContent=count===0?'Choose your products':`${count} product${count===1?'':'s'} selected`;
+    $$('.relationship-link').forEach(el=>{
+      el.dataset.enabled=String(selected.has(el.dataset.from)&&selected.has(el.dataset.to));
+    });
+    $('#world').dataset.coreSelected=String(selected.has('cml'));
+    $$('[data-preset]').forEach(button=>{
+      const preset=button.dataset.preset.split(',');
+      button.setAttribute('aria-pressed',String(preset.length===count&&preset.every(k=>selected.has(k))));
+    });
+    $('#mapSelection').textContent=`${count} platform${count===1?'':'s'} selected`;
     const selectionInline=$('#selectionInline');
     if(selectionInline)selectionInline.textContent=count===0?'Your suite is a blank canvas. Choose any product.':count===4?'Your choice: all four products.':`Your choice: ${chosen.map(k=>PRODUCTS[k].name).join(' + ')}.`;
-    $('#coreTitle').textContent=count===0?'Your choice':'Your team';
-    $('#coreSubtitle').textContent=count===0?'START ANYWHERE':chapter===2?(count===1?'COMPLETE ON ITS OWN':'CONNECTED BY CHOICE'):'YOUR CHOICE OF TOOLS';
+    syncMapCopy();
     $('#dialogSummary').innerHTML=count===0?'Your suite is empty. <b>Choose any product to begin.</b>':`<b>${count===4?'The complete suite':`${count} independent product${count===1?'':'s'}`}.</b> ${chosen.map(k=>PRODUCTS[k].name).join(' + ')}.`;
     $('#downloadBrief').disabled=count===0;$('#copyBrief').disabled=count===0;
     syncWorkflowSelection();
@@ -641,17 +915,130 @@
   $('#dialogChoices').innerHTML=KEYS.map(key=>`<button class="suite-choice" data-key="${key}" aria-pressed="true" style="--product-color:${PRODUCTS[key].accent}"><span class="check-control">${icon('check')}</span><span class="choice-name">${PRODUCTS[key].name}</span><span class="choice-job">${PRODUCTS[key].category}</span></button>`).join('');
   $$('.suite-choice,.suite-node').forEach(el=>{
     el.addEventListener('click',()=>toggleProduct(el.dataset.key));
-    if(el.classList.contains('suite-node'))el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleProduct(el.dataset.key);}});
+    if(el.classList.contains('suite-node')&&el.tagName.toLowerCase()!=='button')el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleProduct(el.dataset.key);}});
   });
   $$('[data-preset]').forEach(button=>button.addEventListener('click',()=>{selected=new Set(button.dataset.preset.split(',').filter(k=>KEYS.includes(k)));syncSelection(true);setChapter(1);}));
 
+  // ---- Responsive relationship geometry: the six edges follow native HTML nodes ----
+  // Nodes do not move around the team when selected. Only their state and connecting
+  // relationships change, keeping the core legible and avoiding accidental dependencies.
+  const relationshipMap=$('#relationshipMap');
+  const relationshipLinks=$$('.relationship-link');
+  let geometryFrame=0;
+  const point=(x,y)=>({x,y});
+  const unit=(x,y)=>{const n=Math.hypot(x,y)||1;return {x:x/n,y:y/n};};
+  const atEdge=(a,toward,padding=7)=>{
+    const u=unit(toward.x-a.x,toward.y-a.y);
+    return point(a.x+u.x*(a.r+padding),a.y+u.y*(a.r+padding));
+  };
+  const fmt=p=>`${p.x.toFixed(2)} ${p.y.toFixed(2)}`;
+  function drawRelationships(){
+    geometryFrame=0;
+    const bounds=relationshipMap.getBoundingClientRect();
+    if(!bounds.width||!bounds.height)return;
+    const width=bounds.width,height=bounds.height;
+    const svg=$('#ecosystem');
+    svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
+    const points={};
+    $$('#relationshipMap .platform-node').forEach(node=>{
+      const r=node.getBoundingClientRect();
+      points[node.dataset.key]={x:r.left-bounds.left+r.width/2,y:r.top-bounds.top+r.height/2,r:r.width/2};
+    });
+    const compact=window.matchMedia('(max-width:720px)').matches;
+    const dust=svg.querySelector('.relationship-dust');
+    dust.setAttribute('cx',width/2);dust.setAttribute('cy',compact?points.cml.y+115:340);
+    dust.setAttribute('rx',Math.max(80,width/2-(compact?18:52)));
+    dust.setAttribute('ry',compact?287:277);
+    const guide=svg.querySelector('.relationship-guide');
+    guide.setAttribute('d',compact?
+      `M${width*.16} ${points.doc.y-50} C${width*.05} ${points.cml.y+110},${width*.08} ${points.cml.y-70},${width*.5} ${points.cml.y-135} C${width*.96} ${points.cml.y-50},${width*.96} ${points.doc.y-70},${width*.84} ${points.doc.y-50}`:
+      `M${width/2} 66 C${width-30} 62,${width-2} 425,${width*.75} 548 C${width*.64} 622,${width*.35} 622,${width*.25} 548 C2 425,30 62,${width/2} 66`);
+    relationshipLinks.forEach(link=>{
+      const a=points[link.dataset.from],b=points[link.dataset.to];
+      let start,end,d;
+      if(link.dataset.kind==='spoke'){
+        const pad=compact?28:link.dataset.to==='doc'?25:8;
+        start=atEdge(a,b,pad);end=atEdge(b,a,8);
+        // The direct links stay short and precise. On mobile the CML-to-time link
+        // runs through the open centre, between the two specialist platforms.
+        const bend=compact?0:(link.dataset.to==='learn'?-5:link.dataset.to==='time'?5:0);
+        const mid=point((start.x+end.x)/2+bend,(start.y+end.y)/2);
+        d=`M${fmt(start)} Q${fmt(mid)} ${fmt(end)}`;
+      }else{
+        let c1,c2;
+        if(!compact){
+          if(link.dataset.from==='doc'){
+            const right=link.dataset.to==='time';
+            c1=point(width*(right?.84:.16),90);
+            c2=point(width*(right?.92:.08),340);
+          }else{
+            c1=point(width*.31,593);c2=point(width*.69,593);
+          }
+        }else if(link.dataset.from==='doc'&&link.dataset.to==='learn'){
+          c1=point(a.x,a.y-143);c2=point(b.x,b.y-143);
+        }else{
+          const left=link.dataset.from==='doc';
+          c1=point(left?8:width-8,a.y+157);
+          c2=point(left?8:width-8,b.y-52);
+        }
+        if(compact&&link.dataset.to==='time'){
+          // Keep the peripheral connections outside the readable caption columns.
+          const left=link.dataset.from==='doc',gutter=left?2:width-2;
+          start=atEdge(a,point(gutter,a.y+4),6);
+          end=atEdge(b,point(gutter,b.y-5),7);
+          d=`M${fmt(start)} C${gutter} ${a.y+40},${gutter} ${a.y+120},${gutter} ${a.y+190} C${gutter} ${b.y-25},${end.x+(left?-25:25)} ${end.y-4},${fmt(end)}`;
+        }else{
+          start=atEdge(a,c1,7);end=atEdge(b,c2,7);
+          d=`M${fmt(start)} C${fmt(c1)} ${fmt(c2)} ${fmt(end)}`;
+        }
+      }
+      link.querySelectorAll('path').forEach(p=>p.setAttribute('d',d));
+      const first=link.querySelector('.anchor-start'),last=link.querySelector('.anchor-end');
+      first.setAttribute('cx',start.x);first.setAttribute('cy',start.y);
+      last.setAttribute('cx',end.x);last.setAttribute('cy',end.y);
+    });
+  }
+  function scheduleGeometry(){if(!geometryFrame)geometryFrame=requestAnimationFrame(drawRelationships);}
+  if('ResizeObserver' in window){new ResizeObserver(scheduleGeometry).observe(relationshipMap);}
+  window.addEventListener('resize',scheduleGeometry,{passive:true});
+  window.addEventListener('load',scheduleGeometry,{once:true});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(scheduleGeometry);
+  function highlightRelationships(key){
+    if(key)relationshipMap.dataset.hover=key;else delete relationshipMap.dataset.hover;
+    relationshipLinks.forEach(link=>link.dataset.related=String(Boolean(key)&&(link.dataset.from===key||link.dataset.to===key)));
+  }
+  const mapButtons=$$('#relationshipMap .platform-node');
+  const keyboardOrder=['cml','doc','time','learn'];
+  mapButtons.forEach(button=>{
+    button.addEventListener('pointerenter',()=>highlightRelationships(button.dataset.key));
+    button.addEventListener('pointerleave',()=>{
+      const focused=document.activeElement;
+      highlightRelationships(focused&&focused.matches('#relationshipMap .platform-node')?focused.dataset.key:null);
+    });
+    button.addEventListener('focus',()=>highlightRelationships(button.dataset.key));
+    button.addEventListener('blur',()=>highlightRelationships(null));
+    // Enter / Space use the button's native click. No double-toggle handlers.
+    button.addEventListener('keydown',e=>{
+      let next=keyboardOrder.indexOf(button.dataset.key);
+      if(e.key==='ArrowRight'||e.key==='ArrowDown')next=(next+1)%keyboardOrder.length;
+      else if(e.key==='ArrowLeft'||e.key==='ArrowUp')next=(next-1+keyboardOrder.length)%keyboardOrder.length;
+      else if(e.key==='Home')next=0;else if(e.key==='End')next=keyboardOrder.length-1;else return;
+      e.preventDefault();$(`#relationshipMap .platform-node[data-key="${keyboardOrder[next]}"]`).focus({preventScroll:true});
+    });
+  });
+
   // ---- Narrative scroll: this changes explanation, never the user's chosen combination ----
-  const CHAPTER_CAPTIONS=['CML at the heart. Connected by choice.'];
+  function syncMapCopy(){
+    const chosen=chosenKeys(), count=chosen.length;
+    $('#coreSubtitle').textContent=selected.has('cml')?'CORE PLATFORM · SELECTED':'CORE PLATFORM · OPTIONAL';
+    $('#mapCaption').textContent=count===4?'The complete CML suite. Connected by choice.':
+      count===1?(chosen[0]==='cml'?'CML on its own. A focused foundation.':`${PRODUCTS[chosen[0]].name} on its own. Your choice.`):
+      selected.has('cml')?'Your CML combination. Built around your team.':'Your specialist combination. Connected by choice.';
+  }
   function setChapter(value){
     chapter=0;
     $('#world').dataset.chapter='0';
-    $('#mapCaption').textContent=CHAPTER_CAPTIONS[0];
-    $('#coreSubtitle').textContent=selected.size===0?'START ANYWHERE':'YOUR CHOICE OF TOOLS';
+    syncMapCopy();
   }
   const beats=$$('.beat');
   function updateScroll(){
@@ -854,7 +1241,7 @@
   function suiteBrief(){
     const chosen=chosenKeys();
     return ['TalentHub by GigaSphere','MY PRODUCT SUITE','',`${chosen.length} independent product${chosen.length===1?'':'s'} selected.`, '',...chosen.flatMap(k=>[PRODUCTS[k].name,PRODUCTS[k].brief,'']),
-      'THE RELATIONSHIP','These are peer products, not a sequence. No product is a mandatory core. Use each independently and consider connections around your workflow.', '',
+      'THE RELATIONSHIP','CML is the core platform of the CML System. HRDocu, Learning Platform and TimeTracker Pro extend its workflow as related specialist services. Each platform is available independently: choose one, combine several, or use the complete suite. Selecting CML is optional. The relationship diagram is conceptual, not an integration specification.', '',
       'CLIENT ENVIRONMENT','Discuss client-specific login, domain, branding, separated data and role-based access.', '',
       'DISCUSSION POINTS','Which work should the selected products support?','Who needs access?','Which moments, if any, should connect?', '',
       'This is a local planning brief, not a purchase, contract or implementation specification. No information has been sent or submitted.'].join('\n');
@@ -876,7 +1263,7 @@
     notify(copied?'Suite summary copied.':'Copy is unavailable here. Use Save suite brief instead.');
   });
 
-  renderProduct('cml');syncSelection();applyMotionState();updateScroll();requestAnimationFrame(frame);
+  renderProduct(chosenKeys()[0]);syncSelection();applyMotionState();updateScroll();drawRelationships();requestAnimationFrame(frame);
 })();
 
 </script>
