@@ -418,6 +418,117 @@
   #sceneArt[data-product="doc"] .doc-shield-float{animation:none;transform:none}
 }
 
+/* === TimeTracker Pro: employee capture, employer oversight =====================
+   The two people replace the clock; the audit/export illustration stays legible
+   throughout the story. All new assets are authored inline SVG. No GPS, employee
+   data or files are collected by this illustrative marketing page. */
+#productPanel[data-product="time"]{gap:38px}
+#productPanel[data-product="time"] .moment-copy h3{font-size:clamp(34px,3.05vw,44px)}
+#productPanel[data-product="time"] .moment-description{max-width:325px}
+#productPanel[data-product="time"] .step-list{margin-top:24px}
+#productPanel[data-product="time"] .moment-step{padding-block:9px}
+.time-step-heading{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;row-gap:2px}
+.step-owner{font-size:8px;line-height:1.5;letter-spacing:.09em;text-transform:uppercase;color:#9b978a;font-weight:500}
+#productPanel[data-product="time"] .moment-step[aria-current=step] .step-owner{color:#9b7544}
+#productPanel[data-product="time"] .moment-step:last-child .step-title{color:#80623f}
+/* Smaller chart with a matching, smaller layout footprint; no transform-only scaling. */
+#productPanel[data-product="time"] .scene-art{width:82%;max-width:720px;margin-inline:auto}
+#sceneArt[data-product="time"] .time-kicker{font-size:9.5px;letter-spacing:1.7px;fill:#8b806d;font-weight:500}
+#sceneArt[data-product="time"] .time-role-name{font-size:20px;font-weight:550;letter-spacing:-.55px;fill:#34473b}
+#sceneArt[data-product="time"] .time-role-status{font-size:10.5px;fill:#91856f;letter-spacing:.05px}
+#sceneArt[data-product="time"] .time-role{--role-accent:#a1814e}
+#sceneArt[data-product="time"] .time-role-art{opacity:.32;filter:saturate(.3);transition:opacity .65s,filter .65s,transform .65s var(--ease);transform-origin:0 0}
+#sceneArt[data-product="time"] .time-role.is-current .time-role-art{opacity:1;filter:none;transform:translateY(-3px)}
+#sceneArt[data-product="time"] .time-role-aura{opacity:0;transform:scale(.94);transform-origin:0 0;transition:opacity .7s,transform .7s}
+#sceneArt[data-product="time"] .time-role.is-current .time-role-aura{opacity:1;transform:scale(1)}
+#sceneArt[data-product="time"] .time-role-light{fill:none;stroke:var(--role-accent);stroke-width:1.45;stroke-dasharray:58 350;stroke-linecap:round;opacity:0;transform-origin:0 0;transition:opacity .5s}
+#sceneArt[data-product="time"] .time-role.is-current .time-role-light{opacity:.8;animation:timeRoleOrbit 20s linear infinite}
+#sceneArt[data-product="time"] .time-role-dot{fill:#d6cfbf;transition:fill .6s}
+#sceneArt[data-product="time"] .time-role.is-current .time-role-dot{fill:#9f7c46}
+#sceneArt[data-product="time"] .time-role-name{opacity:.61;transition:opacity .5s}
+#sceneArt[data-product="time"] .time-role.is-current .time-role-name{opacity:1}
+#sceneArt[data-product="time"] .time-role.is-current .time-role-status{fill:#8b6b3e}
+#sceneArt[data-product="time"] .time-role-bridge{fill:none;stroke:#c0ae8c;stroke-width:1;stroke-dasharray:2 6;opacity:.55}
+#sceneArt[data-product="time"] .time-center-rule{stroke:#e5dbc9;stroke-width:1}
+#sceneArt[data-product="time"] .time-center-status{font-size:17px;letter-spacing:-.3px;font-weight:500;fill:#785d37}
+#sceneArt[data-product="time"] .time-center-detail{font-size:11px;fill:#92856f}
+#sceneArt[data-product="time"] .time-node{cursor:pointer;outline:none;opacity:.5;filter:saturate(.65);transition:opacity .55s,filter .55s}
+#sceneArt[data-product="time"] .time-node.is-done{opacity:.72;filter:none}
+#sceneArt[data-product="time"] .time-node.is-active{opacity:1;filter:none}
+#sceneArt[data-product="time"] .time-node:hover{opacity:1;filter:none}
+#sceneArt[data-product="time"] .time-node .part-art{transform-origin:0 0;transform-box:view-box}
+#sceneArt[data-product="time"] .time-node .art-label{font-size:15px;fill:#34473b}
+#sceneArt[data-product="time"] .time-node .art-note{font-size:10px;fill:#8e806b}
+#sceneArt[data-product="time"] .time-step-number{font-size:8px;font-weight:600;fill:#9b7b4f;letter-spacing:.15px}
+#sceneArt[data-product="time"] .time-focus{fill:none;stroke:#b09160;stroke-width:1.4;stroke-dasharray:3 5;opacity:0;transition:opacity .25s}
+#sceneArt[data-product="time"] .time-node:focus-visible .time-focus{opacity:1}
+#sceneArt[data-product="time"] .time-route{stroke:#c3a06b;stroke-width:1.25;opacity:.25}
+#sceneArt[data-product="time"] .time-route.is-done{opacity:.48}
+#sceneArt[data-product="time"] .time-route.is-active{opacity:.9;stroke-width:1.6;animation-duration:8s}
+#sceneArt[data-product="time"] .time-route-end{fill:#c5a475;opacity:.5}
+#sceneArt[data-product="time"] .time-audit{opacity:.9;filter:none}
+#sceneArt[data-product="time"] .time-audit.is-done{opacity:.94}
+#sceneArt[data-product="time"] .time-audit.is-active{opacity:1}
+#sceneArt[data-product="time"] .time-audit .art-label{font-size:18px;fill:#735b3b}
+#sceneArt[data-product="time"] .time-audit-overline{font-size:8px;letter-spacing:1.5px;fill:#9f835a}
+#sceneArt[data-product="time"] .time-audit-orbit{fill:none;stroke:#c8ad7e;stroke-width:1;stroke-dasharray:1 7;opacity:.5;transform-origin:0 0}
+#sceneArt[data-product="time"] .time-audit.is-active .time-audit-orbit{opacity:.9;animation:timeRoleOrbit 45s linear infinite}
+#sceneArt[data-product="time"] .time-audit-halo{opacity:.25;transition:opacity .7s}
+#sceneArt[data-product="time"] .time-audit.is-active .time-audit-halo{opacity:.85}
+#sceneArt[data-product="time"] .time-audit-pages{transition:transform .8s var(--ease)}
+#sceneArt[data-product="time"][data-step="4"] .time-audit-pages{transform:translateY(-5px)}
+#sceneArt[data-product="time"] .time-export-arrow{transition:opacity .6s;opacity:.48}
+#sceneArt[data-product="time"][data-step="4"] .time-export-arrow{opacity:1;animation:timeExport 2.6s ease-in-out infinite}
+#sceneArt[data-product="time"] .time-gps-ping{transform-origin:0 0;opacity:0;fill:none;stroke:#b4935f;stroke-width:1.1}
+#sceneArt[data-product="time"] .time-node.is-active .time-gps-ping{animation:timeGpsPing 3s ease-out infinite}
+#sceneArt[data-product="time"] .time-node.is-active .time-gps-ping.delay{animation-delay:1.5s}
+#sceneArt[data-product="time"] .time-pencil{transition:transform .7s var(--ease)}
+#sceneArt[data-product="time"][data-step="1"] .time-pencil{animation:timeWrite 3.5s ease-in-out infinite}
+#sceneArt[data-product="time"] .time-flow-dot{opacity:.85;transition:opacity .5s}
+#sceneArt[data-product="time"] .time-small-time{font-size:9px;letter-spacing:.8px;fill:#8f7449;font-weight:550}
+@keyframes timeRoleOrbit{to{transform:rotate(360deg)}}
+@keyframes timeGpsPing{0%{transform:scale(.6);opacity:0}18%{opacity:.55}100%{transform:scale(1.75);opacity:0}}
+@keyframes timeExport{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+@keyframes timeWrite{0%,100%{transform:translate(0,0)}40%{transform:translate(3px,1px)}65%{transform:translate(-2px,3px)}}
+@media(min-width:721px) and (max-width:1100px){
+  #productPanel[data-product="time"]{grid-template-columns:1fr;gap:20px}
+  #productPanel[data-product="time"] .moment-copy{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);column-gap:55px;align-content:start}
+  #productPanel[data-product="time"] .product-eyebrow{grid-column:1 / -1;margin-bottom:18px}
+  #productPanel[data-product="time"] .moment-copy h3{grid-column:1;grid-row:2;margin-top:0;font-size:42px}
+  #productPanel[data-product="time"] .moment-description{grid-column:1;grid-row:3;margin-top:18px;align-self:start;max-width:360px}
+  #productPanel[data-product="time"] .step-list{grid-column:2;grid-row:2 / 5;margin:0}
+  #productPanel[data-product="time"] .scene-area{width:100%;max-width:860px;justify-self:center}
+  #productPanel[data-product="time"] .platform-navigation{align-items:flex-end;bottom:0}
+}
+@media(max-width:720px){
+  #productPanel[data-product="time"]{gap:0}
+  #productPanel[data-product="time"] .moment-copy h3{font-size:37px}
+  #productPanel[data-product="time"] .moment-description{max-width:460px}
+  #productPanel[data-product="time"] .step-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 9px;margin-top:25px;margin-bottom:91px}
+  #productPanel[data-product="time"] .step-list:before{display:none}
+  #productPanel[data-product="time"] .moment-step{position:static;display:grid;grid-template-columns:25px minmax(0,1fr);gap:7px;padding:0;min-height:40px;align-items:start}
+  #productPanel[data-product="time"] .step-marker{width:25px;height:25px;font-size:8px}
+  #productPanel[data-product="time"] .step-content{padding-top:0;min-width:0}
+  #productPanel[data-product="time"] .time-step-heading{display:block}
+  #productPanel[data-product="time"] .step-title{font-size:10px;white-space:normal;line-height:1.35}
+  #productPanel[data-product="time"] .step-owner{display:block;font-size:7px;letter-spacing:.045em;margin-top:3px}
+  #productPanel[data-product="time"] .step-description{top:calc(100% + 13px);font-size:11px;line-height:1.65}
+  #productPanel[data-product="time"] .scene-area{margin-top:0}
+  #sceneArt[data-product="time"] .art-label{font-size:15px}
+  #sceneArt[data-product="time"] .art-note,#sceneArt[data-product="time"] .art-small{display:block}
+  #sceneArt[data-product="time"] .art-small{font-size:9px;letter-spacing:1.5px}
+  #productPanel[data-product="time"] .scene-art[data-layout="compact"]{width:92%;max-width:440px;margin-inline:auto}
+  #productPanel[data-product="time"] .scene-caption{margin-top:10px}
+}
+@media(max-width:1100px){
+  #productPanel[data-product="time"] .platform-navigation{position:relative;inset:auto;grid-column:1;grid-row:3;order:3;width:100%;min-height:46px;margin-top:10px;align-items:center;pointer-events:auto}
+  #productPanel[data-product="time"] .platform-navigation:after{content:"Explore another platform";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:10px;white-space:nowrap;color:var(--muted);pointer-events:none}
+}
+@media(prefers-reduced-motion:reduce){
+  #sceneArt[data-product="time"] *{animation:none!important;transition:none!important}
+  #sceneArt[data-product="time"] .time-role.is-current .time-role-art{transform:none}
+}
+
 </style>
 </head>
 <body class="no-js">
@@ -463,7 +574,7 @@
  </article>
 <article class="companion-card" style="--product-color:var(--doc)"><svg aria-hidden="true"><use href="#i-doc"/></svg><h3>HRDocu</h3><p>Secure HR document collection and review.</p><span class="companion-features">Secure links · expiry tracking · audit history</span></article>
 <article class="companion-card" style="--product-color:var(--learn)"><svg aria-hidden="true"><use href="#i-learn"/></svg><h3>Learning Platform</h3><p>Onboarding and required training in one place.</p><span class="companion-features">Assignments · progress · completion records</span></article>
-<article class="companion-card" style="--product-color:var(--time)"><svg aria-hidden="true"><use href="#i-time"/></svg><h3>TimeTracker Pro</h3><p>Keep every shift accurate and review-ready.</p><span class="companion-features">Time tracking · GPS clock-ins · manager audit</span></article>
+<article class="companion-card" style="--product-color:var(--time)"><svg aria-hidden="true"><use href="#i-time"/></svg><h3>TimeTracker Pro</h3><p>Keep every shift accurate and review-ready.</p><span class="companion-features">Time tracking · GPS clock-ins · employer audit</span></article>
 </div>
 <p class="standalone-note"><strong>Flexible by design.</strong> HRDocu, Learning Platform and TimeTracker Pro grew from the CML workflow, but each is available to purchase and use independently.</p>
 </div>
@@ -660,18 +771,20 @@
       ],
       brief:'New-hire training assignments, employer progress tracking and completion records.'
     },
-    time: {name:'TimeTracker Pro', category:'Work-time management', job:'Manage work time', accent:'#af7432', soft:'#f6e7cd',
-      title:'Every hour.<br>Clearly accounted for.',
-      description:'TimeTracker Pro is the work-time management tool for teams using employees or contractors across projects. It turns daily hours into a clear, reviewable record before those hours are submitted for the next payroll or billing cycle.',
-      purpose:'Set up people and projects, let workers log or punch their time, then give approvers a controlled place to check hours, notes and exceptions.',
-      features:['Worker, project and access setup for accurate time capture','Project-based time entry and punch-clock options','Review, approval and biweekly payroll-ready submissions'],
+    time: {name:'TimeTracker Pro', category:'Time, location & audit', job:'Manage work time', accent:'#af7432', soft:'#f6e7cd',
+      title:'Every hour.<br>Every place.<br>Accounted for.',
+      description:'Employees capture time and GPS clock-in locations. Employers review hours, check exceptions and revisit the full audit trail, with historical records ready to bundle and share.',
+      purpose:'Keep employee time and clock-in locations visible to employers, from GPS clock-in to approval, biweekly submission and a searchable, exportable history.',
+      features:['Employee GPS clock-ins with timestamps and project-based hours','Employer review of hours, clock-in locations, notes and exceptions','Audit history with convenient record bundles for export and sharing'],
+      owners:['employee','employee','employer','employee','employer'],
       steps:[
-        ['Onboard','Set up the contractor, project and the access needed to begin.','Put the person and the project in place.'],
-        ['Log','Log time against a project or use the punch clock to capture work.','Give the working day a clear record.'],
-        ['Approve','Review hours, notes and discrepancies before approval.','The right hours, reviewed by the right people.'],
-        ['Submit','Bring approved hours into a biweekly, payroll-ready submission.','Make the submission a natural next step.']
+        ['GPS clock-in','The employee clocks in with a timestamp and GPS location, so the employer can review when and where work started.','Employee: Capture clock-in time and GPS location.'],
+        ['Log time','The employee records project hours and notes, keeping the working day connected to its clock-in record.','Employee: Keep hours and project context together.'],
+        ['Review & approve','The employer checks hours, clock-in locations, notes and exceptions before approving the record.','Employer: Review the time, location and exceptions.'],
+        ['Submit','The employee submits approved hours for the biweekly cycle, with the supporting time and location records kept together.','Employee: Submit the approved biweekly record.'],
+        ['Audit & export','The employer revisits the audit trail, finds historical records and bundles hours, GPS clock-ins and approval history for export.','Employer: Review the audit trail and package the history.']
       ],
-      brief:'Contractor onboarding, projects, time logging, punch clock, approval and biweekly submission.'
+      brief:'Employee GPS clock-ins and time logging; employer review; biweekly submission; searchable audit history and bundled records for export.'
     }
   };
   const KEYS = Object.keys(PRODUCTS);
@@ -682,6 +795,7 @@
   const mediaReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const mediaMobile = window.matchMedia('(max-width: 720px)');
   const mediaDocCompact = window.matchMedia('(max-width: 560px)');
+  const mediaTimeCompact = window.matchMedia('(max-width: 620px)');
   const STORE_KEY = 'talenthub-suite-story-v1';
   let selected = new Set(KEYS);
   // Storage is optional. The file also works in private browsing and restrictive file:// contexts.
@@ -706,7 +820,11 @@
   let manualStoryAction = false;
   let autoStarted = false;
   const STEP_DURATION = 2200;
-  const stepDuration = () => currentProduct==='doc' && currentStep===1 ? 4800 : STEP_DURATION;
+  const stepCount = () => PRODUCTS[currentProduct].steps.length;
+  const lastStep = () => stepCount()-1;
+  const stepDuration = () => currentProduct==='time' ? [4400,3000,4200,3200,6000][currentStep] : currentProduct==='doc' && currentStep===1 ? 4800 : STEP_DURATION;
+  let timeActivePath=null;
+  let timeActivePathLength=0;
 
   // Small illustration primitives. Rectangles are real documents, not generic flowchart nodes.
   function person(x,y,r=28,shirt='#557d61',skin='#d9b596',hair='#364d3a') {
@@ -1019,12 +1137,172 @@
       ${tinyLabel(79,52,'A CLEAR HOME FOR EVERY HOUR','art-small','start')}
     `;
   }
-  const ART = {cml:cmlArt,doc:secureUploadDocArt,learn:learningArt,time:timeArt};
+  function updatedTimeArt(){
+    const compact=mediaTimeCompact.matches;
+    // Each moment advances one visual slot, with GPS in the former Log time slot.
+    // Incoming routes form an open sequence: GPS -> Log -> Review -> Submit -> Audit.
+    // Step 0 intentionally has no incoming route; Audit never reconnects to GPS.
+    const positions=compact?[[310,103],[314,648],[106,648],[210,855],[107,103]]:
+      [[644,142],[669,479],[336,585],[119,365],[184,132]];
+    const paths=compact?[
+      null,
+      'M352 140C418 211 429 521 355 610',
+      'M263 650C230 628 190 628 159 650',
+      'M55 674C18 731 64 816 158 841',
+      'M163 883C61 932 5 866 5 790L5 222C5 184 22 142 37 130'
+    ]:[
+      null,
+      'M687 177C758 234 779 368 708 445',
+      'M625 509C534 593 441 628 387 601',
+      'M284 575C218 610 112 556 57 509C7 472 17 411 70 390',
+      'M76 337C20 296 50 211 117 173'
+    ];
+    const centerTransform=compact?'translate(-205 108)':'translate(0 0)';
+    const bubble=(index,artwork,label,note,r=46,extra='')=>{
+      const [x,y]=positions[index],isAudit=index===PRODUCTS.time.steps.length-1;
+      const labelY=isAudit?99:r+28;
+      const title=PRODUCTS.time.steps[index];
+      return `<g class="scene-part time-node ${isAudit?'time-audit':''}" data-scene="${index}" data-time-step="${index}" role="button" tabindex="0" aria-label="Step ${index+1}. ${title[0]}. ${PRODUCTS.time.owners[index]}." aria-pressed="false" transform="translate(${x} ${y})">
+        <title>${title[0]} Â· ${PRODUCTS.time.owners[index]}</title>
+        <circle r="${r+13}" fill="transparent"/>
+        <circle class="time-focus" r="${r+10}"/>
+        ${isAudit?`<circle class="time-audit-halo" r="86" fill="url(#timeWarmGlow)"/><circle class="time-audit-orbit" r="76"/><text class="time-audit-overline" text-anchor="middle" y="-87">EMPLOYER OVERSIGHT</text>`:''}
+        <g class="part-art">
+          <circle r="${r}" fill="${isAudit?'#efe0c3':'#efe4cf'}"/>
+          ${artwork}
+          <circle cx="${-r+8}" cy="${-r+7}" r="11" fill="#fffefa" stroke="#dccbad" stroke-width=".8"/>
+          <text class="time-step-number" x="${-r+8}" y="${-r+10}" text-anchor="middle">0${index+1}</text>
+          ${extra}
+        </g>
+        ${tinyLabel(0,labelY,label)}${tinyLabel(0,labelY+20,note,'art-note')}
+      </g>`;
+    };
+    const roles=(owner,x,y,r,name,status,portrait)=>`
+      <g class="time-role" data-time-role="${owner}" role="group" aria-label="${name}" transform="translate(${x} ${y})">
+        <g class="time-role-art">
+          <g clip-path="url(#time-${owner}-crop)">
+            ${portrait}
+          </g>
+        </g>
+        <circle class="time-role-dot" cx="${owner==='employer'?-49:-60}" cy="103" r="2.7"/>
+        <text class="time-role-name" text-anchor="middle" x="5" y="110">${name}</text>
+        <text class="time-role-status" data-role-status="${owner}" text-anchor="middle" y="131">${status}</text>
+      </g>`;
+    return svgStart('TimeTracker Pro: employee capture, employer oversight',
+      'Interactive illustrative workflow; no live location or employee data is collected. Five steps: employee GPS clock-in, employee time logging, employer review and approval, employee biweekly submission, then employer audit and history export. The central employer and employee portraits light up only for their own steps. The audit illustration stays visible throughout. Activate a numbered illustration to explore that step.')+`
+      <defs>
+        <radialGradient id="timeWarmGlow"><stop offset="0" stop-color="#e6cea4" stop-opacity=".8"/><stop offset=".65" stop-color="#e9d6b5" stop-opacity=".55"/><stop offset="1" stop-color="#f1e7d5" stop-opacity="0"/></radialGradient>
+        <clipPath id="time-employer-crop"><rect x="-80" y="-80" width="160" height="180"/></clipPath>
+        <clipPath id="time-employee-crop"><rect x="-72" y="-72" width="144" height="164"/></clipPath>
+        <symbol id="timePin" viewBox="-12 -17 24 34"><path d="M0-15c-8 0-12 6-12 12C-12 6 0 17 0 17S12 6 12-3c0-6-4-12-12-12Z" fill="#ad8852"/><circle cy="-3" r="4" fill="#fffefa"/></symbol>
+      </defs>
+      ${compact?`
+        <path d="M99 67C195 24 326 43 375 121s35 248 13 349 20 180-6 274-14 210-122 222S22 945 36 818 10 534 37 374-9 115 99 67Z" fill="#f6f0e5"/>
+      `:`
+        <path d="M158 125C258 43 475 35 612 110s186 215 103 354-233 208-395 146S114 550 91 407 79 213 158 125Z" fill="#f6f0e5"/>
+      `}
+      ${paths.map((d,i)=>d?`<path class="scene-route time-route" id="time-route-${i}" data-route="${i}" d="${d}"/>`:'').join('')}
+      <circle id="timeFlowDot" visibility="hidden" class="time-flow-dot" r="3.2" fill="#b28f58" stroke="#fffefa" stroke-width="1.5" aria-hidden="true"/>
+
+      <!-- The original clock face becomes a shared space for two real roles. -->
+      <g transform="${centerTransform}">
+        <circle cx="415" cy="319" r="189" fill="#e6d4b3" opacity=".6"/>
+        <circle cx="415" cy="314" r="188" fill="#fffefa" stroke="#d8c5a5" stroke-width="1.15"/>
+        <circle cx="415" cy="314" r="200" fill="none" stroke="#e3d5bd" stroke-width="1" stroke-dasharray="1 9" opacity=".75"/>
+        <path class="time-role-bridge" d="M410 270h22m-6-4 6 4-6 4"/>
+        ${roles('employer',341,265,60,'Employer','Review & audit',`
+          <path d="M-59 67v-19c0-29 23-43 58-43 34 0 59 15 59 43v19" fill="#697b65"/>
+          <path d="M-21 12-3 44 19 12 5 6h-14Z" fill="#fffaf1"/>
+          <path d="m-22 11-12 13 12 2-7 13 26 15-13-42m36-1 12 13-12 3 7 12L-3 54 13 12" fill="#819077"/>
+          <path d="M-22-5c-9-3-13-17-8-35 6-19 27-23 43-15C31-54 37-33 25-12L21 6-17 9Z" fill="#495342"/>
+          <circle cx="25" cy="-16" r="10" fill="#495342"/>
+          <path d="M-9 1v14q7 8 17 0V0" fill="#d4ab88"/>
+          <ellipse cx="-1" cy="-22" rx="21" ry="27" fill="#dfbc9e"/>
+          <path d="M-23-21c-7-24 7-39 26-36 17 2 27 15 20 36l-6-21c-12 9-27 7-36 18Z" fill="#495342"/>
+          <path d="M-34 56h40l-7-17h-37Z" fill="#f0e7d7" stroke="#c4b99f" stroke-width="1"/>
+          <path d="M-30 46h19m-16 5h15" stroke="#b6aa90" stroke-width="1" stroke-linecap="round"/>
+        `)}
+        ${roles('employee',493,265,52,'Employee','Clocking in',`
+          <path d="M-54 61V42c0-24 23-35 54-35s55 13 55 36v18" fill="#b59762"/>
+          <path d="m-16 8 16 22L17 8" fill="#e9d9b9"/>
+          <path d="M-7 0v14q7 7 15 0V0" fill="#ba8b67"/>
+          <ellipse cx="0" cy="-20" rx="19" ry="24" fill="#cda381"/>
+          <path d="M-20-18c-6-25 7-37 24-32 16-2 23 14 16 30l-5-18c-11 5-20 2-30 7Z" fill="#51483a"/>
+          <path d="m-17 10 11 34h14l10-34" fill="none" stroke="#8e744f" stroke-width="1.6"/>
+          <rect x="-8" y="36" width="19" height="15" rx="2" fill="#f9f5eb" stroke="#987d53" stroke-width=".8"/>
+          <path d="M-3 41h9m-9 4h6" stroke="#b49b73" stroke-width="1"/>
+          <g transform="translate(31 37) rotate(9)"><rect x="-9" y="-17" width="17" height="28" rx="3" fill="#fffefa" stroke="#8f754b" stroke-width="1.3"/><path d="M-4-12h7" stroke="#b5a17c"/><circle cy="4" r="1.1" fill="#b5a17c"/></g>
+        `)}
+        <path class="time-center-rule" d="M300 422h230"/>
+        <text class="time-center-status" id="timeCenterStatus" text-anchor="middle" x="415" y="449">Right time. Right place.</text>
+        <text class="time-center-detail" id="timeCenterDetail" text-anchor="middle" x="415" y="471">Clock-in time + GPS location</text>
+      </g>
+
+      ${bubble(0,`
+        <g transform="rotate(8)">
+          <rect x="-27" y="-43" width="54" height="88" rx="9" fill="#fffefa" stroke="#b99b6a" stroke-width="1.4"/>
+          <path d="M-9-35H9" stroke="#b9a27b" stroke-width="2" stroke-linecap="round"/>
+          <rect x="-20" y="-25" width="40" height="42" rx="3" fill="#f1eadb"/>
+          <path d="m-20-11 40 17M-6-25-14 17M12-25 3 17" fill="none" stroke="#fffefa" stroke-width="4"/>
+          <g transform="translate(3 -8)"><circle class="time-gps-ping" r="13"/><circle class="time-gps-ping delay" r="13"/>
+          <use href="#timePin" x="-8" y="-15" width="16" height="23"/></g>
+          <text class="time-small-time" text-anchor="middle" y="31">08:58</text>
+          <path d="M-7 38H7" stroke="#c5b18b" stroke-width="1.4" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(32 27)"><circle r="12" fill="#ac905d"/><path d="m-5 0 3.5 3.5L6-4" fill="none" stroke="#fffefa" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+      `,'GPS clock-in','Timestamp + location',49)}
+
+      ${bubble(1,`
+        <g transform="rotate(7)"><path d="M-28-35h40l17 18v51h-57Z" fill="#fffefa" stroke="#bda780" stroke-width="1.2"/>
+        <path d="M12-35v18h17" fill="#e6d7bd" stroke="#bda780" stroke-width="1.1"/>
+        <path d="M-17-7h27m-27 10h24m-24 10h18m-18 10h13" stroke="#c7b38c" stroke-width="1.7" stroke-linecap="round"/>
+        <path d="M-7-11v38" stroke="#ede4d1" stroke-width="1"/></g>
+        <g class="time-pencil"><path d="m15 20 21-35 5 3-21 35-7 6Z" fill="#b89a66" stroke="#9e8050" stroke-width=".8"/><path d="m15 20 5 3-7 6Z" fill="#f4ecdc"/></g>
+        <g transform="translate(-28 26)"><circle r="15" fill="#f8f3e8" stroke="#bfa47a" stroke-width="1.1"/><path d="M0-8v8l6 4" fill="none" stroke="#a18657" stroke-width="1.4" stroke-linecap="round"/></g>
+      `,'Log time','Hours + project',45)}
+
+      ${bubble(2,`
+        <path d="M-29-33h42l15 15v51h-57Z" fill="#fffefa" stroke="#baa077" stroke-width="1.2"/>
+        <path d="M13-33v15h15" fill="#e9dcc3" stroke="#baa077" stroke-width="1.1"/>
+        <circle cx="-14" cy="-9" r="6" fill="none" stroke="#b69b70" stroke-width="1.2"/><path d="M-14-13v4l3 2M-2-9h15" fill="none" stroke="#b69b70" stroke-width="1.3" stroke-linecap="round"/>
+        <use href="#timePin" x="-19" y="3" width="10" height="14"/><path d="M-2 11h15M-17 25H7" stroke="#c4ad86" stroke-width="1.5" stroke-linecap="round"/>
+        <g transform="translate(25 20)"><circle r="19" fill="#f9f4e8" stroke="#ad8d59" stroke-width="1.5"/><path class="draw-in" d="m-8 0 5 5 11-12" fill="none" stroke="#9e7b44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+      `,'Review & approve','Hours, GPS & exceptions',47)}
+
+      ${bubble(3,`
+        <g transform="translate(-13 7) rotate(-10)"><rect x="-15" y="-21" width="36" height="41" rx="3" fill="#e6d6b8" stroke="#c2aa80" stroke-width="1"/><path d="M-8-11h21M-8-3h21M-8 5H7" stroke="#bca176" stroke-width="1.3" stroke-linecap="round"/></g>
+        <path d="m-26-16 60-10-25 47-9-23Z" fill="#fffefa" stroke="#ae8e5c" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M0-2 34-26" fill="none" stroke="#ae8e5c" stroke-width="1.4"/>
+        <path d="m-34 25 9-2m-7 9 17-3" fill="none" stroke="#c5b08b" stroke-width="1.1" stroke-linecap="round"/>
+      `,'Submit','Approved biweekly hours',44)}
+
+      ${bubble(4,`
+        <g class="time-audit-pages">
+          <g transform="rotate(-12 -7 -3)"><path d="M-34-39h43l15 15v59h-58Z" fill="#d6c29c" stroke="#b9a077" stroke-width="1"/></g>
+          <g transform="rotate(6 12 -13)"><path d="M-19-47h42l14 14v65h-56Z" fill="#fffefa" stroke="#b79b6b" stroke-width="1.2"/><path d="M23-47v14h14" fill="#eadbc0" stroke="#b79b6b" stroke-width="1.1"/>
+          <path d="M-7-21h28m-28 13h28m-28 13h19" stroke="#cdb994" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="-9" cy="-21" r="2" fill="#a98a53"/><circle cx="-9" cy="-8" r="2" fill="#a98a53"/><circle cx="-9" cy="5" r="2" fill="#a98a53"/>
+          <path d="M-9-18v7m0 6v7" stroke="#bca175" stroke-width="1"/></g>
+        </g>
+        <path d="M-44 3v-8a5 5 0 0 1 5-5h26l9 10h40a6 6 0 0 1 6 6l-6 39h-74Z" fill="#cfb27e" stroke="#b39663" stroke-width="1.2"/>
+        <path d="M-43 6h78l-5 40h-68Z" fill="#e4cea5" stroke="#b79a69" stroke-width="1.1"/>
+        <path d="M-30 29h23m-23 6h16" stroke="#af905d" stroke-width="1.3" stroke-linecap="round"/>
+        <g transform="translate(-41 -8) rotate(-12)"><circle r="17" fill="#fffaf0" fill-opacity=".93" stroke="#9f8153" stroke-width="2"/><path d="m-12 13-13 14" stroke="#9f8153" stroke-width="4" stroke-linecap="round"/>
+        <path d="M0-9v9l5 3M-10-2a10 10 0 1 1 1 7m-1-13v6h6" fill="none" stroke="#ae9160" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <g transform="translate(34 40)"><circle r="18" fill="#a18351" stroke="#f5ebd8" stroke-width="3"/><g class="time-export-arrow"><path d="M0-8v12m-5-5 5 5 5-5" fill="none" stroke="#fffefa" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M-8 7v4H8V7" fill="none" stroke="#fffefa" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></g>
+      `,'Audit & export','Find history. Bundle records.',66)}
+      ${tinyLabel(compact?20:36,compact?-6:29,'A CLEAR RECORD OF WHEN AND WHERE','art-small','start')}
+
+    `;
+  }
+  const ART = {cml:cmlArt,doc:secureUploadDocArt,learn:learningArt,time:updatedTimeArt};
   function renderSceneArtwork(){
     const scene=$('#sceneArt');
     scene.dataset.product=currentProduct;
-    scene.dataset.layout=currentProduct==='doc'&&mediaDocCompact.matches?'compact':'wide';
-    scene.setAttribute('viewBox',currentProduct==='doc'&&mediaDocCompact.matches?'0 0 420 780':'0 0 760 560');
+    const compact=currentProduct==='doc'?mediaDocCompact.matches:currentProduct==='time'&&mediaTimeCompact.matches;
+    scene.dataset.layout=compact?'compact':'wide';
+    scene.setAttribute('viewBox',currentProduct==='time'?(compact?'0 -22 420 1022':'0 0 820 704'):currentProduct==='doc'&&compact?'0 0 420 780':'0 0 760 560');
+    timeActivePath=null;timeActivePathLength=0;
     scene.innerHTML=ART[currentProduct]();
   }
   mediaDocCompact.addEventListener('change',()=>{
@@ -1034,6 +1312,10 @@
     setStep(currentStep,false);
     elapsed=previousElapsed;
     updateProgress();
+  });
+  mediaTimeCompact.addEventListener('change',()=>{
+    if(currentProduct!=='time')return;
+    const previousElapsed=elapsed;renderSceneArtwork();setStep(currentStep,false);elapsed=previousElapsed;updateProgress();
   });
 
   // ---- Suite selection: one shared state for the chart, controls and the brief ----
@@ -1252,17 +1534,19 @@
     $$('.product-tab').forEach(tab=>{const active=tab.dataset.key===key;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});
     syncPlatformNavigation();
     $('#productPanel').setAttribute('aria-labelledby',`tab-${key}`);
+    $('#productPanel').dataset.product=key;
     $('#productEyebrow').textContent=`${p.name} / ${p.category}`;
     $('#momentTitle').innerHTML=p.title;
     $('#momentDescription').textContent=p.description;
     $('#stepList').innerHTML=p.steps.map((s,i)=>`<button class="moment-step" data-step="${i}" aria-current="${i===0?'step':'false'}" aria-label="Step ${i+1}, ${s[0]}. ${s[1]}"><span class="step-marker">0${i+1}</span><span class="step-content"><span class="step-title">${s[0]}</span><span class="step-description"><span>${s[1]}</span></span></span></button>`).join('');
+    $('#storySeek').setAttribute('aria-valuemax',String(p.steps.length));
     renderSceneArtwork();
     $('#sceneArea').classList.remove('is-changing');void $('#sceneArea').offsetWidth;$('#sceneArea').classList.add('is-changing');
     if(manual){manualStoryAction=false;playing=motionEnabled;announcement(`${p.name} story. ${p.steps[0][0]}. ${p.steps[0][1]}`);}
     setStep(0,false);syncPlayer();
   }
   function setStep(value,manual=true){
-    currentStep=clamp(Math.round(value),0,3);elapsed=0;
+    currentStep=clamp(Math.round(value),0,lastStep());elapsed=0;
     if(manual){playing=false;manualStoryAction=true;}
     const p=PRODUCTS[currentProduct];
     $$('.moment-step').forEach((el,i)=>{el.setAttribute('aria-current',i===currentStep?'step':'false');el.classList.toggle('is-done',i<currentStep);el.querySelector('.step-marker').innerHTML=i<currentStep?'✓':`0${i+1}`;});
@@ -1270,22 +1554,26 @@
     $$('.scene-route').forEach(el=>{const i=Number(el.dataset.route);el.classList.toggle('is-active',i===currentStep);el.classList.toggle('is-done',i<currentStep);});
     $('#sceneArt').dataset.step=String(currentStep);
     $('#sceneStatus').textContent=p.steps[currentStep][2];
-    $('#storyCount').textContent=`0${currentStep+1} / 04`;
+    $('#storyCount').textContent=`${String(currentStep+1).padStart(2,'0')} / ${String(stepCount()).padStart(2,'0')}`;
     $('#storySeek').setAttribute('aria-valuenow',String(currentStep+1));
-    $('#storySeek').setAttribute('aria-valuetext',`Step ${currentStep+1} of 4: ${p.steps[currentStep][0]}`);
-    $('#nextStep').disabled=currentStep===3;
+    $('#storySeek').setAttribute('aria-valuetext',`Step ${currentStep+1} of ${stepCount()}: ${p.steps[currentStep][0]}`);
+    $('#nextStep').disabled=currentStep===lastStep();
     if(currentProduct==='time'){
-      $('#clockHands').style.transform=`rotate(${[0,40,40,40][currentStep]}deg)`;
-      $('#clockCaption').textContent=['Person + project','Work time captured','Reviewed & approved','Ready to submit'][currentStep];
-      $$('.week-cell').forEach((cell,i)=>{cell.setAttribute('fill',currentStep===3?'#d8c099':'#e9ddc6');cell.style.transition=`fill .4s ${i*.04}s`;});
-      $$('.week-check').forEach((el,i)=>{el.setAttribute('opacity',currentStep===3?'1':'0');el.style.transition=`opacity .3s ${.3+i*.055}s`;});
+      const owner=p.owners[currentStep];
+      $$('[data-time-role]').forEach(el=>el.classList.toggle('is-current',el.dataset.timeRole===owner));
+      $$('[data-time-step]').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.timeStep)===currentStep)));
+      timeActivePath=$(`#time-route-${currentStep}`);timeActivePathLength=timeActivePath?timeActivePath.getTotalLength():0;
     }
     syncPlayer();updateProgress();
     if(manual)announcement(`${p.name}, step ${currentStep+1}: ${p.steps[currentStep][0]}. ${p.steps[currentStep][1]}`);
   }
   function updateProgress(){
     const fraction=clamp(elapsed/stepDuration(),0,1);
-    $('#storyFill').style.width=`${clamp((currentStep+fraction)/4,0,1)*100}%`;
+    $('#storyFill').style.width=`${clamp((currentStep+fraction)/stepCount(),0,1)*100}%`;
+    if(currentProduct==='time'){
+      const dot=$('#timeFlowDot');
+      if(dot&&timeActivePath&&timeActivePathLength){const point=timeActivePath.getPointAtLength(timeActivePathLength*(playing&&motionEnabled?fraction:.62));dot.setAttribute('visibility','visible');dot.setAttribute('cx',point.x.toFixed(2));dot.setAttribute('cy',point.y.toFixed(2));}
+    }
     if(currentProduct==='doc'){
       const progress=currentStep===0?0:currentStep===1?(playing&&motionEnabled?clamp(.1+fraction*.96,0,1):.58):1;
       const received=progress>=1;
@@ -1307,7 +1595,7 @@
   function beginStory(){
     manualStoryAction=true;
     if(!motionEnabled){motionEnabled=true;applyMotionState();}
-    if(currentStep===3)setStep(0,false);
+    if(currentStep===lastStep())setStep(0,false);
     playing=true;syncPlayer();
   }
   function adjacentProductKey(direction){
@@ -1356,10 +1644,10 @@
   $('#nextStep').addEventListener('click',()=>setStep(currentStep+1,true));
   $('#previousProduct').addEventListener('click',()=>navigateProduct(-1));
   $('#nextProduct').addEventListener('click',()=>navigateProduct(1));
-  $('#storySeek').addEventListener('click',e=>{const rect=e.currentTarget.getBoundingClientRect();setStep(Math.floor(clamp((e.clientX-rect.left)/rect.width,0,.999)*4),true);});
+  $('#storySeek').addEventListener('click',e=>{const rect=e.currentTarget.getBoundingClientRect();setStep(Math.floor(clamp((e.clientX-rect.left)/rect.width,0,.999)*stepCount()),true);});
   $('#storySeek').addEventListener('keydown',e=>{
     let step=currentStep;
-    if(e.key==='ArrowRight'||e.key==='ArrowUp')step++;else if(e.key==='ArrowLeft'||e.key==='ArrowDown')step--;else if(e.key==='Home')step=0;else if(e.key==='End')step=3;else return;
+    if(e.key==='ArrowRight'||e.key==='ArrowUp')step++;else if(e.key==='ArrowLeft'||e.key==='ArrowDown')step--;else if(e.key==='Home')step=0;else if(e.key==='End')step=lastStep();else return;
     e.preventDefault();setStep(step,true);
   });
 
@@ -1398,7 +1686,7 @@
     if(playing&&motionEnabled&&storyInView&&!dialogOpen&&!document.hidden){
       elapsed+=delta;
       if(elapsed>=stepDuration()){
-        if(currentStep===3)advanceProductStory();
+        if(currentStep===lastStep())advanceProductStory();
         else setStep(currentStep+1,false);
       }
       updateProgress();
