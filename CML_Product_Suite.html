@@ -374,11 +374,16 @@
    The compact composition repositions the artwork instead of shrinking a
    desktop diagram into an unreadable mobile thumbnail. */
 #sceneArt[data-product="doc"] .doc-support{opacity:.42;filter:saturate(.75)}
-#sceneArt[data-product="doc"] .doc-support.is-done{opacity:.64;filter:none}
-#sceneArt[data-product="doc"] .doc-support.is-active{opacity:.88;filter:none}
-#sceneArt[data-product="doc"] .doc-link{opacity:.78;filter:none}
-#sceneArt[data-product="doc"] .doc-link.is-active{opacity:1}
-#sceneArt[data-product="doc"] .doc-hero{opacity:1;filter:none}
+#sceneArt[data-product="doc"] .doc-support.is-done{opacity:1;filter:none}
+#sceneArt[data-product="doc"] .doc-support.is-active{opacity:1;filter:none}
+#sceneArt[data-product="doc"] .doc-link{opacity:.35;filter:saturate(.75)}
+#sceneArt[data-product="doc"] .doc-link.is-done{opacity:1;filter:none}
+#sceneArt[data-product="doc"] .doc-link.is-active{opacity:1;filter:none}
+#sceneArt[data-product="doc"] .doc-hero{opacity:.3;filter:saturate(.7);transition:opacity .6s,filter .6s}
+#sceneArt[data-product="doc"][data-step="1"] .doc-hero{opacity:1;filter:none}
+#sceneArt[data-product="doc"][data-step="2"] .doc-hero,#sceneArt[data-product="doc"][data-step="3"] .doc-hero{opacity:1;filter:none}
+#sceneArt[data-product="doc"] .doc-link-connection{opacity:.18;transition:opacity .6s}
+#sceneArt[data-product="doc"][data-step="1"] .doc-link-connection,#sceneArt[data-product="doc"][data-step="2"] .doc-link-connection,#sceneArt[data-product="doc"][data-step="3"] .doc-link-connection{opacity:1}
 #sceneArt[data-product="doc"] .doc-hero-title{font-size:27px;font-weight:550;letter-spacing:-1px;fill:var(--ink)}
 #sceneArt[data-product="doc"] .doc-panel-note{font-size:11px;fill:var(--muted)}
 #sceneArt[data-product="doc"] .doc-kicker{font-size:8px;font-weight:600;letter-spacing:1.8px;fill:#6c85a4}
@@ -459,7 +464,7 @@
 #sceneArt[data-product="time"] .time-node .part-art{transform-origin:0 0;transform-box:view-box}
 #sceneArt[data-product="time"] .time-node .art-label{font-size:15px;fill:#34473b}
 #sceneArt[data-product="time"] .time-node .art-note{font-size:10px;fill:#8e806b}
-#sceneArt[data-product="time"] .time-step-number{font-size:8px;font-weight:600;fill:#9b7b4f;letter-spacing:.15px}
+#sceneArt[data-product="time"] .time-step-number{font-size:6.5px;font-weight:600;fill:#9b7b4f;letter-spacing:.1px}
 #sceneArt[data-product="time"] .time-focus{fill:none;stroke:#b09160;stroke-width:1.4;stroke-dasharray:3 5;opacity:0;transition:opacity .25s}
 #sceneArt[data-product="time"] .time-node:focus-visible .time-focus{opacity:1}
 #sceneArt[data-product="time"] .time-route{stroke:#c3a06b;stroke-width:1.25;opacity:.25}
@@ -586,7 +591,7 @@
 <div class="beat intro" id="start" data-chapter="0">
 <div class="eyebrow"><span class="section-id">02</span><span class="rule"></span>Connected Service Flow</div>
 <h1 id="mainTitle">One suite.<br class="desktop-break"><em class="display">Your way.</em><span class="sr-only"> Four platforms. One flexible CML System.</span></h1>
-<p class="intro-copy">CML is the core. Three specialist platforms extend what your team can do.<span class="intro-flex-line">Choose one, combine a few, or build the complete CML suite.</span></p>
+<p class="intro-copy">CML brings candidate information, decisions and team context into one clear place.<br>Three specialist platforms extend that work across recruiting and onboarding.<span class="intro-flex-line">Choose the tools that fit your team,<br>or bring them together in one complete suite.</span></p>
 <div class="intro-actions"><a class="btn" href="#workflow">See the workflow<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
 </div>
 </div>
@@ -838,48 +843,48 @@
   }
   function stage(index,content){return `<g class="scene-part" data-scene="${index}">${content}</g>`;}
   function route(index,d){return `<path class="scene-route" data-route="${index}" d="${d}"/>`;}
+  function arrowRoute(index,d){return `<path class="scene-route cml-flow-route" data-route="${index}" d="${d}" marker-end="url(#cmlFlowArrow)"/>`;}
+  function docArrowRoute(index,d,marker='start'){return `<path class="scene-route doc-flow-route" data-route="${index}" d="${d}" marker-${marker}="url(#docFlowArrow)"/>`;}
   function svgStart(title,desc){return `<title id="sceneTitle">${title}</title><desc id="sceneDescription">${desc}</desc>`;}
 
   function cmlArt(){
     return svgStart('Candidate Management Lakehouse (CML): from candidate sources to a recorded decision','A branching recruitment illustration. LinkedIn, Indeed and other sources, including careers sites, referrals and CSV imports, converge on a candidate profile. A curved path continues through screening, team review and a recorded decision.') + `
+      <defs><marker id="cmlFlowArrow" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#72936d"/></marker></defs>
       <path d="M180 117C245 24 514 33 623 151s76 303-71 351-299 11-350-97-88-183-22-288Z" fill="#f0f3e9"/>
       <path d="M163 267C109 145 196 53 340 70" fill="none" stroke="#e1e7d8" stroke-width="1"/>
       <circle cx="322" cy="258" r="101" fill="none" stroke="#dbe4d3" stroke-dasharray="2 8"/>
       ${route(0,'M143 166C202 166 194 243 251 243')}
       ${route(0,'M144 283C193 283 195 260 251 260')}
       ${route(0,'M142 389C195 389 197 292 251 272')}
-      ${route(1,'M392 229C439 211 439 151 478 151')}
-      ${route(2,'M554 206C635 240 648 351 579 382')}
-      ${route(3,'M500 411C460 464 399 467 350 467')}
+      ${arrowRoute(1,'M392 229C439 211 439 151 478 151')}
+      ${arrowRoute(2,'M580 205C632 242 651 317 610 357')}
+      ${arrowRoute(3,'M480 425C445 464 399 467 350 467')}
       ${stage(0,`
         <g class="part-art">
         <g transform="translate(78 136)"><rect x="0" y="0" width="56" height="56" rx="15" fill="#0a66c2"/><text x="28" y="39" text-anchor="middle" fill="white" font-size="35" font-weight="700" font-family="Arial,sans-serif">in</text></g>
         ${tinyLabel(106,216,'LinkedIn','art-note')}
         <g transform="translate(78 250)"><rect width="56" height="56" rx="15" fill="#e4eafa"/><text x="28" y="38" text-anchor="middle" fill="#2551a4" font-size="34" font-weight="700" font-family="Georgia,serif">i</text><path d="M14 19q12-20 31-5" fill="none" stroke="#2551a4" stroke-width="2"/></g>
         ${tinyLabel(106,330,'Indeed','art-note')}
-        <g transform="translate(78 365)"><rect width="56" height="48" rx="12" fill="#e6efe3" stroke="#9bb998"/><path d="M18 11h16l8 8v18H18Z" fill="#fffefa" stroke="#6e966d" stroke-width="1.2"/><path d="M34 11v9h8M23 28h14m-14 6h11" fill="none" stroke="#6e966d" stroke-width="1.2" stroke-linecap="round"/><circle cx="45" cy="39" r="5" fill="#397757"/><path d="M43 39h4m-2-2v4" stroke="#fffefa" stroke-width="1" stroke-linecap="round"/></g>
+        <g transform="translate(78 365)"><rect width="56" height="48" rx="12" fill="#e6efe3" stroke="#9bb998"/><path d="M18 10h15l9 9v20H18Z" fill="#fffefa" stroke="#6e966d" stroke-width="1.2" stroke-linejoin="round"/><path d="M33 10v9h9M23 28h13m-13 6h10" fill="none" stroke="#6e966d" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="45" cy="40" r="5.5" fill="#397757" stroke="#e6efe3" stroke-width="1.5"/><path d="M42.5 40h5m-2.5-2.5v5" stroke="#fffefa" stroke-width="1.15" stroke-linecap="round"/></g>
         ${tinyLabel(106,438,'Other sources','art-note')}
         <circle cx="322" cy="254" r="77" fill="#e0ecdc"/>
         ${person(322,246,52,'#467356','#d4aa88','#344835')}
-        <path d="M256 237a68 68 0 0 1 96-43" fill="none" stroke="#72936d" stroke-width="1.5" stroke-linecap="round"/>
-        <circle class="art-pulse" cx="355" cy="195" r="4" fill="#327e65"/>
-        ${tinyLabel(322,351,'Candidate profile')}${tinyLabel(322,373,'Applications & activity','art-note')}
-        <circle r="4" fill="#327e65" class="art-pulse" cx="208" cy="215"/>
+        ${tinyLabel(322,351,'Candidate Profile Collection')}${tinyLabel(322,373,'Employer gets all candidate data.','art-note')}
         </g>`)}
       ${stage(1,`
         <g class="part-art"><circle cx="543" cy="151" r="67" fill="#e0ead7"/><circle cx="543" cy="151" r="52" fill="#fffefa" stroke="#b3c5a5" stroke-width="1"/>
         <g fill="none" stroke="#628759" stroke-width="1.6" stroke-linecap="round"><path d="m518 133 4 4 6-7m-10 20 4 4 6-7m-10 20 4 4 6-7" class="draw-in"/><path d="M537 133h23m-23 17h30m-30 17h17" stroke="#9cb191"/></g>
-        ${tinyLabel(543,238,'HR screening')}${tinyLabel(543,259,'Fit. Experience. Context.','art-note')}</g>`)}
+        ${tinyLabel(543,238,'HR screening')}${tinyLabel(543,259,'HR reviews fit,','art-note')}${tinyLabel(543,273,'experience and context.','art-note')}</g>`)}
       ${stage(2,`
         <g class="part-art"><ellipse cx="555" cy="401" rx="90" ry="46" fill="#e7eadc"/>
         ${person(511,391,29,'#9aab7f','#e3c3a7','#4b4234')}${person(595,391,29,'#75909a','#b78661','#332d29')}${person(553,381,37,'#4c7661','#d4aa89','#4f402b')}
         <path d="M521 335q34-27 70 0" stroke="#a8b893" stroke-width="1" fill="none" stroke-dasharray="3 5"/>
-        ${tinyLabel(555,464,'Team review')}${tinyLabel(555,485,'HR · Hiring manager · Team','art-note')}</g>`)}
+        ${tinyLabel(555,464,'Team review')}${tinyLabel(555,485,'Hiring team reviews together','art-note')}${tinyLabel(555,499,'and aligns on next steps.','art-note')}</g>`)}
       ${stage(3,`
         <g class="part-art"><circle cx="297" cy="467" r="49" fill="#e0ead7"/><circle cx="297" cy="467" r="37" fill="#fffefa" stroke="#8fa779" stroke-width="1"/>
         <path class="draw-in" d="m281 466 11 11 24-24" stroke="#467655" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         <path d="M283 512l-6 18 19-6 19 6-6-18" fill="#b8c9a0"/>
-        ${tinyLabel(156,476,'Decision recorded','art-label')}${tinyLabel(156,497,'With the history behind it','art-note')}</g>`)}
+        ${tinyLabel(176,496,'Decision recorded','art-label')}${tinyLabel(176,517,'With the history behind it','art-note')}</g>`)}
       ${tinyLabel(79,52,'THE CANDIDATE, IN CONTEXT','art-small','start')}
     `;
   }
@@ -907,7 +912,7 @@
         <g class="part-art"><circle cx="161" cy="229" r="64" fill="#dce7f5"/>
         <g transform="rotate(-9 160 223)"><rect x="120" y="203" width="82" height="53" rx="5" fill="#fffefa" stroke="#6e8eb9" stroke-width="1.4"/><path d="m120 206 41 26 41-26m-82 47 27-21m55 21-27-21" fill="none" stroke="#6e8eb9" stroke-width="1.2"/></g>
         ${person(137,167,21,'#7190b9','#d6ae8d','#3e4138')}
-        ${tinyLabel(162,321,'Send a request')}${tinyLabel(162,342,'HR chooses what is needed','art-note')}</g>`)}
+        ${tinyLabel(162,321,'Employer requests documents')}${tinyLabel(162,342,'Employee sees what to provide.','art-note')}</g>`)}
       ${stage(1,`
         <g class="part-art"><circle cx="607" cy="247" r="59" fill="#dbe6f4"/>
         <path d="M586 205h26l17 17v50h-43Z" fill="#fffefa" stroke="#7e9fc3" stroke-width="1.2"/><path d="M612 205v18h17" fill="#c8d9ed" stroke="#7e9fc3" stroke-width="1.2"/>
@@ -938,14 +943,14 @@
     const audit=compact?'306 675':'167 428';
     const hero=compact?'translate(-173 106)':'translate(0 0)';
     const paths=compact?[
-      'M48 137C12 155 22 198 79 223',
+      'M120 62C165 2 263 12 291 66',
       'M369 139C409 163 397 202 342 227',
       'M136 591C101 603 95 608 96 615',
       'M153 692C199 715 228 711 257 683'
     ]:[
-      'M184 191C211 132 229 121 254 146',
+      'M171 181C225 29 488 29 584 167',
       'M583 184C550 151 532 174 514 215',
-      'M516 378C540 373 567 374 581 389',
+      'M496 378C520 373 547 374 561 389',
       'M558 461C467 526 300 522 219 460'
     ];
     return svgStart('HRDocu: secure upload, at the centre',
@@ -953,6 +958,7 @@
       <defs>
         <filter id="docPaperShadow" x="-25%" y="-20%" width="155%" height="150%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#526b8a" flood-opacity=".085"/></filter>
         <radialGradient id="docUploadGlow"><stop offset="0" stop-color="#d5e3f4" stop-opacity=".95"/><stop offset=".72" stop-color="#e2ebf7" stop-opacity=".65"/><stop offset="1" stop-color="#eaf0f8" stop-opacity="0"/></radialGradient>
+        <marker id="docFlowArrow" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 8 4 0 8Z" fill="#6f92bf"/></marker>
       </defs>
       ${compact?`
         <path d="M87 190C16 232 15 463 52 562s84 163 183 154 165-129 161-276-7-235-91-258-153-29-218 8Z" fill="#edf1f7"/>
@@ -961,10 +967,9 @@
         <path d="M159 153C245 61 488 39 608 145s118 263-8 328-294 56-381-15-143-215-60-305Z" fill="#edf1f7"/>
         <ellipse cx="384" cy="289" rx="263" ry="196" fill="none" stroke="#d9e2ee" stroke-width="1" stroke-dasharray="2 9"/>
       `}
-      ${route(0,paths[0])}
-      <path class="scene-route doc-inbound" data-route="1" d="${paths[1]}"/>
-      <path class="doc-ingress-tip" d="${compact?'m344 218-2 9 8-4':'m512 206 2 9 8-4'}" fill="none" stroke="#6f92bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      ${route(2,paths[2])}${route(3,paths[3])}
+      ${docArrowRoute(0,paths[0],'end')}
+      ${docArrowRoute(1,paths[2],'end')}${docArrowRoute(2,paths[3],'end')}
+      ${!compact?`<g class="doc-link-connection" fill="none" stroke="#8ca9cc" stroke-width="1.4" stroke-linecap="round"><path d="M505 210h61"/><path d="M505 220h61"/></g>`:''}
 
       <!-- Always visible: the primary illustration is the upload itself. -->
       <g class="doc-hero" transform="${hero}">
@@ -1014,15 +1019,16 @@
           <circle r="51" fill="#dce7f5"/>
           <g transform="rotate(-9)"><rect x="-33" y="-20" width="66" height="45" rx="4" fill="#fffefa" stroke="#7897bd" stroke-width="1.3"/><path d="m-33-17 33 22 33-22m-66 40 22-19m44 19L11 4" fill="none" stroke="#7897bd" stroke-width="1.1"/></g>
           ${person(-27,-52,18,'#819bbd','#d6ae8d','#3e4138')}
-          ${tinyLabel(0,82,'Send a request')}${tinyLabel(0,103,'Choose the documents','art-note')}
+          ${tinyLabel(0,82,'Document request')}${tinyLabel(0,103,'Employer specifies the documents','art-note')}${tinyLabel(0,116,'an employee needs to provide.','art-note')}
+          <g class="flow-step-badge" pointer-events="none"><circle cx="-61" cy="-13" r="8" fill="#fffefa" stroke="#466fae" stroke-width="1"/><text x="-61" y="-10.5" text-anchor="middle" fill="#466fae" font-size="6.5" font-weight="650" letter-spacing=".2">01</text></g>
         </g>
       </g>
       <g class="scene-part doc-support doc-link" data-scene="1" transform="translate(${link})">
         <g class="part-art">
-          <circle r="48" fill="#e1eaf6"/>
-          <g transform="rotate(-36)"><rect x="-29" y="-9" width="35" height="20" rx="10" fill="#fffefa" stroke="#7f9fc6" stroke-width="1.8"/><rect x="-5" y="-9" width="35" height="20" rx="10" fill="#fffefa" stroke="#7f9fc6" stroke-width="1.8"/><path d="M-10 1h20" fill="none" stroke="#658ab9" stroke-width="2.3" stroke-linecap="round"/></g>
-          <g transform="translate(31 -34)"><circle r="13" fill="#fffefa" stroke="#9eb6d6" stroke-width="1.1"/><path d="M0-7v7l4 3" fill="none" stroke="#7b9bc3" stroke-width="1.5" stroke-linecap="round"/><circle r="1.4" fill="#7b9bc3"/></g>
-          ${tinyLabel(0,79,'Time-limited link')}${tinyLabel(0,100,'A secure way in','art-note')}
+          <circle r="58" fill="#e1eaf6"/><circle r="49" fill="none" stroke="#c8d9ed" stroke-width="1"/>
+          <g transform="rotate(-36) scale(1.15)"><rect x="-29" y="-9" width="35" height="20" rx="10" fill="#fffefa" stroke="#7f9fc6" stroke-width="1.8"/><rect x="-5" y="-9" width="35" height="20" rx="10" fill="#fffefa" stroke="#7f9fc6" stroke-width="1.8"/><path d="M-10 1h20" fill="none" stroke="#658ab9" stroke-width="2.3" stroke-linecap="round"/></g>
+          <g transform="translate(36 -39) scale(1.12)"><circle r="13" fill="#fffefa" stroke="#9eb6d6" stroke-width="1.1"/><path d="M0-7v7l4 3" fill="none" stroke="#7b9bc3" stroke-width="1.5" stroke-linecap="round"/><circle r="1.4" fill="#7b9bc3"/></g>
+          ${tinyLabel(0,79,'Secure upload link')}${tinyLabel(0,100,'HR sends an expiring link for','art-note')}${tinyLabel(0,113,'the employee to upload securely.','art-note')}
         </g>
       </g>
       <g class="scene-part doc-support" data-scene="2" transform="translate(${review})">
@@ -1030,7 +1036,7 @@
           <circle r="44" fill="#dfe9f6"/><circle r="30" fill="#fffefa" stroke="#a2bad8" stroke-width="1"/>
           <path d="M-19 0q19-25 38 0-19 25-38 0Z" fill="none" stroke="#7d9fc7" stroke-width="1.5"/><circle r="6.5" fill="#7d9fc7"/>
           ${check(25,30,11,'#668cb9','art-check')}
-          ${tinyLabel(0,71,'Review files')}${tinyLabel(0,92,'Files, progress & expiry','art-note')}
+          ${tinyLabel(0,71,'File review')}${tinyLabel(0,92,'HR verifies submitted documents','art-note')}${tinyLabel(0,105,'and confirms the information.','art-note')}
         </g>
       </g>
       <g class="scene-part doc-support" data-scene="3" transform="translate(${audit})">
@@ -1038,7 +1044,8 @@
           <path d="M-43-13h86" fill="none" stroke="#acbfd8" stroke-width="1.1"/>
           ${check(-43,-13,7.5,'#8ea9ca')}${check(0,-13,7.5,'#8ea9ca')}${check(43,-13,7.5,'#8ea9ca')}
           <path d="M-42 11h60m-60 10h82" fill="none" stroke="#a6bcd7" stroke-width="1.7" stroke-linecap="round"/>
-          ${tinyLabel(0,60,'A visible trail')}${tinyLabel(0,81,'Request · Upload · Review','art-note')}
+          ${tinyLabel(0,60,'Audit trail')}${tinyLabel(0,81,'Requests, uploads and reviews','art-note')}${tinyLabel(0,94,'remain traceable.','art-note')}
+          <g class="flow-step-badge" pointer-events="none"><circle cx="-65" cy="14" r="8" fill="#fffefa" stroke="#466fae" stroke-width="1"/><text x="-65" y="16.5" text-anchor="middle" fill="#466fae" font-size="6.5" font-weight="650" letter-spacing=".2">04</text></g>
         </g>
       </g>
       ${tinyLabel(compact?20:79,compact?30:52,'SECURE UPLOAD, AT THE CENTRE','art-small','start')}
@@ -1170,8 +1177,6 @@
         <g class="part-art">
           <circle r="${r}" fill="${isAudit?'#efe0c3':'#efe4cf'}"/>
           ${artwork}
-          <circle cx="${-r+8}" cy="${-r+7}" r="11" fill="#fffefa" stroke="#dccbad" stroke-width=".8"/>
-          <text class="time-step-number" x="${-r+8}" y="${-r+10}" text-anchor="middle">0${index+1}</text>
           ${extra}
         </g>
         ${tinyLabel(0,labelY,label)}${tinyLabel(0,labelY+20,note,'art-note')}
@@ -1296,6 +1301,19 @@
     `;
   }
   const ART = {cml:cmlArt,doc:secureUploadDocArt,learn:learningArt,time:updatedTimeArt};
+  function addFlowStepBadges(){
+    if(!['cml','doc','learn','time'].includes(currentProduct))return;
+    const scene=$('#sceneArt'),accent=PRODUCTS[currentProduct].accent;
+    const cmlBadgePositions=[[378,178],[577,95],[634,370],[354,429]];
+    scene.querySelectorAll('.scene-part').forEach((part,index)=>{
+      if(currentProduct==='doc'&&(index===0||index===3))return;
+      const box=part.getBBox();
+      const x=currentProduct==='cml'?cmlBadgePositions[index][0]:currentProduct==='doc'&&index===1?Math.max(box.x+box.width-15,12):currentProduct==='doc'&&index===2?Math.max(box.x+box.width-20,12):Math.min(box.x+box.width+5,scene.viewBox.baseVal.width-12);
+      const y=currentProduct==='cml'?cmlBadgePositions[index][1]:currentProduct==='doc'&&index===2?Math.max(box.y-14,12):Math.max(box.y+6,12);
+      const badgeTransform=currentProduct==='doc'&&index===2?'translate(0 -15)':'';
+      part.insertAdjacentHTML('beforeend',`<g class="flow-step-badge" pointer-events="none" transform="${badgeTransform}"><circle cx="${x}" cy="${y}" r="8" fill="#fffefa" stroke="${accent}" stroke-width="1"/><text x="${x}" y="${y+2.5}" text-anchor="middle" fill="${accent}" font-size="6.5" font-weight="650" letter-spacing=".2">${String(index+1).padStart(2,'0')}</text></g>`);
+    });
+  }
   function renderSceneArtwork(){
     const scene=$('#sceneArt');
     scene.dataset.product=currentProduct;
@@ -1304,6 +1322,7 @@
     scene.setAttribute('viewBox',currentProduct==='time'?(compact?'0 -22 420 1022':'0 0 820 704'):currentProduct==='doc'&&compact?'0 0 420 780':'0 0 760 560');
     timeActivePath=null;timeActivePathLength=0;
     scene.innerHTML=ART[currentProduct]();
+    addFlowStepBadges();
   }
   mediaDocCompact.addEventListener('change',()=>{
     if(currentProduct!=='doc')return;
@@ -1645,6 +1664,15 @@
   $('#previousProduct').addEventListener('click',()=>navigateProduct(-1));
   $('#nextProduct').addEventListener('click',()=>navigateProduct(1));
   $('#storySeek').addEventListener('click',e=>{const rect=e.currentTarget.getBoundingClientRect();setStep(Math.floor(clamp((e.clientX-rect.left)/rect.width,0,.999)*stepCount()),true);});
+  document.addEventListener('keydown',event=>{
+    if(event.code!=='Space'||dialogOpen||!storyInView||!motionEnabled)return;
+    if(event.target.closest('button,a,input,select,textarea,[role="slider"],[contenteditable="true"]'))return;
+    event.preventDefault();
+    playing=!playing;
+    manualStoryAction=true;
+    syncPlayer();
+    announcement(playing?'Flow playback resumed.':'Flow playback paused.');
+  });
   $('#storySeek').addEventListener('keydown',e=>{
     let step=currentStep;
     if(e.key==='ArrowRight'||e.key==='ArrowUp')step++;else if(e.key==='ArrowLeft'||e.key==='ArrowDown')step--;else if(e.key==='Home')step=0;else if(e.key==='End')step=lastStep();else return;
