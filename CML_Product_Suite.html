@@ -403,6 +403,7 @@
 #sceneArt[data-product="doc"] .doc-inbound{opacity:.48;stroke-width:1.5}
 #sceneArt[data-product="doc"] .doc-inbound.is-active{opacity:.82;stroke-width:1.8;animation-duration:7s}
 #sceneArt[data-product="doc"] .doc-ingress-tip{opacity:.62}
+.scene-route.is-upcoming{opacity:.32;stroke-dasharray:4 9}
 @keyframes docHalo{0%,100%{opacity:.6;transform:scale(.98)}50%{opacity:.9;transform:scale(1.025)}}
 @keyframes docFileFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes docShieldFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -435,7 +436,7 @@
 .time-step-heading{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;row-gap:2px}
 .step-owner{font-size:8px;line-height:1.5;letter-spacing:.09em;text-transform:uppercase;color:#9b978a;font-weight:500}
 #productPanel[data-product="time"] .moment-step[aria-current=step] .step-owner{color:#9b7544}
-#productPanel[data-product="time"] .moment-step:last-child .step-title{color:#80623f}
+#productPanel[data-product="time"] .moment-step:last-child .step-title{color:#84907f}
 /* Smaller chart with a matching, smaller layout footprint; no transform-only scaling. */
 #productPanel[data-product="time"] .scene-art{width:82%;max-width:720px;margin-inline:auto}
 #sceneArt[data-product="time"] .time-kicker{font-size:9.5px;letter-spacing:1.7px;fill:#8b806d;font-weight:500}
@@ -462,19 +463,19 @@
 #sceneArt[data-product="time"] .time-node.is-active{opacity:1;filter:none}
 #sceneArt[data-product="time"] .time-node:hover{opacity:1;filter:none}
 #sceneArt[data-product="time"] .time-node .part-art{transform-origin:0 0;transform-box:view-box}
-#sceneArt[data-product="time"] .time-node .art-label{font-size:15px;fill:#34473b}
-#sceneArt[data-product="time"] .time-node .art-note{font-size:10px;fill:#8e806b}
+#sceneArt[data-product="time"] .time-node .art-label{font-size:17px;fill:var(--ink)}
+#sceneArt[data-product="time"] .time-node .art-note{font-size:12px;fill:#5f6c64}
 #sceneArt[data-product="time"] .time-step-number{font-size:6.5px;font-weight:600;fill:#9b7b4f;letter-spacing:.1px}
 #sceneArt[data-product="time"] .time-focus{fill:none;stroke:#b09160;stroke-width:1.4;stroke-dasharray:3 5;opacity:0;transition:opacity .25s}
 #sceneArt[data-product="time"] .time-node:focus-visible .time-focus{opacity:1}
 #sceneArt[data-product="time"] .time-route{stroke:#c3a06b;stroke-width:1.25;opacity:.25}
-#sceneArt[data-product="time"] .time-route.is-done{opacity:.48}
+#sceneArt[data-product="time"] .time-route.is-done{opacity:.68;stroke-width:1.45}
 #sceneArt[data-product="time"] .time-route.is-active{opacity:.9;stroke-width:1.6;animation-duration:8s}
 #sceneArt[data-product="time"] .time-route-end{fill:#c5a475;opacity:.5}
-#sceneArt[data-product="time"] .time-audit{opacity:.9;filter:none}
-#sceneArt[data-product="time"] .time-audit.is-done{opacity:.94}
+#sceneArt[data-product="time"] .time-audit{opacity:.5;filter:saturate(.65)}
+#sceneArt[data-product="time"] .time-audit.is-done{opacity:.72;filter:none}
 #sceneArt[data-product="time"] .time-audit.is-active{opacity:1}
-#sceneArt[data-product="time"] .time-audit .art-label{font-size:18px;fill:#735b3b}
+#sceneArt[data-product="time"] .time-audit .art-label{font-size:19px;fill:var(--ink)}
 #sceneArt[data-product="time"] .time-audit-overline{font-size:8px;letter-spacing:1.5px;fill:#9f835a}
 #sceneArt[data-product="time"] .time-audit-orbit{fill:none;stroke:#c8ad7e;stroke-width:1;stroke-dasharray:1 7;opacity:.5;transform-origin:0 0}
 #sceneArt[data-product="time"] .time-audit.is-active .time-audit-orbit{opacity:.9;animation:timeRoleOrbit 45s linear infinite}
@@ -783,7 +784,7 @@
       features:['Employee GPS clock-ins with timestamps and project-based hours','Employer review of hours, clock-in locations, notes and exceptions','Audit history with convenient record bundles for export and sharing'],
       owners:['employee','employee','employer','employee','employer'],
       steps:[
-        ['GPS clock-in','The employee clocks in with a timestamp and GPS location, so the employer can review when and where work started.','Employee: Capture clock-in time and GPS location.'],
+        ['Clock in','The employee clocks in with a timestamp. GPS location is captured only when enabled by the employer.','Employee: Start the shift; GPS is optional when enabled.'],
         ['Log time','The employee records project hours and notes, keeping the working day connected to its clock-in record.','Employee: Keep hours and project context together.'],
         ['Review & approve','The employer checks hours, clock-in locations, notes and exceptions before approving the record.','Employer: Review the time, location and exceptions.'],
         ['Submit','The employee submits approved hours for the biweekly cycle, with the supporting time and location records kept together.','Employee: Submit the approved biweekly record.'],
@@ -1028,7 +1029,7 @@
           <circle r="58" fill="#e1eaf6"/><circle r="49" fill="none" stroke="#c8d9ed" stroke-width="1"/>
           <g transform="rotate(-36) scale(1.15)"><rect x="-29" y="-9" width="35" height="20" rx="10" fill="#fffefa" stroke="#7f9fc6" stroke-width="1.8"/><rect x="-5" y="-9" width="35" height="20" rx="10" fill="#fffefa" stroke="#7f9fc6" stroke-width="1.8"/><path d="M-10 1h20" fill="none" stroke="#658ab9" stroke-width="2.3" stroke-linecap="round"/></g>
           <g transform="translate(36 -39) scale(1.12)"><circle r="13" fill="#fffefa" stroke="#9eb6d6" stroke-width="1.1"/><path d="M0-7v7l4 3" fill="none" stroke="#7b9bc3" stroke-width="1.5" stroke-linecap="round"/><circle r="1.4" fill="#7b9bc3"/></g>
-          ${tinyLabel(0,79,'Secure upload link')}${tinyLabel(0,100,'HR sends an expiring link for','art-note')}${tinyLabel(0,113,'the employee to upload securely.','art-note')}
+          ${tinyLabel(0,79,'Secure upload link')}${tinyLabel(0,100,'HR issues a secure upload link','art-note')}${tinyLabel(0,113,'valid for 24 or 48 hours.','art-note')}
         </g>
       </g>
       <g class="scene-part doc-support" data-scene="2" transform="translate(${review})">
@@ -1084,7 +1085,7 @@
         <path d="m623 102-9 40 27-13 26 13-9-40" fill="#a9b876"/>
         <path d="m642 39 9 6 11-1 6 10 10 5v12l5 10-7 9-3 11-12 2-9 7-10-5-12 1-6-10-10-5V79l-5-10 7-9 3-11 12-2Z" fill="#859749"/>
         <circle cx="643" cy="78" r="24" fill="#f1f4e4"/><path class="draw-in" d="m632 78 8 8 15-18" fill="none" stroke="#7a9146" stroke-width="2.5" stroke-linecap="round"/>
-        ${tinyLabel(642,196,'Completion')}${tinyLabel(642,217,'An outcome to keep','art-note')}
+        ${tinyLabel(642,196,'Completion')}${tinyLabel(642,217,'Access and download certification','art-note')}
         <g class="art-check" stroke="#a8b97b" stroke-width="1.5"><path d="M700 50v10m-5-5h10M605 34v8m-4-4h8"/></g>
         </g>`)}
       <g fill="#cdd8b0"><path d="M530 420q-10-30 2-52 18 27-2 52Z"/><path d="M530 420q15-24 34-24-7 21-34 24Z"/><path d="M574 426q-10-25 3-37 12 20-3 37Z"/></g>
@@ -1169,6 +1170,7 @@
       const [x,y]=positions[index],isAudit=index===PRODUCTS.time.steps.length-1;
       const labelY=isAudit?99:r+28;
       const title=PRODUCTS.time.steps[index];
+      const noteLabel=Array.isArray(note)?note.map((line,lineIndex)=>tinyLabel(0,labelY+20+lineIndex*13,line,'art-note')).join(''):tinyLabel(0,labelY+20,note,'art-note');
       return `<g class="scene-part time-node ${isAudit?'time-audit':''}" data-scene="${index}" data-time-step="${index}" role="button" tabindex="0" aria-label="Step ${index+1}. ${title[0]}. ${PRODUCTS.time.owners[index]}." aria-pressed="false" transform="translate(${x} ${y})">
         <title>${title[0]} Â· ${PRODUCTS.time.owners[index]}</title>
         <circle r="${r+13}" fill="transparent"/>
@@ -1179,7 +1181,7 @@
           ${artwork}
           ${extra}
         </g>
-        ${tinyLabel(0,labelY,label)}${tinyLabel(0,labelY+20,note,'art-note')}
+        ${tinyLabel(0,labelY,label)}${noteLabel}
       </g>`;
     };
     const roles=(owner,x,y,r,name,status,portrait)=>`
@@ -1197,6 +1199,7 @@
       'Interactive illustrative workflow; no live location or employee data is collected. Five steps: employee GPS clock-in, employee time logging, employer review and approval, employee biweekly submission, then employer audit and history export. The central employer and employee portraits light up only for their own steps. The audit illustration stays visible throughout. Activate a numbered illustration to explore that step.')+`
       <defs>
         <radialGradient id="timeWarmGlow"><stop offset="0" stop-color="#e6cea4" stop-opacity=".8"/><stop offset=".65" stop-color="#e9d6b5" stop-opacity=".55"/><stop offset="1" stop-color="#f1e7d5" stop-opacity="0"/></radialGradient>
+        <marker id="timeFlowArrow" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#c3a06b"/></marker>
         <clipPath id="time-employer-crop"><rect x="-80" y="-80" width="160" height="180"/></clipPath>
         <clipPath id="time-employee-crop"><rect x="-72" y="-72" width="144" height="164"/></clipPath>
         <symbol id="timePin" viewBox="-12 -17 24 34"><path d="M0-15c-8 0-12 6-12 12C-12 6 0 17 0 17S12 6 12-3c0-6-4-12-12-12Z" fill="#ad8852"/><circle cy="-3" r="4" fill="#fffefa"/></symbol>
@@ -1206,13 +1209,13 @@
       `:`
         <path d="M158 125C258 43 475 35 612 110s186 215 103 354-233 208-395 146S114 550 91 407 79 213 158 125Z" fill="#f6f0e5"/>
       `}
-      ${paths.map((d,i)=>d?`<path class="scene-route time-route" id="time-route-${i}" data-route="${i}" d="${d}"/>`:'').join('')}
+      ${paths.map((d,i)=>d?`<path class="scene-route time-route" id="time-route-${i}" data-route="${i-1}" d="${d}" marker-end="url(#timeFlowArrow)"/>`:'').join('')}
       <circle id="timeFlowDot" visibility="hidden" class="time-flow-dot" r="3.2" fill="#b28f58" stroke="#fffefa" stroke-width="1.5" aria-hidden="true"/>
 
       <!-- The original clock face becomes a shared space for two real roles. -->
       <g transform="${centerTransform}">
-        <circle cx="415" cy="319" r="189" fill="#e6d4b3" opacity=".6"/>
-        <circle cx="415" cy="314" r="188" fill="#fffefa" stroke="#d8c5a5" stroke-width="1.15"/>
+        <circle cx="415" cy="339" r="189" fill="#e6d4b3" opacity=".6"/>
+        <circle cx="415" cy="334" r="188" fill="#fffefa" stroke="#d8c5a5" stroke-width="1.15"/>
         <circle cx="415" cy="314" r="200" fill="none" stroke="#e3d5bd" stroke-width="1" stroke-dasharray="1 9" opacity=".75"/>
         <path class="time-role-bridge" d="M410 270h22m-6-4 6 4-6 4"/>
         ${roles('employer',341,265,60,'Employer','Review & audit',`
@@ -1239,8 +1242,8 @@
           <g transform="translate(31 37) rotate(9)"><rect x="-9" y="-17" width="17" height="28" rx="3" fill="#fffefa" stroke="#8f754b" stroke-width="1.3"/><path d="M-4-12h7" stroke="#b5a17c"/><circle cy="4" r="1.1" fill="#b5a17c"/></g>
         `)}
         <path class="time-center-rule" d="M300 422h230"/>
-        <text class="time-center-status" id="timeCenterStatus" text-anchor="middle" x="415" y="449">Right time. Right place.</text>
-        <text class="time-center-detail" id="timeCenterDetail" text-anchor="middle" x="415" y="471">Clock-in time + GPS location</text>
+        <text class="time-center-status" id="timeCenterStatus" text-anchor="middle" x="415" y="449">Time, tracked step by step.</text>
+        <text class="time-center-detail" id="timeCenterDetail" text-anchor="middle" x="415" y="471">From clock-in to approval and audit.</text>
       </g>
 
       ${bubble(0,`
@@ -1255,7 +1258,7 @@
           <path d="M-7 38H7" stroke="#c5b18b" stroke-width="1.4" stroke-linecap="round"/>
         </g>
         <g transform="translate(32 27)"><circle r="12" fill="#ac905d"/><path d="m-5 0 3.5 3.5L6-4" fill="none" stroke="#fffefa" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g>
-      `,'GPS clock-in','Timestamp + location',49)}
+      `,'Clock in',['GPS location if enabled','by the employer.'],49)}
 
       ${bubble(1,`
         <g transform="rotate(7)"><path d="M-28-35h40l17 18v51h-57Z" fill="#fffefa" stroke="#bda780" stroke-width="1.2"/>
@@ -1279,7 +1282,7 @@
         <path d="m-26-16 60-10-25 47-9-23Z" fill="#fffefa" stroke="#ae8e5c" stroke-width="1.4" stroke-linejoin="round"/>
         <path d="M0-2 34-26" fill="none" stroke="#ae8e5c" stroke-width="1.4"/>
         <path d="m-34 25 9-2m-7 9 17-3" fill="none" stroke="#c5b08b" stroke-width="1.1" stroke-linecap="round"/>
-      `,'Submit','Approved biweekly hours',44)}
+      `,'Submit',['Approved hours,','ready to submit.'],44)}
 
       ${bubble(4,`
         <g class="time-audit-pages">
@@ -1295,7 +1298,7 @@
         <g transform="translate(-41 -8) rotate(-12)"><circle r="17" fill="#fffaf0" fill-opacity=".93" stroke="#9f8153" stroke-width="2"/><path d="m-12 13-13 14" stroke="#9f8153" stroke-width="4" stroke-linecap="round"/>
         <path d="M0-9v9l5 3M-10-2a10 10 0 1 1 1 7m-1-13v6h6" fill="none" stroke="#ae9160" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></g>
         <g transform="translate(34 40)"><circle r="18" fill="#a18351" stroke="#f5ebd8" stroke-width="3"/><g class="time-export-arrow"><path d="M0-8v12m-5-5 5 5 5-5" fill="none" stroke="#fffefa" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M-8 7v4H8V7" fill="none" stroke="#fffefa" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></g>
-      `,'Audit & export','Find history. Bundle records.',66)}
+      `,'Audit & export',['Find history.','Bundle records.'],66)}
       ${tinyLabel(compact?20:36,compact?-6:29,'A CLEAR RECORD OF WHEN AND WHERE','art-small','start')}
 
     `;
@@ -1310,8 +1313,21 @@
       const box=part.getBBox();
       const x=currentProduct==='cml'?cmlBadgePositions[index][0]:currentProduct==='doc'&&index===1?Math.max(box.x+box.width-15,12):currentProduct==='doc'&&index===2?Math.max(box.x+box.width-20,12):Math.min(box.x+box.width+5,scene.viewBox.baseVal.width-12);
       const y=currentProduct==='cml'?cmlBadgePositions[index][1]:currentProduct==='doc'&&index===2?Math.max(box.y-14,12):Math.max(box.y+6,12);
-      const badgeTransform=currentProduct==='doc'&&index===2?'translate(0 -15)':'';
-      part.insertAdjacentHTML('beforeend',`<g class="flow-step-badge" pointer-events="none" transform="${badgeTransform}"><circle cx="${x}" cy="${y}" r="8" fill="#fffefa" stroke="${accent}" stroke-width="1"/><text x="${x}" y="${y+2.5}" text-anchor="middle" fill="${accent}" font-size="6.5" font-weight="650" letter-spacing=".2">${String(index+1).padStart(2,'0')}</text></g>`);
+      let shiftX=0,shiftY=0;
+      if(currentProduct==='learn'){
+        const centerX=box.x+box.width/2,centerY=box.y+box.height/2;
+        const distance=Math.hypot(centerX-x,centerY-y)||1;
+        shiftX=(centerX-x)/distance*15;
+        shiftY=(centerY-y)/distance*15;
+        if(index===0){shiftX-=10;shiftY+=10;}
+      }
+      if(currentProduct==='doc'&&index===2)shiftY=-15;
+      if(currentProduct==='time'&&index===2){shiftX=-5;shiftY=-15;}
+      const badgeTransform=shiftX||shiftY?`translate(${shiftX.toFixed(2)} ${shiftY.toFixed(2)})`:'';
+      const badgeRadius=currentProduct==='time'?8.6:8;
+      const badgeFontSize=currentProduct==='time'?7:6.5;
+      const badgeTextOffset=currentProduct==='time'?2.7:2.5;
+      part.insertAdjacentHTML('beforeend',`<g class="flow-step-badge" pointer-events="none" transform="${badgeTransform}"><circle cx="${x}" cy="${y}" r="${badgeRadius}" fill="#fffefa" stroke="${accent}" stroke-width="1"/><text x="${x}" y="${y+badgeTextOffset}" text-anchor="middle" fill="${accent}" font-size="${badgeFontSize}" font-weight="650" letter-spacing=".2">${String(index+1).padStart(2,'0')}</text></g>`);
     });
   }
   function renderSceneArtwork(){
@@ -1570,7 +1586,9 @@
     const p=PRODUCTS[currentProduct];
     $$('.moment-step').forEach((el,i)=>{el.setAttribute('aria-current',i===currentStep?'step':'false');el.classList.toggle('is-done',i<currentStep);el.querySelector('.step-marker').innerHTML=i<currentStep?'✓':`0${i+1}`;});
     $$('.scene-part').forEach(el=>{const i=Number(el.dataset.scene);el.classList.toggle('is-active',i===currentStep);el.classList.toggle('is-done',i<currentStep);});
-    $$('.scene-route').forEach(el=>{const i=Number(el.dataset.route);el.classList.toggle('is-active',i===currentStep);el.classList.toggle('is-done',i<currentStep);});
+    // A route belongs to the step it leaves: only the current step's outgoing
+    // route is in motion. Once its destination becomes current, it is complete.
+    $$('.scene-route').forEach(el=>{const i=Number(el.dataset.route);const learningProgressRoute=currentProduct==='learn'&&currentStep===2;const complete=i<currentStep||(currentStep===lastStep()&&i===currentStep)||(learningProgressRoute&&i===2);const outgoing=(learningProgressRoute?i===3:i===currentStep)&&currentStep<lastStep();const upcoming=!complete&&!outgoing&&i>currentStep;el.classList.toggle('is-active',outgoing);el.classList.toggle('is-done',complete);el.classList.toggle('is-upcoming',upcoming);});
     $('#sceneArt').dataset.step=String(currentStep);
     $('#sceneStatus').textContent=p.steps[currentStep][2];
     $('#storyCount').textContent=`${String(currentStep+1).padStart(2,'0')} / ${String(stepCount()).padStart(2,'0')}`;
@@ -1581,7 +1599,7 @@
       const owner=p.owners[currentStep];
       $$('[data-time-role]').forEach(el=>el.classList.toggle('is-current',el.dataset.timeRole===owner));
       $$('[data-time-step]').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.timeStep)===currentStep)));
-      timeActivePath=$(`#time-route-${currentStep}`);timeActivePathLength=timeActivePath?timeActivePath.getTotalLength():0;
+      timeActivePath=$(`#time-route-${currentStep+1}`);timeActivePathLength=timeActivePath?timeActivePath.getTotalLength():0;
     }
     syncPlayer();updateProgress();
     if(manual)announcement(`${p.name}, step ${currentStep+1}: ${p.steps[currentStep][0]}. ${p.steps[currentStep][1]}`);
