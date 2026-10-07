@@ -422,6 +422,7 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
   #sceneArt[data-product="doc"] .doc-hero-title{font-size:27px}
   #sceneArt[data-product="doc"] .doc-transfer-label{font-size:11.5px}
 }
+html[lang="fr"] #sceneArt[data-product="doc"] .doc-hero-title{font-size:21px;letter-spacing:-.7px}
 @media(prefers-reduced-motion:reduce){
   #sceneArt[data-product="doc"] .doc-file,
   #sceneArt[data-product="doc"] .doc-upload-arrow,
@@ -479,7 +480,7 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
 #sceneArt[data-product="time"] .time-audit{opacity:.5;filter:saturate(.65)}
 #sceneArt[data-product="time"] .time-audit.is-done{opacity:1;filter:none}
 #sceneArt[data-product="time"] .time-audit.is-active{opacity:1}
-#sceneArt[data-product="time"] .time-audit .art-label{font-size:19px;fill:var(--ink)}
+#sceneArt[data-product="time"] .time-audit .art-label{font-size:17px;fill:var(--ink)}
 #sceneArt[data-product="time"] .time-audit-overline{font-size:8px;letter-spacing:1.5px;fill:#9f835a}
 #sceneArt[data-product="time"] .time-audit-orbit{fill:none;stroke:#c8ad7e;stroke-width:1;stroke-dasharray:1 7;opacity:.5;transform-origin:0 0}
 #sceneArt[data-product="time"] .time-audit.is-active .time-audit-orbit{opacity:.9;animation:timeRoleOrbit 45s linear infinite}
@@ -835,11 +836,13 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
     'Your suite, your choice':'Votre suite, votre choix','A combination':'Une combinaison','that fits you.':'qui vous ressemble.','Choose any products below. This is a planning brief, not a purchase or a commitment.':'Choisissez les produits ci-dessous. Il s’agit d’un document de préparation, et non d’un achat ou d’un engagement.','Save suite brief':'Enregistrer le brief de la suite','Copy summary':'Copier le résumé','Saved on this device only. Nothing is sent or submitted.':'Enregistré uniquement sur cet appareil. Rien n’est envoyé ni soumis.',
     'THE CANDIDATE, IN CONTEXT':'LE CANDIDAT, EN CONTEXTE','HR screening':'Présélection RH','Candidate Profile Collection':'Dossiers des candidats','Team review':'Évaluation d’équipe','Decision recorded':'Décision enregistrée','LinkedIn':'LinkedIn','Indeed':'Indeed','Other sources':'Autres sources',
     'NEW-HIRE TRAINING, ON TRACK':'FORMATION DES NOUVEAUX ARRIVANTS, EN BONNE VOIE','Assign training':'Attribuer la formation','Complete training':'Suivre la formation','See progress':'Voir la progression','Completion':'Réalisation',
-    'A CLEAR RECORD OF WHEN AND WHERE':'UNE TRACE CLAIRE DU QUAND ET DU LIEU','Clock in':'Pointer','Log time':'Saisir le temps','Review & approve':'Vérifier et approuver','Submit':'Soumettre','Audit & export':'Auditer et exporter'
+    'A CLEAR RECORD OF WHEN AND WHERE':'UNE TRACE CLAIRE DU QUAND ET DU LIEU','Clock in':'Pointer','Log time':'Saisir le temps','Review & approve':'Vérifier et approuver','Submit':'Soumettre','Audit & export':'Auditer & exporter'
     ,'Employer gets access to all':'L’employeur accède à toutes','candidate data.':'les données candidat.','HR reviews fit,':'Les RH vérifient l’adéquation,','experience and context.':'l’expérience et le contexte.','Hiring team reviews together':'L’équipe de recrutement évalue ensemble','and aligns on next steps.':'et s’accorde sur la suite.','With the history behind it':'Avec son historique à l’appui.',
     'For each new hire':'Pour chaque nouvel arrivant','Employer-assigned program':'Programme attribué par l’employeur','What is done. What is next.':'Ce qui est fait. Ce qui suit.','Access and download certification':'Accès et téléchargement du certificat.',
-    'GPS location if enabled':'Localisation GPS si activée','by the employer.':'par l’employeur.','Hours + project':'Heures + projet','Hours, GPS & exceptions':'Heures, GPS et exceptions','Approved hours,':'Heures approuvées,','ready to submit.':'prêtes à être soumises.','Find history.':'Retrouver l’historique.','Bundle records.':'Regrouper les dossiers.',
-    'Secure upload':'Téléversement sécurisé','Document request':'Demande de documents','Secure upload link':'Lien de téléversement sécurisé','File review':'Vérification des fichiers','Audit trail':'Piste d’audit'
+    'GPS location':'Localisation GPS','if enabled by':'si activée par','the employer.':'l’employeur.','Hours + project':'Heures + projet','Hours, GPS & exceptions':'Heures, GPS et exceptions','Approved hours,':'Heures approuvées,','ready to submit.':'prêtes à être soumises.','Find history.':'Retrouver l’historique.','Bundle records.':'Regrouper les dossiers.','EMPLOYER OVERSIGHT':'SUPERVISION EMPLOYEUR','Employer':'Employeur','Employee':'Employé','Review & audit':'Vérification et audit','Clocking in':'Pointage','Time, tracked step by step.':'Le temps, suivi étape par étape.','From clock-in to approval and audit.':'Du pointage à l’approbation et à l’audit.',
+    'Secure upload':'Téléversement sécurisé','Document request':'Demande de documents','Secure upload link':'Lien sécurisé','File review':'Vérification','Audit trail':'Piste d’audit'
+    ,'SECURE UPLOAD, AT THE CENTRE':'TÉLÉVERSEMENT SÉCURISÉ, AU CENTRE','Your documents':'Vos documents','Secure request & submission':'Demande et envoi sécurisés','Your documents. A secure handoff.':'Vos documents. Un transfert sécurisé.',
+    'Employer specifies the documents':'L’employeur précise les documents','an employee needs to provide.':'que l’employé doit fournir.','HR issues a secure':'Les RH créent un lien','upload link valid for':'de téléversement valable','24 or 48 hours.':'24 ou 48 heures.','HR verifies submitted':'Les RH vérifient les','documents and confirms':'documents soumis et','the information.':'confirment les informations.','Requests, uploads and reviews':'Demandes, envois et vérifications','remain traceable.':'restent traçables.'
   };
   function translatePage(){
     const french=activeLanguage==='fr';
@@ -1089,7 +1092,7 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
           <g transform="rotate(-9)"><rect x="-33" y="-20" width="66" height="45" rx="4" fill="#fffefa" stroke="#7897bd" stroke-width="1.3"/><path d="m-33-17 33 22 33-22m-66 40 22-19m44 19L11 4" fill="none" stroke="#7897bd" stroke-width="1.1"/></g>
           ${person(-27,-52,18,'#819bbd','#d6ae8d','#3e4138')}
           ${tinyLabel(0,82,'Document request')}${tinyLabel(0,103,'Employer specifies the documents','art-note')}${tinyLabel(0,116,'an employee needs to provide.','art-note')}
-          <g class="flow-step-badge" pointer-events="none"><circle cx="-61" cy="-13" r="8" fill="#fffefa" stroke="#466fae" stroke-width="1"/><text x="-61" y="-10.5" text-anchor="middle" fill="#466fae" font-size="6.5" font-weight="650" letter-spacing=".2">01</text></g>
+          <g class="flow-step-badge" pointer-events="none"><circle cx="-61" cy="-13" r="10.67" fill="#fffefa" stroke="#466fae" stroke-width="1"/><text x="-61" y="-9.67" text-anchor="middle" fill="#466fae" font-size="8.67" font-weight="650" letter-spacing=".2">01</text></g>
         </g>
       </g>
       <g class="scene-part doc-support doc-link" data-scene="1" transform="translate(${link})">
@@ -1097,7 +1100,7 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
           <circle r="58" fill="#e1eaf6"/><circle r="49" fill="none" stroke="#c8d9ed" stroke-width="1"/>
           <g transform="rotate(-36) scale(1.15)"><rect x="-29" y="-9" width="35" height="20" rx="10" fill="#fffefa" stroke="#7f9fc6" stroke-width="1.8"/><rect x="-5" y="-9" width="35" height="20" rx="10" fill="#fffefa" stroke="#7f9fc6" stroke-width="1.8"/><path d="M-10 1h20" fill="none" stroke="#658ab9" stroke-width="2.3" stroke-linecap="round"/></g>
           <g transform="translate(36 -39) scale(1.12)"><circle r="13" fill="#fffefa" stroke="#9eb6d6" stroke-width="1.1"/><path d="M0-7v7l4 3" fill="none" stroke="#7b9bc3" stroke-width="1.5" stroke-linecap="round"/><circle r="1.4" fill="#7b9bc3"/></g>
-          ${tinyLabel(0,79,'Secure upload link')}${tinyLabel(0,100,'HR issues a secure upload link','art-note')}${tinyLabel(0,113,'valid for 24 or 48 hours.','art-note')}
+          ${tinyLabel(0,79,'Secure upload link')}${tinyLabel(0,100,'HR issues a secure','art-note')}${tinyLabel(0,113,'upload link valid for','art-note')}${tinyLabel(0,126,'24 or 48 hours.','art-note')}
         </g>
       </g>
       <g class="scene-part doc-support" data-scene="2" transform="translate(${review})">
@@ -1105,7 +1108,7 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
           <circle r="44" fill="#dfe9f6"/><circle r="30" fill="#fffefa" stroke="#a2bad8" stroke-width="1"/>
           <path d="M-19 0q19-25 38 0-19 25-38 0Z" fill="none" stroke="#7d9fc7" stroke-width="1.5"/><circle r="6.5" fill="#7d9fc7"/>
           ${check(25,30,11,'#668cb9','art-check')}
-          ${tinyLabel(0,71,'File review')}${tinyLabel(0,92,'HR verifies submitted documents','art-note')}${tinyLabel(0,105,'and confirms the information.','art-note')}
+          ${tinyLabel(0,71,'File review')}${tinyLabel(0,92,'HR verifies submitted','art-note')}${tinyLabel(0,105,'documents and confirms','art-note')}${tinyLabel(0,118,'the information.','art-note')}
         </g>
       </g>
       <g class="scene-part doc-support" data-scene="3" transform="translate(${audit})">
@@ -1114,7 +1117,7 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
           ${check(-43,-13,7.5,'#8ea9ca')}${check(0,-13,7.5,'#8ea9ca')}${check(43,-13,7.5,'#8ea9ca')}
           <path d="M-42 11h60m-60 10h82" fill="none" stroke="#a6bcd7" stroke-width="1.7" stroke-linecap="round"/>
           ${tinyLabel(0,60,'Audit trail')}${tinyLabel(0,81,'Requests, uploads and reviews','art-note')}${tinyLabel(0,94,'remain traceable.','art-note')}
-          <g class="flow-step-badge" pointer-events="none"><circle cx="-65" cy="14" r="8" fill="#fffefa" stroke="#466fae" stroke-width="1"/><text x="-65" y="16.5" text-anchor="middle" fill="#466fae" font-size="6.5" font-weight="650" letter-spacing=".2">04</text></g>
+          <g class="flow-step-badge" pointer-events="none"><circle cx="-65" cy="14" r="10.67" fill="#fffefa" stroke="#466fae" stroke-width="1"/><text x="-65" y="17.33" text-anchor="middle" fill="#466fae" font-size="8.67" font-weight="650" letter-spacing=".2">04</text></g>
         </g>
       </g>
       ${tinyLabel(compact?20:79,compact?30:52,'SECURE UPLOAD, AT THE CENTRE','art-small','start')}
@@ -1129,7 +1132,7 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
       ${route(0,'M107 450C185 464 215 398 247 368')}${route(1,'M247 368C278 325 307 327 357 324')}${route(2,'M357 324C436 319 447 281 469 232')}${route(3,'M469 232C495 167 578 172 638 140')}
       <g stroke="#d1dabb" stroke-width="1"><path d="M152 437v-67m156-38v-86m178-29v-78m148-6V63"/></g>
       ${stage(0,`
-        <g class="part-art"><ellipse cx="150" cy="391" rx="65" ry="49" fill="#e2e8c8"/>
+        <g class="part-art"><ellipse cx="150" cy="391" rx="55" ry="41" fill="#e2e8c8"/>
         <g transform="rotate(-8 150 373)"><rect x="121" y="327" width="58" height="81" rx="5" fill="#fffefa" stroke="#9cad77" stroke-width="1.2"/><rect x="137" y="320" width="27" height="11" rx="4" fill="#859b57"/><path d="M134 345h31m-31 11h22m-22 11h28" stroke="#b7c49a" stroke-width="2" stroke-linecap="round"/><path d="m136 386 6 6 12-14" fill="none" stroke="#8b9e61" stroke-width="2" stroke-linecap="round"/></g>
         ${tinyLabel(147,487,'Assign training')}${tinyLabel(147,508,'For each new hire','art-note')}
         <circle cx="121" cy="450" r="5" fill="#8d9e5c"/>
@@ -1151,7 +1154,7 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
       ${stage(3,`
         <g class="part-art"><circle cx="642" cy="81" r="46" fill="#e5ebcb"/>
         <path d="m623 102-9 40 27-13 26 13-9-40" fill="#a9b876"/>
-        <path d="m642 39 9 6 11-1 6 10 10 5v12l5 10-7 9-3 11-12 2-9 7-10-5-12 1-6-10-10-5V79l-5-10 7-9 3-11 12-2Z" fill="#859749"/>
+        <path d="m642 39 9 6 11-1 6 10 10 5v12l5 10-7 9-3 11-12 2-9 7-10-5-12 1-6-10-10-5V79l-5-10 7-9 3-11 12-2Z" fill="#859749" transform="translate(-3 3)"/>
         <circle cx="643" cy="78" r="24" fill="#f1f4e4"/><path class="draw-in" d="m632 78 8 8 15-18" fill="none" stroke="#7a9146" stroke-width="2.5" stroke-linecap="round"/>
         ${tinyLabel(642,196,'Completion')}${tinyLabel(642,217,'Access and download certification','art-note')}
         <g class="art-check" stroke="#a8b97b" stroke-width="1.5"><path d="M700 50v10m-5-5h10M605 34v8m-4-4h8"/></g>
@@ -1243,13 +1246,13 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
         <title>${title[0]} Â· ${PRODUCTS.time.owners[index]}</title>
         <circle r="${r+13}" fill="transparent"/>
         <circle class="time-focus" r="${r+10}"/>
-        ${isAudit?`<circle class="time-audit-halo" r="86" fill="url(#timeWarmGlow)"/><circle class="time-audit-orbit" r="76"/><text class="time-audit-overline" text-anchor="middle" y="-87">EMPLOYER OVERSIGHT</text>`:''}
+        ${isAudit?`<text class="time-audit-overline" text-anchor="middle" y="-87">EMPLOYER OVERSIGHT</text>`:''}
         <g class="part-art">
           <circle r="${r}" fill="#efe4cf"/>
           ${artwork}
           ${extra}
         </g>
-        ${tinyLabel(0,labelY,label)}${noteLabel}
+        ${isAudit?'<g transform="translate(-12 0)">':''}${tinyLabel(0,labelY,label)}${noteLabel}${isAudit?'</g>':''}
       </g>`;
     };
     const roles=(owner,x,y,r,name,status,portrait)=>`
@@ -1326,7 +1329,7 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
           <path d="M-7 38H7" stroke="#c5b18b" stroke-width="1.4" stroke-linecap="round"/>
         </g>
         <g transform="translate(32 27)"><circle r="12" fill="#ac905d"/><path d="m-5 0 3.5 3.5L6-4" fill="none" stroke="#fffefa" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g>
-      `,'Clock in',['GPS location if enabled','by the employer.'],49)}
+      `,'Clock in',['GPS location','if enabled by','the employer.'],49)}
 
       ${bubble(1,`
         <g transform="rotate(7)"><path d="M-28-35h40l17 18v51h-57Z" fill="#fffefa" stroke="#bda780" stroke-width="1.2"/>
@@ -1392,9 +1395,9 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
       if(currentProduct==='doc'&&index===2)shiftY=-15;
       if(currentProduct==='time'&&index===2){shiftX=-5;shiftY=-15;}
       const badgeTransform=shiftX||shiftY?`translate(${shiftX.toFixed(2)} ${shiftY.toFixed(2)})`:'';
-      const badgeRadius=currentProduct==='time'?8.6:8;
-      const badgeFontSize=currentProduct==='time'?7:6.5;
-      const badgeTextOffset=currentProduct==='time'?2.7:2.5;
+      const badgeRadius=currentProduct==='time'?11.47:10.67;
+      const badgeFontSize=currentProduct==='time'?9.33:8.67;
+      const badgeTextOffset=currentProduct==='time'?3.6:3.33;
       part.insertAdjacentHTML('beforeend',`<g class="flow-step-badge" pointer-events="none" transform="${badgeTransform}"><circle cx="${x}" cy="${y}" r="${badgeRadius}" fill="#fffefa" stroke="${accent}" stroke-width="1"/><text x="${x}" y="${y+badgeTextOffset}" text-anchor="middle" fill="${accent}" font-size="${badgeFontSize}" font-weight="650" letter-spacing=".2">${String(index+1).padStart(2,'0')}</text></g>`);
     });
   }
@@ -1685,9 +1688,9 @@ html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
       const received=progress>=1;
       const scene=$('#sceneArt');
       scene.dataset.transfer=received?'received':currentStep===1?'uploading':'ready';
-      const label=currentStep===0?'Ready for secure upload':currentStep===3?'Upload recorded':received?'Files received':'Uploading securely…';
+      const label=activeLanguage==='fr'?(currentStep===0?'Prêt pour le téléversement':currentStep===3?'Téléversement enregistré':received?'Fichiers reçus':'Téléversement sécurisé…'):(currentStep===0?'Ready for secure upload':currentStep===3?'Upload recorded':received?'Files received':'Uploading securely…');
       const text=$('#docTransferLabel');
-      if(text)text.textContent=currentStep===0?'Ready for secure upload':currentStep===3?'Upload recorded':received?'Files received':'Uploading securely...';
+      if(text)text.textContent=label;
       const bar=$('#docTransferProgress');
       if(bar)bar.setAttribute('width',(186*progress).toFixed(2));
     }
