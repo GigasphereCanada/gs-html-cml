@@ -44,7 +44,8 @@
 @media(min-width:721px){.connections{height:calc(100svh - 88px);min-height:620px;display:flex;flex-direction:column;overflow:hidden}.connections .story-layout{flex:1;min-height:0}.connections .beat.intro{min-height:0;max-height:none;padding-block:48px}.connections .stage-sticky{position:static;top:auto;align-self:center}.connections .suite-principle{flex:none;padding-block:18px 22px}.connections .ecosystem{max-height:calc(100svh - 280px)}}
 @media(min-width:721px){.connections .beat.intro{padding-top:80px;padding-bottom:48px}}
 .intro-actions .line-link{margin-top:0}
-.topbar .nav-actions{display:none}
+.topbar .nav-actions{display:flex}.topbar .nav-actions .review-suite{display:none}.topbar .language-toggle{display:inline-flex;align-items:center;gap:2px;min-width:76px;height:40px;padding:3px;border:1px solid #b9c9b5;border-radius:100px;background:#edf2e7;box-shadow:inset 0 1px 2px #26452b0a,0 5px 15px #26452b0d;color:#708070;font-size:9px;font-weight:700;letter-spacing:.08em;line-height:1;transition:transform .25s var(--ease),border-color .25s,box-shadow .25s}.topbar .language-choice{display:grid;place-items:center;min-width:32px;height:32px;padding:0 7px;border-radius:50px;transition:background .25s,color .25s,box-shadow .25s}.topbar .language-choice.is-active{background:var(--green);box-shadow:0 2px 7px #27624a36;color:var(--white)}.topbar .language-toggle:hover{border-color:#7e9a78;box-shadow:inset 0 1px 2px #26452b0a,0 8px 19px #26452b18;transform:translateY(-1px)}.topbar .language-toggle:focus-visible{outline-color:#6f926d;outline-offset:4px}
+@media(max-width:720px){html[lang="fr"] #connected .intro h1{font-size:clamp(52px,11vw,66px)}}
 .workflow-empty{padding:56px 0;color:var(--muted);font-size:14px;text-align:center}
 #workflow{display:grid!important;grid-template-columns:repeat(var(--selected-product-count,4),minmax(0,1fr))!important;grid-auto-flow:column}
 #workflow .product-tab[hidden]{display:none!important}
@@ -367,6 +368,7 @@
 @media(min-width:721px) and (max-width:940px){.platform-navigation{left:-16px;right:-16px}}
 @media(max-width:370px){.platform-navigation{left:-10px;right:-10px}.core-aura{inset:-8px}}
 @media(max-width:400px){.core-aura{inset:-8px}}
+html[lang="fr"] #connected .intro h1{font-size:clamp(54px,5.3vw,70px)!important}
 #world[data-core-selected=false] .core-aura{animation:none;opacity:.13}
 
 /* HRDocu: secure upload is the permanent focal point, not a peripheral step.
@@ -561,7 +563,7 @@
 <header class="topbar"><div class="shell topbar-inner">
 <a class="brand" href="#overview" aria-label="GigaSphere — back to the beginning"><span class="brand-powered">Powered by</span><img src="images/GS%20Logo-No%20BG.png" alt="GigaSphere" style="display:block;width:auto;height:40px" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><span class="brand-wordmark" hidden>GigaSphere</span></a>
 <nav class="nav" aria-label="Main navigation"><a href="#overview" class="active" data-nav="overview"><span>01</span>Platform suite</a><a href="#connected" data-nav="connected"><span>02</span>Connected service flow</a><a href="#moments" data-nav="moments"><span>03</span>Product moments</a></nav>
-<div class="nav-actions"><button class="btn review-suite">Build your suite<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+<div class="nav-actions"><button class="btn light language-toggle" id="languageToggle" type="button" aria-label="Passer le site en français"><span class="language-choice is-active" data-language="en">EN</span><span class="language-choice" data-language="fr">FR</span></button><button class="btn review-suite">Build your suite<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
 </div><div class="header-progress" aria-hidden="true" id="pageProgress"></div></header>
 <noscript><p class="noscript-note">Four independent products. Enable JavaScript to explore the animated stories and build your own suite.</p></noscript>
 <main id="main">
@@ -795,9 +797,73 @@
       brief:'Employee GPS clock-ins and time logging; employer review; biweekly submission; searchable audit history and bundled records for export.'
     }
   };
+  const PRODUCT_CONTENT = {
+    en: JSON.parse(JSON.stringify(PRODUCTS)),
+    fr: {
+      cml: {name:'Candidate Management Lakehouse (CML)',category:'Candidats et recrutement',job:'Trouver les bonnes personnes',title:'Voir la personne.<br>Pas seulement la candidature.',description:'CML est l’espace de recrutement qui rassemble sourcing, sélection, évaluation collaborative et décisions d’embauche dans un dossier candidat traçable.',purpose:'Remplacez les feuilles de calcul, boîtes de réception et notes isolées par un flux de recrutement structuré.',features:['Profils candidats issus du sourcing et des candidatures','Notes de sélection, responsabilités et suivi des prochaines étapes','Évaluations partagées et décisions consignées'],steps:[['Collecter','Centralisez les données issues de LinkedIn, Indeed et d’autres sources, y compris les sites carrières, recommandations et imports CSV.','Un candidat apparaît dans votre vue.'],['Sélectionner','Les RH vérifient l’adéquation, l’expérience et la prochaine étape avec tout le contexte nécessaire.','Donnez toute sa place au contexte.'],['Évaluer','Les responsables du recrutement et l’équipe évaluent ensemble le candidat.','Préparez une décision partagée.'],['Décider','Consignez la décision et conservez son historique d’activité.','La décision conserve son historique.']],brief:'Candidatures, profils, sélection, évaluation, décisions d’équipe et historique d’activité.'},
+      doc: {name:'HRDocu',category:'Documents sécurisés',job:'Collecter les documents',title:'Téléversements sécurisés.<br>Une trace plus claire.',description:'Offrez aux destinataires un lien sécurisé et temporaire pour téléverser les documents nécessaires aux RH. Centralisez demandes, fichiers, vérifications et historique dans HRDocu.',purpose:'Les RH créent une demande, les destinataires téléversent les fichiers par lien sécurisé, et l’équipe suit les éléments reçus, expirés ou manquants.',features:['Liens sécurisés et temporaires pour le téléversement externe','Vérification centralisée des soumissions, statuts et échéances','Trace vérifiable des demandes, téléversements et vérifications'],steps:[['Demander','Choisissez les documents requis et envoyez une demande sécurisée au destinataire.','Une demande ouvre la bonne conversation.'],['Téléverser','Le destinataire envoie les documents via un lien sécurisé et temporaire.','Les documents arrivent par un lien sécurisé et temporaire.'],['Vérifier','Les RH vérifient les documents soumis, les échéances et l’avancement de la demande.','Identifiez ce qui est prêt et ce qui nécessite une action.'],['Auditer','Conservez l’activité et l’historique d’audit des événements documentaires.','Gardez toute la trace documentaire à portée de main.']],brief:'Demandes sécurisées, liens temporaires, vérification des fichiers, échéances, accès d’équipe et journaux d’audit.'},
+      learn: {name:'Learning Platform',category:'Formation des nouveaux arrivants',job:'Former les nouveaux employés',title:'Formation des nouveaux arrivants.<br>Clairement sur la bonne voie.',description:'La plateforme de formation est le centre d’intégration et de formation obligatoire des nouveaux employés. Elle permet d’attribuer, de suivre et de confirmer les acquis.',purpose:'Les responsables attribuent les formations, les apprenants progressent à leur rythme et les RH suivent les formations en attente ou terminées.',features:['Parcours d’intégration et formations obligatoires adaptés au rôle','Visibilité sur la progression pour les responsables et les RH','Preuves de réalisation des formations requises'],steps:[['Attribuer','Les employeurs attribuent la formation d’intégration requise à chaque nouvel employé.','Commencez chaque intégration avec la bonne formation.'],['Apprendre','Les nouveaux employés suivent les formations qui leur sont attribuées.','Offrez un espace clair à la formation d’intégration.'],['Suivre','Les employeurs suivent la progression et les formations encore à réaliser.','Voyez la progression de chaque apprenant.'],['Terminer','Enregistrez la réalisation afin de conserver un dossier de formation clair.','Transformez la progression en résultat d’intégration enregistré.']],brief:'Attribution de formations, suivi de la progression et preuves de réalisation.'},
+      time: {name:'TimeTracker Pro',category:'Temps, localisation et audit',job:'Gérer le temps de travail',title:'Chaque heure.<br>Chaque lieu.<br>Pris en compte.',description:'Les employés enregistrent leur temps et, si activée, leur localisation GPS de pointage. Les employeurs vérifient les heures, les exceptions et l’historique d’audit.',purpose:'Donnez aux employeurs une vue sur le temps et les pointages GPS, du début de service à l’approbation, à la soumission bimensuelle et à l’historique exportable.',features:['Pointages GPS avec horodatage et heures par projet','Vérification des heures, localisations, notes et exceptions','Historique d’audit exportable et dossiers prêts à partager'],steps:[['Pointer','L’employé pointe avec un horodatage. La localisation GPS n’est capturée que si l’employeur l’a activée.','Employé : commencez le service ; le GPS est facultatif.'],['Saisir le temps','L’employé enregistre ses heures et ses notes de projet.','Employé : conservez heures et contexte du projet.'],['Vérifier et approuver','L’employeur vérifie les heures, localisations, notes et exceptions avant approbation.','Employeur : vérifiez le temps, la localisation et les exceptions.'],['Soumettre','L’employé soumet les heures approuvées pour la période bimensuelle.','Employé : soumettez le relevé bimensuel approuvé.'],['Auditer et exporter','L’employeur consulte l’historique, retrouve les dossiers et prépare une exportation.','Employeur : vérifiez la trace et préparez l’historique.']],brief:'Pointages GPS, saisie du temps, vérification, soumission bimensuelle et historique d’audit exportable.'}
+    }
+  };
   const KEYS = Object.keys(PRODUCTS);
   const $ = selector => document.querySelector(selector);
   const $$ = selector => [...document.querySelectorAll(selector)];
+  let activeLanguage='en';
+  const originalText=new WeakMap(),originalAttributes=new WeakMap();
+  const FR_TEXT={
+    'Skip to content':'Aller au contenu','Platform suite':'Suite de plateformes','Connected service flow':'Parcours de services connectés','Product moments':'Moments produits','Build your suite':'Créer votre suite',
+    'Candidate platform suite':'Suite de gestion des candidats','A unified':'Un processus de','recruiting &':'recrutement et','onboarding':'d’intégration','process.':'unifié.',
+    'Candidate Management Lakehouse (CML) is the foundation for bringing candidate information, decisions and team context into one clear place. Three specialist platforms extend that work from recruiting through onboarding.':'Candidate Management Lakehouse (CML) est la base qui réunit les informations candidats, les décisions et le contexte d’équipe dans un espace clair. Trois plateformes spécialisées prolongent ce travail, du recrutement à l’intégration.',
+    'CML brings candidate information, decisions and team context into one clear place.':'CML réunit les informations sur les candidats, les décisions et le contexte d’équipe dans un espace clair.',
+    'Three specialist platforms extend that work across recruiting and onboarding.':'Trois plateformes spécialisées prolongent ce travail, du recrutement à l’intégration.',
+    'Choose the tools that fit your team,':'Choisissez les outils adaptés à votre équipe,','or bring them together in one complete suite.':'ou réunissez-les dans une suite complète.',
+    'Start with CML for a connected recruiting and onboarding journey, or choose any specialist platform on its own.':'Commencez avec CML pour un parcours de recrutement et d’intégration connecté, ou choisissez une plateforme spécialisée de façon indépendante.',
+    'The recruitment workspace for sourcing candidates, screening applications, coordinating hiring-team reviews and recording every decision in one traceable candidate record.':'L’espace de recrutement pour sourcer les candidats, présélectionner les candidatures, coordonner les évaluations et consigner chaque décision dans un dossier traçable.',
+    'Bring candidates in from applications or sourcing, screen them, route reviews to the hiring team and record the outcome.':'Centralisez les candidatures issues du sourcing, présélectionnez-les, transmettez-les à l’équipe et consignez le résultat.',
+    'Candidate profiles, pipeline and next-step tracking, shared feedback, decision history and reporting-ready records.':'Profils candidats, suivi du pipeline et des prochaines étapes, retours partagés, historique des décisions et dossiers prêts pour le reporting.',
+    'Give recruiters and hiring managers one shared view, so every handoff is clear and every decision is easy to revisit.':'Donnez aux recruteurs et responsables une vue partagée afin que chaque transmission soit claire et chaque décision facile à retrouver.',
+    'Secure HR document collection and review.':'Collecte et vérification sécurisées des documents RH.','Secure links · expiry tracking · audit history':'Liens sécurisés · suivi des échéances · historique d’audit',
+    'Onboarding and required training in one place.':'Formation et intégration au même endroit.','Assignments · progress · completion records':'Attributions · progression · preuves de réalisation',
+    'Keep every shift accurate and review-ready.':'Gardez chaque quart de travail précis et prêt à être vérifié.','Time tracking · GPS clock-ins · employer audit':'Suivi du temps · pointages GPS · audit employeur',
+    'Explore the suite':'Explorer la suite','The foundation':'La base','Core candidate platform':'Plateforme candidat centrale','How it works':'Comment cela fonctionne','Main functions':'Fonctions principales','Built for better hiring':'Conçu pour mieux recruter','Flexible by design.':'Flexible par nature.',
+    'Connected Service Flow':'Parcours de services connectés','One suite.':'Une seule suite.','Your way.':'À votre façon.','See the workflow':'Voir le parcours','CML SYSTEM · CONNECTED BY CHOICE':'SYSTÈME CML · CONNECTÉ PAR CHOIX','4 platforms selected':'4 plateformes sélectionnées',
+    'DOCUMENTS':'DOCUMENTS','TRAINING':'FORMATION','WORK TIME':'TEMPS DE TRAVAIL','Secure collection.':'Collecte sécurisée.','A clear document trail.':'Une trace documentaire claire.','Onboard with purpose.':'Intégrez avec intention.','Keep learning on track.':'Gardez la formation sur la bonne voie.','Capture every hour.':'Enregistrez chaque heure.','Keep reviews moving.':'Faites avancer les vérifications.',
+    'The complete CML suite. Connected by choice.':'La suite CML complète. Connectée par choix.','Select any platform to add or remove it from your suite.':'Sélectionnez une plateforme pour l’ajouter ou la retirer de votre suite.','BUILD AROUND YOUR TEAM':'CONÇUE POUR VOTRE ÉQUIPE','SELECT YOUR SUITE':'SÉLECTIONNEZ VOTRE SUITE',
+    'Product suite & moments':'Suite de produits et moments','The work behind':'Le travail qui permet','a better workday.':'une meilleure journée de travail.','Choose a product story':'Choisir une histoire produit','CML · Candidate & hiring':'CML · Candidats et recrutement','Secure documents':'Documents sécurisés','New-hire training':'Formation des nouveaux arrivants','Work-time management':'Gestion du temps de travail',
+    'Choose one or more platforms above to explore their workflow.':'Choisissez une ou plusieurs plateformes ci-dessus pour explorer leur parcours.','Illustrative product workflow':'Parcours produit illustratif','Play story':'Lire l’histoire','Replay story':'Rejouer l’histoire','Next step':'Étape suivante','A complete product on its own.':'Un produit complet à lui seul.','These steps happen inside the selected product. They are not dependencies between products.':'Ces étapes se déroulent dans le produit sélectionné ; elles ne créent pas de dépendance entre les produits.',
+    'Your suite, your choice':'Votre suite, votre choix','A combination':'Une combinaison','that fits you.':'qui vous ressemble.','Choose any products below. This is a planning brief, not a purchase or a commitment.':'Choisissez les produits ci-dessous. Il s’agit d’un document de préparation, et non d’un achat ou d’un engagement.','Save suite brief':'Enregistrer le brief de la suite','Copy summary':'Copier le résumé','Saved on this device only. Nothing is sent or submitted.':'Enregistré uniquement sur cet appareil. Rien n’est envoyé ni soumis.',
+    'THE CANDIDATE, IN CONTEXT':'LE CANDIDAT, EN CONTEXTE','HR screening':'Présélection RH','Candidate Profile Collection':'Dossiers des candidats','Team review':'Évaluation d’équipe','Decision recorded':'Décision enregistrée','LinkedIn':'LinkedIn','Indeed':'Indeed','Other sources':'Autres sources',
+    'NEW-HIRE TRAINING, ON TRACK':'FORMATION DES NOUVEAUX ARRIVANTS, EN BONNE VOIE','Assign training':'Attribuer la formation','Complete training':'Suivre la formation','See progress':'Voir la progression','Completion':'Réalisation',
+    'A CLEAR RECORD OF WHEN AND WHERE':'UNE TRACE CLAIRE DU QUAND ET DU LIEU','Clock in':'Pointer','Log time':'Saisir le temps','Review & approve':'Vérifier et approuver','Submit':'Soumettre','Audit & export':'Auditer et exporter'
+    ,'Employer gets access to all':'L’employeur accède à toutes','candidate data.':'les données candidat.','HR reviews fit,':'Les RH vérifient l’adéquation,','experience and context.':'l’expérience et le contexte.','Hiring team reviews together':'L’équipe de recrutement évalue ensemble','and aligns on next steps.':'et s’accorde sur la suite.','With the history behind it':'Avec son historique à l’appui.',
+    'For each new hire':'Pour chaque nouvel arrivant','Employer-assigned program':'Programme attribué par l’employeur','What is done. What is next.':'Ce qui est fait. Ce qui suit.','Access and download certification':'Accès et téléchargement du certificat.',
+    'GPS location if enabled':'Localisation GPS si activée','by the employer.':'par l’employeur.','Hours + project':'Heures + projet','Hours, GPS & exceptions':'Heures, GPS et exceptions','Approved hours,':'Heures approuvées,','ready to submit.':'prêtes à être soumises.','Find history.':'Retrouver l’historique.','Bundle records.':'Regrouper les dossiers.',
+    'Secure upload':'Téléversement sécurisé','Document request':'Demande de documents','Secure upload link':'Lien de téléversement sécurisé','File review':'Vérification des fichiers','Audit trail':'Piste d’audit'
+  };
+  function translatePage(){
+    const french=activeLanguage==='fr';
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:node=>['SCRIPT','STYLE'].includes(node.parentElement?.tagName)?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+    for(let node=walker.nextNode();node;node=walker.nextNode()){
+      if(!originalText.has(node))originalText.set(node,node.nodeValue);
+      const source=originalText.get(node),match=source.match(/^(\s*)([\s\S]*?)(\s*)$/),translated=french?(Object.hasOwn(FR_TEXT,match[2])?FR_TEXT[match[2]]:match[2]):match[2];
+      node.nodeValue=`${match[1]}${translated}${match[3]}`;
+    }
+    $$('[aria-label],[title]').forEach(el=>{
+      if(!originalAttributes.has(el))originalAttributes.set(el,{ 'aria-label':el.getAttribute('aria-label'),title:el.getAttribute('title') });
+      const originals=originalAttributes.get(el);
+      ['aria-label','title'].forEach(attribute=>{const source=originals[attribute];if(source!==null)el.setAttribute(attribute,french?(Object.hasOwn(FR_TEXT,source)?FR_TEXT[source]:source):source);});
+    });
+    document.documentElement.lang=french?'fr':'en';
+    $$('#languageToggle .language-choice').forEach(choice=>choice.classList.toggle('is-active',choice.dataset.language===activeLanguage));
+    $('#languageToggle').setAttribute('aria-label',french?'Switch the site to English':'Passer le site en français');
+  }
+  function setLanguage(language){
+    activeLanguage=language;
+    KEYS.forEach(key=>Object.assign(PRODUCTS[key],PRODUCT_CONTENT[language][key]));
+    renderProduct(currentProduct,false);syncSelection();translatePage();
+    try{localStorage.setItem('talenthub-language',language);}catch(_){}
+  }
   const icon = (name, css='') => `<svg aria-hidden="true"${css ? ` class="${css}"` : ''}><use href="#i-${name}"/></svg>`;
   const clamp = (value,min,max) => Math.min(max,Math.max(min,value));
   const mediaReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -872,7 +938,7 @@
         ${tinyLabel(106,438,'Other sources','art-note')}
         <circle cx="322" cy="254" r="77" fill="#e0ecdc"/>
         ${person(322,246,52,'#467356','#d4aa88','#344835')}
-        ${tinyLabel(322,351,'Candidate Profile Collection')}${tinyLabel(322,373,'Employer gets all candidate data.','art-note')}
+        ${tinyLabel(322,351,'Candidate Profile Collection')}${tinyLabel(322,373,'Employer gets access to all','art-note')}${tinyLabel(322,386,'candidate data.','art-note')}
         </g>`)}
       ${stage(1,`
         <g class="part-art"><circle cx="543" cy="151" r="67" fill="#e0ead7"/><circle cx="543" cy="151" r="52" fill="#fffefa" stroke="#b3c5a5" stroke-width="1"/>
@@ -1531,10 +1597,11 @@
   // ---- Narrative scroll: this changes explanation, never the user's chosen combination ----
   function syncMapCopy(){
     const chosen=chosenKeys(), count=chosen.length;
-    $('#coreSubtitle').textContent=selected.has('cml')?'CORE PLATFORM · SELECTED':'CORE PLATFORM · OPTIONAL';
-    $('#mapCaption').textContent=count===4?'The complete CML suite. Connected by choice.':
-      count===1?(chosen[0]==='cml'?'CML on its own. A focused foundation.':`${PRODUCTS[chosen[0]].name} on its own. Your choice.`):
-      selected.has('cml')?'Your CML combination. Built around your team.':'Your specialist combination. Connected by choice.';
+    const french=activeLanguage==='fr';
+    $('#coreSubtitle').textContent=selected.has('cml')?(french?'PLATEFORME CENTRALE · SÉLECTIONNÉE':'CORE PLATFORM · SELECTED'):(french?'PLATEFORME CENTRALE · FACULTATIVE':'CORE PLATFORM · OPTIONAL');
+    $('#mapCaption').textContent=count===4?(french?'La suite CML complète. Connectée par choix.':'The complete CML suite. Connected by choice.'):
+      count===1?(chosen[0]==='cml'?(french?'CML seul. Une base ciblée.':'CML on its own. A focused foundation.'):(french?`${PRODUCTS[chosen[0]].name} seul. Votre choix.`:`${PRODUCTS[chosen[0]].name} on its own. Your choice.`)):
+      selected.has('cml')?(french?'Votre combinaison CML. Créée pour votre équipe.':'Your CML combination. Built around your team.'):(french?'Votre combinaison de spécialistes. Connectée par choix.':'Your specialist combination. Connected by choice.');
   }
   function setChapter(value){
     chapter=0;
@@ -1580,7 +1647,7 @@
     renderSceneArtwork();
     $('#sceneArea').classList.remove('is-changing');void $('#sceneArea').offsetWidth;$('#sceneArea').classList.add('is-changing');
     if(manual){manualStoryAction=false;playing=motionEnabled;announcement(`${p.name} story. ${p.steps[0][0]}. ${p.steps[0][1]}`);}
-    setStep(0,false);syncPlayer();
+    setStep(0,false);syncPlayer();if(activeLanguage==='fr')translatePage();
   }
   function setStep(value,manual=true){
     currentStep=clamp(Math.round(value),0,lastStep());elapsed=0;
@@ -1627,8 +1694,9 @@
   }
   function syncPlayer(){
     const active=playing&&motionEnabled;
-    $('#playStory').innerHTML=`<span class="play-circle">${icon(active?'pause':'play')}</span><span class="player-label">${active?'Pause story':'Play story'}</span>`;
-    $('#playStory').setAttribute('aria-label',active?'Pause this product story':'Play this product story');
+    const label=active?(activeLanguage==='fr'?'Mettre l’histoire en pause':'Pause story'):(activeLanguage==='fr'?'Lire l’histoire':'Play story');
+    $('#playStory').innerHTML=`<span class="play-circle">${icon(active?'pause':'play')}</span><span class="player-label">${label}</span>`;
+    $('#playStory').setAttribute('aria-label',active?(activeLanguage==='fr'?'Mettre cette histoire produit en pause':'Pause this product story'):(activeLanguage==='fr'?'Lire cette histoire produit':'Play this product story'));
     $('#sceneArea').classList.toggle('story-paused',!active||!storyInView||dialogOpen||document.hidden);
   }
   function beginStory(){
@@ -1793,7 +1861,11 @@
     notify(copied?'Suite summary copied.':'Copy is unavailable here. Use Save suite brief instead.');
   });
 
-  renderProduct(chosenKeys()[0]);syncSelection();applyMotionState();updateScroll();drawRelationships();requestAnimationFrame(frame);
+  $('#languageToggle').addEventListener('click',()=>setLanguage(activeLanguage==='en'?'fr':'en'));
+  renderProduct(chosenKeys()[0]);syncSelection();applyMotionState();
+  let storedLanguage='en';try{storedLanguage=localStorage.getItem('talenthub-language')||'en';}catch(_){}
+  if(storedLanguage==='fr')setLanguage('fr');else translatePage();
+  updateScroll();drawRelationships();requestAnimationFrame(frame);
 })();
 
 </script>
