@@ -404,6 +404,8 @@
 #sceneArt[data-product="doc"] .doc-inbound.is-active{opacity:.82;stroke-width:1.8;animation-duration:7s}
 #sceneArt[data-product="doc"] .doc-ingress-tip{opacity:.62}
 .scene-route.is-upcoming{opacity:.32;stroke-dasharray:4 9}
+.scene-part.is-done{opacity:1}
+#sceneArt[data-product="time"] .time-node.is-done,#sceneArt[data-product="time"] .time-audit.is-done{opacity:1}
 @keyframes docHalo{0%,100%{opacity:.6;transform:scale(.98)}50%{opacity:.9;transform:scale(1.025)}}
 @keyframes docFileFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes docShieldFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
@@ -459,7 +461,7 @@
 #sceneArt[data-product="time"] .time-center-status{font-size:17px;letter-spacing:-.3px;font-weight:500;fill:#785d37}
 #sceneArt[data-product="time"] .time-center-detail{font-size:11px;fill:#92856f}
 #sceneArt[data-product="time"] .time-node{cursor:pointer;outline:none;opacity:.5;filter:saturate(.65);transition:opacity .55s,filter .55s}
-#sceneArt[data-product="time"] .time-node.is-done{opacity:.72;filter:none}
+#sceneArt[data-product="time"] .time-node.is-done{opacity:1;filter:none}
 #sceneArt[data-product="time"] .time-node.is-active{opacity:1;filter:none}
 #sceneArt[data-product="time"] .time-node:hover{opacity:1;filter:none}
 #sceneArt[data-product="time"] .time-node .part-art{transform-origin:0 0;transform-box:view-box}
@@ -473,7 +475,7 @@
 #sceneArt[data-product="time"] .time-route.is-active{opacity:.9;stroke-width:1.6;animation-duration:8s}
 #sceneArt[data-product="time"] .time-route-end{fill:#c5a475;opacity:.5}
 #sceneArt[data-product="time"] .time-audit{opacity:.5;filter:saturate(.65)}
-#sceneArt[data-product="time"] .time-audit.is-done{opacity:.72;filter:none}
+#sceneArt[data-product="time"] .time-audit.is-done{opacity:1;filter:none}
 #sceneArt[data-product="time"] .time-audit.is-active{opacity:1}
 #sceneArt[data-product="time"] .time-audit .art-label{font-size:19px;fill:var(--ink)}
 #sceneArt[data-product="time"] .time-audit-overline{font-size:8px;letter-spacing:1.5px;fill:#9f835a}
@@ -1177,7 +1179,7 @@
         <circle class="time-focus" r="${r+10}"/>
         ${isAudit?`<circle class="time-audit-halo" r="86" fill="url(#timeWarmGlow)"/><circle class="time-audit-orbit" r="76"/><text class="time-audit-overline" text-anchor="middle" y="-87">EMPLOYER OVERSIGHT</text>`:''}
         <g class="part-art">
-          <circle r="${r}" fill="${isAudit?'#efe0c3':'#efe4cf'}"/>
+          <circle r="${r}" fill="#efe4cf"/>
           ${artwork}
           ${extra}
         </g>
@@ -1588,7 +1590,7 @@
     $$('.scene-part').forEach(el=>{const i=Number(el.dataset.scene);el.classList.toggle('is-active',i===currentStep);el.classList.toggle('is-done',i<currentStep);});
     // A route belongs to the step it leaves: only the current step's outgoing
     // route is in motion. Once its destination becomes current, it is complete.
-    $$('.scene-route').forEach(el=>{const i=Number(el.dataset.route);const learningProgressRoute=currentProduct==='learn'&&currentStep===2;const complete=i<currentStep||(currentStep===lastStep()&&i===currentStep)||(learningProgressRoute&&i===2);const outgoing=(learningProgressRoute?i===3:i===currentStep)&&currentStep<lastStep();const upcoming=!complete&&!outgoing&&i>currentStep;el.classList.toggle('is-active',outgoing);el.classList.toggle('is-done',complete);el.classList.toggle('is-upcoming',upcoming);});
+    $$('.scene-route').forEach(el=>{const i=Number(el.dataset.route);const cmlFlow=currentProduct==='cml';const learningProgressRoute=currentProduct==='learn'&&currentStep===2;const complete=cmlFlow?i<=currentStep:i<currentStep||(currentStep===lastStep()&&i===currentStep)||(learningProgressRoute&&i===2);const outgoing=cmlFlow?i===currentStep+1&&currentStep<lastStep():(learningProgressRoute?i===3:i===currentStep)&&currentStep<lastStep();const upcoming=!complete&&!outgoing&&i>currentStep;el.classList.toggle('is-active',outgoing);el.classList.toggle('is-done',complete);el.classList.toggle('is-upcoming',upcoming);});
     $('#sceneArt').dataset.step=String(currentStep);
     $('#sceneStatus').textContent=p.steps[currentStep][2];
     $('#storyCount').textContent=`${String(currentStep+1).padStart(2,'0')} / ${String(stepCount()).padStart(2,'0')}`;
